@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>股票估值跟踪 ✅</title>
+<title>股票估值跟踪</title>
 <style>
   /* ===== 双主题 =====
      light: FT 风米色底 + 深色相（底暖 → 强调色也加深）
@@ -378,37 +378,37 @@
   .gap.neg{color:var(--neg-text);}
   .gap.neutral{color:var(--muted);}
 
-  /* ===== 价位指示 - 纯展示，无拖动 ===== */
-  .bar-wrap{position:relative;min-width:150px;}
+  /* ===== 价位指示 - 纯展示，无拖动（已压缩到 ≈100px） ===== */
+  .bar-wrap{position:relative;min-width:100px;max-width:120px;}
   .bar{
-    position:relative;height:8px;
-    background:var(--surface-2);border-radius:4px;
+    position:relative;height:6px;
+    background:var(--surface-2);border-radius:3px;
     border:1px solid var(--border);
   }
   .bar-zone{
     position:absolute;top:0;bottom:0;
     background:var(--pos-bg);
     border-left:1.5px solid var(--pos);border-right:1.5px solid var(--pos);
-    border-radius:4px;
+    border-radius:3px;
   }
   /* zcode 套（蓝）- 在 hermes 上面再画一层，做重叠效果 */
   .bar-zone-zcode{
     position:absolute;top:0;bottom:0;
     background:var(--zcode-bg);
     border-left:1.5px dashed var(--zcode);border-right:1.5px dashed var(--zcode);
-    border-radius:4px;opacity:0.7;
+    border-radius:3px;opacity:0.7;
   }
   .bar-marker{
-    position:absolute;top:-2px;bottom:-2px;width:3px;
-    background:var(--link);border-radius:2px;
+    position:absolute;top:-2px;bottom:-2px;width:2px;
+    background:var(--link);border-radius:1px;
     box-shadow:0 0 0 2px var(--bg);
   }
   .bar-marker.pos{background:var(--pos);}
   .bar-marker.neg{background:var(--neg);}
   .bar-labels{
-    display:flex;justify-content:space-between;font-size:10px;color:var(--muted-2);
+    display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted-2);
     font-family:"SF Mono",Consolas,monospace;font-feature-settings:"tnum" 1;
-    margin-top:4px;
+    margin-top:2px;
   }
 
   .del-btn{background:none;border:none;color:var(--muted-2);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:3px;transition:all .12s;}
@@ -525,7 +525,7 @@
     <button class="reset-btn" id="reset-btn" title="恢复默认 22 只股票（会清空当前数据）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↻ 重置</button>
     <button class="sync-btn" id="sync-badge" title="云同步状态" style="background:transparent;border:1px solid var(--border);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:default;font-weight:600;min-width:74px;">☁ 拉取中…</button>
     <button class="sync-btn" id="cloud-sync-btn" title="下载当前数据给 agent 推送到云端" style="background:transparent;border:1px solid var(--border-strong);color:var(--link);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:600;transition:all .12s;">↑↑ 推送到云</button>
-    <button class="sync-btn" id="export-btn" title="导出 JSON（备份）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↓ 导出</button>
+    <button class="sync-btn" id="export-btn" title="导出 JSON（备份 / 跨设备同步）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↓ 导出</button>
     <button class="sync-btn" id="import-btn" title="导入 JSON（覆盖当前数据）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↑ 导入</button>
     <input type="file" id="import-file" accept="application/json,.json" style="display:none">
   </div>
@@ -559,11 +559,11 @@
         <thead>
           <tr>
             <th style="width:12%" data-sort="name" title="点击排序">股票</th>
+            <th style="width:15%">价位指示</th>
             <th class="num" style="width:17%" data-sort="low" title="点击排序">合理区间 (H/Z)</th>
             <th class="num" style="width:7%" data-sort="price" title="点击排序">现价</th>
             <th class="num" style="width:7%" data-sort="gap" title="点击排序">偏离</th>
             <th style="width:6%" data-sort="status" title="点击排序">状态</th>
-            <th style="width:24%">价位指示</th>
             <th style="width:27%">移动到</th>
           </tr>
         </thead>
@@ -624,10 +624,6 @@ const LS_THEME = 'stock_tracker_theme';
 const LS_SORT = 'stock_tracker_sort';
 const LS_GROUP = 'stock_tracker_group';
 
-// === 云同步（jsDelivr + GitHub repo）===
-const CLOUD_URL = 'https://cdn.jsdelivr.net/gh/xucao2023-cell/stock-tracker/data.json';
-const CLOUD_POLL_MS = 30000;  // 30 秒拉一次
-
 const GROUPS = ['Trade Republic', 'Trading 212', 'A股', '观察'];
 const GROUP_SHORT = {
   'Trade Republic': 'Trade RE',
@@ -682,6 +678,10 @@ document.getElementById('reset-btn').addEventListener('click', () => {
   // 强制重新载入（页面会重建 DEFAULT_STOCKS）
   location.reload();
 });
+
+// === 云同步（jsDelivr + GitHub repo）===
+const CLOUD_URL = 'https://cdn.jsdelivr.net/gh/xucao2023-cell/stock-tracker/data.json';
+const CLOUD_POLL_MS = 30000;  // 30 秒拉一次
 
 // === 云同步：推送到云 ===
 document.getElementById('cloud-sync-btn').addEventListener('click', pushToCloud);
@@ -1206,6 +1206,19 @@ function stockRowHTML(s){
           ${s.note ? `<div class="note" style="font-size:10px;color:var(--muted-2);margin-top:2px;">${escapeHtml(s.note)}</div>` : ''}
         </div>
       </td>
+      <td>
+        <div class="bar-wrap">
+          <div class="bar" data-code="${escapeHtml(s.code)}">
+            <div class="bar-zone"         style="left:${hLowPct}%;right:${100-hHighPct}%"></div>
+            <div class="bar-zone-zcode"   style="left:${zLowPct}%;right:${100-zHighPct}%"></div>
+            <div class="bar-marker ${status}" style="left:${pricePct}%"></div>
+          </div>
+          <div class="bar-labels">
+            <span>${c}${fmt(lo)}</span>
+            <span>${c}${fmt(hi)}</span>
+          </div>
+        </div>
+      </td>
       <td class="num">
         <div class="dual-range">
           <div class="range-row">
@@ -1227,19 +1240,6 @@ function stockRowHTML(s){
       </td>
       <td class="num"><span class="gap ${status}">${arrow} ${gpStr}</span></td>
       <td><span class="pill ${status}">${judgeLabel(status)}</span></td>
-      <td>
-        <div class="bar-wrap">
-          <div class="bar" data-code="${escapeHtml(s.code)}">
-            <div class="bar-zone"         style="left:${hLowPct}%;right:${100-hHighPct}%"></div>
-            <div class="bar-zone-zcode"   style="left:${zLowPct}%;right:${100-zHighPct}%"></div>
-            <div class="bar-marker ${status}" style="left:${pricePct}%"></div>
-          </div>
-          <div class="bar-labels">
-            <span>${c}${fmt(lo)}</span>
-            <span>${c}${fmt(hi)}</span>
-          </div>
-        </div>
-      </td>
       <td>
         <div class="move-cell">
           <button class="memo-btn ${s.memo ? 'has-memo' : ''}" data-code="${escapeHtml(s.code)}" title="${s.memo ? '查看/编辑备注' : '添加备注'}">
