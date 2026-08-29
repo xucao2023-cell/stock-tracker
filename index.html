@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>股票估值跟踪</title>
+<style>
+  /* ===== 双主题 =====
+     light: FT 风米色底 + 深色相（底暖 → 强调色也加深）
+     dark:  Old School Value 深海军底 + 亮色相（底深 → 强调色可以鲜艳）
+     同一规则：底色越深，强调色可以越亮；底色越浅，强调色必须更深
+  */
+
+  /* === LIGHT (FT 风) === */
+  :root{
+    --bg:#fbf1e4;
+    --surface:#f5e8d4;
+    --surface-2:#eedbc1;
+    --border:#dcc7a5;
+    --border-strong:#c2a679;
+    --text:#1f1410;
+    --text-2:#3d2a20;
+    --muted:#7a5d4a;
+    --muted-2:#a89171;
+
+    --pos:#1f7a4d;          /* hermes 套 - 绿 */
+    --pos-bg:#d4e7d4;
+    --pos-text:#0f4a2a;
+
+    --neg:#a31e3d;
+    --neg-bg:#f0d4d4;
+    --neg-text:#660812;
+
+    --warn:#a85a07;
+    --warn-bg:#f0deca;
+
+    --zcode:#2563eb;         /* zcode 套 - 蓝 */
+    --zcode-bg:#dbe4f5;
+    --zcode-text:#1d4ed8;
+    --zcode-border:#93b4e8;
+
+    --link:#0f7682;
+    --link-hover:#0a5961;
+    --link-tint:rgba(15,118,130,0.15);
+
+    --shadow:rgba(80,40,10,0.08);
+    --row-hover:#f5e8d4;
+    --input-bg:#fbf1e4;
+  }
+
+  /* === DARK (Old School Value 风) === */
+  [data-theme="dark"]{
+    --bg:#0b1929;
+    --surface:#13243d;
+    --surface-2:#1e3556;
+    --border:#2a4566;
+    --border-strong:#3a5a82;
+    --text:#f5f5f5;
+    --text-2:#dde4ed;
+    --muted:#8a9bb4;
+    --muted-2:#5c7090;
+
+    --pos:#2ecc71;          /* 鲜绿 - 深底能撑住高饱和 */
+    --pos-bg:#1a3d2a;
+    --pos-text:#7ee2a8;
+
+    --neg:#e74c3c;
+    --neg-bg:#3d1f1c;
+    --neg-text:#ff8a78;
+
+    --warn:#f5a623;
+    --warn-bg:#3d2f1a;
+
+    --zcode:#60a5fa;         /* 鲜蓝 */
+    --zcode-bg:#1a2d4d;
+    --zcode-text:#93c5fd;
+    --zcode-border:#3b6dc7;
+
+    --link:#3b82f6;
+    --link-hover:#60a5fa;
+    --link-tint:rgba(59,130,246,0.2);
+
+    --shadow:rgba(0,0,0,0.4);
+    --row-hover:#13243d;
+    --input-bg:#13243d;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{font-family:-apple-system,BlinkMacSystemFont,"Inter","PingFang SC","Microsoft YaHei",sans-serif;}
+  body{
+    background:var(--bg);color:var(--text);
+    margin:0;padding:0;font-size:14px;line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    font-feature-settings:"tnum" 1,"cv11" 1;
+  }
+  .num{font-family:"SF Mono","JetBrains Mono","IBM Plex Mono",Consolas,monospace;font-feature-settings:"tnum" 1;}
+
+  /* ===== Layout: 左主区 + 右 dock ===== */
+  .layout{
+    display:grid;
+    grid-template-columns: minmax(0, 1fr) 235px;
+    gap:18px;
+    max-width:1280px;
+    margin:0 auto;
+    padding:18px;
+    align-items:start;
+    overflow-x:hidden;
+  }
+  @media (max-width:980px){
+    .layout{grid-template-columns:1fr;}
+  }
+
+  /* ===== Header ===== */
+  .topbar{
+    grid-column:1/-1;
+    display:flex;align-items:center;justify-content:space-between;
+    padding-bottom:16px;border-bottom:1px solid var(--border);
+    flex-wrap:wrap;gap:12px;
+  }
+
+  /* theme switcher */
+  .theme-switch{
+    display:inline-flex;
+    border:1px solid var(--border-strong);
+    border-radius:6px;
+    overflow:hidden;
+    background:var(--surface);
+  }
+  .theme-switch button{
+    background:transparent;
+    border:none;
+    padding:6px 10px;
+    color:var(--muted);
+    cursor:pointer;
+    display:inline-flex;align-items:center;justify-content:center;
+    transition:background .12s, color .12s;
+  }
+  .theme-switch button:hover{color:var(--text);}
+  .theme-switch button.active{background:var(--link);color:#fff;}
+  .theme-switch button + button{border-left:1px solid var(--border-strong);}
+  h1{font-size:20px;font-weight:700;margin:0;letter-spacing:-0.02em;color:var(--text);}
+  .sub{color:var(--muted);font-size:12px;margin-top:2px;font-feature-settings:"tnum" 1;}
+
+  /* ticker 滚动条 - 仿 Finviz */
+  .ticker-bar{
+    grid-column:1/-1;
+    display:flex;gap:24px;align-items:center;
+    padding:10px 14px;
+    background:var(--surface);
+    border:1px solid var(--border);border-radius:6px;
+    font-size:12px;
+    overflow-x:auto;
+    white-space:nowrap;
+  }
+  .ticker-item{display:inline-flex;align-items:baseline;gap:6px;font-family:"SF Mono",Consolas,monospace;padding:2px 6px;border-radius:3px;transition:background .12s;}
+  .ticker-item:hover{background:var(--row-hover);}
+  .ticker-item .sym{font-weight:700;color:var(--text);}
+  .ticker-item .px{color:var(--text-2);font-feature-settings:"tnum" 1;}
+  .ticker-item .ch{font-weight:600;font-feature-settings:"tnum" 1;}
+  .ticker-item .ch.up{color:var(--pos);}
+  .ticker-item .ch.down{color:var(--neg);}
+  .ticker-item .ch.flat{color:var(--muted);}
+
+  /* ===== 主区 ===== */
+  .main{min-width:0;}
+
+  /* Add form */
+  .form{
+    background:var(--surface);
+    border:1px solid var(--border);border-radius:6px;
+    padding:14px;margin-bottom:14px;
+    display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr) minmax(0,0.8fr) minmax(0,0.8fr) minmax(0,0.8fr) minmax(0,0.8fr);gap:8px;align-items:end;
+  }
+  /* doppio 表单：分两行，第一行 4 列基本信息，第二行 4 列估值 */
+  .form-doppio{
+    grid-template-columns:repeat(4, minmax(0,1fr)) !important;
+    grid-auto-rows:auto;
+  }
+  .field .h-label{color:var(--pos-text);}
+  .field .z-label{color:var(--zcode-text);}
+  .field{display:flex;flex-direction:column;gap:3px;min-width:0;}
+  .field label{font-size:10px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:0.06em;}
+  .field input,.field select{
+    border:1px solid var(--border-strong);background:var(--bg);border-radius:4px;
+    padding:5px 8px;font-size:13px;font-family:inherit;color:var(--text);outline:none;
+    transition:border-color .12s,box-shadow .12s;
+    min-width:0;width:100%;max-width:100%;
+  }
+  .field input.num-field{
+    font-family:"SF Mono",Consolas,monospace;
+    text-align:center;font-feature-settings:"tnum" 1;
+  }
+  .field input:focus,.field select:focus{border-color:var(--link);box-shadow:0 0 0 2px var(--link-tint);}
+  .btn{
+    background:var(--link);color:#fff;border:none;border-radius:4px;
+    padding:7px 16px;font-size:13px;font-family:inherit;cursor:pointer;font-weight:600;
+  }
+  .btn:hover{background:var(--link-hover);}
+
+  /* ===== Table - 仿 Finviz 高密度 ===== */
+  .tbl-wrap{background:var(--bg);border:1px solid var(--border);border-radius:6px;overflow-x:auto;}
+  table{width:100%;min-width:700px;border-collapse:collapse;}
+  thead th{
+    background:var(--surface-2);font-weight:600;font-size:11px;color:var(--muted);
+    text-transform:uppercase;letter-spacing:0.05em;text-align:left;
+    padding:9px 10px;border-bottom:1px solid var(--border-strong);
+    white-space:nowrap;
+  }
+  thead th.num{text-align:right;}
+  thead th[data-sort]{cursor:pointer;user-select:none;transition:color .12s;}
+  thead th[data-sort]:hover{color:var(--text);}
+  .sort-ind{color:var(--link);font-weight:700;}
+  tbody td{padding:11px 10px;border-bottom:1px solid var(--border);vertical-align:middle;}
+  tbody tr:last-child td{border-bottom:none;}
+  tbody tr:hover{background:var(--row-hover);}
+  td.num{text-align:right;font-family:"SF Mono",Consolas,monospace;font-size:13px;font-feature-settings:"tnum" 1;}
+
+  .stock-cell .name{font-weight:600;color:var(--text);font-size:14px;}
+  .stock-cell .code{font-size:11px;color:var(--muted);font-family:"SF Mono",Consolas,monospace;display:flex;align-items:center;gap:4px;}
+  .stock-cell .note{font-size:11px;color:var(--muted);margin-top:2px;}
+
+  /* 货币徽章 */
+  .cur-badge{
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:9px;font-weight:700;font-family:"SF Mono",Consolas,monospace;
+    padding:1px 5px;border-radius:3px;
+    background:var(--surface-2);color:var(--text-2);
+    border:1px solid var(--border);
+    min-width:24px;text-align:center;
+  }
+
+  /* 行内移动按钮组 */
+  .move-cell{display:flex;flex-direction:column;align-items:flex-end;gap:3px;}
+  .move-row{display:flex;gap:3px;align-items:center;}
+  .move-btn{
+    background:var(--surface-2);border:1px solid var(--border);color:var(--muted);
+    font-size:10px;padding:2px 6px;border-radius:3px;cursor:pointer;
+    font-family:inherit;font-weight:600;
+    transition:all .12s;white-space:nowrap;
+  }
+  .move-btn:hover{background:var(--link);color:#fff;border-color:var(--link);}
+  .move-trigger{position:relative;}
+
+  /* 移动下拉菜单 */
+  .move-menu{
+    position:fixed;z-index:50;
+    background:var(--bg);border:1px solid var(--border-strong);border-radius:4px;
+    box-shadow:0 6px 16px var(--shadow);
+    padding:4px 0;min-width:130px;
+    display:none;
+  }
+  .move-menu.show{display:block;}
+  .move-menu-item{
+    display:block;width:100%;text-align:left;
+    background:transparent;border:none;
+    padding:6px 12px;font-size:12px;font-family:inherit;
+    color:var(--text);cursor:pointer;white-space:nowrap;
+  }
+  .move-menu-item:hover{background:var(--surface-2);color:var(--link);}
+  .move-menu-item .short{font-weight:700;color:var(--link);}
+
+  /* 行内删除按钮（小型化） */
+  .del-btn{background:none;border:none;color:var(--muted-2);cursor:pointer;font-size:12px;padding:2px 6px;border-radius:3px;transition:all .12s;}
+  .del-btn:hover{color:var(--neg);background:var(--neg-bg);}
+  .del-btn.confirm{color:#fff;background:var(--neg);font-size:10px;font-weight:700;padding:2px 6px;}
+
+  /* 备注按钮 */
+  .memo-btn{
+    background:none;border:1px solid var(--border);color:var(--muted);
+    cursor:pointer;font-size:10px;padding:2px 6px;border-radius:3px;
+    font-family:inherit;font-weight:600;transition:all .12s;
+    display:inline-flex;align-items:center;gap:3px;
+  }
+  .memo-btn:hover{color:var(--text);border-color:var(--link);}
+  .memo-btn.has-memo{color:var(--warn);border-color:var(--warn);}
+  .memo-btn.has-memo:hover{background:var(--warn-bg);}
+  .memo-dot{
+    width:5px;height:5px;border-radius:50%;background:var(--warn);
+  }
+
+  /* 备注弹窗 */
+  .memo-modal-bg{
+    position:fixed;inset:0;background:rgba(0,0,0,0.4);
+    display:none;align-items:center;justify-content:center;z-index:100;
+  }
+  .memo-modal-bg.show{display:flex;}
+  .memo-modal{
+    background:var(--bg);border:1px solid var(--border);border-radius:8px;
+    width:min(520px,92vw);max-height:80vh;display:flex;flex-direction:column;
+    box-shadow:0 12px 40px var(--shadow);
+  }
+  .memo-modal-h{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 16px;border-bottom:1px solid var(--border);
+  }
+  .memo-modal-h .title{font-weight:600;font-size:14px;}
+  .memo-modal-h .sub{font-size:11px;color:var(--muted);font-family:"SF Mono",Consolas,monospace;margin-top:1px;}
+  .memo-modal-h .close{
+    background:none;border:none;color:var(--muted);cursor:pointer;
+    font-size:18px;line-height:1;padding:0 6px;
+  }
+  .memo-modal-h .close:hover{color:var(--text);}
+  .memo-modal textarea{
+    flex:1;border:none;outline:none;background:transparent;
+    padding:14px 16px;font-family:inherit;font-size:13px;line-height:1.6;
+    color:var(--text);resize:none;min-height:200px;
+  }
+  .memo-modal-f{
+    display:flex;align-items:center;justify-content:space-between;gap:8px;
+    padding:10px 16px;border-top:1px solid var(--border);background:var(--surface-2);
+    border-bottom-left-radius:8px;border-bottom-right-radius:8px;
+  }
+  .memo-modal-f .meta{font-size:11px;color:var(--muted-2);}
+  .memo-modal-f .actions{display:flex;gap:8px;}
+  .memo-modal-f .btn-cancel{
+    background:transparent;border:1px solid var(--border-strong);
+    color:var(--muted);padding:5px 12px;border-radius:4px;
+    font-size:12px;font-family:inherit;cursor:pointer;
+  }
+  .memo-modal-f .btn-cancel:hover{color:var(--text);}
+  .memo-modal-f .btn-save{
+    background:var(--link);color:#fff;border:none;
+    padding:5px 14px;border-radius:4px;font-size:12px;font-family:inherit;
+    cursor:pointer;font-weight:600;
+  }
+  .memo-modal-f .btn-save:hover{background:var(--link-hover);}
+  .memo-modal-f .btn-clear{
+    background:transparent;border:none;color:var(--muted-2);
+    font-size:11px;font-family:inherit;cursor:pointer;padding:4px 6px;
+    text-decoration:underline dotted;text-underline-offset:3px;
+  }
+  .memo-modal-f .btn-clear:hover{color:var(--neg);}
+
+  /* inline edit */
+  .ie{
+    display:inline-block;vertical-align:middle;
+    background:transparent;border:1px solid transparent;border-radius:3px;
+    padding:2px 5px;font-family:"SF Mono",Consolas,monospace;font-size:13px;color:inherit;font-weight:600;
+    text-align:center;font-feature-settings:"tnum" 1;width:80px;
+  }
+  .ie:hover{border-color:var(--border-strong);background:var(--bg);}
+  .ie:focus{border-color:var(--link);background:var(--bg);box-shadow:0 0 0 2px var(--link-tint);outline:none;}
+  .ie.price{width:80px;color:var(--text);font-size:13px;}
+  .ie.bound{width:46px;font-size:11px;padding:0 2px;height:18px;line-height:18px;}
+
+  /* 合理区间列：两个 input + 分隔符横向排 */
+  .bound-cell{display:inline-flex;align-items:center;gap:4px;white-space:nowrap;}
+  .bound-sep{
+    color:var(--muted-2);font-weight:400;
+    display:inline-flex;align-items:center;justify-content:center;
+    min-width:8px;height:18px;
+    /* 关键：baseline 对齐改成 center，并保证容器高度等同 input */
+  }
+
+  /* 双估值（hermes + zcode）布局 */
+  .dual-range{display:flex;flex-direction:column;gap:3px;}
+  .range-row{display:flex;align-items:center;gap:3px;}
+  .range-tag{
+    display:inline-flex;align-items:center;justify-content:center;
+    font-size:9px;font-weight:700;width:14px;height:14px;border-radius:3px;
+    font-family:"SF Mono",Consolas,monospace;
+  }
+  .range-tag.hermes{background:var(--pos-bg);color:var(--pos-text);border:1px solid var(--pos-border);}
+  .range-tag.zcode{background:var(--zcode-bg);color:var(--zcode-text);border:1px solid var(--zcode-border);}
+
+  /* status pill */
+  .pill{
+    display:inline-block;padding:2px 9px;border-radius:3px;
+    font-size:11px;font-weight:700;letter-spacing:0.03em;text-transform:uppercase;
+  }
+  .pill.pos{color:#fff;background:var(--pos);}
+  .pill.neg{color:#fff;background:var(--neg);}
+  .pill.neutral{color:#fff;background:var(--muted);}
+
+  /* gap */
+  .gap{font-family:"SF Mono",Consolas,monospace;font-weight:700;font-feature-settings:"tnum" 1;font-size:13px;}
+  .gap.pos{color:var(--pos-text);}
+  .gap.neg{color:var(--neg-text);}
+  .gap.neutral{color:var(--muted);}
+
+  /* ===== 价位指示 - 纯展示，无拖动 ===== */
+  .bar-wrap{position:relative;min-width:150px;}
+  .bar{
+    position:relative;height:8px;
+    background:var(--surface-2);border-radius:4px;
+    border:1px solid var(--border);
+  }
+  .bar-zone{
+    position:absolute;top:0;bottom:0;
+    background:var(--pos-bg);
+    border-left:1.5px solid var(--pos);border-right:1.5px solid var(--pos);
+    border-radius:4px;
+  }
+  /* zcode 套（蓝）- 在 hermes 上面再画一层，做重叠效果 */
+  .bar-zone-zcode{
+    position:absolute;top:0;bottom:0;
+    background:var(--zcode-bg);
+    border-left:1.5px dashed var(--zcode);border-right:1.5px dashed var(--zcode);
+    border-radius:4px;opacity:0.7;
+  }
+  .bar-marker{
+    position:absolute;top:-2px;bottom:-2px;width:3px;
+    background:var(--link);border-radius:2px;
+    box-shadow:0 0 0 2px var(--bg);
+  }
+  .bar-marker.pos{background:var(--pos);}
+  .bar-marker.neg{background:var(--neg);}
+  .bar-labels{
+    display:flex;justify-content:space-between;font-size:10px;color:var(--muted-2);
+    font-family:"SF Mono",Consolas,monospace;font-feature-settings:"tnum" 1;
+    margin-top:4px;
+  }
+
+  .del-btn{background:none;border:none;color:var(--muted-2);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:3px;transition:all .12s;}
+  .del-btn:hover{color:var(--neg);background:var(--neg-bg);}
+  .del-btn.confirm{color:#fff;background:var(--neg);font-size:11px;font-weight:700;padding:3px 8px;}
+
+  /* ===== 右 dock ===== */
+  .dock{display:flex;flex-direction:column;gap:14px;min-width:0;}
+
+  .panel{background:var(--bg);border:1px solid var(--border);border-radius:6px;overflow:hidden;min-width:0;}
+  .panel-h{
+    padding:7px 9px;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;
+    color:var(--muted);background:var(--surface-2);border-bottom:1px solid var(--border);
+  }
+  .panel-b{padding:8px;min-width:0;}
+
+  /* 状态分布 */
+  .dist-row{display:flex;align-items:center;gap:4px;margin-bottom:5px;font-size:11px;}
+  .dist-row:last-child{margin-bottom:0;}
+  .dist-label{color:var(--muted);width:34px;font-weight:600;}
+  .dist-bar{flex:1;min-width:0;height:5px;background:var(--surface-2);border-radius:3px;overflow:hidden;}
+  .dist-fill{height:100%;border-radius:3px;}
+  .dist-fill.pos{background:var(--pos);}
+  .dist-fill.neg{background:var(--neg);}
+  .dist-fill.neutral{background:var(--muted);}
+  .dist-val{font-family:"SF Mono",Consolas,monospace;font-weight:700;width:22px;text-align:right;font-feature-settings:"tnum" 1;}
+
+  /* DCF 函数式卡 */
+  .func{font-family:"SF Mono","JetBrains Mono",Consolas,monospace;font-size:10px;line-height:1.55;word-break:break-all;overflow-wrap:break-word;min-width:0;}
+  .func-row{margin-bottom:6px;padding-bottom:6px;border-bottom:1px dashed var(--border);min-width:0;}
+  .func-row:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0;}
+  .func-line{display:block;margin-bottom:1px;min-width:0;}
+  .func-line.indent{padding-left:6px;}
+  .func .fn{color:var(--muted);}
+  .func .ticker{color:var(--link);font-weight:700;}
+  .func .key{color:var(--text-2);}
+  .func .val{color:var(--text);font-weight:600;}
+  .func .arrow{color:var(--muted);}
+  .func .ok{color:var(--pos);font-weight:700;}
+  .func .bad{color:var(--neg);font-weight:700;}
+
+  /* 总览 KPI */
+  .kpi{display:flex;justify-content:space-between;align-items:baseline;padding:5px 0;border-bottom:1px dashed var(--border);font-size:11.5px;}
+  .kpi:last-child{border-bottom:none;}
+  .kpi-label{color:var(--muted);}
+  .kpi-val{font-family:"SF Mono",Consolas,monospace;font-weight:700;font-size:12px;font-feature-settings:"tnum" 1;}
+
+  /* empty */
+  .empty{padding:32px 16px;text-align:center;color:var(--muted);font-size:13px;}
+
+  /* group switcher - 类似主题切换 */
+  .group-switch{
+    display:inline-flex;
+    border:1px solid var(--border-strong);
+    border-radius:6px;
+    overflow:hidden;
+    background:var(--surface);
+  }
+  .group-switch button{
+    background:transparent;
+    border:none;
+    padding:6px 12px;
+    color:var(--muted);
+    cursor:pointer;
+    font-size:12px;font-family:inherit;font-weight:500;
+    transition:background .12s, color .12s;
+  }
+  .group-switch button:hover{color:var(--text);}
+  .group-switch button.active{background:var(--link);color:#fff;}
+  .group-switch button + button{border-left:1px solid var(--border-strong);}
+  .reset-btn:hover{color:var(--neg);border-color:var(--neg);background:var(--neg-bg);}
+  .sync-btn:hover{color:var(--link);border-color:var(--link);background:var(--link-tint);}
+
+  .footer{grid-column:1/-1;text-align:center;font-size:11px;color:var(--muted);padding-top:8px;}
+
+  @media (max-width:760px){
+    .form{grid-template-columns:1fr 1fr;}
+    .form-doppio{grid-template-columns:1fr 1fr !important;}
+    .tbl-wrap{overflow-x:auto;}
+    table{min-width:700px;}
+    .legend{display:none;}
+    .ticker-bar{display:none;}
+  }
+</style>
+</head>
+<body>
+<div class="layout">
+
+  <!-- Header -->
+  <div class="topbar">
+    <div>
+      <h1>股票估值跟踪</h1>
+      <div class="sub">点表头排序 · 输入即存 · 数据保存在本地</div>
+    </div>
+    <div class="legend" style="font-size:11px;color:var(--muted);">
+      <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;margin-right:6px;"><span style="color:var(--pos);font-weight:700;">●</span> 低估</span>
+      <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;margin-right:6px;"><span style="color:var(--muted);font-weight:700;">●</span> 合理</span>
+      <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;"><span style="color:var(--neg);font-weight:700;">●</span> 高估</span>
+    </div>
+    <div class="group-switch" id="group-switch" role="group" aria-label="分组切换">
+      <button type="button" data-group="Trade Republic" title="Trade Republic">TR</button>
+      <button type="button" data-group="Trading 212" title="Trading 212">T212</button>
+      <button type="button" data-group="A股" title="A 股">A股</button>
+      <button type="button" data-group="观察" title="观察">观察</button>
+    </div>
+    <div class="theme-switch" id="theme-switch" role="group" aria-label="主题切换">
+      <button type="button" data-theme-val="light" title="浅色模式（FT 风）">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      </button>
+      <button type="button" data-theme-val="dark" title="深色模式（Old School Value 风）">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+    <button class="reset-btn" id="reset-btn" title="恢复默认 22 只股票（会清空当前数据）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↻ 重置</button>
+    <button class="sync-btn" id="export-btn" title="导出 JSON（备份 / 跨设备同步）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↓ 导出</button>
+    <button class="sync-btn" id="import-btn" title="导入 JSON（覆盖当前数据）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↑ 导入</button>
+    <input type="file" id="import-file" accept="application/json,.json" style="display:none">
+  </div>
+
+  <!-- Ticker bar -->
+  <div class="ticker-bar" id="ticker-bar"></div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="form form-doppio" id="form">
+      <div class="field"><label>股票名称</label><input id="in-name" placeholder="例：腾讯" autocomplete="off"></div>
+      <div class="field"><label>代码</label><input id="in-code" placeholder="00700.HK" autocomplete="off"></div>
+      <div class="field"><label>货币</label>
+        <select id="in-currency">
+          <option value="¥">¥ 人民币</option>
+          <option value="HK$">HK$ 港币</option>
+          <option value="$">$ 美元</option>
+          <option value="€">€ 欧元</option>
+          <option value="£">£ 英镑</option>
+        </select>
+      </div>
+      <div class="field"><label>当前股价</label><input id="in-price" class="num-field" type="text" inputmode="decimal" placeholder="选填" autocomplete="off" title="选填，默认=下限1"></div>
+      <div class="field"><label class="h-label">H 下限</label><input id="in-low1" class="num-field" type="text" inputmode="decimal" placeholder="60" autocomplete="off"></div>
+      <div class="field"><label class="h-label">H 上限</label><input id="in-high1" class="num-field" type="text" inputmode="decimal" placeholder="90" autocomplete="off"></div>
+      <div class="field"><label class="z-label">Z 下限</label><input id="in-low2" class="num-field" type="text" inputmode="decimal" placeholder="选填 = H*0.85" autocomplete="off"></div>
+      <div class="field"><label class="z-label">Z 上限</label><input id="in-high2" class="num-field" type="text" inputmode="decimal" placeholder="选填 = H*1.15" autocomplete="off"></div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th style="width:12%" data-sort="name" title="点击排序">股票</th>
+            <th class="num" style="width:17%" data-sort="low" title="点击排序">合理区间 (H/Z)</th>
+            <th class="num" style="width:7%" data-sort="price" title="点击排序">现价</th>
+            <th class="num" style="width:7%" data-sort="gap" title="点击排序">偏离</th>
+            <th style="width:6%" data-sort="status" title="点击排序">状态</th>
+            <th style="width:24%">价位指示</th>
+            <th style="width:27%">移动到</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Right dock -->
+  <div class="dock">
+    <div class="panel">
+      <div class="panel-h">状态分布</div>
+      <div class="panel-b" id="dist"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h">DCF 函数式查询</div>
+      <div class="panel-b" id="func"></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-h">组合总览</div>
+      <div class="panel-b" id="kpi"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    数据保存在浏览器 localStorage · 点击表头可排序 · 点数字直接改
+  </div>
+
+</div>
+
+<!-- 备注弹窗 -->
+<div class="memo-modal-bg" id="memo-modal-bg">
+  <div class="memo-modal">
+    <div class="memo-modal-h">
+      <div>
+        <div class="title">备注</div>
+        <div class="sub" id="memo-modal-sub">—</div>
+      </div>
+      <button class="close" id="memo-modal-close" title="关闭">×</button>
+    </div>
+    <textarea id="memo-modal-text" placeholder="写下你对这只股票的看法、买入理由、风险点..."></textarea>
+    <div class="memo-modal-f">
+      <div class="meta" id="memo-modal-meta">未保存</div>
+      <div class="actions">
+        <button class="btn-clear" id="memo-modal-clear" title="删除这条备注">清除</button>
+        <button class="btn-cancel" id="memo-modal-cancel">关闭</button>
+        <button class="btn-save" id="memo-modal-save">保存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const LS_KEY = 'stock_tracker_doppio_v1';  // doppio: 双估值（hermes 绿 + zcode 蓝）
+const LS_THEME = 'stock_tracker_theme';
+const LS_SORT = 'stock_tracker_sort';
+const LS_GROUP = 'stock_tracker_group';
+
+const GROUPS = ['Trade Republic', 'Trading 212', 'A股', '观察'];
+const GROUP_SHORT = {
+  'Trade Republic': 'Trade RE',
+  'Trading 212': 'T212',
+  'A股': 'A股',
+  '观察': '观察'
+};
+function shortOf(key){ return GROUP_SHORT[key] || key; }
+
+// === Theme ===
+function getTheme(){ try{ return localStorage.getItem(LS_THEME) || 'light'; }catch(e){ return 'light'; } }
+function setTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  try{ localStorage.setItem(LS_THEME, t); }catch(e){}
+  document.querySelectorAll('#theme-switch button').forEach(b => {
+    const on = b.dataset.themeVal === t;
+    b.classList.toggle('active', on);
+    b.setAttribute('aria-pressed', on ? 'true' : 'false');
+  });
+}
+setTheme(getTheme());
+
+document.querySelectorAll('#theme-switch button').forEach(b => {
+  b.addEventListener('click', () => setTheme(b.dataset.themeVal));
+});
+
+// === Group 切换 ===
+let activeGroup = (function(){
+  try{
+    const g = localStorage.getItem(LS_GROUP);
+    if(g && GROUPS.includes(g)) return g;
+  }catch(e){}
+  return GROUPS[0];
+})();
+function setGroup(g){
+  if(!GROUPS.includes(g)) return;
+  activeGroup = g;
+  try{ localStorage.setItem(LS_GROUP, g); }catch(e){}
+  render();
+}
+document.querySelectorAll('#group-switch button').forEach(b => {
+  b.addEventListener('click', () => setGroup(b.dataset.group));
+});
+
+// === 重置默认数据 ===
+document.getElementById('reset-btn').addEventListener('click', () => {
+  if(!confirm('恢复默认 22 只股票？这会清空你当前的数据。')) return;
+  try{
+    // 清掉所有相关 localStorage 键
+    [LS_KEY, LS_THEME, LS_SORT, LS_GROUP].forEach(k => localStorage.removeItem(k));
+  }catch(e){}
+  // 强制重新载入（页面会重建 DEFAULT_STOCKS）
+  location.reload();
+});
+
+// === 导出 JSON（备份 / 跨设备同步） ===
+document.getElementById('export-btn').addEventListener('click', () => {
+  const payload = {
+    app: 'stock_tracker_doppio',
+    version: 1,
+    exportedAt: new Date().toISOString(),
+    stocks: stocks,
+    settings: {
+      theme:      localStorage.getItem(LS_THEME) || 'light',
+      activeGroup:localStorage.getItem(LS_GROUP) || GROUPS[0],
+      sortKey:    sortKey,
+      sortDir:    sortDir
+    }
+  };
+  const json = JSON.stringify(payload, null, 2);
+  const blob = new Blob([json], {type:'application/json'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  const ts   = new Date().toISOString().replace(/[:.]/g,'-').slice(0,19);
+  a.href = url;
+  a.download = `stock-tracker-${ts}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+
+// === 导入 JSON（覆盖当前数据） ===
+const importFile = document.getElementById('import-file');
+document.getElementById('import-btn').addEventListener('click', () => {
+  importFile.value = '';   // 允许选同一个文件再次导入
+  importFile.click();
+});
+importFile.addEventListener('change', e => {
+  const file = e.target.files[0];
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = ev => {
+    try{
+      const data = JSON.parse(ev.target.result);
+      if(!data || !Array.isArray(data.stocks)) throw new Error('文件格式不对：缺少 stocks 数组');
+      if(data.app && data.app !== 'stock_tracker_doppio'){
+        if(!confirm(`这是 ${data.app} 的备份，不是 stock_tracker_doppio 的。继续导入吗？`)) return;
+      }
+      const n = data.stocks.length;
+      if(!confirm(`将覆盖当前 ${stocks.length} 只股票，导入 ${n} 只新数据。继续？`)) return;
+      // 写入 localStorage
+      try{
+        localStorage.setItem(LS_KEY, JSON.stringify(data.stocks));
+        if(data.settings){
+          if(data.settings.theme)      localStorage.setItem(LS_THEME, data.settings.theme);
+          if(data.settings.activeGroup) localStorage.setItem(LS_GROUP, data.settings.activeGroup);
+          if(data.settings.sortKey)    localStorage.setItem(LS_SORT, JSON.stringify({key:data.settings.sortKey, dir:data.settings.sortDir||1}));
+        }
+      }catch(err){}
+      location.reload();
+    }catch(err){
+      alert('导入失败：' + err.message);
+    }
+  };
+  reader.readAsText(file);
+});
+
+// 旧股票默认分组（按市场/代码归属推断，避免随机）
+// 推断时只从前三个分组里选，"观察"是用户手动添加的
+const INFER_GROUPS = ['Trade Republic', 'Trading 212', 'A股'];
+
+function inferGroup(code){
+  if(!code) return pickGroup();
+  code = code.toUpperCase();
+  if(code.endsWith('.HK')) return 'Trading 212';   // 港股常在 Trading212
+  if(code.endsWith('.SH') || code.endsWith('.SZ') || /^\d{6}$/.test(code)) return 'A股';
+  if(code.endsWith('.DE') || code.endsWith('.US') || code.endsWith('.L')) return 'Trade Republic';
+  return pickGroup();
+}
+function pickGroup(){ return INFER_GROUPS[Math.floor(Math.random()*INFER_GROUPS.length)]; }
+
+// hermes 套 = 原估值（DCF / 严谨模型）；zcode 套 = 略宽松（情景 / 反向）
+// 综合判定: high = max(high1, high2), low = min(low1, low2)
+function hermesZcode(low, high, widenLow = 0.85, widenHigh = 1.15){
+  return {low1: low, high1: high, low2: low*widenLow, high2: high*widenHigh};
+}
+
+// 先列基础数据（只列 hermes 套的 low/high，再批量扩展为双套）
+const DEFAULT_BASE = [
+  // ===== Trading 212（港股）=====
+  {name:'腾讯控股',  code:'00700.HK',  price:441,   currency:'HK$', note:'DCF 842 / 熊市 479 / CAPEX失败 463',  group:'Trading 212',  lo:479,  hi:842,  wl:0.9,  wh:1.05},
+  {name:'小米集团',  code:'01810.HK',  price:27.76, currency:'HK$', note:'DCF 35.5 / SOTP 39.1 / PE 31.8-36.2',  group:'Trading 212',  lo:30.9, hi:39.7, wl:0.85, wh:1.15},
+  {name:'中国移动',  code:'00941.HK',  price:80.20, currency:'HK$', note:'H 股 DCF / PB 低估 / 分红率 75%',       group:'Trading 212',  lo:70,   hi:110,  wl:0.95, wh:1.05},
+
+  // ===== Trade Republic（欧美股）=====
+  {name:'E.ON',      code:'EOAN.DE',   price:18.00, currency:'€',   note:'DCF 中枢 €19 / 区间 13-19',              group:'Trade Republic', lo:13,   hi:19,   wl:0.9,  wh:1.1},
+  {name:'BMW',       code:'BMW.DE',    price:57.96, currency:'€',   note:'SOTP + 情景 DCF Bear/Base/Bull',         group:'Trade Republic', lo:40,   hi:90,   wl:0.85, wh:1.15},
+  {name:'Airbus',    code:'AIR.PA',    price:230,   currency:'€',   note:'DCF 基准 €236 / 敏感性 200-280',         group:'Trade Republic', lo:200,  hi:280,  wl:0.9,  wh:1.1},
+  {name:'美光科技',  code:'MU.US',     price:937.11,currency:'$',  note:'DCF 概率加权 $876 / 区间 269-1396',      group:'Trade Republic', lo:753,  hi:1396, wl:0.85, wh:1.1},
+  {name:'Apple',     code:'AAPL.US',   price:309.35,currency:'$',  note:'DCF 敏感性 P5-P90 / PE 30× 基准',        group:'Trade Republic', lo:280,  hi:380,  wl:0.9,  wh:1.1},
+  {name:'onsemi',    code:'ON.US',     price:74.21, currency:'$',  note:'DCF $74.56 / 概率加权 $83.84',           group:'Trade Republic', lo:62,   hi:87,   wl:0.9,  wh:1.1},
+  {name:'Cohesity',  code:'CVLT.US',   price:133.81,currency:'$',  note:'DCF+混合公允价值中位 $155 / PE 24-30×',  group:'Trade Republic', lo:110,  hi:210,  wl:0.85, wh:1.15},
+  {name:'Vertiv',    code:'VRT.US',    price:261.95,currency:'$',  note:'DCF WACC 11.5% g 3.5% / PE 35-45×',     group:'Trade Republic', lo:220,  hi:340,  wl:0.9,  wh:1.1},
+
+  // ===== A 股（沪深）=====
+  {name:'工业富联',  code:'601138.SH', price:60.15, currency:'¥',   note:'DCF 60-83 / 中性 80-90 / PE 93-108',    group:'A股', lo:60,    hi:108,   wl:0.9,  wh:1.05},
+  {name:'招商银行',  code:'600036.SH', price:39.50, currency:'¥',   note:'RI+DDM 蒙特卡洛均值约 45-50',           group:'A股', lo:39.5,  hi:60,    wl:0.95, wh:1.1},
+  {name:'长江电力',  code:'600900.SH', price:28.15, currency:'¥',   note:'DCF+DDM+PE 综合 / 蒙特卡洛中位 ≈30',   group:'A股', lo:25,    hi:36,    wl:0.95, wh:1.05},
+  {name:'中国移动',  code:'600941.SH', price:98.86, currency:'¥',   note:'A 股 DCF / PB 低估 / 分红率 75%',        group:'A股', lo:70,    hi:110,   wl:0.95, wh:1.05},
+  {name:'美的集团',  code:'000333.SZ', price:83.58, currency:'¥',   note:'归一化 E×13-15×PE = 75-80（修正后中枢）',group:'A股', lo:66,    hi:87,    wl:0.95, wh:1.05},
+  {name:'福耀玻璃',  code:'600660.SH', price:57.67, currency:'¥',   note:'综合 75±10 / PE 13-20× / DCF 79-110',    group:'A股', lo:51.7,  hi:110.1, wl:0.9,  wh:1.1},
+  {name:'长电科技',  code:'600584.SH', price:74.05, currency:'¥',   note:'DCF 35.7 / 乐观 52.9 / 综合 50（偏高）', group:'A股', lo:35.7,  hi:52.9,  wl:0.9,  wh:1.15},
+  {name:'东方雨虹',  code:'002271.SZ', price:11.13, currency:'¥',   note:'DCF 16.74 / PE 10.05-13.4 / 分析师 18-20',group:'A股', lo:12.64, hi:24.54, wl:0.85, wh:1.15},
+  {name:'沪电股份',  code:'002463.SZ', price:119.22,currency:'¥',   note:'DCF 基准 108 / 谨慎 99 / 乐观 158',       group:'A股', lo:83,    hi:158,   wl:0.9,  wh:1.1},
+  {name:'春秋航空',  code:'601021.SH', price:44.28, currency:'¥',   note:'DCF 39.2 / PE 40.8-46.6 / 胜率 33%',     group:'A股', lo:39.2,  hi:52,    wl:0.95, wh:1.05},
+  {name:'宇通客车',  code:'600066.SH', price:29.99, currency:'¥',   note:'DCF 基准 56.9 / 蒙特卡洛中位 55',        group:'A股', lo:28,    hi:79,    wl:0.9,  wh:1.15},
+];
+
+// 展开为双估值数据
+const DEFAULT_STOCKS = DEFAULT_BASE.map(({lo, hi, wl, wh, ...rest}) => ({
+  ...rest,
+  ...hermesZcode(lo, hi, wl, wh),
+  memo:''
+}));
+
+let stocks = load();
+
+// 排序状态（从 localStorage 恢复）
+let sortKey = 'name';
+let sortDir = 1; // 1 升序, -1 降序
+try{
+  const st = JSON.parse(localStorage.getItem(LS_SORT));
+  if(st && st.key && ['name','low','price','gap','status'].includes(st.key)){
+    sortKey = st.key;
+    sortDir = st.dir === -1 ? -1 : 1;
+  }
+}catch(e){}
+
+function sortStocks(list){
+  const key = sortKey, dir = sortDir;
+  const arr = list || stocks;
+  arr.sort((a,b) => {
+    if(key === 'name'){
+      return dir * String(a.name||'').localeCompare(String(b.name||''), 'zh');
+    }
+    let va, vb;
+    if(key === 'status'){
+      const order = {pos:0, neutral:1, neg:2};
+      va = order[judge(a)] ?? 3;
+      vb = order[judge(b)] ?? 3;
+    } else if(key === 'gap'){
+      va = gapPct(a);
+      vb = gapPct(b);
+    } else if(key === 'low'){
+      va = Math.min(a.low1, a.low2); vb = Math.min(b.low1, b.low2);
+    } else { // price
+      va = a.price; vb = b.price;
+    }
+    return dir * (va - vb);
+  });
+}
+
+// === 表头点击排序 ===
+document.querySelectorAll('#tbl thead th[data-sort]').forEach(th => {
+  th.addEventListener('click', () => {
+    const key = th.dataset.sort;
+    if(key === sortKey){
+      sortDir = -sortDir;
+    }else{
+      sortKey = key;
+      sortDir = 1;
+    }
+    try{ localStorage.setItem(LS_SORT, JSON.stringify({key: sortKey, dir: sortDir})); }catch(e){}
+    render();
+  });
+});
+
+// 在表头显示当前排序方向（▲ 升序 / ▼ 降序），无排序的列不显示
+function renderSortIndicators(){
+  document.querySelectorAll('#tbl thead th[data-sort]').forEach(th => {
+    let ind = th.querySelector('.sort-ind');
+    if(!ind){
+      ind = document.createElement('span');
+      ind.className = 'sort-ind';
+      th.appendChild(ind);
+    }
+    ind.textContent = th.dataset.sort === sortKey ? (sortDir === 1 ? ' ▲' : ' ▼') : '';
+  });
+}
+
+function save(){ localStorage.setItem(LS_KEY, JSON.stringify(stocks)); }
+function load(){
+  let list;
+  try{
+    const raw = localStorage.getItem(LS_KEY);
+    if(raw) list = JSON.parse(raw);
+  }catch(e){}
+  if(!list || !Array.isArray(list)) list = JSON.parse(JSON.stringify(DEFAULT_STOCKS));
+  // 老数据迁移：补 group / memo / 双估值字段
+  let dirty = false;
+  list.forEach(s => {
+    if(!GROUPS.includes(s.group)){ s.group = inferGroup(s.code); dirty = true; }
+    if(typeof s.memo !== 'string'){ s.memo = ''; dirty = true; }
+    // 老数据只有 low/high 时，复制为 hermes 套；zcode 套 = hermes ±15%
+    if(typeof s.low1 !== 'number' && typeof s.low === 'number'){
+      s.low1 = s.low; s.high1 = s.high;
+      s.low2 = s.low * 0.85; s.high2 = s.high * 1.15;
+      delete s.low; delete s.high;
+      dirty = true;
+    }
+  });
+  if(dirty){ try{ localStorage.setItem(LS_KEY, JSON.stringify(list)); }catch(e){} }
+  return list;
+}
+
+// 综合区间：low = min(low1, low2), high = max(high1, high2)
+function rangeOf(s){
+  const lo = Math.min(s.low1, s.low2);
+  const hi = Math.max(s.high1, s.high2);
+  return {low: lo, high: hi};
+}
+function judge(s){
+  if(s.price > Math.max(s.high1, s.high2)) return 'neg';
+  if(s.price < Math.min(s.low1, s.low2))  return 'pos';
+  return 'neutral';
+}
+// 兼容旧调用（price/low/high 三参数），doppio 版内部统一改用 judge(s)
+function judgeTriple(price, low, high){
+  if(price > high) return 'neg';
+  if(price < low)  return 'pos';
+  return 'neutral';
+}
+function judgeLabel(s){ return s==='neg'?'HIGH':s==='pos'?'LOW':'OK'; }
+function judgeZh(s){ return s==='neg'?'高估':s==='pos'?'低估':'合理'; }
+function gapPct(s){
+  const {low, high} = rangeOf(s);
+  const mid = (low + high) / 2;
+  if(mid === 0) return 0;
+  return (s.price - mid) / mid * 100;
+}
+function fmt(n){
+  if(n === null || n === undefined || isNaN(n)) return '–';
+  if (n >= 1000) return n.toLocaleString('en-US', {maximumFractionDigits:0});
+  if (n >= 100)  return n.toLocaleString('en-US', {maximumFractionDigits:1});
+  return n.toLocaleString('en-US', {maximumFractionDigits:2});
+}
+function escapeHtml(s){
+  return String(s||'').replace(/[&<>"']/g, c => ({
+    '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'
+  }[c]));
+}
+
+function render(){
+  // 当前组的股票
+  const groupList = stocks.filter(s => s.group === activeGroup);
+
+  // 排序（只排当前组，不影响其他组顺序）
+  if(groupList.length > 1) sortStocks(groupList);
+
+  // 统计
+  const counts = {neg:0, pos:0, neutral:0};
+  groupList.forEach(s => counts[judge(s)]++);
+
+  // ===== Ticker bar (Finviz 风格) =====
+  document.getElementById('ticker-bar').innerHTML = groupList.map(s => {
+    const st = judge(s);
+    const r = rangeOf(s);
+    const dir = s.price > r.high ? 'down' : (s.price < r.low ? 'up' : 'flat');
+    const arrow = dir==='up'?'+':dir==='down'?'-':'=';
+    return `<span class="ticker-item">
+      <span class="sym">${escapeHtml(s.code)}</span>
+      <span class="px">${s.currency||'¥'}${fmt(s.price)}</span>
+      <span class="ch ${dir}">${arrow}H ${fmt(s.low1)}–${fmt(s.high1)} · Z ${fmt(s.low2)}–${fmt(s.high2)}</span>
+    </span>`;
+  }).join('');
+
+  // ===== Distribution panel =====
+  const max = Math.max(counts.pos, counts.neg, counts.neutral, 1);
+  document.getElementById('dist').innerHTML = `
+    <div class="dist-row">
+      <span class="dist-label">低估</span>
+      <div class="dist-bar"><div class="dist-fill pos" style="width:${(counts.pos/max)*100}%"></div></div>
+      <span class="dist-val">${counts.pos}</span>
+    </div>
+    <div class="dist-row">
+      <span class="dist-label">合理</span>
+      <div class="dist-bar"><div class="dist-fill neutral" style="width:${(counts.neutral/max)*100}%"></div></div>
+      <span class="dist-val">${counts.neutral}</span>
+    </div>
+    <div class="dist-row">
+      <span class="dist-label">高估</span>
+      <div class="dist-bar"><div class="dist-fill neg" style="width:${(counts.neg/max)*100}%"></div></div>
+      <span class="dist-val">${counts.neg}</span>
+    </div>
+  `;
+
+  // ===== DCF 函数式 panel =====
+  document.getElementById('func').innerHTML = groupList.slice(0,4).map(s => {
+    const st = judge(s);
+    const cls = st==='pos'?'ok':st==='neg'?'bad':'';
+    return `<div class="func func-row">
+      <span class="func-line"><span class="fn">GET(</span><span class="ticker">"${escapeHtml(s.code)}"</span><span class="fn">, </span><span class="key">"valuation"</span><span class="fn">)</span><span class="arrow"> → </span><span class="${cls}">${judgeZh(st)}</span></span>
+      <span class="func-line indent"><span class="key">low</span>=<span class="val">${fmt(s.low)}</span></span>
+      <span class="func-line indent"><span class="key">high</span>=<span class="val">${fmt(s.high)}</span></span>
+      <span class="func-line indent"><span class="key">now</span>=<span class="val">${fmt(s.price)}</span></span>
+    </div>`;
+  }).join('') + (groupList.length>4 ? `<div style="color:var(--muted);font-size:11px;margin-top:6px;">+ ${groupList.length-4} more</div>` : '');
+
+  // ===== KPI panel =====
+  const totalCount = groupList.length;
+  const lowPct = totalCount ? Math.round(counts.pos/totalCount*100) : 0;
+  const fairPct = totalCount ? Math.round(counts.neutral/totalCount*100) : 0;
+  const highPct = totalCount ? Math.round(counts.neg/totalCount*100) : 0;
+  const avgGap = totalCount ? groupList.reduce((sum,s)=>sum + gapPct(s),0)/totalCount : 0;
+  const avgGapCls = avgGap > 0.5 ? 'neg' : (avgGap < -0.5 ? 'pos' : 'neutral');
+  const avgGapStr = (avgGap>0?'+':'') + avgGap.toFixed(1) + '%';
+  document.getElementById('kpi').innerHTML = `
+    <div class="kpi"><span class="kpi-label">总股票</span><span class="kpi-val">${totalCount}</span></div>
+    <div class="kpi"><span class="kpi-label">低估占比</span><span class="kpi-val" style="color:var(--pos);">${lowPct}%</span></div>
+    <div class="kpi"><span class="kpi-label">合理占比</span><span class="kpi-val" style="color:var(--muted);">${fairPct}%</span></div>
+    <div class="kpi"><span class="kpi-label">高估占比</span><span class="kpi-val" style="color:var(--neg);">${highPct}%</span></div>
+    <div class="kpi"><span class="kpi-label">平均偏离</span><span class="kpi-val" style="color:${avgGapCls==='pos'?'var(--pos)':avgGapCls==='neg'?'var(--neg)':'var(--muted)'}">${totalCount?avgGapStr:'–'}</span></div>
+  `;
+
+  // ===== 单表（按 activeGroup 切换显示）=====
+  const gCounts2 = groupList.reduce((acc, s) => {
+    const st = judge(s);
+    acc[st]++; return acc;
+  }, {neg:0, pos:0, neutral:0});
+
+  const tbody = document.getElementById('tbody');
+  if(!tbody) return;
+
+  // 表头首列：只显示当前组名（不再显示计数）
+  const headTitle = document.querySelector('#tbl thead tr');
+  if(headTitle){
+    const firstTh = headTitle.children[0];
+    firstTh.innerHTML = `<span style="color:var(--link)">${escapeHtml(shortOf(activeGroup))}</span>`;
+  }
+  renderSortIndicators();
+
+  tbody.innerHTML = groupList.length === 0
+    ? `<tr><td colspan="7" style="text-align:center;padding:32px;color:var(--muted-2);font-size:13px;">这个分组还没有股票</td></tr>`
+    : groupList.map(s => stockRowHTML(s)).join('');
+
+  // 同步切换按钮高亮
+  document.querySelectorAll('#group-switch button').forEach(b => {
+    b.classList.toggle('active', b.dataset.group === activeGroup);
+  });
+
+  bindEvents();
+}
+
+function stockRowHTML(s){
+  const status = judge(s);
+  const gp = gapPct(s);
+  const gpStr = (gp>0?'+':'') + gp.toFixed(1) + '%';
+  const c = s.currency || '¥';
+
+  // 综合区间端点（用于箭头判定 + bar 刻度）
+  const combinedLo = Math.min(s.low1, s.low2);
+  const combinedhi = Math.max(s.high1, s.high2);
+  const r = rangeOf(s);
+  const arrow = s.price > r.high ? '▲' : (s.price < r.low ? '▼' : '●');
+
+  // bar 刻度用两套值的并集最值，留 30% 余量
+  const lo = Math.min(s.low1, s.low2) * 0.7;
+  const hi = Math.max(s.high1, s.high2) * 1.3;
+  const span = hi - lo;
+  // hermes 套区间
+  const hLowPct  = ((s.low1  - lo) / span) * 100;
+  const hHighPct = ((s.high1 - lo) / span) * 100;
+  // zcode 套区间
+  const zLowPct  = ((s.low2  - lo) / span) * 100;
+  const zHighPct = ((s.high2 - lo) / span) * 100;
+  const pricePct = ((s.price - lo) / span) * 100;
+
+  // 单个"移动"按钮，点击弹下拉选择其他三个组
+  const mover = `<button class="move-btn move-trigger" data-code="${escapeHtml(s.code)}" title="移动到其他分组">→ 移动 ▾</button>`;
+
+  return `
+    <tr data-code="${escapeHtml(s.code)}">
+      <td>
+        <div class="stock-cell">
+          <div class="name">${escapeHtml(s.name)}</div>
+          <div class="code">
+            <span class="cur-badge" title="货币单位">${escapeHtml(s.currency || '¥')}</span>${escapeHtml(s.code)}
+          </div>
+          ${s.note ? `<div class="note" style="font-size:10px;color:var(--muted-2);margin-top:2px;">${escapeHtml(s.note)}</div>` : ''}
+        </div>
+      </td>
+      <td class="num">
+        <div class="dual-range">
+          <div class="range-row">
+            <span class="range-tag hermes">H</span>
+            <input class="ie bound" data-f="low1"  data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.low1}"  title="hermes 合理下限">
+            <span class="bound-sep">–</span>
+            <input class="ie bound" data-f="high1" data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.high1}" title="hermes 合理上限">
+          </div>
+          <div class="range-row">
+            <span class="range-tag zcode">Z</span>
+            <input class="ie bound" data-f="low2"  data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.low2}"  title="zcode 合理下限">
+            <span class="bound-sep">–</span>
+            <input class="ie bound" data-f="high2" data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.high2}" title="zcode 合理上限">
+          </div>
+        </div>
+      </td>
+      <td class="num">
+        <input class="ie price" data-f="price" data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.price}" title="现价">
+      </td>
+      <td class="num"><span class="gap ${status}">${arrow} ${gpStr}</span></td>
+      <td><span class="pill ${status}">${judgeLabel(status)}</span></td>
+      <td>
+        <div class="bar-wrap">
+          <div class="bar" data-code="${escapeHtml(s.code)}">
+            <div class="bar-zone"         style="left:${hLowPct}%;right:${100-hHighPct}%"></div>
+            <div class="bar-zone-zcode"   style="left:${zLowPct}%;right:${100-zHighPct}%"></div>
+            <div class="bar-marker ${status}" style="left:${pricePct}%"></div>
+          </div>
+          <div class="bar-labels">
+            <span>${c}${fmt(lo)}</span>
+            <span>${c}${fmt(hi)}</span>
+          </div>
+        </div>
+      </td>
+      <td>
+        <div class="move-cell">
+          <button class="memo-btn ${s.memo ? 'has-memo' : ''}" data-code="${escapeHtml(s.code)}" title="${s.memo ? '查看/编辑备注' : '添加备注'}">
+            ${s.memo ? '<span class="memo-dot"></span>备注' : '备注'}
+          </button>
+          <div class="move-row">
+            <button class="del-btn" data-code="${escapeHtml(s.code)}" title="删除">✕</button>
+            ${mover}
+          </div>
+        </div>
+      </td>
+    </tr>
+  `;
+}
+
+function bindEvents(){
+  const root = document.getElementById('tbody');
+
+  // 备注按钮 → 打开 modal
+  root.querySelectorAll('.memo-btn').forEach(b => {
+    b.addEventListener('click', e => openMemoModal(b.dataset.code));
+  });
+
+  // 删除（二次确认）
+  root.querySelectorAll('.del-btn').forEach(b => {
+    b.addEventListener('click', e => {
+      const btn = e.currentTarget;
+      const code = btn.dataset.code;
+      if(btn.dataset.confirm !== '1'){
+        btn.dataset.confirm = '1';
+        btn.textContent = '确定？';
+        btn.classList.add('confirm');
+        setTimeout(() => {
+          delete btn.dataset.confirm;
+          btn.textContent = '✕';
+          btn.classList.remove('confirm');
+        }, 2000);
+        return;
+      }
+      const i = stocks.findIndex(s => s.code === code);
+      if(i >= 0) stocks.splice(i, 1);
+      save(); render();
+    });
+  });
+
+  // 移动按钮：点击展开下拉，选择目标组
+  root.querySelectorAll('.move-trigger').forEach(btn => {
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const code = btn.dataset.code;
+      const s = stocks.find(x => x.code === code);
+      if(!s) return;
+      closeAllMoveMenus();
+      const menu = buildMoveMenu(code, s.group);
+      menu.classList.add('show');   // 先显示让浏览器布局
+      document.body.appendChild(menu);
+
+      const rect = btn.getBoundingClientRect();
+      const margin = 6;
+      const spaceDown = window.innerHeight - rect.bottom;
+      const spaceUp   = rect.top;
+      const mh = menu.offsetHeight;
+      // 默认下方，溢出则上方
+      if(spaceDown >= mh + margin || spaceDown >= spaceUp){
+        menu.style.top  = (rect.bottom + margin) + 'px';
+      }else{
+        menu.style.top  = Math.max(margin, rect.top - mh - margin) + 'px';
+      }
+      menu.style.left = Math.max(margin, rect.right - menu.offsetWidth) + 'px';
+    });
+  });
+
+  // 数字编辑（用 data-code 定位）
+  root.querySelectorAll('input.ie').forEach(inp => {
+    inp.addEventListener('change', e => {
+      const code = e.target.dataset.code;
+      const f    = e.target.dataset.f;
+      const v    = parseFloat(e.target.value);
+      if(isNaN(v)){ render(); return; }
+      const s = stocks.find(x => x.code === code);
+      if(!s) return;
+      s[f] = v;
+      // 双估值各自内部保 low ≤ high
+      if(f === 'low1'  && v > s.high1){ s.high1 = v; }
+      if(f === 'high1' && v < s.low1 ){ s.low1  = v; }
+      if(f === 'low2'  && v > s.high2){ s.high2 = v; }
+      if(f === 'high2' && v < s.low2 ){ s.low2  = v; }
+      save(); render();
+    });
+  });
+}
+
+// === 移动下拉菜单 ===
+function closeAllMoveMenus(){
+  document.querySelectorAll('.move-menu.show').forEach(m => m.remove());
+}
+function buildMoveMenu(code, fromGroup){
+  const menu = document.createElement('div');
+  menu.className = 'move-menu';
+  menu.dataset.menuFor = code;
+  GROUPS.filter(g => g !== fromGroup).forEach(g => {
+    const btn = document.createElement('button');
+    btn.className = 'move-menu-item';
+    btn.innerHTML = `→ <span class="short">${escapeHtml(shortOf(g))}</span>`;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const s = stocks.find(x => x.code === code);
+      if(s){
+        s.group = g;
+        save();
+        // 只保存，不切组（保留当前视图）
+        render();
+      }
+      closeAllMoveMenus();
+    });
+    menu.appendChild(btn);
+  });
+  return menu;
+}
+// 点击空白处关闭菜单
+document.addEventListener('click', e => {
+  if(e.target.closest('.move-menu') || e.target.closest('.move-trigger')) return;
+  closeAllMoveMenus();
+});
+// Esc 关闭
+document.addEventListener('keydown', e => {
+  if(e.key === 'Escape') closeAllMoveMenus();
+});
+
+// === 备注弹窗 ===
+let memoEditingCode = null;
+let memoDirty = false;
+
+function openMemoModal(code){
+  const s = stocks.find(x => x.code === code);
+  if(!s) return;
+  memoEditingCode = code;
+  const sub = document.getElementById('memo-modal-sub');
+  sub.textContent = `${s.name} · ${s.code}`;
+  const ta = document.getElementById('memo-modal-text');
+  ta.value = s.memo || '';
+  memoDirty = false;
+  updateMemoMeta();
+  document.getElementById('memo-modal-bg').classList.add('show');
+  setTimeout(() => ta.focus(), 30);
+}
+
+function closeMemoModal(force){
+  if(!force && memoDirty){
+    if(!confirm('有未保存的修改，确定关闭？')) return;
+  }
+  document.getElementById('memo-modal-bg').classList.remove('show');
+  memoEditingCode = null;
+  memoDirty = false;
+}
+
+function saveMemo(){
+  if(!memoEditingCode) return;
+  const s = stocks.find(x => x.code === memoEditingCode);
+  if(!s) return;
+  const ta = document.getElementById('memo-modal-text');
+  s.memo = ta.value.trim();
+  save();
+  memoDirty = false;
+  updateMemoMeta();
+  // 短暂闪一下"已保存"
+  const meta = document.getElementById('memo-modal-meta');
+  const old = meta.textContent;
+  meta.textContent = '✓ 已保存';
+  meta.style.color = 'var(--pos)';
+  setTimeout(() => { meta.style.color = ''; meta.textContent = old; }, 1200);
+  // 重新渲染列表，更新 memo-dot
+  render();
+}
+
+function clearMemo(){
+  if(!memoEditingCode) return;
+  if(!confirm('删除这条备注？')) return;
+  const s = stocks.find(x => x.code === memoEditingCode);
+  if(s) s.memo = '';
+  save();
+  document.getElementById('memo-modal-text').value = '';
+  memoDirty = false;
+  updateMemoMeta();
+  render();
+}
+
+function updateMemoMeta(){
+  const ta = document.getElementById('memo-modal-text');
+  const meta = document.getElementById('memo-modal-meta');
+  const n = ta.value.length;
+  meta.textContent = n ? `${n} 字符` : '空';
+}
+
+// Modal 事件绑定（只绑一次）
+(function bindMemoModal(){
+  const bg = document.getElementById('memo-modal-bg');
+  document.getElementById('memo-modal-close').addEventListener('click', () => closeMemoModal());
+  document.getElementById('memo-modal-cancel').addEventListener('click', () => closeMemoModal());
+  document.getElementById('memo-modal-save').addEventListener('click', saveMemo);
+  document.getElementById('memo-modal-clear').addEventListener('click', clearMemo);
+  document.getElementById('memo-modal-text').addEventListener('input', () => {
+    memoDirty = true;
+    updateMemoMeta();
+  });
+  // 点背景关闭
+  bg.addEventListener('click', e => { if(e.target === bg) closeMemoModal(); });
+  // Esc 关闭
+  document.addEventListener('keydown', e => {
+    if(e.key === 'Escape' && bg.classList.contains('show')) closeMemoModal();
+  });
+  // Ctrl/Cmd+S 保存
+  document.addEventListener('keydown', e => {
+    if((e.ctrlKey || e.metaKey) && e.key === 's'){
+      if(bg.classList.contains('show')){ e.preventDefault(); saveMemo(); }
+    }
+  });
+})();
+
+function tryAdd(){
+  const name     = document.getElementById('in-name').value.trim();
+  const code     = document.getElementById('in-code').value.trim();
+  const currency = document.getElementById('in-currency').value || '¥';
+  const low1     = parseFloat(document.getElementById('in-low1').value);
+  const high1    = parseFloat(document.getElementById('in-high1').value);
+  const low2Raw  = document.getElementById('in-low2').value;
+  const high2Raw = document.getElementById('in-high2').value;
+  const low2     = parseFloat(low2Raw);
+  const high2    = parseFloat(high2Raw);
+  const price    = parseFloat(document.getElementById('in-price').value);
+
+  // 必填项缺失就不提交（静默）
+  if(!name || isNaN(low1) || isNaN(high1)) return false;
+  if(high1 < low1){
+    const h = document.getElementById('in-high1');
+    h.style.borderColor = 'var(--neg)';
+    setTimeout(() => { h.style.borderColor = ''; }, 1200);
+    return false;
+  }
+  // zcode 没填则按 hermes ±15% 自动派生
+  const low2Final  = isNaN(low2)  ? low1 * 0.85  : low2;
+  const high2Final = isNaN(high2) ? high1 * 1.15 : high2;
+
+  stocks.push({
+    name,
+    code: code || '',
+    low1,
+    high1,
+    low2: low2Final,
+    high2: high2Final,
+    price: isNaN(price) ? low1 : price,
+    currency,
+    note:'',
+    memo:'',
+    group: inferGroup(code)
+  });
+
+  ['in-name','in-code','in-low1','in-high1','in-low2','in-high2','in-price'].forEach(id => document.getElementById(id).value='');
+  save();
+  render();
+  document.getElementById('in-name').focus();
+  return true;
+}
+
+// Enter 提交
+['in-name','in-code','in-currency','in-price','in-low1','in-high1','in-low2','in-high2'].forEach(id => {
+  document.getElementById(id).addEventListener('keydown', e => {
+    if(e.key === 'Enter'){ e.preventDefault(); tryAdd(); }
+  });
+});
+
+// 最后一个字段失焦时尝试提交（满足条件就提交）
+document.getElementById('in-price').addEventListener('blur', () => {
+  setTimeout(tryAdd, 80);
+});
+
+render();
+</script>
+</body>
+</html>
