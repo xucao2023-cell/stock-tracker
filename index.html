@@ -523,7 +523,9 @@
       </button>
     </div>
     <button class="reset-btn" id="reset-btn" title="恢复默认 22 只股票（会清空当前数据）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↻ 重置</button>
-    <button class="sync-btn" id="export-btn" title="导出 JSON（备份 / 跨设备同步）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↓ 导出</button>
+    <button class="sync-btn" id="sync-badge" title="云同步状态" style="background:transparent;border:1px solid var(--border);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:default;font-weight:600;min-width:74px;">☁ 拉取中…</button>
+    <button class="sync-btn" id="cloud-sync-btn" title="下载当前数据给 agent 推送到云端" style="background:transparent;border:1px solid var(--border-strong);color:var(--link);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:600;transition:all .12s;">↑↑ 推送到云</button>
+    <button class="sync-btn" id="export-btn" title="导出 JSON（备份）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↓ 导出</button>
     <button class="sync-btn" id="import-btn" title="导入 JSON（覆盖当前数据）" style="background:transparent;border:1px solid var(--border-strong);color:var(--muted);padding:6px 10px;border-radius:6px;font-size:11px;font-family:inherit;cursor:pointer;font-weight:500;transition:all .12s;">↑ 导入</button>
     <input type="file" id="import-file" accept="application/json,.json" style="display:none">
   </div>
@@ -622,6 +624,10 @@ const LS_THEME = 'stock_tracker_theme';
 const LS_SORT = 'stock_tracker_sort';
 const LS_GROUP = 'stock_tracker_group';
 
+// === 云同步（jsDelivr + GitHub repo）===
+const CLOUD_URL = 'https://cdn.jsdelivr.net/gh/xucao2023-cell/stock-tracker/data.json';
+const CLOUD_POLL_MS = 30000;  // 30 秒拉一次
+
 const GROUPS = ['Trade Republic', 'Trading 212', 'A股', '观察'];
 const GROUP_SHORT = {
   'Trade Republic': 'Trade RE',
@@ -676,6 +682,9 @@ document.getElementById('reset-btn').addEventListener('click', () => {
   // 强制重新载入（页面会重建 DEFAULT_STOCKS）
   location.reload();
 });
+
+// === 云同步：推送到云 ===
+document.getElementById('cloud-sync-btn').addEventListener('click', pushToCloud);
 
 // === 导出 JSON（备份 / 跨设备同步） ===
 document.getElementById('export-btn').addEventListener('click', () => {
@@ -863,7 +872,7 @@ function renderSortIndicators(){
   });
 }
 
-function save(){ localStorage.setItem(LS_KEY, JSON.stringify(stocks)); }
+function save(){ localStorage.setItem(LS_KEY, JSON.stringify(stocks)); markLocalChange(); }
 function load(){
   let list;
   try{
@@ -886,6 +895,139 @@ function load(){
   });
   if(dirty){ try{ localStorage.setItem(LS_KEY, JSON.stringify(list)); }catch(e){} }
   return list;
+}
+
+// === 云同步 ===
+let cloudUpdating = false;     // 防止上传和拉取互相覆盖
+let lastCloudUpdatedAt = null;  // 上次成功拉取的云端时间戳
+let pendingLocalChange = false; // 本地有未同步的修改
+
+async function fetchCloud(){
+  // 带 cache busting，避免 jsDelivr 缓存
+  const url = CLOUD_URL + '?t=' + Date.now();
+  const res = await fetch(url, {cache:'no-store'});
+  if(!res.ok) throw new Error('HTTP ' + res.status);
+  const data = await res.json();
+  if(!data || !Array.isArray(data.stocks)) throw new Error('invalid cloud data');
+  return data;
+}
+
+function applyCloudData(data, fromCloud){
+  // 替换 stocks 为云端数据，然后重新渲染
+  stocks = data.stocks;
+  // 同步 settings
+  if(data.settings){
+    if(data.settings.theme)      try{ localStorage.setItem(LS_THEME, data.settings.theme); }catch(e){}
+    if(data.settings.activeGroup) try{ localStorage.setItem(LS_GROUP, data.settings.activeGroup); }catch(e){}
+    if(data.settings.sortKey)    try{ localStorage.setItem(LS_SORT, JSON.stringify({key:data.settings.sortKey, dir:data.settings.sortDir||1})); }catch(e){}
+  }
+  // 写 localStorage（避免下次又被云端覆盖判断为本地最新）
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(stocks)); }catch(e){}
+  lastCloudUpdatedAt = data.updatedAt || null;
+  pendingLocalChange = false;
+  render();
+  setSyncBadge(fromCloud === 'auto' ? 'latest' : 'synced');
+}
+
+async function trySyncFromCloud(silent){
+  try{
+    setSyncBadge('pulling');
+    const data = await fetchCloud();
+    // 首次：localStorage 没有数据 → 直接用云端
+    const localRaw = localStorage.getItem(LS_KEY);
+    if(!localRaw){
+      applyCloudData(data, 'auto');
+      return;
+    }
+    // 已存在：检查云端是否比本地新
+    if(data.updatedAt && data.updatedAt !== lastCloudUpdatedAt){
+      // 看本地是否有未同步的修改
+      if(pendingLocalChange){
+        if(!confirm(`云端有更新（${data.updatedAt.slice(0,16).replace('T',' ')}）\n\n本地有未同步的修改。\n\n点击"确定"用云端覆盖本地\n点击"取消"保留本地（之后用同步按钮推上去）`)){
+          setSyncBadge('local');
+          return;
+        }
+      }
+      applyCloudData(data, 'auto');
+    }else{
+      // 没新数据 → 标记为最新
+      lastCloudUpdatedAt = data.updatedAt || null;
+      setSyncBadge('latest');
+    }
+  }catch(err){
+    if(!silent) console.warn('云同步拉取失败：', err.message);
+    setSyncBadge('offline');
+  }
+}
+
+function setSyncBadge(state){
+  const el = document.getElementById('sync-badge');
+  if(!el) return;
+  const map = {
+    'latest':   {txt:'☁ 最新',    color:'var(--pos)',  title:'本地与云端一致'},
+    'synced':   {txt:'☁ 已同步',  color:'var(--pos)',  title:'已从云端更新'},
+    'local':    {txt:'☁ 本地',    color:'var(--warn)', title:'本地有修改未推送到云端'},
+    'pending':  {txt:'☁ 待同步',  color:'var(--warn)', title:'点击右上角 ☁ 同步按钮推到云端'},
+    'pushing':  {txt:'☁ 推送中…',color:'var(--muted)',title:'正在推送到云端'},
+    'pulling':  {txt:'☁ 拉取中…',color:'var(--muted)',title:'正在从云端拉取'},
+    'offline':  {txt:'☁ 离线',    color:'var(--neg)',  title:'无法连接云端'},
+    'error':    {txt:'☁ 错误',    color:'var(--neg)',  title:'同步失败'}
+  };
+  const info = map[state] || map.offline;
+  el.textContent = info.txt;
+  el.style.color = info.color;
+  el.title = info.title;
+}
+
+function markLocalChange(){
+  pendingLocalChange = true;
+  setSyncBadge('pending');
+}
+
+async function pushToCloud(){
+  if(cloudUpdating) return;
+  cloudUpdating = true;
+  setSyncBadge('pushing');
+  try{
+    const payload = {
+      app: 'stock_tracker_doppio',
+      version: 1,
+      updatedAt: new Date().toISOString(),
+      stocks: stocks,
+      settings: {
+        theme:      localStorage.getItem(LS_THEME) || 'light',
+        activeGroup:localStorage.getItem(LS_GROUP) || 'Trade Republic',
+        sortKey:    sortKey,
+        sortDir:    sortDir
+      }
+    };
+    // 浏览器没 token，不能直接 PUT。下载 JSON 文件让你交给 agent 推送
+    const ts = new Date().toISOString().replace(/[:.]/g,'-').slice(0,19);
+    downloadJson(payload, `stock-tracker-${ts}.json`);
+    pendingLocalChange = false;
+    setSyncBadge('pending');  // 等 agent push 后下次轮询会变 'latest'
+    alert('已下载 data.json 文件。\n\n下一步：\n1. 在对话里告诉 agent "把刚才下载的 data.json 推上去"\n2. agent 会先 fetch 线上版本确认最新，再覆盖（不会丢你的改动）\n3. 等 30 秒内浏览器会自动变 "☁ 最新"');
+  }catch(err){
+    setSyncBadge('error');
+    alert('推送失败：' + err.message);
+  }finally{
+    cloudUpdating = false;
+  }
+}
+
+function downloadJson(payload, filename){
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json'});
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+function startCloudPolling(){
+  // 立即拉一次，30 秒后再拉
+  trySyncFromCloud(false);
+  setInterval(() => trySyncFromCloud(true), CLOUD_POLL_MS);
 }
 
 // 综合区间：low = min(low1, low2), high = max(high1, high2)
@@ -1375,6 +1517,12 @@ document.getElementById('in-price').addEventListener('blur', () => {
 });
 
 render();
+
+// 启动云同步轮询（30 秒一次）
+startCloudPolling();
+
+// 暴露给 agent 调试用：在控制台可用 window.stockTracker
+window.stockTracker = {stocks, render, save, pushToCloud, fetchCloud, applyCloudData, get CLOUD_URL(){return CLOUD_URL;}};
 </script>
 </body>
 </html>
