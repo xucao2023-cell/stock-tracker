@@ -378,25 +378,26 @@
   .gap.neg{color:var(--neg-text);}
   .gap.neutral{color:var(--muted);}
 
-  /* ===== 价位指示 - 纯展示，无拖动（已压缩到 ≈100px） ===== */
+  /* ===== 价位指示 - 仅 H 判定（Z 作底色背景，H 作高亮中间层） ===== */
   .bar-wrap{position:relative;min-width:100px;max-width:120px;}
   .bar{
     position:relative;height:6px;
     background:var(--surface-2);border-radius:3px;
     border:1px solid var(--border);
   }
+  /* zcode 套（蓝）→ 背景底色（Z 区间，浅蓝） */
+  .bar-zone-zcode{
+    position:absolute;top:0;bottom:0;
+    background:var(--zcode-bg);
+    border-left:1px dashed var(--zcode);border-right:1px dashed var(--zcode);
+    border-radius:3px;opacity:0.85;
+  }
+  /* hermes 套（绿）→ 中间高亮（H 区间，绿色） */
   .bar-zone{
     position:absolute;top:0;bottom:0;
     background:var(--pos-bg);
     border-left:1.5px solid var(--pos);border-right:1.5px solid var(--pos);
     border-radius:3px;
-  }
-  /* zcode 套（蓝）- 在 hermes 上面再画一层，做重叠效果 */
-  .bar-zone-zcode{
-    position:absolute;top:0;bottom:0;
-    background:var(--zcode-bg);
-    border-left:1.5px dashed var(--zcode);border-right:1.5px dashed var(--zcode);
-    border-radius:3px;opacity:0.7;
   }
   .bar-marker{
     position:absolute;top:-2px;bottom:-2px;width:2px;
@@ -405,11 +406,20 @@
   }
   .bar-marker.pos{background:var(--pos);}
   .bar-marker.neg{background:var(--neg);}
+  .bar-marker.severe_pos{background:var(--neg);box-shadow:0 0 0 2px var(--bg),0 0 0 1px var(--pos);}
+  .bar-marker.severe_neg{background:var(--neg);box-shadow:0 0 0 2px var(--bg),0 0 0 1px var(--neg);}
   .bar-labels{
     display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted-2);
     font-family:"SF Mono",Consolas,monospace;font-feature-settings:"tnum" 1;
     margin-top:2px;
   }
+
+  /* 状态徽章：严重态加重 */
+  .pill.severe_pos{background:var(--neg-bg);color:var(--neg);border:1px solid var(--neg);}
+  .pill.severe_neg{background:var(--neg-bg);color:var(--neg);border:1px solid var(--neg);font-weight:800;}
+  .pill.pos{background:var(--pos-bg);color:var(--pos);}
+  .pill.neg{background:var(--neg-bg);color:var(--neg);}
+  .pill.neutral{background:var(--surface-2);color:var(--muted);}
 
   .del-btn{background:none;border:none;color:var(--muted-2);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:3px;transition:all .12s;}
   .del-btn:hover{color:var(--neg);background:var(--neg-bg);}
@@ -434,6 +444,8 @@
   .dist-fill.pos{background:var(--pos);}
   .dist-fill.neg{background:var(--neg);}
   .dist-fill.neutral{background:var(--muted);}
+  .dist-fill.severe_pos{background:repeating-linear-gradient(45deg,var(--pos) 0 4px,var(--pos-bg) 4px 8px);}
+  .dist-fill.severe_neg{background:repeating-linear-gradient(45deg,var(--neg) 0 4px,var(--neg-bg) 4px 8px);}
   .dist-val{font-family:"SF Mono",Consolas,monospace;font-weight:700;width:22px;text-align:right;font-feature-settings:"tnum" 1;}
 
   /* DCF 函数式卡 */
@@ -504,9 +516,11 @@
       <div class="sub">点表头排序 · 输入即存 · 数据保存在本地</div>
     </div>
     <div class="legend" style="font-size:11px;color:var(--muted);">
+      <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;margin-right:6px;"><span style="color:var(--neg);font-weight:700;">●</span> 严重低估</span>
       <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;margin-right:6px;"><span style="color:var(--pos);font-weight:700;">●</span> 低估</span>
       <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;margin-right:6px;"><span style="color:var(--muted);font-weight:700;">●</span> 合理</span>
-      <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;"><span style="color:var(--neg);font-weight:700;">●</span> 高估</span>
+      <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;margin-right:6px;"><span style="color:var(--neg);font-weight:700;">●</span> 高估</span>
+      <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;"><span style="color:var(--neg);font-weight:800;">●</span> 严重高估</span>
     </div>
     <div class="group-switch" id="group-switch" role="group" aria-label="分组切换">
       <button type="button" data-group="Trade Republic" title="Trade Republic">TR</button>
@@ -829,7 +843,7 @@ function sortStocks(list){
     }
     let va, vb;
     if(key === 'status'){
-      const order = {pos:0, neutral:1, neg:2};
+      const order = {severe_pos:0, pos:1, neutral:2, neg:3, severe_neg:4};
       va = order[judge(a)] ?? 3;
       vb = order[judge(b)] ?? 3;
     } else if(key === 'gap'){
@@ -1030,15 +1044,18 @@ function startCloudPolling(){
   setInterval(() => trySyncFromCloud(true), CLOUD_POLL_MS);
 }
 
-// 综合区间：low = min(low1, low2), high = max(high1, high2)
-function rangeOf(s){
-  const lo = Math.min(s.low1, s.low2);
-  const hi = Math.max(s.high1, s.high2);
-  return {low: lo, high: hi};
-}
+// 仅 H 套判定：H 区间内=合理，Z 区间外=严重
+// 状态：severe_pos（严重低估） / pos（低估） / neutral（合理） / neg（高估） / severe_neg（严重高估）
+// Z 套一定包住 H 套（用户硬约束），所以 5 个区间按价格递增严格分区
 function judge(s){
-  if(s.price > Math.max(s.high1, s.high2)) return 'neg';
-  if(s.price < Math.min(s.low1, s.low2))  return 'pos';
+  // 边界处理：价格 ≤ low2 视为严重低估；≥ high2 视为严重高估
+  // low2 < price < low1 → 低估（仍在 Z 内、H 外）
+  // low1 ≤ price ≤ high1 → 合理（在 H 内）
+  // high1 < price < high2 → 高估（仍在 Z 内、H 外）
+  if(s.price >= s.high2) return 'severe_neg';
+  if(s.price >  s.high1) return 'neg';
+  if(s.price <= s.low2)  return 'severe_pos';
+  if(s.price <  s.low1)  return 'pos';
   return 'neutral';
 }
 // 兼容旧调用（price/low/high 三参数），doppio 版内部统一改用 judge(s)
@@ -1047,11 +1064,27 @@ function judgeTriple(price, low, high){
   if(price < low)  return 'pos';
   return 'neutral';
 }
-function judgeLabel(s){ return s==='neg'?'HIGH':s==='pos'?'LOW':'OK'; }
-function judgeZh(s){ return s==='neg'?'高估':s==='pos'?'低估':'合理'; }
+// 兼容旧 rangeOf：返回 H 套端点作为"主区间"，调用方需要 Z 时自取 s.low2/s.high2
+function rangeOf(s){
+  return {low: s.low1, high: s.high1};
+}
+function judgeLabel(s){
+  return s==='severe_neg'?'S-HIGH'
+       : s==='neg'       ?'HIGH'
+       : s==='severe_pos'?'S-LOW'
+       : s==='pos'       ?'LOW'
+                          :'OK';
+}
+function judgeZh(s){
+  return s==='severe_neg'?'严重高估'
+       : s==='neg'       ?'高估'
+       : s==='severe_pos'?'严重低估'
+       : s==='pos'       ?'低估'
+                          :'合理';
+}
+// 偏离比例以 H 套中位数为基准
 function gapPct(s){
-  const {low, high} = rangeOf(s);
-  const mid = (low + high) / 2;
+  const mid = (s.low1 + s.high1) / 2;
   if(mid === 0) return 0;
   return (s.price - mid) / mid * 100;
 }
@@ -1075,7 +1108,7 @@ function render(){
   if(groupList.length > 1) sortStocks(groupList);
 
   // 统计
-  const counts = {neg:0, pos:0, neutral:0};
+  const counts = {neg:0, pos:0, neutral:0, severe_neg:0, severe_pos:0};
   groupList.forEach(s => counts[judge(s)]++);
 
   // ===== Ticker bar (Finviz 风格) =====
@@ -1092,8 +1125,13 @@ function render(){
   }).join('');
 
   // ===== Distribution panel =====
-  const max = Math.max(counts.pos, counts.neg, counts.neutral, 1);
+  const max = Math.max(counts.severe_pos, counts.pos, counts.neutral, counts.neg, counts.severe_neg, 1);
   document.getElementById('dist').innerHTML = `
+    <div class="dist-row">
+      <span class="dist-label">严重低估</span>
+      <div class="dist-bar"><div class="dist-fill severe_pos" style="width:${(counts.severe_pos/max)*100}%"></div></div>
+      <span class="dist-val">${counts.severe_pos}</span>
+    </div>
     <div class="dist-row">
       <span class="dist-label">低估</span>
       <div class="dist-bar"><div class="dist-fill pos" style="width:${(counts.pos/max)*100}%"></div></div>
@@ -1108,6 +1146,11 @@ function render(){
       <span class="dist-label">高估</span>
       <div class="dist-bar"><div class="dist-fill neg" style="width:${(counts.neg/max)*100}%"></div></div>
       <span class="dist-val">${counts.neg}</span>
+    </div>
+    <div class="dist-row">
+      <span class="dist-label">严重高估</span>
+      <div class="dist-bar"><div class="dist-fill severe_neg" style="width:${(counts.severe_neg/max)*100}%"></div></div>
+      <span class="dist-val">${counts.severe_neg}</span>
     </div>
   `;
 
@@ -1125,17 +1168,21 @@ function render(){
 
   // ===== KPI panel =====
   const totalCount = groupList.length;
-  const lowPct = totalCount ? Math.round(counts.pos/totalCount*100) : 0;
-  const fairPct = totalCount ? Math.round(counts.neutral/totalCount*100) : 0;
-  const highPct = totalCount ? Math.round(counts.neg/totalCount*100) : 0;
+  const sLowPct   = totalCount ? Math.round(counts.severe_pos/totalCount*100) : 0;
+  const lowPct    = totalCount ? Math.round(counts.pos/totalCount*100) : 0;
+  const fairPct   = totalCount ? Math.round(counts.neutral/totalCount*100) : 0;
+  const highPct   = totalCount ? Math.round(counts.neg/totalCount*100) : 0;
+  const sHighPct  = totalCount ? Math.round(counts.severe_neg/totalCount*100) : 0;
   const avgGap = totalCount ? groupList.reduce((sum,s)=>sum + gapPct(s),0)/totalCount : 0;
   const avgGapCls = avgGap > 0.5 ? 'neg' : (avgGap < -0.5 ? 'pos' : 'neutral');
   const avgGapStr = (avgGap>0?'+':'') + avgGap.toFixed(1) + '%';
   document.getElementById('kpi').innerHTML = `
     <div class="kpi"><span class="kpi-label">总股票</span><span class="kpi-val">${totalCount}</span></div>
+    <div class="kpi"><span class="kpi-label">严重低估</span><span class="kpi-val" style="color:var(--neg);">${sLowPct}%</span></div>
     <div class="kpi"><span class="kpi-label">低估占比</span><span class="kpi-val" style="color:var(--pos);">${lowPct}%</span></div>
     <div class="kpi"><span class="kpi-label">合理占比</span><span class="kpi-val" style="color:var(--muted);">${fairPct}%</span></div>
     <div class="kpi"><span class="kpi-label">高估占比</span><span class="kpi-val" style="color:var(--neg);">${highPct}%</span></div>
+    <div class="kpi"><span class="kpi-label">严重高估</span><span class="kpi-val" style="color:var(--neg);font-weight:800;">${sHighPct}%</span></div>
     <div class="kpi"><span class="kpi-label">平均偏离</span><span class="kpi-val" style="color:${avgGapCls==='pos'?'var(--pos)':avgGapCls==='neg'?'var(--neg)':'var(--muted)'}">${totalCount?avgGapStr:'–'}</span></div>
   `;
 
@@ -1143,7 +1190,7 @@ function render(){
   const gCounts2 = groupList.reduce((acc, s) => {
     const st = judge(s);
     acc[st]++; return acc;
-  }, {neg:0, pos:0, neutral:0});
+  }, {neg:0, pos:0, neutral:0, severe_neg:0, severe_pos:0});
 
   const tbody = document.getElementById('tbody');
   if(!tbody) return;
@@ -1209,8 +1256,8 @@ function stockRowHTML(s){
       <td>
         <div class="bar-wrap">
           <div class="bar" data-code="${escapeHtml(s.code)}">
-            <div class="bar-zone"         style="left:${hLowPct}%;right:${100-hHighPct}%"></div>
             <div class="bar-zone-zcode"   style="left:${zLowPct}%;right:${100-zHighPct}%"></div>
+            <div class="bar-zone"         style="left:${hLowPct}%;right:${100-hHighPct}%"></div>
             <div class="bar-marker ${status}" style="left:${pricePct}%"></div>
           </div>
           <div class="bar-labels">
