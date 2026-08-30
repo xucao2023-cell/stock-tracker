@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-08-29T07:10:29.596Z",
+  "updatedAt": "2026-08-30T12:03:04.675Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -9,11 +9,11 @@
       "price": 441,
       "currency": "HK$",
       "note": "DCF 842 / 熊市 479 / CAPEX失败 463",
-      "group": "Trading 212",
-      "low1": 479,
-      "high1": 842,
-      "low2": 431.1,
-      "high2": 884.1,
+      "group": "Trade Republic",
+      "low1": 540,
+      "high1": 770,
+      "low2": 354,
+      "high2": 1213,
       "memo": ""
     },
     {
@@ -23,23 +23,10 @@
       "currency": "HK$",
       "note": "DCF 35.5 / SOTP 39.1 / PE 31.8-36.2",
       "group": "Trading 212",
-      "low1": 30.9,
-      "high1": 39.7,
-      "low2": 26.264999999999997,
-      "high2": 45.655,
-      "memo": ""
-    },
-    {
-      "name": "中国移动",
-      "code": "00941.HK",
-      "price": 80.2,
-      "currency": "HK$",
-      "note": "H 股 DCF / PB 低估 / 分红率 75%",
-      "group": "Trading 212",
-      "low1": 70,
-      "high1": 110,
-      "low2": 66.5,
-      "high2": 115.5,
+      "low1": 28,
+      "high1": 34,
+      "low2": 20,
+      "high2": 44,
       "memo": ""
     },
     {
@@ -49,10 +36,10 @@
       "currency": "€",
       "note": "DCF 中枢 €19 / 区间 13-19",
       "group": "Trade Republic",
-      "low1": 13,
+      "low1": 16.5,
       "high1": 19,
-      "low2": 11.700000000000001,
-      "high2": 20.900000000000002,
+      "low2": 13.6000000000001,
+      "high2": 20,
       "memo": ""
     },
     {
@@ -62,10 +49,10 @@
       "currency": "€",
       "note": "SOTP + 情景 DCF Bear/Base/Bull",
       "group": "Trade Republic",
-      "low1": 40,
-      "high1": 90,
-      "low2": 34,
-      "high2": 103.49999999999999,
+      "low1": 65,
+      "high1": 95,
+      "low2": 45,
+      "high2": 125,
       "memo": ""
     },
     {
@@ -75,10 +62,10 @@
       "currency": "€",
       "note": "DCF 基准 €236 / 敏感性 200-280",
       "group": "Trade Republic",
-      "low1": 200,
-      "high1": 280,
-      "low2": 180,
-      "high2": 308,
+      "low1": 210,
+      "high1": 250,
+      "low2": 161,
+      "high2": 334,
       "memo": ""
     },
     {
@@ -89,9 +76,9 @@
       "note": "DCF 概率加权 $876 / 区间 269-1396",
       "group": "Trade Republic",
       "low1": 753,
-      "high1": 1396,
-      "low2": 640.05,
-      "high2": 1535.6000000000001,
+      "high1": 1050,
+      "low2": 270,
+      "high2": 1396,
       "memo": ""
     },
     {
@@ -101,10 +88,10 @@
       "currency": "$",
       "note": "DCF 敏感性 P5-P90 / PE 30× 基准",
       "group": "Trade Republic",
-      "low1": 280,
-      "high1": 380,
-      "low2": 252,
-      "high2": 418.00000000000006,
+      "low1": 217,
+      "high1": 240,
+      "low2": 148,
+      "high2": 374,
       "memo": ""
     },
     {
@@ -113,24 +100,11 @@
       "price": 74.21,
       "currency": "$",
       "note": "DCF $74.56 / 概率加权 $83.84",
-      "group": "Trade Republic",
-      "low1": 62,
-      "high1": 87,
-      "low2": 55.800000000000004,
-      "high2": 95.7,
-      "memo": ""
-    },
-    {
-      "name": "Cohesity",
-      "code": "CVLT.US",
-      "price": 133.81,
-      "currency": "$",
-      "note": "DCF+混合公允价值中位 $155 / PE 24-30×",
-      "group": "Trade Republic",
-      "low1": 110,
-      "high1": 210,
-      "low2": 93.5,
-      "high2": 241.49999999999997,
+      "group": "Trading 212",
+      "low1": 75,
+      "high1": 97,
+      "low2": 50,
+      "high2": 160,
       "memo": ""
     },
     {
@@ -139,11 +113,11 @@
       "price": 261.95,
       "currency": "$",
       "note": "DCF WACC 11.5% g 3.5% / PE 35-45×",
-      "group": "Trade Republic",
-      "low1": 220,
-      "high1": 340,
-      "low2": 198,
-      "high2": 374.00000000000006,
+      "group": "Trading 212",
+      "low1": 260,
+      "high1": 300,
+      "low2": 175,
+      "high2": 440,
       "memo": ""
     },
     {
@@ -153,10 +127,10 @@
       "currency": "¥",
       "note": "DCF 60-83 / 中性 80-90 / PE 93-108",
       "group": "A股",
-      "low1": 60,
-      "high1": 108,
-      "low2": 54,
-      "high2": 113.4,
+      "low1": 80,
+      "high1": 90,
+      "low2": 55,
+      "high2": 120,
       "memo": ""
     },
     {
@@ -166,10 +140,10 @@
       "currency": "¥",
       "note": "RI+DDM 蒙特卡洛均值约 45-50",
       "group": "A股",
-      "low1": 39.5,
-      "high1": 60,
-      "low2": 37.525,
-      "high2": 66,
+      "low1": 42,
+      "high1": 57,
+      "low2": 29,
+      "high2": 93,
       "memo": ""
     },
     {
@@ -179,10 +153,10 @@
       "currency": "¥",
       "note": "DCF+DDM+PE 综合 / 蒙特卡洛中位 ≈30",
       "group": "A股",
-      "low1": 25,
-      "high1": 36,
-      "low2": 23.75,
-      "high2": 37.800000000000004,
+      "low1": 32,
+      "high1": 34,
+      "low2": 23,
+      "high2": 40,
       "memo": ""
     },
     {
@@ -192,10 +166,10 @@
       "currency": "¥",
       "note": "A 股 DCF / PB 低估 / 分红率 75%",
       "group": "A股",
-      "low1": 70,
+      "low1": 90,
       "high1": 110,
-      "low2": 66.5,
-      "high2": 115.5,
+      "low2": 80,
+      "high2": 127,
       "memo": ""
     },
     {
@@ -205,10 +179,10 @@
       "currency": "¥",
       "note": "归一化 E×13-15×PE = 75-80（修正后中枢）",
       "group": "A股",
-      "low1": 66,
+      "low1": 75,
       "high1": 87,
-      "low2": 62.699999999999996,
-      "high2": 91.35000000000001,
+      "low2": 61,
+      "high2": 98,
       "memo": ""
     },
     {
@@ -218,10 +192,10 @@
       "currency": "¥",
       "note": "综合 75±10 / PE 13-20× / DCF 79-110",
       "group": "A股",
-      "low1": 51.7,
-      "high1": 110.1,
-      "low2": 46.53,
-      "high2": 121.11,
+      "low1": 45,
+      "high1": 73,
+      "low2": 30,
+      "high2": 118,
       "memo": ""
     },
     {
@@ -230,11 +204,11 @@
       "price": 74.05,
       "currency": "¥",
       "note": "DCF 35.7 / 乐观 52.9 / 综合 50（偏高）",
-      "group": "A股",
-      "low1": 35.7,
-      "high1": 52.9,
-      "low2": 32.13,
-      "high2": 60.834999999999994,
+      "group": "观察",
+      "low1": 45,
+      "high1": 50,
+      "low2": 30,
+      "high2": 86,
       "memo": ""
     },
     {
@@ -244,10 +218,10 @@
       "currency": "¥",
       "note": "DCF 16.74 / PE 10.05-13.4 / 分析师 18-20",
       "group": "A股",
-      "low1": 12.64,
-      "high1": 24.54,
-      "low2": 10.744,
-      "high2": 28.220999999999997,
+      "low1": 9.5,
+      "high1": 14,
+      "low2": 6,
+      "high2": 17,
       "memo": ""
     },
     {
@@ -257,10 +231,10 @@
       "currency": "¥",
       "note": "DCF 基准 108 / 谨慎 99 / 乐观 158",
       "group": "A股",
-      "low1": 83,
-      "high1": 158,
-      "low2": 74.7,
-      "high2": 173.8,
+      "low1": 115,
+      "high1": 125,
+      "low2": 75,
+      "high2": 215,
       "memo": ""
     },
     {
@@ -270,10 +244,10 @@
       "currency": "¥",
       "note": "DCF 39.2 / PE 40.8-46.6 / 胜率 33%",
       "group": "A股",
-      "low1": 39.2,
-      "high1": 52,
-      "low2": 37.24,
-      "high2": 54.6,
+      "low1": 38,
+      "high1": 44,
+      "low2": 30,
+      "high2": 51,
       "memo": ""
     },
     {
@@ -282,17 +256,17 @@
       "price": 29.99,
       "currency": "¥",
       "note": "DCF 基准 56.9 / 蒙特卡洛中位 55",
-      "group": "A股",
-      "low1": 28,
-      "high1": 79,
-      "low2": 25.2,
-      "high2": 90.85,
+      "group": "观察",
+      "low1": 25,
+      "high1": 32,
+      "low2": 11,
+      "high2": 42,
       "memo": ""
     }
   ],
   "settings": {
     "theme": "light",
-    "activeGroup": "Trade Republic",
+    "activeGroup": "观察",
     "sortKey": "name",
     "sortDir": 1
   }
