@@ -425,7 +425,44 @@
   .del-btn:hover{color:var(--neg);background:var(--neg-bg);}
   .del-btn.confirm{color:#fff;background:var(--neg);font-size:11px;font-weight:700;padding:3px 8px;}
 
-  /* ===== 右 dock ===== */
+  /* ===== 观察仓 ===== */
+  .watch-wrap{}
+  .watch-header{
+    display:flex;align-items:baseline;gap:8px;
+    margin:0 0 6px 2px;
+    font-size:11.5px;
+  }
+  .watch-title{
+    font-weight:700;color:var(--text);
+    text-transform:uppercase;letter-spacing:0.06em;
+  }
+  .watch-sub{
+    color:var(--muted-2);font-size:10.5px;
+  }
+  /* 观察仓表格：略小字号 + 顶端条状强调 */
+  #tbl-watch{
+    border-top:2px solid var(--link);
+    font-size:12px;
+  }
+  #tbl-watch thead th{
+    background:var(--surface-2);
+    color:var(--muted);
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+  }
+  #tbl-watch tbody td{
+    padding-top:5px;padding-bottom:5px;
+  }
+  /* 移动菜单里"加入观察仓/并入持仓"特殊项样式 */
+  .move-menu-special{
+    background:var(--zcode-bg) !important;
+    color:var(--zcode) !important;
+    font-weight:700 !important;
+    border-bottom:1px solid var(--border) !important;
+  }
+
+/* ===== 右 dock ===== */
   .dock{display:flex;flex-direction:column;gap:14px;min-width:0;}
 
   .panel{background:var(--bg);border:1px solid var(--border);border-radius:6px;overflow:hidden;min-width:0;}
@@ -584,6 +621,30 @@
         <tbody id="tbody"></tbody>
       </table>
     </div>
+
+    <!-- 观察仓卡片区：仅在当前持仓组为 TR/T212/A股 时显示（展示对应 watch_*） -->
+    <div class="watch-wrap" id="watch-wrap" style="display:none; margin-top:14px;">
+      <div class="watch-header">
+        <span class="watch-title">观察仓 · <span id="watch-title-group">–</span></span>
+        <span class="watch-sub">点击"→ 移动 ▾"里的"并入持仓"可移回持仓组</span>
+      </div>
+      <div class="tbl-wrap">
+        <table id="tbl-watch">
+          <thead>
+            <tr>
+              <th style="width:12%">股票</th>
+              <th style="width:15%">价位指示</th>
+              <th class="num" style="width:17%">合理区间 (H/Z)</th>
+              <th class="num" style="width:7%">现价</th>
+              <th class="num" style="width:7%">偏离</th>
+              <th style="width:6%">状态</th>
+              <th style="width:27%">移动到</th>
+            </tr>
+          </thead>
+          <tbody id="tbody-watch"></tbody>
+        </table>
+      </div>
+    </div>
   </div>
 
   <!-- Right dock -->
@@ -638,14 +699,30 @@ const LS_THEME = 'stock_tracker_theme';
 const LS_SORT = 'stock_tracker_sort';
 const LS_GROUP = 'stock_tracker_group';
 
-const GROUPS = ['Trade Republic', 'Trading 212', 'A股', '观察'];
+const GROUPS = ['Trade Republic', 'Trading 212', 'A股', '观察', 'watch_TR', 'watch_T212', 'watch_A股'];
 const GROUP_SHORT = {
   'Trade Republic': 'Trade RE',
   'Trading 212': 'T212',
   'A股': 'A股',
-  '观察': '观察'
+  '观察': '观察',
+  'watch_TR': '观察仓·TR',
+  'watch_T212': '观察仓·T212',
+  'watch_A股': '观察仓·A股'
 };
 function shortOf(key){ return GROUP_SHORT[key] || key; }
+
+// 持仓组 → 对应观察仓子组（用于"加入观察仓"自动选 watch_*）
+const WATCH_FOR_GROUP = {
+  'Trade Republic': 'watch_TR',
+  'Trading 212':    'watch_T212',
+  'A股':             'watch_A股'
+};
+// 观察仓子组 → 反向回原持仓组（"并入持仓"自动选）
+const HOLDING_FOR_WATCH = {
+  'watch_TR':   'Trade Republic',
+  'watch_T212': 'Trading 212',
+  'watch_A股':  'A股'
+};
 
 // === Theme ===
 function getTheme(){ try{ return localStorage.getItem(LS_THEME) || 'light'; }catch(e){ return 'light'; } }
@@ -1207,6 +1284,21 @@ function render(){
     ? `<tr><td colspan="7" style="text-align:center;padding:32px;color:var(--muted-2);font-size:13px;">这个分组还没有股票</td></tr>`
     : groupList.map(s => stockRowHTML(s)).join('');
 
+  // ===== 观察仓子表 =====
+  const watchWrap = document.getElementById('watch-wrap');
+  const watchGroup = WATCH_FOR_GROUP[activeGroup];  // 当前持仓组 → 对应观察仓
+  if(watchGroup){
+    const watchList = stocks.filter(s => s.group === watchGroup);
+    document.getElementById('watch-title-group').innerText = shortOf(activeGroup);
+    watchWrap.style.display = '';
+    const watchTbody = document.getElementById('tbody-watch');
+    watchTbody.innerHTML = watchList.length === 0
+      ? `<tr><td colspan="7" style="text-align:center;padding:18px;color:var(--muted-2);font-size:12px;">观察仓为空 · 在持仓表里选股 → "→ 移动 ▾" → "加入观察仓"</td></tr>`
+      : watchList.map(s => stockRowHTML(s)).join('');
+  } else {
+    watchWrap.style.display = 'none';
+  }
+
   // 同步切换按钮高亮
   document.querySelectorAll('#group-switch button').forEach(b => {
     b.classList.toggle('active', b.dataset.group === activeGroup);
@@ -1303,7 +1395,16 @@ function stockRowHTML(s){
 }
 
 function bindEvents(){
-  const root = document.getElementById('tbody');
+  // 同时绑定主表和观察仓表（共用 stockRowHTML 结构）
+  const mainRoot = document.getElementById('tbody');
+  const watchRoot = document.getElementById('tbody-watch');
+  // 合并查询用 NodeList-like：用一个伪 root 同时 select 两个容器
+  const root = {
+    querySelectorAll: (sel) => [
+      ...mainRoot.querySelectorAll(sel),
+      ...watchRoot.querySelectorAll(sel)
+    ]
+  };
 
   // 备注按钮 → 打开 modal
   root.querySelectorAll('.memo-btn').forEach(b => {
@@ -1387,7 +1488,48 @@ function buildMoveMenu(code, fromGroup){
   const menu = document.createElement('div');
   menu.className = 'move-menu';
   menu.dataset.menuFor = code;
-  GROUPS.filter(g => g !== fromGroup).forEach(g => {
+
+  // 顶部"特殊操作"：持仓组 → "加入观察仓"；watch_* 组 → "并入持仓"
+  const watchTarget = WATCH_FOR_GROUP[fromGroup];
+  const holdingTarget = HOLDING_FOR_WATCH[fromGroup];
+  if(watchTarget){
+    const btn = document.createElement('button');
+    btn.className = 'move-menu-item move-menu-special';
+    btn.innerHTML = `→ <span class="short">加入观察仓 (${shortOf(watchTarget)})</span>`;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const s = stocks.find(x => x.code === code);
+      if(s){
+        s.group = watchTarget;
+        save();
+        render();
+      }
+      closeAllMoveMenus();
+    });
+    menu.appendChild(btn);
+  } else if(holdingTarget){
+    const btn = document.createElement('button');
+    btn.className = 'move-menu-item move-menu-special';
+    btn.innerHTML = `→ <span class="short">并入持仓 (${shortOf(holdingTarget)})</span>`;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const s = stocks.find(x => x.code === code);
+      if(s){
+        s.group = holdingTarget;
+        save();
+        render();
+      }
+      closeAllMoveMenus();
+    });
+    menu.appendChild(btn);
+  }
+
+  // 其它组列表（不包含 fromGroup，也不再重复显示 watchTarget / holdingTarget，
+  // 因为"加入观察仓/并入持仓"已经在顶部快捷处理）
+  const skipGroups = new Set([fromGroup]);
+  if(watchTarget)    skipGroups.add(watchTarget);
+  if(holdingTarget)  skipGroups.add(holdingTarget);
+  GROUPS.filter(g => !skipGroups.has(g)).forEach(g => {
     const btn = document.createElement('button');
     btn.className = 'move-menu-item';
     btn.innerHTML = `→ <span class="short">${escapeHtml(shortOf(g))}</span>`;
