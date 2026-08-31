@@ -28,6 +28,7 @@
     --pos-text:#0f4a2a;
 
     --bar-zone-h:#dcd6cf;        /* bar H 套中性灰（亮色专用） */
+    --marker-muted-light:#9b9893;   /* 中性 marker 冷灰（亮色专用，少黄） */
     --marker-border-light:#a89a8c;  /* marker 边框深棕灰（亮色专用） */
 
     --neg:#a31e3d;
@@ -407,8 +408,9 @@
     background:var(--muted-2);border-radius:2px;
     box-shadow:0 0 0 2px var(--bg);
   }
-  /* 亮色主题：marker 边框用浅棕灰，宽度 1px 更紧凑 */
+  /* 亮色主题：中性 marker 用冷灰（少黄），边框用浅棕灰（宽度 1px） */
   [data-theme="light"] .bar-marker{
+    background:var(--marker-muted-light);
     box-shadow:0 0 0 1px var(--marker-border-light);
   }
   .bar-marker.pos{background:var(--pos);}
