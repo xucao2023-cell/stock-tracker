@@ -1,0 +1,9 @@
+{
+  "name": "stock-tracker-scripts",
+  "private": true,
+  "type": "module",
+  "description": "Server-side scripts for xucao2023-cell/stock-tracker. Pulled in only by .github/workflows/update-prices.yml.",
+  "dependencies": {
+    "iconv-lite": "^0.6.3"
+  }
+}
