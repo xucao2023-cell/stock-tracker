@@ -1,12 +1,12 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-08-31T09:07:09.175Z",
+  "updatedAt": "2026-08-31T15:50:29.588Z",
   "stocks": [
     {
       "name": "腾讯控股",
       "code": "00700.HK",
-      "price": 441,
+      "price": 453,
       "currency": "HK$",
       "note": "DCF 842 / 熊市 479 / CAPEX失败 463",
       "group": "Trade Republic",
@@ -14,12 +14,12 @@
       "high1": 770,
       "low2": 354,
       "high2": 1213,
-      "memo": ""
+      "memo": "26年中报后估值"
     },
     {
       "name": "小米集团",
       "code": "01810.HK",
-      "price": 27.76,
+      "price": 27.62,
       "currency": "HK$",
       "note": "DCF 35.5 / SOTP 39.1 / PE 31.8-36.2",
       "group": "Trading 212",
@@ -27,12 +27,12 @@
       "high1": 34,
       "low2": 20,
       "high2": 44,
-      "memo": ""
+      "memo": "基于26年Q2的估值"
     },
     {
       "name": "E.ON",
       "code": "EOAN.DE",
-      "price": 18,
+      "price": 17.76,
       "currency": "€",
       "note": "DCF 中枢 €19 / 区间 13-19",
       "group": "watch_TR",
@@ -40,12 +40,12 @@
       "high1": 19,
       "low2": 13.6000000000001,
       "high2": 20,
-      "memo": ""
+      "memo": "基于26年Q2的估值"
     },
     {
       "name": "BMW",
       "code": "BMW.DE",
-      "price": 57.96,
+      "price": 61.8,
       "currency": "€",
       "note": "SOTP + 情景 DCF Bear/Base/Bull",
       "group": "Trade Republic",
@@ -53,25 +53,25 @@
       "high1": 95,
       "low2": 45,
       "high2": 125,
-      "memo": ""
+      "memo": "基于26Q2财报后估值"
     },
     {
       "name": "Airbus",
       "code": "AIR.PA",
-      "price": 230,
+      "price": 197,
       "currency": "€",
       "note": "DCF 基准 €236 / 敏感性 200-280",
       "group": "Trade Republic",
-      "low1": 210,
+      "low1": 200,
       "high1": 250,
-      "low2": 161,
-      "high2": 334,
-      "memo": ""
+      "low2": 156,
+      "high2": 262,
+      "memo": "26年中报和生产公告之后估值"
     },
     {
       "name": "美光科技",
       "code": "MU.US",
-      "price": 937.11,
+      "price": 939,
       "currency": "$",
       "note": "DCF 概率加权 $876 / 区间 269-1396",
       "group": "watch_TR",
@@ -79,12 +79,12 @@
       "high1": 1050,
       "low2": 270,
       "high2": 1396,
-      "memo": ""
+      "memo": "26年中报后估值"
     },
     {
       "name": "Apple",
       "code": "AAPL.US",
-      "price": 309.35,
+      "price": 314,
       "currency": "$",
       "note": "DCF 敏感性 P5-P90 / PE 30× 基准",
       "group": "watch_TR",
@@ -92,12 +92,12 @@
       "high1": 240,
       "low2": 148,
       "high2": 374,
-      "memo": ""
+      "memo": "已更新半年报（苹果Q3财报）"
     },
     {
       "name": "onsemi",
       "code": "ON.US",
-      "price": 74.21,
+      "price": 73.71,
       "currency": "$",
       "note": "DCF $74.56 / 概率加权 $83.84",
       "group": "Trading 212",
@@ -105,12 +105,12 @@
       "high1": 97,
       "low2": 50,
       "high2": 160,
-      "memo": ""
+      "memo": "基于2026年Q2估值"
     },
     {
       "name": "Vertiv",
       "code": "VRT.US",
-      "price": 261.95,
+      "price": 256.27,
       "currency": "$",
       "note": "DCF WACC 11.5% g 3.5% / PE 35-45×",
       "group": "Trading 212",
@@ -118,25 +118,25 @@
       "high1": 300,
       "low2": 175,
       "high2": 440,
-      "memo": ""
+      "memo": "已更新26年Q2，240以下可以开始加仓，胜率比较高"
     },
     {
       "name": "工业富联",
       "code": "601138.SH",
-      "price": 60.15,
+      "price": 64.84,
       "currency": "¥",
       "note": "DCF 60-83 / 中性 80-90 / PE 93-108",
       "group": "watch_A股",
-      "low1": 80,
-      "high1": 90,
-      "low2": 55,
-      "high2": 120,
-      "memo": ""
+      "low1": 40,
+      "high1": 55,
+      "low2": 25,
+      "high2": 80,
+      "memo": "已经跟新2026半年报后估值，考虑AI周期性后平均后估值。"
     },
     {
       "name": "招商银行",
       "code": "600036.SH",
-      "price": 39.5,
+      "price": 40.1,
       "currency": "¥",
       "note": "RI+DDM 蒙特卡洛均值约 45-50",
       "group": "A股",
@@ -144,25 +144,25 @@
       "high1": 57,
       "low2": 29,
       "high2": 93,
-      "memo": ""
+      "memo": "已根据26年中报进行估值调整，博主黄阳认为中报中规中矩不悲不喜"
     },
     {
       "name": "长江电力",
       "code": "600900.SH",
-      "price": 28.15,
+      "price": 28,
       "currency": "¥",
       "note": "DCF+DDM+PE 综合 / 蒙特卡洛中位 ≈30",
       "group": "A股",
-      "low1": 32,
-      "high1": 34,
+      "low1": 30,
+      "high1": 35,
       "low2": 23,
-      "high2": 40,
-      "memo": ""
+      "high2": 42,
+      "memo": "已经根据26年中报调整估值"
     },
     {
       "name": "中国移动",
       "code": "600941.SH",
-      "price": 98.86,
+      "price": 99.05,
       "currency": "¥",
       "note": "A 股 DCF / PB 低估 / 分红率 75%",
       "group": "watch_A股",
@@ -170,51 +170,51 @@
       "high1": 110,
       "low2": 80,
       "high2": 127,
-      "memo": ""
+      "memo": "已根据26年中报估值，低于90元值得买入"
     },
     {
       "name": "美的集团",
       "code": "000333.SZ",
-      "price": 83.58,
+      "price": 87.73,
       "currency": "¥",
       "note": "归一化 E×13-15×PE = 75-80（（修正后中枢）",
       "group": "watch_A股",
-      "low1": 75,
-      "high1": 87,
+      "low1": 77,
+      "high1": 89,
       "low2": 61,
       "high2": 98,
-      "memo": ""
+      "memo": "已经基于26年中报调整估值"
     },
     {
       "name": "福耀玻璃",
       "code": "600660.SH",
-      "price": 57.67,
+      "price": 56.59,
       "currency": "¥",
       "note": "综合 75±10 / PE 13-20× / DCF 79-110",
       "group": "A股",
       "low1": 45,
-      "high1": 73,
+      "high1": 57,
       "low2": 30,
       "high2": 118,
-      "memo": ""
+      "memo": "已根据26年中报调整估值，50以下购买才有安全边际"
     },
     {
       "name": "长电科技",
       "code": "600584.SH",
-      "price": 74.05,
+      "price": 74.75,
       "currency": "¥",
       "note": "DCF 35.7 / 乐观 52.9 / 综合 50（（偏高）",
       "group": "观察",
-      "low1": 45,
-      "high1": 50,
-      "low2": 30,
-      "high2": 86,
-      "memo": ""
+      "low1": 47,
+      "high1": 64,
+      "low2": 26,
+      "high2": 76,
+      "memo": "已经更新2026中报后估值"
     },
     {
       "name": "东方雨虹",
       "code": "002271.SZ",
-      "price": 11.13,
+      "price": 11,
       "currency": "¥",
       "note": "DCF 16.74 / PE 10.05-13.4 / 分析师 18-20",
       "group": "watch_A股",
@@ -222,12 +222,12 @@
       "high1": 14,
       "low2": 6,
       "high2": 17,
-      "memo": ""
+      "memo": "已更新2026中报估值"
     },
     {
       "name": "沪电股份",
       "code": "002463.SZ",
-      "price": 119.22,
+      "price": 124.91,
       "currency": "¥",
       "note": "DCF 基准 108 / 谨慎 99 / 乐观 158",
       "group": "watch_A股",
@@ -235,12 +235,12 @@
       "high1": 125,
       "low2": 75,
       "high2": 215,
-      "memo": ""
+      "memo": "已更新基于2026中报估值"
     },
     {
       "name": "春秋航空",
       "code": "601021.SH",
-      "price": 44.28,
+      "price": 43.58,
       "currency": "¥",
       "note": "DCF 39.2 / PE 40.8-46.6 / 胜率 33%",
       "group": "A股",
@@ -248,12 +248,12 @@
       "high1": 44,
       "low2": 30,
       "high2": 51,
-      "memo": ""
+      "memo": "已更新关于2026年中报的估值"
     },
     {
       "name": "宇通客车",
       "code": "600066.SH",
-      "price": 29.99,
+      "price": 29.79,
       "currency": "¥",
       "note": "DCF 基准 56.9 / 蒙特卡洛中位 55",
       "group": "观察",
@@ -261,7 +261,72 @@
       "high1": 32,
       "low2": 11,
       "high2": 42,
-      "memo": ""
+      "memo": "已考虑26年中报后估值，24元以下值得买入"
+    },
+    {
+      "name": "公牛集团",
+      "code": "603195.SH",
+      "low1": 37,
+      "high1": 50,
+      "low2": 24,
+      "high2": 78,
+      "price": 38.8,
+      "currency": "¥",
+      "note": "",
+      "memo": "26年半年报后",
+      "group": "A股"
+    },
+    {
+      "name": "格力电器",
+      "code": "000651.SZ",
+      "low1": 45,
+      "high1": 55,
+      "low2": 28,
+      "high2": 62,
+      "price": 38.95,
+      "currency": "¥",
+      "note": "",
+      "memo": "",
+      "group": "watch_A股"
+    },
+    {
+      "name": "Adobe",
+      "code": "ADBE.US",
+      "low1": 340,
+      "high1": 370,
+      "low2": 180,
+      "high2": 500,
+      "price": 291.9,
+      "currency": "$",
+      "note": "",
+      "memo": "基于26中报更新估值",
+      "group": "Trading 212"
+    },
+    {
+      "name": "东鹏饮料",
+      "code": "605499.SH",
+      "low1": 145,
+      "high1": 180,
+      "low2": 110,
+      "high2": 235,
+      "price": 119.98,
+      "currency": "¥",
+      "note": "",
+      "memo": "基于26年中报，小心价格战",
+      "group": "watch_A股"
+    },
+    {
+      "name": "英维克",
+      "code": "002837.SZ",
+      "low1": 30,
+      "high1": 45,
+      "low2": 15,
+      "high2": 60,
+      "price": 68.21,
+      "currency": "¥",
+      "note": "",
+      "memo": "26年中报之后",
+      "group": "观察"
     }
   ],
   "settings": {
