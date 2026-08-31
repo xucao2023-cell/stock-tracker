@@ -1,1 +1,38 @@
+name: Update daily stock prices
 
+# Pulls closing prices for the 25 stocks tracked in data.json from free public
+# APIs (Tencent for A-share / HK / US, Yahoo for EU) and pushes the updated
+# data.json back to main. Frontend auto-syncs via jsDelivr CDN (no HTML change).
+
+on:
+  schedule:
+    # A-share close (15:35 CST Mon-Fri) → 07:35 UTC
+    - cron: '35 7 * * 1-5'
+    # US close (16:30 ET Mon-Fri, EU close overnight) → 16:30 UTC in summer
+    # Winter offset (16:30 ET = 21:30 UTC) is still within the same workday window
+    # and covers EU ticks that closed earlier.
+    - cron: '30 16 * * 1-5'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install iconv-lite
+        working-directory: scripts
+        run: npm install --omit=dev
+
+      - name: Update prices
+        run: node scripts/update_prices.mjs
