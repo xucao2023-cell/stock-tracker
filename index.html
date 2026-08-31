@@ -27,6 +27,9 @@
     --pos-bg:#d4e7d4;
     --pos-text:#0f4a2a;
 
+    --bar-zone-h:#dcd6cf;        /* bar H 套中性灰（亮色专用） */
+    --marker-border-light:#5a4f42;  /* marker 边框深棕灰（亮色专用） */
+
     --neg:#a31e3d;
     --neg-bg:#f0d4d4;
     --neg-text:#660812;
@@ -404,10 +407,19 @@
     background:var(--muted-2);border-radius:2px;
     box-shadow:0 0 0 2px var(--bg);
   }
+  /* 亮色主题：marker 边框用深棕灰，让指示块在米色底上更醒目 */
+  [data-theme="light"] .bar-marker{
+    box-shadow:0 0 0 2px var(--marker-border-light);
+  }
   .bar-marker.pos{background:var(--pos);}
   .bar-marker.neg{background:var(--neg);}
   .bar-marker.severe_pos{background:var(--neg);box-shadow:0 0 0 2px var(--bg),0 0 0 1px var(--pos);}
   .bar-marker.severe_neg{background:var(--neg);box-shadow:0 0 0 2px var(--bg),0 0 0 1px var(--neg);}
+  /* 亮色主题：H 套用中性灰（石灰灰）替代浅绿，让色块本身不带色相 */
+  [data-theme="light"] .bar-zone{
+    background:var(--bar-zone-h);
+    border-left-color:var(--pos);border-right-color:var(--pos);
+  }
   .bar-labels{
     display:flex;justify-content:space-between;font-size:9.5px;color:var(--muted-2);
     font-family:"SF Mono",Consolas,monospace;font-feature-settings:"tnum" 1;
