@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-08-31T15:50:29.588Z",
+  "updatedAt": "2026-08-31T16:22:55.202Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -136,7 +136,7 @@
     {
       "name": "招商银行",
       "code": "600036.SH",
-      "price": 40.1,
+      "price": 40.12,
       "currency": "¥",
       "note": "RI+DDM 蒙特卡洛均值约 45-50",
       "group": "A股",
@@ -201,7 +201,7 @@
     {
       "name": "长电科技",
       "code": "600584.SH",
-      "price": 74.75,
+      "price": 75.75,
       "currency": "¥",
       "note": "DCF 35.7 / 乐观 52.9 / 综合 50（（偏高）",
       "group": "观察",
@@ -270,7 +270,7 @@
       "high1": 50,
       "low2": 24,
       "high2": 78,
-      "price": 38.8,
+      "price": 38.85,
       "currency": "¥",
       "note": "",
       "memo": "26年半年报后",
