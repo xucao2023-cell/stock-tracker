@@ -6,13 +6,19 @@ name: Update daily stock prices
 
 on:
   schedule:
-    # A-share close (15:35 CST Mon-Fri) → 07:35 UTC (CST = UTC+8, no DST)
+    # 1) Asian close: A-share 15:35 CST (UTC+8) + HK/US same batch.
+    #    Local time:
+    #      - 15:35 China (CST, UTC+8, no DST)
+    #      - 09:35 Europe (CET = UTC+1 winter, CEST = UTC+2 summer)
+    #    Cron in UTC: 07:35.
     - cron: '35 7 * * 1-5'
-    # US close (16:00 ET Mon-Fri) → 20:00/21:00 UTC depending on EDT/EST.
-    # Picked 20:30 UTC: covers EDT (UTC-4) cleanly at close+30min.
-    # During EST (UTC-5, Nov-mid to Mar-mid), fires 90 min after close — late but
-    # still post-market and gives Yahoo a settled tape to report.
-    # EU exchanges close by 17:30 CET, well within this window.
+    # 2) European/US close: US 16:00 ET + EU 17:30 CET all wrapped up.
+    #    Local time:
+    #      - 22:30 Europe (CEST summer / CET winter — fixed 22:30 local)
+    #      - 16:30 US East (EDT summer / EST winter)
+    #    Cron in UTC: 20:30. In CET winter this fires at 21:30 UTC = 22:30 CET
+    #    (still post-EU-close, ~5h after US close); in CEST summer it fires at
+    #    20:30 UTC = 22:30 CEST (post-EU-close by 5h, US close by 30min).
     - cron: '30 20 * * 1-5'
   workflow_dispatch:
 
