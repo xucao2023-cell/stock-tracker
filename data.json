@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-09-01T07:45:49.169Z",
+  "updatedAt": "2026-09-01T13:25:57.970Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -327,12 +327,90 @@
       "note": "",
       "memo": "26年中报之后",
       "group": "观察"
+    },
+    {
+      "name": "微软",
+      "code": "MSFT.US",
+      "low1": 450,
+      "high1": 560,
+      "low2": 410,
+      "high2": 650,
+      "price": 507,
+      "currency": "$",
+      "note": "",
+      "memo": "基于26年中报更新估值",
+      "group": "Trade Republic"
+    },
+    {
+      "name": "Service Now",
+      "code": "NOW.US",
+      "low1": 140,
+      "high1": 165,
+      "low2": 77,
+      "high2": 217,
+      "price": 148,
+      "currency": "$",
+      "note": "",
+      "memo": "已经更新呢26年半年报",
+      "group": "Trading 212"
+    },
+    {
+      "name": "谷歌",
+      "code": "GOOG.US",
+      "low1": 312,
+      "high1": 383,
+      "low2": 250,
+      "high2": 470,
+      "price": 335,
+      "currency": "$",
+      "note": "",
+      "memo": "26年中报之后修正",
+      "group": "watch_TR"
+    },
+    {
+      "name": "联合利华",
+      "code": "ULVR.L",
+      "low1": 52,
+      "high1": 64,
+      "low2": 47,
+      "high2": 69,
+      "price": 55.91,
+      "currency": "€",
+      "note": "",
+      "memo": "26年半年报后的估值",
+      "group": "Trade Republic"
+    },
+    {
+      "name": "ASML",
+      "code": "AMS.AS",
+      "low1": 1150,
+      "high1": 1600,
+      "low2": 900,
+      "high2": 1900,
+      "price": 1444,
+      "currency": "€",
+      "note": "",
+      "memo": "",
+      "group": "watch_TR"
+    },
+    {
+      "name": "慕尼黑再保险",
+      "code": "MUV2.DE",
+      "low1": 550,
+      "high1": 650,
+      "low2": 423,
+      "high2": 864,
+      "price": 524.8,
+      "currency": "€",
+      "note": "",
+      "memo": "",
+      "group": "Trade Republic"
     }
   ],
   "settings": {
     "theme": "light",
-    "activeGroup": "观察",
-    "sortKey": "name",
-    "sortDir": 1
+    "activeGroup": "A股",
+    "sortKey": "gap",
+    "sortDir": -1
   }
 }
