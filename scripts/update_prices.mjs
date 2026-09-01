@@ -24,6 +24,11 @@ const YAHOO_UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, lik
 const YAHOO_THROTTLE_MS = 1500;
 const SANITY_THRESHOLD = 0.5; // skip price if |new-old|/old > 50%
 
+// FX (Frankfurter.app — ECB-backed, free, no key, no CORS).
+// Cached for the duration of a single script run.
+const FRANKFURTER_URL = 'https://api.frankfurter.app/latest?from=GBP&to=EUR';
+let fxCache = null; // { value: <gbpToEur>, fetchedAt: <ms> }
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // ---------- helpers ----------
@@ -84,6 +89,24 @@ function formatPriceLikeOriginal(value, original) {
   }
   // For floats, keep the value as-is. JSON.stringify will use the natural representation.
   return String(value);
+}
+
+// FX rate cache: fetch once, reuse within a run.
+async function getGbpToEur() {
+  if (fxCache && Date.now() - fxCache.fetchedAt < 60_000) return fxCache.value;
+  const res = await fetch(FRANKFURTER_URL);
+  if (!res.ok) throw new Error(`Frankfurter HTTP ${res.status}`);
+  const j = await res.json();
+  const rate = j?.rates?.EUR;
+  if (!Number.isFinite(rate)) throw new Error('Frankfurter no EUR rate in response');
+  fxCache = { value: rate, fetchedAt: Date.now() };
+  return rate;
+}
+
+// A stock needs GBP→EUR conversion if it's listed on LSE (.L suffix) but
+// priced in EUR. Currently only ULVR.L; future additions auto-detected.
+function needsFxConversion(stock) {
+  return stock.code.endsWith('.L') && stock.currency === '€';
 }
 
 // ---------- API fetchers ----------
@@ -180,6 +203,18 @@ async function main() {
     }
   }
 
+  // FX: pre-fetch GBP→EUR once if any stock needs conversion (.L + currency €)
+  const fxStocks = stocks.filter(needsFxConversion);
+  let gbpToEur = null;
+  if (fxStocks.length > 0) {
+    try {
+      gbpToEur = await getGbpToEur();
+      console.log(`[fx] GBP→EUR = ${gbpToEur} (${fxStocks.length} stock(s) will be converted: ${fxStocks.map((s) => s.code).join(', ')})`);
+    } catch (e) {
+      console.warn(`[fx] FX fetch failed: ${e.message} — ${fxStocks.map((s) => s.code).join(', ')} will SKIP`);
+    }
+  }
+
   // Apply updates
   let updated = 0, skipped = 0, failed = 0;
   const report = [];
@@ -194,7 +229,19 @@ async function main() {
       if (got) { newPrice = got.price; src = 'tencent'; }
     } else {
       const got = yahooPrices[s.code];
-      if (got) { newPrice = got.price; src = 'yahoo'; }
+      if (got) {
+        if (needsFxConversion(s)) {
+          // LSE-listed but priced in EUR: convert Yahoo GBP quote → EUR
+          if (gbpToEur != null) {
+            newPrice = got.price * gbpToEur;
+            src = 'yahoo+fx';
+          }
+          // else: FX unavailable, leave newPrice=null → SKIP
+        } else {
+          newPrice = got.price;
+          src = 'yahoo';
+        }
+      }
     }
 
     if (newPrice == null) {
