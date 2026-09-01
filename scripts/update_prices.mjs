@@ -80,16 +80,21 @@ function isInt(v) {
   return Number.isFinite(v) && Number.isInteger(v);
 }
 
-// Format a price preserving the original JSON integer-vs-float shape.
-//   453    → "453"      (no decimal point)
-//   40.1   → "40.1"     (one decimal places whatever the value actually is)
-//   27.62  → "27.62"
+// Format a price preserving the original JSON integer-vs-float shape, and
+// rounding to at most 2 decimal places (sub-cent precision is noise).
+//   453         → "453"      (no decimal point)
+//   40.1        → "40.1"     (one decimal place — preserves original shape)
+//   27.62       → "27.62"    (two decimal places)
+//   48.571656   → "48.57"    (FX-converted, capped to 2 decimals)
 function formatPriceLikeOriginal(value, original) {
+  // Always round to ≤2 decimals first (handles FX noise like 48.571656 → 48.57)
+  const rounded = Math.round(value * 100) / 100;
   if (isInt(original)) {
-    return String(Math.round(value));
+    return String(Math.round(rounded));
   }
-  // For floats, keep the value as-is. JSON.stringify will use the natural representation.
-  return String(value);
+  // For floats, JSON.stringify naturally trims trailing zeros
+  // (e.g. 48.57 not 48.570, but 432.3 not 432.30).
+  return String(rounded);
 }
 
 // FX rate cache: fetch once per (from,to) pair, reuse within a run.
