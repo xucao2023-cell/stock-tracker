@@ -26,8 +26,9 @@ const SANITY_THRESHOLD = 0.5; // skip price if |new-old|/old > 50%
 
 // FX (Frankfurter.app — ECB-backed, free, no key, no CORS).
 // Cached for the duration of a single script run.
-const FRANKFURTER_URL = 'https://api.frankfurter.app/latest?from=GBP&to=EUR';
-let fxCache = null; // { value: <gbpToEur>, fetchedAt: <ms> }
+const FRANKFURTER_URL = (from, to) => `https://api.frankfurter.app/latest?from=${from}&to=${to}`;
+const fxCache = new Map(); // key: `${from}->${to}` → { value, fetchedAt }
+const FX_TTL_MS = 60_000;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -91,22 +92,33 @@ function formatPriceLikeOriginal(value, original) {
   return String(value);
 }
 
-// FX rate cache: fetch once, reuse within a run.
-async function getGbpToEur() {
-  if (fxCache && Date.now() - fxCache.fetchedAt < 60_000) return fxCache.value;
-  const res = await fetch(FRANKFURTER_URL);
-  if (!res.ok) throw new Error(`Frankfurter HTTP ${res.status}`);
+// FX rate cache: fetch once per (from,to) pair, reuse within a run.
+async function getFxRate(from, to) {
+  if (from === to) return 1;
+  const key = `${from}->${to}`;
+  const cached = fxCache.get(key);
+  if (cached && Date.now() - cached.fetchedAt < FX_TTL_MS) return cached.value;
+  const res = await fetch(FRANKFURTER_URL(from, to));
+  if (!res.ok) throw new Error(`Frankfurter ${from}→${to} HTTP ${res.status}`);
   const j = await res.json();
-  const rate = j?.rates?.EUR;
-  if (!Number.isFinite(rate)) throw new Error('Frankfurter no EUR rate in response');
-  fxCache = { value: rate, fetchedAt: Date.now() };
+  const rate = j?.rates?.[to];
+  if (!Number.isFinite(rate)) throw new Error(`Frankfurter no ${to} rate in ${from}→${to} response`);
+  fxCache.set(key, { value: rate, fetchedAt: Date.now() });
   return rate;
 }
 
-// A stock needs GBP→EUR conversion if it's listed on LSE (.L suffix) but
-// priced in EUR. Currently only ULVR.L; future additions auto-detected.
+// A stock needs FX conversion when its `currency` field is EUR but the
+// upstream quote source returns in a different currency. Currently:
+//   - LSE-listed (.L) codes: Yahoo returns GBP → EUR
+//   - HK codes (.HK) in Trade Republic: Tencent returns HKD → EUR
+//   - US codes (.US) in Trade Republic: Tencent returns USD → EUR
+// Detected by group/currency/code combination; source-currency decided below.
 function needsFxConversion(stock) {
-  return stock.code.endsWith('.L') && stock.currency === '€';
+  if (stock.currency !== '€') return null; // not targeted to EUR
+  if (stock.code.endsWith('.L')) return 'GBP';   // LSE = GBP via Yahoo
+  if (stock.code.endsWith('.HK')) return 'HKD';  // HKEX = HKD via Tencent
+  if (stock.code.endsWith('.US') && stock.group === 'Trade Republic') return 'USD'; // US = USD via Tencent
+  return null; // already EUR (e.g. .DE, .PA, .AS codes already trade in EUR)
 }
 
 // ---------- API fetchers ----------
@@ -203,16 +215,28 @@ async function main() {
     }
   }
 
-  // FX: pre-fetch GBP→EUR once if any stock needs conversion (.L + currency €)
-  const fxStocks = stocks.filter(needsFxConversion);
-  let gbpToEur = null;
+  // FX: pre-fetch rates for any stock needing conversion.
+  // needsFxConversion() returns the source currency (e.g. 'GBP', 'HKD', 'USD')
+  // or null if the stock is already priced in EUR.
+  const fxStocks = stocks.map((s) => ({ stock: s, src: needsFxConversion(s) })).filter((x) => x.src);
+  const fxRates = new Map(); // src currency → rate to EUR
   if (fxStocks.length > 0) {
-    try {
-      gbpToEur = await getGbpToEur();
-      console.log(`[fx] GBP→EUR = ${gbpToEur} (${fxStocks.length} stock(s) will be converted: ${fxStocks.map((s) => s.code).join(', ')})`);
-    } catch (e) {
-      console.warn(`[fx] FX fetch failed: ${e.message} — ${fxStocks.map((s) => s.code).join(', ')} will SKIP`);
+    // Dedup by source currency
+    const uniqueSrc = [...new Set(fxStocks.map((x) => x.src))];
+    for (const src of uniqueSrc) {
+      try {
+        const rate = await getFxRate(src, 'EUR');
+        fxRates.set(src, rate);
+      } catch (e) {
+        console.warn(`[fx] FX fetch failed for ${src}→EUR: ${e.message}`);
+      }
     }
+    for (const [src, rate] of fxRates) {
+      const codes = fxStocks.filter((x) => x.src === src).map((x) => x.stock.code).join(', ');
+      console.log(`[fx] ${src}→EUR = ${rate} (will convert: ${codes})`);
+    }
+    const missing = fxStocks.filter((x) => !fxRates.has(x.src)).map((x) => x.stock.code);
+    if (missing.length > 0) console.warn(`[fx] SKIP (no FX): ${missing.join(', ')}`);
   }
 
   // Apply updates
@@ -226,20 +250,32 @@ async function main() {
     if (market === 'tencent') {
       const ts = toTencentCode(s.code);
       const got = tencentPrices[ts];
-      if (got) { newPrice = got.price; src = 'tencent'; }
+      if (got) {
+        newPrice = got.price;
+        src = 'tencent';
+        // FX: Tencent reports in source currency (HKD for .HK, USD for .US,
+        // CNY for .SH/.SZ, etc.). For TR group stocks targeting EUR, convert.
+        const fxSrc = needsFxConversion(s);
+        if (fxSrc && fxRates.has(fxSrc)) {
+          newPrice = newPrice * fxRates.get(fxSrc);
+          src = 'tencent+fx';
+        } else if (fxSrc) {
+          newPrice = null; // FX unavailable → SKIP
+        }
+      }
     } else {
       const got = yahooPrices[s.code];
       if (got) {
-        if (needsFxConversion(s)) {
-          // LSE-listed but priced in EUR: convert Yahoo GBP quote → EUR
-          if (gbpToEur != null) {
-            newPrice = got.price * gbpToEur;
-            src = 'yahoo+fx';
-          }
-          // else: FX unavailable, leave newPrice=null → SKIP
-        } else {
-          newPrice = got.price;
-          src = 'yahoo';
+        newPrice = got.price;
+        src = 'yahoo';
+        // FX: Yahoo reports in source currency (GBP for .L, EUR for .DE/.PA/.AS).
+        // For TR group .L stocks targeting EUR, convert.
+        const fxSrc = needsFxConversion(s);
+        if (fxSrc && fxRates.has(fxSrc)) {
+          newPrice = newPrice * fxRates.get(fxSrc);
+          src = 'yahoo+fx';
+        } else if (fxSrc) {
+          newPrice = null; // FX unavailable → SKIP
         }
       }
     }

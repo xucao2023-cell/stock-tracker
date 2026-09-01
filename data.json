@@ -2,18 +2,19 @@
   "app": "stock_tracker_doppio",
   "version": 1,
   "updatedAt": "2026-09-01T14:29:36.648Z",
+  "updatedAt": "2026-09-01T15:18:02.042Z",
   "stocks": [
     {
       "name": "腾讯控股",
       "code": "00700.HK",
-      "price": 441,
-      "currency": "HK$",
+      "price": 48.53,
+      "currency": "€",
       "note": "DCF 842 / 熊市 479 / CAPEX失败 463",
       "group": "Trade Republic",
-      "low1": 540,
-      "high1": 770,
-      "low2": 354,
-      "high2": 1213,
+      "low1": 59,
+      "high1": 85,
+      "low2": 39,
+      "high2": 133,
       "memo": "26年中报后估值"
     },
     {
@@ -337,6 +338,12 @@
       "high2": 650,
       "price": 504,
       "currency": "$",
+      "low1": 388,
+      "high1": 483,
+      "low2": 354,
+      "high2": 561,
+      "price": 430.54,
+      "currency": "€",
       "note": "",
       "memo": "基于26年中报更新估值",
       "group": "Trade Republic"
