@@ -784,8 +784,10 @@ document.getElementById('reset-btn').addEventListener('click', () => {
   location.reload();
 });
 
-// === 云同步（jsDelivr + GitHub repo）===
-const CLOUD_URL = 'https://cdn.jsdelivr.net/gh/xucao2023-cell/stock-tracker/data.json';
+// === 云同步（GitHub Pages + GitHub repo）===
+// 之前用 jsDelivr CDN 但缓存延迟可达 10+ 分钟（见 HANDOFF 第九节踩坑）。
+// 改为直接读 GitHub Pages 静态资源：同源访问、无 CDN 缓存层、改动即时生效。
+const CLOUD_URL = 'https://xucao2023-cell.github.io/stock-tracker/data.json';
 const CLOUD_POLL_MS = 30000;  // 30 秒拉一次
 
 // === 云同步：推送到云 ===
