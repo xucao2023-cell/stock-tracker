@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-09-01T13:33:20.744Z",
+  "updatedAt": "2026-09-01T14:29:36.648Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -71,7 +71,7 @@
     {
       "name": "美光科技",
       "code": "MU.US",
-      "price": 939,
+      "price": 936,
       "currency": "$",
       "note": "DCF 概率加权 $876 / 区间 269-1396",
       "group": "watch_TR",
@@ -84,7 +84,7 @@
     {
       "name": "Apple",
       "code": "AAPL.US",
-      "price": 316,
+      "price": 325,
       "currency": "$",
       "note": "DCF 敏感性 P5-P90 / PE 30× 基准",
       "group": "watch_TR",
@@ -97,7 +97,7 @@
     {
       "name": "onsemi",
       "code": "ON.US",
-      "price": 72.43,
+      "price": 71.84,
       "currency": "$",
       "note": "DCF $74.56 / 概率加权 $83.84",
       "group": "Trading 212",
@@ -110,7 +110,7 @@
     {
       "name": "Vertiv",
       "code": "VRT.US",
-      "price": 254.39,
+      "price": 250.3,
       "currency": "$",
       "note": "DCF WACC 11.5% g 3.5% / PE 35-45×",
       "group": "Trading 212",
@@ -296,7 +296,7 @@
       "high1": 370,
       "low2": 180,
       "high2": 500,
-      "price": 291.01,
+      "price": 293.31,
       "currency": "$",
       "note": "",
       "memo": "基于26中报更新估值",
@@ -335,7 +335,7 @@
       "high1": 560,
       "low2": 410,
       "high2": 650,
-      "price": 499,
+      "price": 504,
       "currency": "$",
       "note": "",
       "memo": "基于26年中报更新估值",
@@ -348,7 +348,7 @@
       "high1": 165,
       "low2": 77,
       "high2": 217,
-      "price": 146,
+      "price": 145,
       "currency": "$",
       "note": "",
       "memo": "已经更新呢26年半年报",
@@ -361,7 +361,7 @@
       "high1": 383,
       "low2": 250,
       "high2": 470,
-      "price": 331,
+      "price": 333,
       "currency": "$",
       "note": "",
       "memo": "26年中报之后修正",
