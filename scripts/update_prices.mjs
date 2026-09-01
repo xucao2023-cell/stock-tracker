@@ -115,9 +115,12 @@ async function getFxRate(from, to) {
 // Detected by group/currency/code combination; source-currency decided below.
 function needsFxConversion(stock) {
   if (stock.currency !== '€') return null; // not targeted to EUR
+  // Groups that should report in EUR (regardless of native quote currency)
+  const EUR_TARGET_GROUPS = new Set(['Trade Republic', 'watch_TR']);
+  if (!EUR_TARGET_GROUPS.has(stock.group)) return null;
   if (stock.code.endsWith('.L')) return 'GBP';   // LSE = GBP via Yahoo
   if (stock.code.endsWith('.HK')) return 'HKD';  // HKEX = HKD via Tencent
-  if (stock.code.endsWith('.US') && stock.group === 'Trade Republic') return 'USD'; // US = USD via Tencent
+  if (stock.code.endsWith('.US')) return 'USD';  // US = USD via Tencent
   return null; // already EUR (e.g. .DE, .PA, .AS codes already trade in EUR)
 }
 
