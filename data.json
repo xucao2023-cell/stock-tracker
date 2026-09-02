@@ -1,12 +1,12 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-09-01T20:42:58.313Z",
+  "updatedAt": "2026-09-02T05:02:16.922Z",
   "stocks": [
     {
       "name": "腾讯控股",
       "code": "00700.HK",
-      "price": 48.57,
+      "price": 48,
       "currency": "€",
       "note": "DCF 842 / 熊市 479 / CAPEX失败 463",
       "group": "Trade Republic",
@@ -19,7 +19,7 @@
     {
       "name": "小米集团",
       "code": "01810.HK",
-      "price": 27.56,
+      "price": 27.86,
       "currency": "HK$",
       "note": "DCF 35.5 / SOTP 39.1 / PE 31.8-36.2",
       "group": "Trading 212",
@@ -123,7 +123,7 @@
     {
       "name": "工业富联",
       "code": "601138.SH",
-      "price": 62.94,
+      "price": 61.91,
       "currency": "¥",
       "note": "DCF 60-83 / 中性 80-90 / PE 93-108",
       "group": "watch_A股",
@@ -136,7 +136,7 @@
     {
       "name": "招商银行",
       "code": "600036.SH",
-      "price": 40.86,
+      "price": 40.82,
       "currency": "¥",
       "note": "RI+DDM 蒙特卡洛均值约 45-50",
       "group": "A股",
@@ -149,7 +149,7 @@
     {
       "name": "长江电力",
       "code": "600900.SH",
-      "price": 28,
+      "price": 29,
       "currency": "¥",
       "note": "DCF+DDM+PE 综合 / 蒙特卡洛中位 ≈30",
       "group": "A股",
@@ -162,7 +162,7 @@
     {
       "name": "中国移动",
       "code": "600941.SH",
-      "price": 99.89,
+      "price": 100.51,
       "currency": "¥",
       "note": "A 股 DCF / PB 低估 / 分红率 75%",
       "group": "watch_A股",
@@ -175,7 +175,7 @@
     {
       "name": "美的集团",
       "code": "000333.SZ",
-      "price": 87.49,
+      "price": 86.85,
       "currency": "¥",
       "note": "归一化 E×13-15×PE = 75-80（（修正后中枢）",
       "group": "watch_A股",
@@ -188,7 +188,7 @@
     {
       "name": "福耀玻璃",
       "code": "600660.SH",
-      "price": 57.85,
+      "price": 56.72,
       "currency": "¥",
       "note": "综合 75±10 / PE 13-20× / DCF 79-110",
       "group": "A股",
@@ -201,7 +201,7 @@
     {
       "name": "长电科技",
       "code": "600584.SH",
-      "price": 73.29,
+      "price": 71.42,
       "currency": "¥",
       "note": "DCF 35.7 / 乐观 52.9 / 综合 50（（偏高）",
       "group": "观察",
@@ -227,7 +227,7 @@
     {
       "name": "沪电股份",
       "code": "002463.SZ",
-      "price": 120.72,
+      "price": 118.96,
       "currency": "¥",
       "note": "DCF 基准 108 / 谨慎 99 / 乐观 158",
       "group": "watch_A股",
@@ -240,7 +240,7 @@
     {
       "name": "春秋航空",
       "code": "601021.SH",
-      "price": 43.74,
+      "price": 43.04,
       "currency": "¥",
       "note": "DCF 39.2 / PE 40.8-46.6 / 胜率 33%",
       "group": "A股",
@@ -253,7 +253,7 @@
     {
       "name": "宇通客车",
       "code": "600066.SH",
-      "price": 30.54,
+      "price": 29.77,
       "currency": "¥",
       "note": "DCF 基准 56.9 / 蒙特卡洛中位 55",
       "group": "观察",
@@ -270,7 +270,7 @@
       "high1": 50,
       "low2": 24,
       "high2": 78,
-      "price": 38.84,
+      "price": 38.48,
       "currency": "¥",
       "note": "",
       "memo": "26年半年报后",
@@ -283,7 +283,7 @@
       "high1": 55,
       "low2": 28,
       "high2": 62,
-      "price": 38.55,
+      "price": 38.57,
       "currency": "¥",
       "note": "",
       "memo": "",
@@ -309,7 +309,7 @@
       "high1": 180,
       "low2": 110,
       "high2": 235,
-      "price": 122.73,
+      "price": 121.1,
       "currency": "¥",
       "note": "",
       "memo": "基于26年中报，小心价格战",
@@ -322,7 +322,7 @@
       "high1": 45,
       "low2": 15,
       "high2": 60,
-      "price": 65.9,
+      "price": 66.75,
       "currency": "¥",
       "note": "",
       "memo": "26年中报之后",
