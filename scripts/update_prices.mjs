@@ -21,7 +21,7 @@ const DATA_PATH = new URL('../data.json', import.meta.url);
 const TENCENT_URL = 'https://qt.gtimg.cn/q=';
 const YAHOO_URL = (sym) => `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(sym)}?interval=1d&range=5d`;
 const YAHOO_UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36';
-const YAHOO_THROTTLE_MS = 1500;
+const YAHOO_THROTTLE_MS = 3000;  // 3s between Yahoo calls to stay under rate limit
 const SANITY_THRESHOLD = 0.5; // skip price if |new-old|/old > 50%
 
 // FX (Frankfurter.app — ECB-backed, free, no key, no CORS).
@@ -155,12 +155,22 @@ async function fetchTencentBatch(tencentSymbols) {
 }
 
 async function fetchYahooOne(symbol, attempt = 0) {
-  // Alternate query1 / query2 for load balancing; retry once on 429.
+  // Alternate query1 / query2 for load balancing; retry on 429 with backoff.
+  // Adding Referer: https://finance.yahoo.com/quote/{symbol} bypasses some
+  // anti-bot checks (Yahoo trusts requests that look like they came from
+  // navigating from a quote page).
   const host = (attempt + symbol.charCodeAt(0)) % 2 === 0 ? 'query1' : 'query2';
-  const url = `https://${host}.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(toYahooCode(symbol))}?interval=1d&range=5d`;
-  const res = await fetch(url, { headers: { 'User-Agent': YAHOO_UA } });
-  if (res.status === 429 && attempt < 2) {
-    await sleep(2000 * (attempt + 1));
+  const code = toYahooCode(symbol);
+  const url = `https://${host}.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(code)}?interval=1d&range=5d`;
+  const res = await fetch(url, {
+    headers: {
+      'User-Agent': YAHOO_UA,
+      'Referer': `https://finance.yahoo.com/quote/${encodeURIComponent(code)}`,
+      'Accept': 'application/json,text/plain,*/*',
+    },
+  });
+  if (res.status === 429 && attempt < 3) {
+    await sleep(3000 * (attempt + 1));  // 3s, 6s, 9s backoff
     return fetchYahooOne(symbol, attempt + 1);
   }
   if (!res.ok) throw new Error(`Yahoo ${symbol} HTTP ${res.status}`);
