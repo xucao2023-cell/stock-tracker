@@ -44,3 +44,9 @@ jobs:
 
       - name: Update prices
         run: node scripts/update_prices.mjs
+
+      - name: Update EU prices via Trading 212
+        env:
+          T212_API_KEY: ${{ secrets.T212_API_KEY }}
+          T212_API_SECRET: ${{ secrets.T212_API_SECRET }}
+        run: node scripts/t212_eu_quotes.mjs
