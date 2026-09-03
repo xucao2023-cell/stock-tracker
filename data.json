@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-09-03T20:42:32.303Z",
+  "updatedAt": "2026-09-03T20:42:34.832Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -32,7 +32,7 @@
     {
       "name": "E.ON",
       "code": "EOAN.DE",
-      "price": 17.4,
+      "price": 17.45,
       "currency": "€",
       "note": "DCF 中枢 €19 / 区间 13-19",
       "group": "watch_TR",
@@ -45,7 +45,7 @@
     {
       "name": "BMW",
       "code": "BMW.DE",
-      "price": 60.02,
+      "price": 61.76,
       "currency": "€",
       "note": "SOTP + 情景 DCF Bear/Base/Bull",
       "group": "Trade Republic",
@@ -58,7 +58,7 @@
     {
       "name": "Airbus",
       "code": "AIR.PA",
-      "price": 195,
+      "price": 197,
       "currency": "€",
       "note": "DCF 基准 €236 / 敏感性 200-280",
       "group": "Trade Republic",
@@ -374,7 +374,7 @@
       "high1": 64,
       "low2": 47,
       "high2": 69,
-      "price": 55.36,
+      "price": 55.18,
       "currency": "€",
       "note": "",
       "memo": "26年半年报后的估值",
@@ -387,7 +387,7 @@
       "high1": 1600,
       "low2": 900,
       "high2": 1900,
-      "price": 1445,
+      "price": 1423,
       "currency": "€",
       "note": "",
       "memo": "",
@@ -400,7 +400,7 @@
       "high1": 650,
       "low2": 423,
       "high2": 864,
-      "price": 524.7,
+      "price": 528,
       "currency": "€",
       "note": "",
       "memo": "",
