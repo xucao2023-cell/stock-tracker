@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-09-07T07:47:50.762Z",
+  "updatedAt": "2026-09-07T20:43:17.380Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -19,7 +19,7 @@
     {
       "name": "小米集团",
       "code": "01810.HK",
-      "price": 27.52,
+      "price": 27.5,
       "currency": "HK$",
       "note": "DCF 35.5 / SOTP 39.1 / PE 31.8-36.2",
       "group": "Trading 212",
