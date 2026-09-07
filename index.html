@@ -121,6 +121,15 @@
     padding-bottom:16px;border-bottom:1px solid var(--border);
     flex-wrap:wrap;gap:12px;
   }
+  .title-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+  .cross-link{
+    display:inline-flex;align-items:center;gap:4px;
+    font-size:12px;color:var(--text-2);
+    border:1px solid var(--border);border-radius:4px;
+    padding:4px 10px;text-decoration:none;
+    transition:background .12s,color .12s,border-color .12s;
+  }
+  .cross-link:hover{background:var(--row-hover);color:var(--text);border-color:var(--border-strong);}
 
   /* theme switcher */
   .theme-switch{
@@ -563,7 +572,10 @@
   <!-- Header -->
   <div class="topbar">
     <div>
-      <h1>股票估值跟踪 ✅</h1>
+      <div class="title-row">
+        <h1>股票估值跟踪 ✅</h1>
+        <a class="cross-link" href="https://xucao2023-cell.github.io/stock-tracker-lenient/" target="_blank" rel="noopener" title="打开激进情景版">↗ 切换到二号</a>
+      </div>
       <div class="sub">点表头排序 · 输入即存 · 数据保存在本地</div>
     </div>
     <div class="legend" style="font-size:11px;color:var(--muted);">
