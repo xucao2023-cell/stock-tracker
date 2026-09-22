@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-09-22T07:45:52.228Z",
+  "updatedAt": "2026-09-22T20:43:18.664Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -19,7 +19,7 @@
     {
       "name": "小米集团",
       "code": "01810.HK",
-      "price": 27.22,
+      "price": 27.2,
       "currency": "HK$",
       "note": "DCF 35.5 / SOTP 39.1 / PE 31.8-36.2",
       "group": "Trading 212",
@@ -71,7 +71,7 @@
     {
       "name": "美光科技",
       "code": "MU.US",
-      "price": 908.58,
+      "price": 956.26,
       "currency": "€",
       "note": "DCF 概率加权 $876 / 区间 269-1396",
       "group": "watch_TR",
@@ -84,7 +84,7 @@
     {
       "name": "Apple",
       "code": "AAPL.US",
-      "price": 295.02,
+      "price": 296.39,
       "currency": "€",
       "note": "DCF 敏感性 P5-P90 / PE 30× 基准",
       "group": "watch_TR",
@@ -97,7 +97,7 @@
     {
       "name": "onsemi",
       "code": "ON.US",
-      "price": 71.72,
+      "price": 73.6,
       "currency": "$",
       "note": "DCF $74.56 / 概率加权 $83.84",
       "group": "Trading 212",
@@ -110,7 +110,7 @@
     {
       "name": "Vertiv",
       "code": "VRT.US",
-      "price": 250.86,
+      "price": 253.46,
       "currency": "$",
       "note": "DCF WACC 11.5% g 3.5% / PE 35-45×",
       "group": "Trading 212",
@@ -296,7 +296,7 @@
       "high1": 370,
       "low2": 180,
       "high2": 500,
-      "price": 249.52,
+      "price": 238.25,
       "currency": "$",
       "note": "",
       "memo": "基于26中报更新估值",
@@ -335,7 +335,7 @@
       "high1": 483,
       "low2": 354,
       "high2": 561,
-      "price": 436.56,
+      "price": 434.44,
       "currency": "€",
       "note": "",
       "memo": "基于26年中报更新估值",
@@ -348,7 +348,7 @@
       "high1": 165,
       "low2": 77,
       "high2": 217,
-      "price": 138,
+      "price": 137,
       "currency": "$",
       "note": "",
       "memo": "已经更新呢26年半年报",
@@ -361,7 +361,7 @@
       "high1": 330,
       "low2": 216,
       "high2": 406,
-      "price": 305.37,
+      "price": 303.07,
       "currency": "€",
       "note": "",
       "memo": "26年中报之后修正",
