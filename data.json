@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-10-02T23:58:56.688Z",
+  "updatedAt": "2026-10-05T14:01:33.000Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -38,7 +38,7 @@
       "group": "watch_TR",
       "low1": 16.5,
       "high1": 19,
-      "low2": 13.6000000000001,
+      "low2": 13.6,
       "high2": 20,
       "memo": "基于26年Q2的估值"
     },
@@ -313,7 +313,7 @@
       "currency": "¥",
       "note": "",
       "memo": "基于26年中报，小心价格战",
-      "group": "watch_A股"
+      "group": "A股"
     },
     {
       "name": "英维克",
@@ -405,11 +405,63 @@
       "note": "",
       "memo": "",
       "group": "Trade Republic"
+    },
+    {
+      "name": "兆易创新",
+      "code": "603986.SH",
+      "low1": 340,
+      "high1": 410,
+      "low2": 194,
+      "high2": 635,
+      "price": 363,
+      "currency": "¥",
+      "note": "",
+      "memo": "",
+      "group": "watch_A股"
+    },
+    {
+      "name": "甲骨文",
+      "code": "ORCL.US",
+      "low1": 193,
+      "high1": 260,
+      "low2": 115,
+      "high2": 315,
+      "price": 145,
+      "currency": "$",
+      "note": "",
+      "memo": "",
+      "group": "Trading 212"
+    },
+    {
+      "name": "Siltronic",
+      "code": "WAF.DE",
+      "low1": 60,
+      "high1": 90,
+      "low2": 44,
+      "high2": 103,
+      "price": 82,
+      "currency": "€",
+      "note": "",
+      "memo": "",
+      "group": "watch_TR"
+    },
+    {
+      "name": "Cloudflare",
+      "code": "NET.US",
+      "low1": 230,
+      "high1": 311,
+      "low2": 195.5,
+      "high2": 357.65,
+      "price": 355,
+      "currency": "$",
+      "note": "",
+      "memo": "",
+      "group": "watch_TR"
     }
   ],
   "settings": {
     "theme": "light",
-    "activeGroup": "A股",
+    "activeGroup": "Trading 212",
     "sortKey": "gap",
     "sortDir": -1
   }
