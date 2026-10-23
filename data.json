@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-10-22T23:32:00.043Z",
+  "updatedAt": "2026-10-23T12:50:33.859Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -19,7 +19,7 @@
     {
       "name": "小米集团",
       "code": "01810.HK",
-      "price": 25.8,
+      "price": 26.8,
       "currency": "HK$",
       "note": "DCF 35.5 / SOTP 39.1 / PE 31.8-36.2",
       "group": "Trading 212",
@@ -123,7 +123,7 @@
     {
       "name": "工业富联",
       "code": "601138.SH",
-      "price": 48,
+      "price": 49,
       "currency": "¥",
       "note": "DCF 60-83 / 中性 80-90 / PE 93-108",
       "group": "watch_A股",
@@ -149,7 +149,7 @@
     {
       "name": "长江电力",
       "code": "600900.SH",
-      "price": 30,
+      "price": 29,
       "currency": "¥",
       "note": "DCF+DDM+PE 综合 / 蒙特卡洛中位 ≈30",
       "group": "A股",
@@ -175,7 +175,7 @@
     {
       "name": "美的集团",
       "code": "000333.SZ",
-      "price": 85,
+      "price": 86,
       "currency": "¥",
       "note": "归一化 E×13-15×PE = 75-80（（修正后中枢）",
       "group": "watch_A股",
@@ -188,7 +188,7 @@
     {
       "name": "福耀玻璃",
       "code": "600660.SH",
-      "price": 52,
+      "price": 53,
       "currency": "¥",
       "note": "综合 75±10 / PE 13-20× / DCF 79-110",
       "group": "A股",
@@ -201,7 +201,7 @@
     {
       "name": "长电科技",
       "code": "600584.SH",
-      "price": 59,
+      "price": 60,
       "currency": "¥",
       "note": "DCF 35.7 / 乐观 52.9 / 综合 50（（偏高）",
       "group": "观察",
@@ -214,7 +214,7 @@
     {
       "name": "东方雨虹",
       "code": "002271.SZ",
-      "price": 10,
+      "price": 11,
       "currency": "¥",
       "note": "DCF 16.74 / PE 10.05-13.4 / 分析师 18-20",
       "group": "watch_A股",
@@ -240,7 +240,7 @@
     {
       "name": "春秋航空",
       "code": "601021.SH",
-      "price": 37.64,
+      "price": 37.65,
       "currency": "¥",
       "note": "DCF 39.2 / PE 40.8-46.6 / 胜率 33%",
       "group": "A股",
@@ -253,7 +253,7 @@
     {
       "name": "宇通客车",
       "code": "600066.SH",
-      "price": 27,
+      "price": 28,
       "currency": "¥",
       "note": "DCF 基准 56.9 / 蒙特卡洛中位 55",
       "group": "观察",
@@ -309,7 +309,7 @@
       "high1": 180,
       "low2": 110,
       "high2": 235,
-      "price": 101,
+      "price": 104,
       "currency": "¥",
       "note": "",
       "memo": "基于26年中报，小心价格战",
@@ -413,7 +413,7 @@
       "high1": 410,
       "low2": 194,
       "high2": 635,
-      "price": 277,
+      "price": 292,
       "currency": "¥",
       "note": "",
       "memo": "",
