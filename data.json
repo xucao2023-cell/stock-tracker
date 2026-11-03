@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-03T21:07:00.345Z",
+  "updatedAt": "2026-11-03T21:42:04.378Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -260,10 +260,32 @@
       "group": "Trading 212",
       "low1": 202.28,
       "high1": 258.73,
-      "low2": null,
+      "low2": 182.04,
       "high2": null,
       "memo": "已更新26年Q2，240以下可以开始加仓，胜率比较高",
-      "valuationDate": "2026-10-28"
+      "valuationDate": "2026-10-28",
+      "valuationCenter": 230.5,
+      "valuationCurrency": "USD",
+      "valuationReport": "reports/VRT-20261028-bounds.html",
+      "valuationMethod": "原SOTP主锚及指引映射；Z下沿沿用原历史压力倍数并统一正常化利润，牛档未验证",
+      "valuationScenarios": {
+        "pressure": {
+          "low": 182.04,
+          "high": 202.64,
+          "ebitdaUSDMillion": 4412.314285714286,
+          "multiples": [
+            16.156103286384976,
+            18
+          ],
+          "label": "同一正常化盈利，仅压倍数；不是经营危机底价"
+        },
+        "bull": {
+          "high": null,
+          "status": "unverified",
+          "reason": "原高溢价试算采用超过历史实际峰值的未来盈利，不是已验证牛档"
+        }
+      },
+      "valuationCaveat": "仅补齐2026-10-28已采用指引映射下的压力端点；22.23%利润率是自建桥接，非公司2027指引。原22%压力值180.30美元/股统一为22.23%后为182.04美元/股；不混用两套利润。Z上限仍缺可靠牛档；并购、产品利润、历史同期限倍数等缺项沿用原报告。"
     },
     {
       "name": "工业富联",
@@ -353,15 +375,54 @@
       "code": "600584.SH",
       "price": 47,
       "currency": "¥",
-      "note": "2026-10-28｜2026年三季报复核·待确认",
+      "note": "2026-10-28｜2026年三季报后估值复核",
       "group": "watch_A股",
-      "low1": 28,
-      "high1": 40,
-      "low2": 16.4,
-      "high2": 57.2,
+      "low1": 36.57,
+      "high1": 40.29,
+      "low2": 28.42,
+      "high2": 62.2,
       "memo": "已经更新2026中报后估值",
-      "valuationStatus": "pending",
-      "valuationDate": "2026-10-28"
+      "valuationDate": "2026-10-28",
+      "valuationCenter": 38.56,
+      "valuationCurrency": "CNY",
+      "valuationReport": "reports/JCET-20261028-bounds.html",
+      "valuationMethod": "2021–2025历史正常化市场主锚；H中央40%–60%倍数，Z低倍数熊档至历史盈利峰值牛档",
+      "valuationScenarios": {
+        "bear": {
+          "label": "熊市：只压倍数",
+          "profit": 22.305871611485486,
+          "multiple_low": 22.801208652817145,
+          "multiple": 24.13686908022624,
+          "multiple_high": 25.241013307605627,
+          "reason": "正常化盈利保持不变，仅使用历史正常化倍数5%–15%尾部；不同时再压利润",
+          "low": 28.42275017333916,
+          "center": 30.087712027893026,
+          "high": 31.464078342854204
+        },
+        "base": {
+          "label": "基准：穿越周期",
+          "profit": 22.305871611485486,
+          "multiple_low": 29.340187697663985,
+          "multiple": 30.934025467433134,
+          "multiple_high": 32.318532635725354,
+          "reason": "当前TTM规模×2021–2025加权扣非利润率，减平滑新增SBC；历史倍数中央40%–60%",
+          "low": 36.57388683500989,
+          "center": 38.560678563323975,
+          "high": 40.28653011605317
+        },
+        "bull": {
+          "label": "牛市：盈利到历史峰值",
+          "profit": 28.298697789299997,
+          "multiple_low": 35.0063139772823,
+          "multiple": 37.168539228548624,
+          "multiple_high": 39.330764479814945,
+          "reason": "扣非盈利上限取2022年实际峰值，不超历史峰值；倍数为历史75%–90%分位",
+          "low": 55.36073733659497,
+          "center": 58.780188589748604,
+          "high": 62.19963984290225
+        }
+      },
+      "valuationCaveat": "同步2026-10-28原报告的历史市场参照，置信度中低；不是四种模型的最小/最大值。DCF渐进22.84元/股、研报约束26.03元/股、升级兑现58.20元/股各自独立，不与H/Z平均；结构升级、资本支出、终值与融资仍有未验证项。"
     },
     {
       "name": "东方雨虹",
@@ -602,10 +663,29 @@
       "group": "Trade Republic",
       "low1": 60,
       "high1": 70,
-      "low2": null,
-      "high2": null,
+      "low2": 57.79,
+      "high2": 95.17,
       "memo": "",
-      "valuationDate": "2026-10-20"
+      "valuationDate": "2026-10-20",
+      "valuationCenter": 62.93,
+      "valuationCurrency": "EUR",
+      "valuationReport": "reports/WAF-20261020-bounds.html",
+      "valuationMethod": "正常化EBITDA×历史倍数，折现恢复时点；Z取原报告温和倍数压力与景气上行情景",
+      "valuationScenarios": {
+        "bear": {
+          "low": 57.79,
+          "ebitdaEURMillion": 450.52,
+          "multiple": 7.1803188565145675,
+          "exitYear": 2027
+        },
+        "bull": {
+          "high": 95.17,
+          "ebitdaEURMillion": 607.7,
+          "multiple": 7.988246139663517,
+          "exitYear": 2028
+        }
+      },
+      "valuationCaveat": "仅同步2026-10-20已采纳报告，未作2026-11-04重估；熊档为温和倍数压力，非极端底价；牛档依赖2028预测兑现。历史样本、现金投资及少数股权估值仍有缺证；永续DCF约38.19欧元/股，未与市场主锚平均。"
     },
     {
       "name": "携程",
