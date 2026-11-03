@@ -89,3 +89,54 @@ test('non-rate-limit errors are surfaced without repeated requests', async () =>
     assert.deepEqual(c.waits, []);
   }
 });
+
+async function requestTimes(slot, start, replies = [ok()], firstWakeLateMs = 0) {
+  let time = 1_800_000_000_000 + start;
+  let firstSleep = true;
+  const times = [];
+  await fetchPositions({
+    baseUrl: 'https://live.trading212.com/api/v0', apiKey: 'test-key', apiSecret: 'test-secret',
+    requestSlot: slot, now: () => time, random: () => 0, log: () => {},
+    sleep: async (ms) => {
+      time += ms + (firstSleep ? firstWakeLateMs : 0);
+      firstSleep = false;
+    },
+    fetchImpl: async () => {
+      times.push(time);
+      const reply = replies.shift();
+      assert(reply, 'unexpected extra request');
+      return reply;
+    },
+  });
+  return times;
+}
+
+test('simultaneously started sites send five seconds apart', async () => {
+  const [one, two] = await Promise.all([requestTimes(0, 0), requestTimes(1, 0)]);
+  assert.equal(two[0] - one[0], 5000);
+});
+
+test('independently delayed jobs always send inside their own windows', async () => {
+  const one = [], two = [];
+  for (const start of [0, 250, 499, 500, 1250, 4500, 5000, 5250, 5499, 5500, 9999]) {
+    one.push(...await requestTimes(0, start));
+    two.push(...await requestTimes(1, start));
+  }
+  for (const time of one) assert(time % 10000 < 500);
+  for (const time of two) assert(time % 10000 >= 5000 && time % 10000 < 5500);
+  for (const a of one) for (const b of two) assert(Math.abs(a - b) >= 4500);
+});
+
+test('late wakeups wait for the next window instead of colliding', async () => {
+  const times = await requestTimes(0, 9500, [ok()], 600);
+  assert.equal(times[0], 1_800_000_020_000);
+});
+
+test('429 retries also respect the assigned request window', async () => {
+  const times = await requestTimes(1, 0, [limited({ 'retry-after': '1' }), ok()]);
+  assert.deepEqual(times, [1_800_000_005_000, 1_800_000_015_000]);
+});
+
+test('invalid site slot fails before requesting positions', async () => {
+  await assert.rejects(requestTimes(2, 0), /requestSlot must be 0 or 1/);
+});

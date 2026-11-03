@@ -28,6 +28,7 @@ const DATA_PATH = new URL('../data.json', import.meta.url);
 const T212_BASE = 'https://live.trading212.com/api/v0';
 const T212_KEY = process.env.T212_API_KEY;
 const T212_SECRET = process.env.T212_API_SECRET;
+const T212_REQUEST_SLOT = 0; // Site 1: UTC seconds 0.0–0.5 within each 10-second cycle.
 
 if (!T212_KEY || !T212_SECRET) {
   console.error('[fatal] T212_API_KEY and T212_API_SECRET env vars are required');
@@ -69,7 +70,7 @@ async function main() {
   // 1) Fetch T212 positions
   let positions;
   try {
-    positions = await fetchPositions({ baseUrl: T212_BASE, apiKey: T212_KEY, apiSecret: T212_SECRET });
+    positions = await fetchPositions({ baseUrl: T212_BASE, apiKey: T212_KEY, apiSecret: T212_SECRET, requestSlot: T212_REQUEST_SLOT });
   } catch (e) {
     console.error('[t212]', e.message);
     process.exit(1);
