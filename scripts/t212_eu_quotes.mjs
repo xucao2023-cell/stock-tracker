@@ -20,6 +20,7 @@
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
+import { fetchPositions } from './t212_positions.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const DATA_PATH = new URL('../data.json', import.meta.url);
@@ -49,10 +50,6 @@ const SANITY_THRESHOLD = 0.5; // skip if |new-old|/old > 50%
 
 // ---------- helpers ----------
 
-function basicAuthHeader(key, secret) {
-  return 'Basic ' + Buffer.from(`${key}:${secret}`, 'utf8').toString('base64');
-}
-
 function isInt(v) {
   return Number.isFinite(v) && Number.isInteger(v);
 }
@@ -61,19 +58,6 @@ function formatPriceLikeOriginal(value, original) {
   const rounded = Math.round(value * 100) / 100;
   if (isInt(original)) return String(Math.round(rounded));
   return String(rounded);
-}
-
-// ---------- API fetchers ----------
-
-async function fetchPositions() {
-  const res = await fetch(`${T212_BASE}/equity/positions`, {
-    headers: { 'Authorization': basicAuthHeader(T212_KEY, T212_SECRET) },
-  });
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`T212 /equity/positions HTTP ${res.status}: ${text}`);
-  }
-  return res.json();
 }
 
 // ---------- main ----------
@@ -85,7 +69,7 @@ async function main() {
   // 1) Fetch T212 positions
   let positions;
   try {
-    positions = await fetchPositions();
+    positions = await fetchPositions({ baseUrl: T212_BASE, apiKey: T212_KEY, apiSecret: T212_SECRET });
   } catch (e) {
     console.error('[t212]', e.message);
     process.exit(1);
