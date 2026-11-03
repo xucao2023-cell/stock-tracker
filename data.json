@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-03T21:42:04.378Z",
+  "updatedAt": "2026-11-03T21:43:46.173Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -93,7 +93,7 @@
       },
       "valuationCaveat": "低至中低置信：22亿欧元费用代理按100%付现、30%税盾和假设日期折现；裁员增量节约未重复加。历史连续分位、完整Q3与现金拆分未验证。",
       "priceAsOf": "2026-11-03T21:00:00.000Z",
-      "priceObservedAt": "2026-11-03T21:06:52.953Z",
+      "priceObservedAt": "2026-11-03T21:43:46.172Z",
       "priceTimestampType": "quote-page-refresh; last-trade timestamp not separately supplied",
       "priceSource": "Tradegate BSX",
       "priceSourceUrl": "https://www.tradegatebsx.com/orderbuch.php?isin=DE0005190003",
@@ -254,7 +254,7 @@
     {
       "name": "Vertiv",
       "code": "VRT.US",
-      "price": 235.99,
+      "price": 235.97,
       "currency": "$",
       "note": "2026-10-28｜2026年三季报后估值更新",
       "group": "Trading 212",
@@ -704,7 +704,7 @@
     {
       "name": "Cloudflare",
       "code": "NET.US",
-      "price": 273.46,
+      "price": 273.62,
       "currency": "$",
       "note": "2026-10-16｜2026年二季报后估值复核",
       "group": "watch_T212",
