@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-03T21:02:22.087Z",
+  "updatedAt": "2026-11-03T21:06:52.953Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -45,7 +45,7 @@
     {
       "name": "BMW",
       "code": "BMW.DE",
-      "price": 56.58,
+      "price": 56.6,
       "currency": "€",
       "note": "2026-11-04｜2026年中报及11月盈利预警复核",
       "group": "Trade Republic",
@@ -92,8 +92,8 @@
         }
       },
       "valuationCaveat": "低至中低置信：22亿欧元费用代理按100%付现、30%税盾和假设日期折现；裁员增量节约未重复加。历史连续分位、完整Q3与现金拆分未验证。",
-      "priceAsOf": "2026-11-03T20:07:26.000Z",
-      "priceObservedAt": "2026-11-03T20:07:38.329Z",
+      "priceAsOf": "2026-11-03T21:00:00.000Z",
+      "priceObservedAt": "2026-11-03T21:06:52.953Z",
       "priceTimestampType": "quote-page-refresh; last-trade timestamp not separately supplied",
       "priceSource": "Tradegate BSX",
       "priceSourceUrl": "https://www.tradegatebsx.com/orderbuch.php?isin=DE0005190003",
@@ -101,7 +101,7 @@
         "symbol": "BMW.DE",
         "isin": "DE0005190003",
         "currency": "EUR",
-        "price": 56.58
+        "price": 56.6
       },
       "priceFx": {
         "from": "EUR",
@@ -128,7 +128,7 @@
     {
       "name": "美光科技",
       "code": "MU.US",
-      "price": 759.14,
+      "price": 764.91,
       "currency": "€",
       "note": "2026-10-15｜2026财年年报后重估",
       "group": "watch_TR",
@@ -142,7 +142,7 @@
     {
       "name": "Apple",
       "code": "AAPL.US",
-      "price": 295.13,
+      "price": 296.89,
       "currency": "€",
       "note": "2026-11-03｜2026财年四季报快报后复核",
       "group": "watch_TR",
@@ -204,7 +204,7 @@
     {
       "name": "onsemi",
       "code": "ON.US",
-      "price": 72,
+      "price": 73,
       "currency": "$",
       "note": "2026-11-03｜2026年三季报后重估",
       "group": "watch_T212",
@@ -254,7 +254,7 @@
     {
       "name": "Vertiv",
       "code": "VRT.US",
-      "price": 233.75,
+      "price": 235.99,
       "currency": "$",
       "note": "2026-10-28｜2026年三季报后估值更新",
       "group": "Trading 212",
@@ -476,7 +476,7 @@
       "high1": 290,
       "low2": 151.67,
       "high2": 403.81,
-      "price": 246.48,
+      "price": 246.14,
       "currency": "$",
       "note": "2026-10-20｜2026财年三季报后重估",
       "memo": "基于26中报更新估值",
@@ -517,7 +517,7 @@
       "high1": 501.25,
       "low2": 393.84,
       "high2": 626.57,
-      "price": 467.48,
+      "price": 466.04,
       "currency": "€",
       "note": "2026-10-29｜2027财年一季报后重估",
       "memo": "基于26年中报更新估值",
@@ -531,7 +531,7 @@
       "high1": 175,
       "low2": 97,
       "high2": 224,
-      "price": 108,
+      "price": 109,
       "currency": "$",
       "note": "2026年二季报后估值",
       "memo": "已经更新呢26年半年报",
@@ -544,7 +544,7 @@
       "high1": 340,
       "low2": 257,
       "high2": 435,
-      "price": 278.11,
+      "price": 280.03,
       "currency": "$",
       "note": "2026-10-29｜2026年三季报后重估",
       "memo": "26年中报之后修正",
@@ -610,7 +610,7 @@
     {
       "name": "携程",
       "code": "TCOM.US",
-      "price": 41.53,
+      "price": 41.38,
       "currency": "$",
       "note": "2026-10-14｜2026年二季报后重估",
       "group": "Trading 212",
@@ -624,7 +624,7 @@
     {
       "name": "Cloudflare",
       "code": "NET.US",
-      "price": 273.07,
+      "price": 273.46,
       "currency": "$",
       "note": "2026-10-16｜2026年二季报后估值复核",
       "group": "watch_T212",
@@ -638,7 +638,7 @@
     {
       "name": "英伟达",
       "code": "NVDA.US",
-      "price": 184.86,
+      "price": 184.89,
       "currency": "€",
       "note": "2026-10-15｜2027财年二季报后重估",
       "group": "watch_TR",
@@ -680,7 +680,7 @@
     {
       "name": "甲骨文",
       "code": "ORCL.US",
-      "price": 125,
+      "price": 126,
       "currency": "$",
       "note": "2026-11-02｜2027财年一季报及新指引后重估",
       "group": "Trading 212",
@@ -727,7 +727,7 @@
     {
       "name": "Bloom Energy",
       "code": "BE.US",
-      "price": 214.17,
+      "price": 214,
       "currency": "$",
       "note": "2026-10-24｜2026年三季报后重估",
       "group": "watch_T212",
@@ -741,7 +741,7 @@
     {
       "name": "SK海力士",
       "code": "SKHY.US",
-      "price": 150.3,
+      "price": 150.79,
       "currency": "$",
       "note": "2026-11-02｜2026年三季度初步业绩后情景复核",
       "group": "Trading 212",
@@ -752,7 +752,7 @@
       "memo": "",
       "valuationDate": "2026-11-02",
       "priceUnit": "USD/ADS",
-      "priceAsOf": "2026-11-03T20:07:34.000Z",
+      "priceAsOf": "2026-11-03T21:00:01.000Z",
       "priceSource": "Yahoo SKHY actual ADS quote (USD)",
       "valuationHorizon": 6,
       "valuationScenarios": {
@@ -782,7 +782,7 @@
     {
       "name": "英特尔",
       "code": "INTC.US",
-      "price": 53.85,
+      "price": 54.16,
       "currency": "€",
       "note": "2026-10-30｜2026年三季报后转型重估",
       "group": "watch_TR",
@@ -810,7 +810,7 @@
     {
       "name": "Nebius",
       "code": "NBIS.US",
-      "price": 150.74,
+      "price": 151.64,
       "currency": "$",
       "note": "2026-10-30｜2026年二季报后估值",
       "group": "Trading 212",
@@ -824,7 +824,7 @@
     {
       "name": "Marvell",
       "code": "MRVL.US",
-      "price": 152.46,
+      "price": 153.83,
       "currency": "€",
       "note": "2026-11-03｜2027财年三季度营收初步披露及并购后复核",
       "group": "watch_TR",
@@ -939,12 +939,12 @@
         "causality": "Stock-for-stock transmission is arithmetic; investor motives are interpretations. The spread is not a failure probability."
       },
       "valuationConfidence": "low-to-medium-low",
-      "priceAsOf": "2026-11-03T20:07:37.000Z",
+      "priceAsOf": "2026-11-03T21:00:02.000Z",
       "priceSource": "Yahoo MRVL actual quote (USD); Frankfurter/ECB conversion to EUR",
       "priceNative": {
         "symbol": "MRVL",
         "currency": "USD",
-        "price": 170.44
+        "price": 171.97
       },
       "priceFx": {
         "from": "USD",
