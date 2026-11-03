@@ -1,0 +1,82 @@
+{
+  "asOf": "2026-11-03",
+  "type": "Supplementary H-band multiple sensitivity",
+  "originalOperatingInputsUnchanged": true,
+  "originalBaseUnchanged": true,
+  "inputSources": {
+    "model": "extracted/revaluation_20261103/valuation_results.json",
+    "report": "Marvell_初步业绩及并购后重估_20261103.md"
+  },
+  "sourceClassification": {
+    "companyFacts": "Original official Q2 statements and Nov 2 merger/Q3 preliminary-revenue disclosure.",
+    "companyTargets": "FY2028 revenue USD20bn is a management target, not realised normal earnings.",
+    "consensus": "Original dated financial forecast is retained only as context, not a price target.",
+    "researchAssumptions": "Normalised margins, SBC, tax, 22/24/26 economic PE, 50% synergy, costs and timing."
+  },
+  "inputUnits": "USD billions and shares billions; bridge output also shown in USD100m",
+  "inputs": {
+    "mrvlEconomicNI": 4.82,
+    "liteEconomicNI": 2.5912,
+    "netNonoperatingAdjustment": 0.0759,
+    "afterTaxSynergy": 0.41,
+    "integrationCost": 1.0,
+    "ke": 0.15320119554502742,
+    "closeYears": 1.5,
+    "shares": 1.3981
+  },
+  "H": {
+    "low": {
+      "multiple": 22,
+      "mrvlEquityUSD100m": 1061.159,
+      "liteEquityUSD100m": 570.0640000000001,
+      "synergyNetPVUSD100m": 64.76147659737323,
+      "combinedEquityUSD100m": 1695.9844765973735,
+      "USD_per_share": 121.30637841337341,
+      "EUR_per_share": 108.1547596410248,
+      "equivalentMrvlAdjustedPE": 17.292889758643184
+    },
+    "base": {
+      "multiple": 24,
+      "mrvlEquityUSD100m": 1157.5590000000002,
+      "liteEquityUSD100m": 621.888,
+      "synergyNetPVUSD100m": 71.38297420458596,
+      "combinedEquityUSD100m": 1850.829974204586,
+      "USD_per_share": 132.38180203165626,
+      "EUR_per_share": 118.02942406531407,
+      "equivalentMrvlAdjustedPE": 18.864970645792567
+    },
+    "high": {
+      "multiple": 26,
+      "mrvlEquityUSD100m": 1253.959,
+      "liteEquityUSD100m": 673.712,
+      "synergyNetPVUSD100m": 78.00447181179868,
+      "combinedEquityUSD100m": 2005.6754718117988,
+      "USD_per_share": 143.45722564993915,
+      "EUR_per_share": 127.90408848960338,
+      "equivalentMrvlAdjustedPE": 20.437051532941947
+    }
+  },
+  "Z": {
+    "low": {
+      "USD_per_share": 94.89306937400998,
+      "EUR_per_share": 84.6050903833898
+    },
+    "high": {
+      "USD_per_share": 195.9783946727695,
+      "EUR_per_share": 174.73109368114257
+    }
+  },
+  "fx": {
+    "USD_per_EUR": 1.1216,
+    "date": "2026-11-02",
+    "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+  },
+  "methodReason": "22-26 is a judgment range around retained 24x core: approximately 17.29-20.44x original MRVL adjusted earnings. The original comparable snapshot provides context, not a verified historical percentile. H does not assume accelerated peak margins.",
+  "confidence": "Low to medium-low; original checklist gaps and DCF divergence retained.",
+  "unchangedDCF": {
+    "standaloneUSD": 90.56107191552668,
+    "combinedUSD": 81.29272994612406,
+    "wacc": 0.15,
+    "terminalShare": 0.4883385306752312
+  }
+}

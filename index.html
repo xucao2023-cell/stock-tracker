@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>股票估值跟踪</title>
+<title>股票估值跟踪一号</title>
 <link rel="apple-touch-icon" sizes="180x180" href="icon.png">
 <link rel="icon" type="image/png" href="icon.png">
 <style>
@@ -445,6 +445,7 @@
   .pill.pos{background:var(--pos-bg);color:var(--pos);}
   .pill.neg{background:var(--neg-bg);color:var(--neg);}
   .pill.neutral{background:var(--surface-2);color:var(--muted);}
+  .pill.pending{background:var(--surface-2);color:var(--muted);border:1px dashed var(--border-strong);}
 
   .del-btn{background:none;border:none;color:var(--muted-2);cursor:pointer;font-size:14px;padding:2px 6px;border-radius:3px;transition:all .12s;}
   .del-btn:hover{color:var(--neg);background:var(--neg-bg);}
@@ -575,10 +576,10 @@
   <div class="topbar">
     <div>
       <div class="title-row">
-        <h1>股票估值跟踪 ✅</h1>
-        <a class="cross-link" href="https://xucao2023-cell.github.io/stock-tracker-lenient/" title="打开激进情景版">↗ 切换到二号</a>
+        <h1>股票估值跟踪一号 ✅</h1>
+        <a class="cross-link" href="https://xucao2023-cell.github.io/stock-tracker-lenient/" title="打开二号网站">↗ 切换到二号</a>
       </div>
-      <div class="sub">点表头排序 · 输入即存 · 数据保存在本地</div>
+      <div class="sub">H = 合理区间 · Z = 熊档低值–牛档高值 · 空白 = 尚未提供</div>
     </div>
     <div class="legend" style="font-size:11px;color:var(--muted);">
       <span style="display:inline-block;padding:2px 8px;border:1px solid var(--border);border-radius:3px;margin-right:6px;"><span style="color:var(--neg);font-weight:700;">●</span> 严重低估</span>
@@ -629,8 +630,8 @@
       <div class="field"><label>当前股价</label><input id="in-price" class="num-field" type="text" inputmode="decimal" placeholder="选填" autocomplete="off" title="选填，默认=下限1"></div>
       <div class="field"><label class="h-label">H 下限</label><input id="in-low1" class="num-field" type="text" inputmode="decimal" placeholder="60" autocomplete="off"></div>
       <div class="field"><label class="h-label">H 上限</label><input id="in-high1" class="num-field" type="text" inputmode="decimal" placeholder="90" autocomplete="off"></div>
-      <div class="field"><label class="z-label">Z 下限</label><input id="in-low2" class="num-field" type="text" inputmode="decimal" placeholder="选填 = H*0.85" autocomplete="off"></div>
-      <div class="field"><label class="z-label">Z 上限</label><input id="in-high2" class="num-field" type="text" inputmode="decimal" placeholder="选填 = H*1.15" autocomplete="off"></div>
+      <div class="field"><label class="z-label">Z 熊档低值</label><input id="in-low2" class="num-field" type="text" inputmode="decimal" placeholder="未提供可留空" autocomplete="off"></div>
+      <div class="field"><label class="z-label">Z 牛档高值</label><input id="in-high2" class="num-field" type="text" inputmode="decimal" placeholder="未提供可留空" autocomplete="off"></div>
     </div>
 
     <div class="tbl-wrap">
@@ -928,6 +929,52 @@ const DEFAULT_STOCKS = DEFAULT_BASE.map(({lo, hi, wl, wh, ...rest}) => ({
   memo:''
 }));
 
+// One-time migration from the old Korean ordinary-share row to SKHY ADS.
+// Keep the user's name, group and personal memo. Later cloud snapshots own valuations.
+const SKHY_ADS_MIGRATION = {
+  "code": "SKHY.US",
+  "price": 149.21,
+  "currency": "$",
+  "note": "2026-11-02｜2026年三季度初步业绩后情景复核",
+  "low1": 134.3,
+  "high1": 139.75,
+  "low2": 119.71,
+  "high2": 151.33,
+  "valuationDate": "2026-11-02",
+  "priceUnit": "USD/ADS",
+  "priceAsOf": "2026-10-30 regular-session close",
+  "priceSource": "Yahoo SKHY actual ADS quote (USD)",
+  "valuationHorizon": 6,
+  "valuationScenarios": {
+    "bear": {
+      "price": 119.70803895973191,
+      "normalNopatUsd100m": 389.81405421551784,
+      "exitMultiple": 10.0,
+      "horizon": 4
+    },
+    "base": {
+      "price": 137.02876682343003,
+      "normalNopatUsd100m": 389.81405421551784,
+      "exitMultiple": 11.0,
+      "horizon": 6
+    },
+    "bull": {
+      "price": 151.32521597723024,
+      "normalNopatUsd100m": 389.81405421551784,
+      "exitMultiple": 12.0,
+      "horizon": 8
+    }
+  },
+  "valuationReport": "reports/SKHY-20261102.html",
+  "valuationCaveat": "H为六年路径、12.5%折现率下的10—12倍核心带；Z为四年10倍至八年12倍的情景外沿。四年路径仍假设前三年高利润兑现，区间不构成价格保证。",
+  "valuationHorizonLabel": "H：6年10—12倍；Z：4年10倍—8年12倍"
+};
+function migrateSkhyAds(s){
+  if(s.code !== '000660.KS') return false;
+  Object.assign(s, SKHY_ADS_MIGRATION);
+  return true;
+}
+
 let stocks = load();
 
 // 排序状态（从 localStorage 恢复）
@@ -950,17 +997,20 @@ function sortStocks(list){
     }
     let va, vb;
     if(key === 'status'){
-      const order = {severe_pos:0, pos:1, neutral:2, neg:3, severe_neg:4};
+      const order = {severe_pos:0, pos:1, neutral:2, neg:3, severe_neg:4, pending:5};
       va = order[judge(a)] ?? 3;
       vb = order[judge(b)] ?? 3;
     } else if(key === 'gap'){
       va = gapPct(a);
       vb = gapPct(b);
     } else if(key === 'low'){
-      va = Math.min(a.low1, a.low2); vb = Math.min(b.low1, b.low2);
+      va = Math.min(...[a.low1, a.low2].filter(validBound));
+      vb = Math.min(...[b.low1, b.low2].filter(validBound));
     } else { // price
       va = a.price; vb = b.price;
     }
+    if(!Number.isFinite(va)) return Number.isFinite(vb) ? 1 : 0;
+    if(!Number.isFinite(vb)) return -1;
     return dir * (va - vb);
   });
 }
@@ -1006,6 +1056,7 @@ function load(){
   list.forEach(s => {
     if(!GROUPS.includes(s.group)){ s.group = inferGroup(s.code); dirty = true; }
     if(typeof s.memo !== 'string'){ s.memo = ''; dirty = true; }
+    if(migrateSkhyAds(s)) dirty = true;
     // 老数据只有 low/high 时，复制为 hermes 套；zcode 套 = hermes ±15%
     if(typeof s.low1 !== 'number' && typeof s.low === 'number'){
       s.low1 = s.low; s.high1 = s.high;
@@ -1034,8 +1085,17 @@ async function fetchCloud(){
 }
 
 function applyCloudData(data, fromCloud){
-  // 替换 stocks 为云端数据，然后重新渲染
-  stocks = data.stocks;
+  // Preserve the personal memo/group when the holding changes instrument code.
+  const localSkhy = stocks.find(s => s.code === 'SKHY.US' || s.code === '000660.KS');
+  stocks = data.stocks.map(s => {
+    const next = {...s};
+    migrateSkhyAds(next);
+    if(next.code === 'SKHY.US' && localSkhy){
+      if(localSkhy.memo) next.memo = localSkhy.memo;
+      if(GROUPS.includes(localSkhy.group)) next.group = localSkhy.group;
+    }
+    return next;
+  });
   // 同步 settings
   if(data.settings){
     if(data.settings.theme)      try{ localStorage.setItem(LS_THEME, data.settings.theme); }catch(e){}
@@ -1151,17 +1211,13 @@ function startCloudPolling(){
   setInterval(() => trySyncFromCloud(true), CLOUD_POLL_MS);
 }
 
-// 仅 H 套判定：H 区间内=合理，Z 区间外=严重
-// 状态：severe_pos（严重低估） / pos（低估） / neutral（合理） / neg（高估） / severe_neg（严重高估）
-// Z 套一定包住 H 套（用户硬约束），所以 5 个区间按价格递增严格分区
+// H 为合理区间，Z 为熊档低值／牛档高值；缺少的端点不参与严重程度判断。
+function validBound(v){ return Number.isFinite(v) && v > 0; }
 function judge(s){
-  // 边界处理：价格 ≤ low2 视为严重低估；≥ high2 视为严重高估
-  // low2 < price < low1 → 低估（仍在 Z 内、H 外）
-  // low1 ≤ price ≤ high1 → 合理（在 H 内）
-  // high1 < price < high2 → 高估（仍在 Z 内、H 外）
-  if(s.price >= s.high2) return 'severe_neg';
+  if(s.valuationStatus === 'pending' || !validBound(s.price) || !validBound(s.low1) || !validBound(s.high1)) return 'pending';
+  if(validBound(s.high2) && s.price >= s.high2) return 'severe_neg';
   if(s.price >  s.high1) return 'neg';
-  if(s.price <= s.low2)  return 'severe_pos';
+  if(validBound(s.low2) && s.price <= s.low2) return 'severe_pos';
   if(s.price <  s.low1)  return 'pos';
   return 'neutral';
 }
@@ -1176,14 +1232,16 @@ function rangeOf(s){
   return {low: s.low1, high: s.high1};
 }
 function judgeLabel(s){
-  return s==='severe_neg'?'S-HIGH'
+  return s==='pending'   ?'待确认'
+       : s==='severe_neg'?'S-HIGH'
        : s==='neg'       ?'HIGH'
        : s==='severe_pos'?'S-LOW'
        : s==='pos'       ?'LOW'
                           :'OK';
 }
 function judgeZh(s){
-  return s==='severe_neg'?'严重高估'
+  return s==='pending'   ?'待确认'
+       : s==='severe_neg'?'严重高估'
        : s==='neg'       ?'高估'
        : s==='severe_pos'?'严重低估'
        : s==='pos'       ?'低估'
@@ -1191,7 +1249,9 @@ function judgeZh(s){
 }
 // 偏离比例以 H 套中位数为基准
 function gapPct(s){
-  const mid = (s.low1 + s.high1) / 2;
+  if(judge(s) === 'pending') return NaN;
+  const base = s.valuationScenarios?.base?.price;
+  const mid = validBound(base) ? base : (s.low1 + s.high1) / 2;
   if(mid === 0) return 0;
   return (s.price - mid) / mid * 100;
 }
@@ -1215,24 +1275,24 @@ function render(){
   if(groupList.length > 1) sortStocks(groupList);
 
   // 统计
-  const counts = {neg:0, pos:0, neutral:0, severe_neg:0, severe_pos:0};
+  const counts = {neg:0, pos:0, neutral:0, severe_neg:0, severe_pos:0, pending:0};
   groupList.forEach(s => counts[judge(s)]++);
 
   // ===== Ticker bar (Finviz 风格) =====
   document.getElementById('ticker-bar').innerHTML = groupList.map(s => {
     const st = judge(s);
     const r = rangeOf(s);
-    const dir = s.price > r.high ? 'down' : (s.price < r.low ? 'up' : 'flat');
+    const dir = st === 'pending' ? 'flat' : s.price > r.high ? 'down' : (s.price < r.low ? 'up' : 'flat');
     const arrow = dir==='up'?'+':dir==='down'?'-':'=';
     return `<span class="ticker-item">
       <span class="sym">${escapeHtml(s.code)}</span>
       <span class="px">${s.currency||'¥'}${fmt(s.price)}</span>
-      <span class="ch ${dir}">${arrow}H ${fmt(s.low1)}–${fmt(s.high1)} · Z ${fmt(s.low2)}–${fmt(s.high2)}</span>
+      <span class="ch ${dir}">${st === 'pending' ? '待确认 · ' : arrow}H ${fmt(s.low1)}–${fmt(s.high1)} · Z ${fmt(s.low2)}–${fmt(s.high2)}</span>
     </span>`;
   }).join('');
 
   // ===== Distribution panel =====
-  const max = Math.max(counts.severe_pos, counts.pos, counts.neutral, counts.neg, counts.severe_neg, 1);
+  const max = Math.max(...Object.values(counts), 1);
   document.getElementById('dist').innerHTML = `
     <div class="dist-row">
       <span class="dist-label">严重低估</span>
@@ -1259,6 +1319,7 @@ function render(){
       <div class="dist-bar"><div class="dist-fill severe_neg" style="width:${(counts.severe_neg/max)*100}%"></div></div>
       <span class="dist-val">${counts.severe_neg}</span>
     </div>
+    ${counts.pending ? `<div class="dist-row"><span class="dist-label">待确认</span><div class="dist-bar"><div class="dist-fill neutral" style="width:${counts.pending/max*100}%"></div></div><span class="dist-val">${counts.pending}</span></div>` : ''}
   `;
 
   // ===== DCF 函数式 panel =====
@@ -1267,8 +1328,8 @@ function render(){
     const cls = st==='pos'?'ok':st==='neg'?'bad':'';
     return `<div class="func func-row">
       <span class="func-line"><span class="fn">GET(</span><span class="ticker">"${escapeHtml(s.code)}"</span><span class="fn">, </span><span class="key">"valuation"</span><span class="fn">)</span><span class="arrow"> → </span><span class="${cls}">${judgeZh(st)}</span></span>
-      <span class="func-line indent"><span class="key">low</span>=<span class="val">${fmt(s.low)}</span></span>
-      <span class="func-line indent"><span class="key">high</span>=<span class="val">${fmt(s.high)}</span></span>
+      <span class="func-line indent"><span class="key">low</span>=<span class="val">${fmt(s.low1)}</span></span>
+      <span class="func-line indent"><span class="key">high</span>=<span class="val">${fmt(s.high1)}</span></span>
       <span class="func-line indent"><span class="key">now</span>=<span class="val">${fmt(s.price)}</span></span>
     </div>`;
   }).join('') + (groupList.length>4 ? `<div style="color:var(--muted);font-size:11px;margin-top:6px;">+ ${groupList.length-4} more</div>` : '');
@@ -1280,7 +1341,8 @@ function render(){
   const fairPct   = totalCount ? Math.round(counts.neutral/totalCount*100) : 0;
   const highPct   = totalCount ? Math.round(counts.neg/totalCount*100) : 0;
   const sHighPct  = totalCount ? Math.round(counts.severe_neg/totalCount*100) : 0;
-  const avgGap = totalCount ? groupList.reduce((sum,s)=>sum + gapPct(s),0)/totalCount : 0;
+  const gaps = groupList.map(gapPct).filter(Number.isFinite);
+  const avgGap = gaps.length ? gaps.reduce((sum,gap)=>sum + gap,0)/gaps.length : 0;
   const avgGapCls = avgGap > 0.5 ? 'neg' : (avgGap < -0.5 ? 'pos' : 'neutral');
   const avgGapStr = (avgGap>0?'+':'') + avgGap.toFixed(1) + '%';
   document.getElementById('kpi').innerHTML = `
@@ -1290,14 +1352,14 @@ function render(){
     <div class="kpi"><span class="kpi-label">合理占比</span><span class="kpi-val" style="color:var(--muted);">${fairPct}%</span></div>
     <div class="kpi"><span class="kpi-label">高估占比</span><span class="kpi-val" style="color:var(--neg);">${highPct}%</span></div>
     <div class="kpi"><span class="kpi-label">严重高估</span><span class="kpi-val" style="color:var(--neg);font-weight:800;">${sHighPct}%</span></div>
-    <div class="kpi"><span class="kpi-label">平均偏离</span><span class="kpi-val" style="color:${avgGapCls==='pos'?'var(--pos)':avgGapCls==='neg'?'var(--neg)':'var(--muted)'}">${totalCount?avgGapStr:'–'}</span></div>
+    <div class="kpi"><span class="kpi-label">平均偏离</span><span class="kpi-val" style="color:${avgGapCls==='pos'?'var(--pos)':avgGapCls==='neg'?'var(--neg)':'var(--muted)'}">${gaps.length?avgGapStr:'–'}</span></div>
   `;
 
   // ===== 单表（按 activeGroup 切换显示）=====
   const gCounts2 = groupList.reduce((acc, s) => {
     const st = judge(s);
     acc[st]++; return acc;
-  }, {neg:0, pos:0, neutral:0, severe_neg:0, severe_pos:0});
+  }, {neg:0, pos:0, neutral:0, severe_neg:0, severe_pos:0, pending:0});
 
   const tbody = document.getElementById('tbody');
   if(!tbody) return;
@@ -1340,18 +1402,17 @@ function render(){
 function stockRowHTML(s){
   const status = judge(s);
   const gp = gapPct(s);
-  const gpStr = (gp>0?'+':'') + gp.toFixed(1) + '%';
+  const gpStr = Number.isFinite(gp) ? (gp>0?'+':'') + gp.toFixed(1) + '%' : '–';
   const c = s.currency || '¥';
 
   // 综合区间端点（用于箭头判定 + bar 刻度）
-  const combinedLo = Math.min(s.low1, s.low2);
-  const combinedhi = Math.max(s.high1, s.high2);
+  const bounds = [s.low1, s.high1, s.low2, s.high2].filter(validBound);
   const r = rangeOf(s);
-  const arrow = s.price > r.high ? '▲' : (s.price < r.low ? '▼' : '●');
+  const arrow = status === 'pending' ? '' : s.price > r.high ? '▲' : (s.price < r.low ? '▼' : '●');
 
   // bar 刻度用两套值的并集最值，留 30% 余量
-  const lo = Math.min(s.low1, s.low2) * 0.7;
-  const hi = Math.max(s.high1, s.high2) * 1.3;
+  const lo = (bounds.length ? Math.min(...bounds) : 0) * 0.7;
+  const hi = (bounds.length ? Math.max(...bounds) : 1) * 1.3;
   const span = hi - lo;
   // hermes 套区间
   const hLowPct  = ((s.low1  - lo) / span) * 100;
@@ -1359,7 +1420,7 @@ function stockRowHTML(s){
   // zcode 套区间
   const zLowPct  = ((s.low2  - lo) / span) * 100;
   const zHighPct = ((s.high2 - lo) / span) * 100;
-  const pricePct = ((s.price - lo) / span) * 100;
+  const pricePct = Math.max(0, Math.min(100, ((s.price - lo) / span) * 100));
 
   // 单个"移动"按钮，点击弹下拉选择其他三个组
   const mover = `<button class="move-btn move-trigger" data-code="${escapeHtml(s.code)}" title="移动到其他分组">→ 移动 ▾</button>`;
@@ -1378,9 +1439,8 @@ function stockRowHTML(s){
       <td>
         <div class="bar-wrap">
           <div class="bar" data-code="${escapeHtml(s.code)}">
-            <div class="bar-zone-zcode"   style="left:${zLowPct}%;right:${100-zHighPct}%"></div>
-            <div class="bar-zone"         style="left:${hLowPct}%;right:${100-hHighPct}%"></div>
-            <div class="bar-marker ${status}" style="left:${pricePct}%"></div>
+            ${status !== 'pending' && validBound(s.low2) && validBound(s.high2) ? `<div class="bar-zone-zcode" style="left:${zLowPct}%;right:${100-zHighPct}%"></div>` : ''}
+            ${status !== 'pending' ? `<div class="bar-zone" style="left:${hLowPct}%;right:${100-hHighPct}%"></div><div class="bar-marker ${status}" style="left:${pricePct}%"></div>` : ''}
           </div>
           <div class="bar-labels">
             <span>${c}${fmt(lo)}</span>
@@ -1392,15 +1452,15 @@ function stockRowHTML(s){
         <div class="dual-range">
           <div class="range-row">
             <span class="range-tag hermes">H</span>
-            <input class="ie bound" data-f="low1"  data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.low1}"  title="hermes 合理下限">
+            <input class="ie bound" data-f="low1"  data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.low1 ?? ''}" title="H 合理下限">
             <span class="bound-sep">–</span>
-            <input class="ie bound" data-f="high1" data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.high1}" title="hermes 合理上限">
+            <input class="ie bound" data-f="high1" data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.high1 ?? ''}" title="H 合理上限">
           </div>
           <div class="range-row">
             <span class="range-tag zcode">Z</span>
-            <input class="ie bound" data-f="low2"  data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.low2}"  title="zcode 合理下限">
+            <input class="ie bound" data-f="low2"  data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.low2 ?? ''}" placeholder="未提供" title="Z 熊档低值；未提供可留空">
             <span class="bound-sep">–</span>
-            <input class="ie bound" data-f="high2" data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.high2}" title="zcode 合理上限">
+            <input class="ie bound" data-f="high2" data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.high2 ?? ''}" placeholder="未提供" title="Z 牛档高值；未提供可留空">
           </div>
         </div>
       </td>
@@ -1496,15 +1556,18 @@ function bindEvents(){
       const code = e.target.dataset.code;
       const f    = e.target.dataset.f;
       const v    = parseFloat(e.target.value);
-      if(isNaN(v)){ render(); return; }
       const s = stocks.find(x => x.code === code);
       if(!s) return;
+      if(e.target.value.trim() === '' && (f === 'low2' || f === 'high2')){
+        s[f] = null; save(); render(); return;
+      }
+      if(!validBound(v)){ render(); return; }
       s[f] = v;
       // 双估值各自内部保 low ≤ high
       if(f === 'low1'  && v > s.high1){ s.high1 = v; }
       if(f === 'high1' && v < s.low1 ){ s.low1  = v; }
-      if(f === 'low2'  && v > s.high2){ s.high2 = v; }
-      if(f === 'high2' && v < s.low2 ){ s.low2  = v; }
+      if(f === 'low2' && validBound(s.high2) && v > s.high2){ s.high2 = v; }
+      if(f === 'high2' && validBound(s.low2) && v < s.low2){ s.low2 = v; }
       save(); render();
     });
   });
@@ -1698,9 +1761,9 @@ function tryAdd(){
     setTimeout(() => { h.style.borderColor = ''; }, 1200);
     return false;
   }
-  // zcode 没填则按 hermes ±15% 自动派生
-  const low2Final  = isNaN(low2)  ? low1 * 0.85  : low2;
-  const high2Final = isNaN(high2) ? high1 * 1.15 : high2;
+  // 未提供的熊牛端点留空，不由合理区间推算。
+  const low2Final  = isNaN(low2)  ? null : low2;
+  const high2Final = isNaN(high2) ? null : high2;
 
   stocks.push({
     name,

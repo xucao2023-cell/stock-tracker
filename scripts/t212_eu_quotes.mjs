@@ -103,6 +103,13 @@ async function main() {
   let updated = 0, skipped = 0;
   const report = [];
   for (const s of data.stocks) {
+    // The preceding update_prices step owns BMW via a timestamped Tradegate
+    // quote. A T212 position price has no exchange timestamp and must not
+    // overwrite that extended-hours quote or its source metadata.
+    if (s.code === 'BMW.DE') {
+      report.push('  BMW.DE     retained Tradegate EUR quote from update_prices step');
+      continue;
+    }
     const newPrice = codeToPrice.get(s.code);
     if (newPrice == null) continue;
     const oldPrice = s.price;

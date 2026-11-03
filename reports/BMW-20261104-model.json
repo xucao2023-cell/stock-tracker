@@ -1,0 +1,1472 @@
+{
+  "model": {
+    "valuation_date": "2026-11-04",
+    "units": "EUR million, shares million, EUR per economic share",
+    "status": "conditional; low-to-medium-low confidence; incomplete checks disclosed",
+    "method": "Self-forecast 2026–2030 cycle-average parent earnings x core PE; one-off cash overlay",
+    "shares_old_million": 590.807031,
+    "shares_latest_estimate_million": 589.159388,
+    "additional_buyback_EURm": 90.39853519,
+    "share_basis": "Issued ordinary+preferred shares minus treasury and repurchases toNov1. Not a verified diluted Nov4 count; ordinary preference differential not modelled.",
+    "normalised_parent_EURm": 5124.42,
+    "normalised_eps_EUR": 8.697850028997586,
+    "bull_normalised_parent_EURm": 6773.564,
+    "bull_normalised_eps_EUR": 11.496997481435363,
+    "base_forecast": [
+      {
+        "year": 2026,
+        "auto_revenue": 110000,
+        "auto_margin": 0.02,
+        "auto_ebit": 2200.0,
+        "auto_financial": -300,
+        "auto_ebt": 1900.0,
+        "fs_ebt": 2050,
+        "moto_ebt": 220,
+        "other_and_eliminations_ebt": 1600,
+        "group_ebt": 5770.0,
+        "tax": 1731.0,
+        "group_net": 4039.0,
+        "nci": 80.78,
+        "parent_net": 3958.22,
+        "eps_current_share_basis": 6.6996833015008574,
+        "payout": 0.35,
+        "dps": 2.3448891555253
+      },
+      {
+        "year": 2027,
+        "auto_revenue": 109000,
+        "auto_margin": 0.03,
+        "auto_ebit": 3270.0,
+        "auto_financial": -300,
+        "auto_ebt": 2970.0,
+        "fs_ebt": 2100,
+        "moto_ebt": 230,
+        "other_and_eliminations_ebt": 1000,
+        "group_ebt": 6300.0,
+        "tax": 1890.0,
+        "group_net": 4410.0,
+        "nci": 88.2,
+        "parent_net": 4321.8,
+        "eps_current_share_basis": 7.315078821396084,
+        "payout": 0.35,
+        "dps": 2.5602775874886294
+      },
+      {
+        "year": 2028,
+        "auto_revenue": 111000,
+        "auto_margin": 0.04,
+        "auto_ebit": 4440.0,
+        "auto_financial": -300,
+        "auto_ebt": 4140.0,
+        "fs_ebt": 2200,
+        "moto_ebt": 230,
+        "other_and_eliminations_ebt": 1000,
+        "group_ebt": 7570.0,
+        "tax": 2271.0,
+        "group_net": 5299.0,
+        "nci": 105.98,
+        "parent_net": 5193.02,
+        "eps_current_share_basis": 8.789705821899739,
+        "payout": 0.35,
+        "dps": 3.0763970376649086
+      },
+      {
+        "year": 2029,
+        "auto_revenue": 114000,
+        "auto_margin": 0.045,
+        "auto_ebit": 5130.0,
+        "auto_financial": -300,
+        "auto_ebt": 4830.0,
+        "fs_ebt": 2300,
+        "moto_ebt": 240,
+        "other_and_eliminations_ebt": 1050,
+        "group_ebt": 8420.0,
+        "tax": 2526.0,
+        "group_net": 5894.0,
+        "nci": 117.88,
+        "parent_net": 5776.12,
+        "eps_current_share_basis": 9.776660900976989,
+        "payout": 0.35,
+        "dps": 3.421831315341946
+      },
+      {
+        "year": 2030,
+        "auto_revenue": 117000,
+        "auto_margin": 0.05,
+        "auto_ebit": 5850.0,
+        "auto_financial": -300,
+        "auto_ebt": 5550.0,
+        "fs_ebt": 2400,
+        "moto_ebt": 240,
+        "other_and_eliminations_ebt": 1100,
+        "group_ebt": 9290.0,
+        "tax": 2787.0,
+        "group_net": 6503.0,
+        "nci": 130.06,
+        "parent_net": 6372.94,
+        "eps_current_share_basis": 10.786838452503114,
+        "payout": 0.35,
+        "dps": 3.7753934583760893
+      }
+    ],
+    "bull_forecast": [
+      {
+        "year": 2026,
+        "auto_revenue": 112000,
+        "auto_margin": 0.025,
+        "auto_ebit": 2800.0,
+        "auto_financial": -300,
+        "auto_ebt": 2500.0,
+        "fs_ebt": 2200,
+        "moto_ebt": 230,
+        "other_and_eliminations_ebt": 1800,
+        "group_ebt": 6730.0,
+        "tax": 2019.0,
+        "group_net": 4711.0,
+        "nci": 94.22,
+        "parent_net": 4616.78,
+        "eps_current_share_basis": 7.814361979046927,
+        "payout": 0.4,
+        "dps": 3.125744791618771
+      },
+      {
+        "year": 2027,
+        "auto_revenue": 114000,
+        "auto_margin": 0.04,
+        "auto_ebit": 4560.0,
+        "auto_financial": -300,
+        "auto_ebt": 4260.0,
+        "fs_ebt": 2400,
+        "moto_ebt": 250,
+        "other_and_eliminations_ebt": 1100,
+        "group_ebt": 8010.0,
+        "tax": 2403.0,
+        "group_net": 5607.0,
+        "nci": 112.14,
+        "parent_net": 5494.86,
+        "eps_current_share_basis": 9.30060021577502,
+        "payout": 0.4,
+        "dps": 3.7202400863100085
+      },
+      {
+        "year": 2028,
+        "auto_revenue": 120000,
+        "auto_margin": 0.05,
+        "auto_ebit": 6000.0,
+        "auto_financial": -300,
+        "auto_ebt": 5700.0,
+        "fs_ebt": 2600,
+        "moto_ebt": 260,
+        "other_and_eliminations_ebt": 1150,
+        "group_ebt": 9710.0,
+        "tax": 2913.0,
+        "group_net": 6797.0,
+        "nci": 135.94,
+        "parent_net": 6661.06,
+        "eps_current_share_basis": 11.274510373929521,
+        "payout": 0.4,
+        "dps": 4.509804149571809
+      },
+      {
+        "year": 2029,
+        "auto_revenue": 126000,
+        "auto_margin": 0.06,
+        "auto_ebit": 7560.0,
+        "auto_financial": -300,
+        "auto_ebt": 7260.0,
+        "fs_ebt": 2750,
+        "moto_ebt": 280,
+        "other_and_eliminations_ebt": 1200,
+        "group_ebt": 11490.0,
+        "tax": 3447.0,
+        "group_net": 8043.0,
+        "nci": 160.86,
+        "parent_net": 7882.14,
+        "eps_current_share_basis": 13.341310421879525,
+        "payout": 0.4,
+        "dps": 5.336524168751811
+      },
+      {
+        "year": 2030,
+        "auto_revenue": 132000,
+        "auto_margin": 0.07,
+        "auto_ebit": 9240.0,
+        "auto_financial": -300,
+        "auto_ebt": 8940.0,
+        "fs_ebt": 2900,
+        "moto_ebt": 290,
+        "other_and_eliminations_ebt": 1300,
+        "group_ebt": 13430.0,
+        "tax": 4029.0,
+        "group_net": 9401.0,
+        "nci": 188.02,
+        "parent_net": 9212.98,
+        "eps_current_share_basis": 15.59389024942054,
+        "payout": 0.4,
+        "dps": 6.2375560997682165
+      }
+    ],
+    "H": {
+      "low": 54.23994552624687,
+      "base": 58.58887054074567,
+      "high": 62.93779555524445
+    },
+    "H_multiples": [
+      6.5,
+      7,
+      7.5
+    ],
+    "Z": {
+      "low": 38.70939444889715,
+      "base": 58.58887054074567,
+      "high": 87.76534552034369
+    },
+    "Z_multiples": [
+      4.714437932871603,
+      7.833473507148864
+    ],
+    "Z_method": "Pressure changes only multiple at base cycle-average earnings; growth changes earnings to prior bull cycle-average and observed high snapshot multiple. Not verified historical percentiles.",
+    "historical_year_end_snapshots": [
+      {
+        "year": 2021,
+        "year_end_price": 88.49,
+        "reported_eps": 18.77,
+        "reported_year_end_pe": 4.714437932871603,
+        "auto_margin": 0.103,
+        "parent_net": 12382,
+        "excluded_from_pe_anchor": false
+      },
+      {
+        "year": 2023,
+        "year_end_price": 100.78,
+        "reported_eps": 17.67,
+        "reported_year_end_pe": 5.703452178834182,
+        "auto_margin": 0.098,
+        "parent_net": 11290,
+        "excluded_from_pe_anchor": false
+      },
+      {
+        "year": 2024,
+        "year_end_price": 78.98,
+        "reported_eps": 11.62,
+        "reported_year_end_pe": 6.796901893287436,
+        "auto_margin": 0.063,
+        "parent_net": 7290,
+        "excluded_from_pe_anchor": false
+      },
+      {
+        "year": 2025,
+        "year_end_price": 93.14,
+        "reported_eps": 11.89,
+        "reported_year_end_pe": 7.833473507148864,
+        "auto_margin": 0.053,
+        "parent_net": 7294,
+        "excluded_from_pe_anchor": false
+      }
+    ],
+    "event_cost_pv_EUR": 2.1426431949057876,
+    "event_payments": [
+      {
+        "date": "2027-12-31",
+        "weight": 0.5,
+        "time": 1.2265571526351813,
+        "cash_EURm": 754.6,
+        "cash_per_share_EUR": 1.277235984688205,
+        "pv_per_share_EUR": 1.136320002955359,
+        "nov4_t": 1.1553730321697468,
+        "nov4_pv_EUR": 1.1472551247158098
+      },
+      {
+        "date": "2028-12-31",
+        "weight": 0.25,
+        "time": 2.2286105407255303,
+        "cash_EURm": 377.3,
+        "cash_per_share_EUR": 0.6386179923441025,
+        "pv_per_share_EUR": 0.5164080167749511,
+        "nov4_t": 2.1574264202600957,
+        "nov4_pv_EUR": 0.521377553988782
+      },
+      {
+        "date": "2029-12-31",
+        "weight": 0.25,
+        "time": 3.2279260780287475,
+        "cash_EURm": 377.3,
+        "cash_per_share_EUR": 0.6386179923441025,
+        "pv_per_share_EUR": 0.4694924603662494,
+        "nov4_t": 3.156741957563313,
+        "nov4_pv_EUR": 0.4740105162011958
+      }
+    ],
+    "cash_cost_assumptions": {
+      "gross_EURm": 2200,
+      "cash_fraction": 1,
+      "tax": 0.3,
+      "parent_fraction": 0.98,
+      "r": 0.1,
+      "not_disclosed": "EUR2200m = EUR2.2bn =22亿欧元; a margin-gap proxy, not a confirmed restructuring charge."
+    },
+    "discounted_exit_diagnostic": {
+      "r": 0.1,
+      "pe": 7,
+      "dividends": [
+        {
+          "year": 2026,
+          "date": "2027-05-15",
+          "t": 0.5256673511293635,
+          "dps": 2.3514468719626,
+          "pv": 2.2365385469672474
+        },
+        {
+          "year": 2027,
+          "date": "2028-05-15",
+          "t": 1.5277207392197125,
+          "dps": 2.567437659161938,
+          "pv": 2.219542388711342
+        },
+        {
+          "year": 2028,
+          "date": "2029-05-15",
+          "t": 2.5270362765229293,
+          "dps": 3.085000488866011,
+          "pv": 2.424679944271475
+        },
+        {
+          "year": 2029,
+          "date": "2030-05-15",
+          "t": 3.5263518138261465,
+          "dps": 3.431400807959288,
+          "pv": 2.4519199021299363
+        }
+      ],
+      "pv_dividends": 9.33268078208,
+      "exit_t": 3.9288158795345653,
+      "future_exit": 75.71903445591873,
+      "pv_exit": 52.06919082192226,
+      "buyback_per_share": 0.15343646733165525,
+      "event_cost_pv": 2.1426431949057876,
+      "value": 59.10579194176483,
+      "terminal_share": 0.8809490425781704
+    },
+    "sensitivity": [
+      {
+        "r": 0.09,
+        "pe": 6.5,
+        "normalised_earnings_value": 54.203537787795426,
+        "exit_diagnostic_value": 57.29524502610344
+      },
+      {
+        "r": 0.09,
+        "pe": 7,
+        "normalised_earnings_value": 58.55246280229422,
+        "exit_diagnostic_value": 61.150341158161396
+      },
+      {
+        "r": 0.09,
+        "pe": 7.5,
+        "normalised_earnings_value": 62.901387816793005,
+        "exit_diagnostic_value": 65.00543729021938
+      },
+      {
+        "r": 0.1,
+        "pe": 6.5,
+        "normalised_earnings_value": 54.23994552624687,
+        "exit_diagnostic_value": 55.38656402591324
+      },
+      {
+        "r": 0.1,
+        "pe": 7,
+        "normalised_earnings_value": 58.58887054074567,
+        "exit_diagnostic_value": 59.10579194176483
+      },
+      {
+        "r": 0.1,
+        "pe": 7.5,
+        "normalised_earnings_value": 62.93779555524445,
+        "exit_diagnostic_value": 62.82501985761641
+      },
+      {
+        "r": 0.11,
+        "pe": 6.5,
+        "normalised_earnings_value": 54.275309418508904,
+        "exit_diagnostic_value": 53.56011687594463
+      },
+      {
+        "r": 0.11,
+        "pe": 7,
+        "normalised_earnings_value": 58.6242344330077,
+        "exit_diagnostic_value": 57.1494303800942
+      },
+      {
+        "r": 0.11,
+        "pe": 7.5,
+        "normalised_earnings_value": 62.97315944750648,
+        "exit_diagnostic_value": 60.738743884243775
+      }
+    ],
+    "market_beta": {
+      "beta": 1.1475945812154205,
+      "r_squared": 0.33919736521133176,
+      "observations": 156,
+      "first_week_label": "2023-10-29",
+      "last_week_label": "2026-10-25",
+      "last_complete_week_end": "2026-10-30",
+      "proxy": "DAX total-return broad market proxy",
+      "riskfree": 0.0346,
+      "rf_date": "2026-10-12",
+      "ERP": 0.0442,
+      "ERP_date": "2026-10-01",
+      "CAPM": 0.08532368048972158
+    },
+    "sector_beta_proxy": {
+      "beta": 1.1344939892705137,
+      "r_squared": 0.7160318925659068,
+      "observations": 156,
+      "first_week_label": "2023-10-29",
+      "last_week_label": "2026-10-25",
+      "last_complete_week_end": "2026-10-30",
+      "proxy": "EXV5.DE adjusted prices: total-return ETF tracking STOXX Europe 600 Automobiles & Parts",
+      "limitation": "ETF proxy, not the index itself; Yahoo ^SXAP 404, STOXX historical download 403. Not used as market CAPM beta."
+    },
+    "old_reference": 60.81661647822919,
+    "primary_anchor_change_bridge": [
+      {
+        "reason": "Normalised 2026–2030 average earnings x7 replaces terminal-dependent exit model as primary anchor",
+        "delta": -0.10146226064168928
+      },
+      {
+        "reason": "Apply latest shares together with additional repurchase cash; mechanical equity bridge",
+        "delta": 0.016359518063950418
+      },
+      {
+        "reason": "Conditional event cash-cost proxy, counted once, no unverified incremental savings",
+        "delta": -2.1426431949057876
+      }
+    ],
+    "prior_website": {
+      "H": [
+        55,
+        67
+      ],
+      "Z": [
+        34,
+        99
+      ]
+    },
+    "old_to_new_formula_check": 58.58887054074567,
+    "layoff_incremental_overlay": {
+      "zero": 58.58887054074567,
+      "half": 61.03404926375703,
+      "full": 63.47922798676841,
+      "normalised_average_profit_increment_EURm": 411.6,
+      "primary_method_full_increment_EUR": 4.890357446022739,
+      "exit_diagnostic_zero": 59.10579194176483,
+      "exit_diagnostic_half": 62.213975706224986,
+      "exit_diagnostic_full": 65.32215947068515,
+      "exit_method_full_benefit_pv_EUR": 6.216367528920319,
+      "selected_incremental_fraction": 0,
+      "reason": "July reported programme predates old model; cannot establish incremental savings on top of margin recovery. Not added to base or growth scenario."
+    },
+    "actual_parent_comparison": {
+      "2021_2025_adjusted_mean_EURm": 9709.6,
+      "2023_2025_mean_EURm": 8624.666666666666,
+      "2021_peak_parent_EURm": 12382,
+      "bull_max_annual_parent_EURm": 9212.98
+    },
+    "source_sha256": {
+      "revaluation_20261009/results.json": "0d053994a2be123892df8f56dde67764e26fe099677ad21fdc1cd9eb7fbe9e28",
+      "extracted/event_20261104/results.json": "e838654f1b77908c7aa0d7c51666a105e270c22ef5c7eb70442745b73a308cea",
+      "extracted/layoff_20261104/results.json": "ebbd2ad67087d06daf42d7f3531f9a175a678ff7f1b8c6de0dedbc24083a6d50",
+      "source/site_update_20261104/ad_hoc.html": "5b9e00508b11fffdad1b6f349f7234a72c363c89cb961a2ae7ef458ff9101b36"
+    },
+    "market_reverse_snapshot": {
+      "snapshot_price": 56.6,
+      "quote_time": "2026-11-03T20:05:44.000Z",
+      "normalised_PE": 6.771337682977403,
+      "exit_model_required_return": 0.11288900154516612,
+      "exit_model_terminal_margin": 0.04617885047874822
+    }
+  },
+  "event": {
+    "scope": "Incremental event sensitivity, not a complete November4 company revaluation or H/Z update",
+    "comparison_valuation_date": "2026-10-09",
+    "event_disclosure": "2026-11-03 19:30 CET / 2026-11-04 02:30 Asia/Shanghai",
+    "event_review_date": "2026-11-04",
+    "units": "EUR million, EUR per ordinary share; parent IFRS profit",
+    "fixed_shares_million": 590.807031,
+    "current_share_estimate_million": 589.159388,
+    "share_update_not_applied": "Freeze original shares to isolate event; latest disclosed repurchases toNovember1 imply589.159388m, subject to employee issuance/transfers.",
+    "old_valuation": 60.81661647822919,
+    "old2026_parent_net_EURm": 3958.22,
+    "old2026_eps_EUR": 6.6996833015008574,
+    "old_recovery_margins": [
+      0.02,
+      0.03,
+      0.04,
+      0.045,
+      0.05
+    ],
+    "reported_2026_forecast": [
+      {
+        "reported_2026_auto_margin": -0.005,
+        "auto_ebit_EURm": -550.0,
+        "group_ebt_EURm": 3020.0,
+        "parent_net_EURm": 2071.72,
+        "eps_EUR": 3.506593339780345,
+        "h2_parent_net_EURm": -786.2800000000002,
+        "ebit_reduction_vs_old_EURm": 2750.0
+      },
+      {
+        "reported_2026_auto_margin": 0,
+        "auto_ebit_EURm": 0,
+        "group_ebt_EURm": 3570.0,
+        "parent_net_EURm": 2449.02,
+        "eps_EUR": 4.145211332124448,
+        "h2_parent_net_EURm": -408.98,
+        "ebit_reduction_vs_old_EURm": 2200.0
+      },
+      {
+        "reported_2026_auto_margin": 0.005,
+        "auto_ebit_EURm": 550.0,
+        "group_ebt_EURm": 4120.0,
+        "parent_net_EURm": 2826.32,
+        "eps_EUR": 4.783829324468551,
+        "h2_parent_net_EURm": -31.679999999999836,
+        "ebit_reduction_vs_old_EURm": 1650.0
+      }
+    ],
+    "cash_cost_proxy": {
+      "gross_charge_proxy_EURm": 2200.0,
+      "cash_fraction_assumption": 1,
+      "tax_relief_assumption": 0.3,
+      "payments": [
+        {
+          "date": "2027-12-31",
+          "weight": 0.5,
+          "time": 1.2265571526351813,
+          "cash_EURm": 754.6,
+          "cash_per_share_EUR": 1.277235984688205,
+          "pv_per_share_EUR": 1.136320002955359
+        },
+        {
+          "date": "2028-12-31",
+          "weight": 0.25,
+          "time": 2.2286105407255303,
+          "cash_EURm": 377.3,
+          "cash_per_share_EUR": 0.6386179923441025,
+          "pv_per_share_EUR": 0.5164080167749511
+        },
+        {
+          "date": "2029-12-31",
+          "weight": 0.25,
+          "time": 3.2279260780287475,
+          "cash_EURm": 377.3,
+          "cash_per_share_EUR": 0.6386179923441025,
+          "pv_per_share_EUR": 0.4694924603662494
+        }
+      ],
+      "undiscounted_parent_cash_EURm": 1509.2,
+      "undiscounted_per_share_EUR": 2.55447196937641,
+      "pv_per_share_EUR": 2.1222204800965594
+    },
+    "cash_sensitivity": [
+      {
+        "gross_charge_proxy_EURm": 2200.0,
+        "cash_fraction_assumption": 0,
+        "tax_relief_assumption": 0,
+        "payments": [
+          {
+            "date": "2027-12-31",
+            "weight": 0.5,
+            "time": 1.2265571526351813,
+            "cash_EURm": 0.0,
+            "cash_per_share_EUR": 0.0,
+            "pv_per_share_EUR": 0.0
+          },
+          {
+            "date": "2028-12-31",
+            "weight": 0.25,
+            "time": 2.2286105407255303,
+            "cash_EURm": 0.0,
+            "cash_per_share_EUR": 0.0,
+            "pv_per_share_EUR": 0.0
+          },
+          {
+            "date": "2029-12-31",
+            "weight": 0.25,
+            "time": 3.2279260780287475,
+            "cash_EURm": 0.0,
+            "cash_per_share_EUR": 0.0,
+            "pv_per_share_EUR": 0.0
+          }
+        ],
+        "undiscounted_parent_cash_EURm": 0.0,
+        "undiscounted_per_share_EUR": 0.0,
+        "pv_per_share_EUR": 0.0
+      },
+      {
+        "gross_charge_proxy_EURm": 2200.0,
+        "cash_fraction_assumption": 0,
+        "tax_relief_assumption": 0.3,
+        "payments": [
+          {
+            "date": "2027-12-31",
+            "weight": 0.5,
+            "time": 1.2265571526351813,
+            "cash_EURm": 0.0,
+            "cash_per_share_EUR": 0.0,
+            "pv_per_share_EUR": 0.0
+          },
+          {
+            "date": "2028-12-31",
+            "weight": 0.25,
+            "time": 2.2286105407255303,
+            "cash_EURm": 0.0,
+            "cash_per_share_EUR": 0.0,
+            "pv_per_share_EUR": 0.0
+          },
+          {
+            "date": "2029-12-31",
+            "weight": 0.25,
+            "time": 3.2279260780287475,
+            "cash_EURm": 0.0,
+            "cash_per_share_EUR": 0.0,
+            "pv_per_share_EUR": 0.0
+          }
+        ],
+        "undiscounted_parent_cash_EURm": 0.0,
+        "undiscounted_per_share_EUR": 0.0,
+        "pv_per_share_EUR": 0.0
+      },
+      {
+        "gross_charge_proxy_EURm": 2200.0,
+        "cash_fraction_assumption": 0.5,
+        "tax_relief_assumption": 0,
+        "payments": [
+          {
+            "date": "2027-12-31",
+            "weight": 0.5,
+            "time": 1.2265571526351813,
+            "cash_EURm": 539.0,
+            "cash_per_share_EUR": 0.9123114176344322,
+            "pv_per_share_EUR": 0.8116571449681136
+          },
+          {
+            "date": "2028-12-31",
+            "weight": 0.25,
+            "time": 2.2286105407255303,
+            "cash_EURm": 269.5,
+            "cash_per_share_EUR": 0.4561557088172161,
+            "pv_per_share_EUR": 0.368862869124965
+          },
+          {
+            "date": "2029-12-31",
+            "weight": 0.25,
+            "time": 3.2279260780287475,
+            "cash_EURm": 269.5,
+            "cash_per_share_EUR": 0.4561557088172161,
+            "pv_per_share_EUR": 0.3353517574044639
+          }
+        ],
+        "undiscounted_parent_cash_EURm": 1078.0,
+        "undiscounted_per_share_EUR": 1.8246228352688645,
+        "pv_per_share_EUR": 1.5158717714975425
+      },
+      {
+        "gross_charge_proxy_EURm": 2200.0,
+        "cash_fraction_assumption": 0.5,
+        "tax_relief_assumption": 0.3,
+        "payments": [
+          {
+            "date": "2027-12-31",
+            "weight": 0.5,
+            "time": 1.2265571526351813,
+            "cash_EURm": 377.3,
+            "cash_per_share_EUR": 0.6386179923441025,
+            "pv_per_share_EUR": 0.5681600014776795
+          },
+          {
+            "date": "2028-12-31",
+            "weight": 0.25,
+            "time": 2.2286105407255303,
+            "cash_EURm": 188.65,
+            "cash_per_share_EUR": 0.3193089961720513,
+            "pv_per_share_EUR": 0.25820400838747554
+          },
+          {
+            "date": "2029-12-31",
+            "weight": 0.25,
+            "time": 3.2279260780287475,
+            "cash_EURm": 188.65,
+            "cash_per_share_EUR": 0.3193089961720513,
+            "pv_per_share_EUR": 0.2347462301831247
+          }
+        ],
+        "undiscounted_parent_cash_EURm": 754.6,
+        "undiscounted_per_share_EUR": 1.277235984688205,
+        "pv_per_share_EUR": 1.0611102400482797
+      },
+      {
+        "gross_charge_proxy_EURm": 2200.0,
+        "cash_fraction_assumption": 1,
+        "tax_relief_assumption": 0,
+        "payments": [
+          {
+            "date": "2027-12-31",
+            "weight": 0.5,
+            "time": 1.2265571526351813,
+            "cash_EURm": 1078.0,
+            "cash_per_share_EUR": 1.8246228352688645,
+            "pv_per_share_EUR": 1.6233142899362272
+          },
+          {
+            "date": "2028-12-31",
+            "weight": 0.25,
+            "time": 2.2286105407255303,
+            "cash_EURm": 539.0,
+            "cash_per_share_EUR": 0.9123114176344322,
+            "pv_per_share_EUR": 0.73772573824993
+          },
+          {
+            "date": "2029-12-31",
+            "weight": 0.25,
+            "time": 3.2279260780287475,
+            "cash_EURm": 539.0,
+            "cash_per_share_EUR": 0.9123114176344322,
+            "pv_per_share_EUR": 0.6707035148089278
+          }
+        ],
+        "undiscounted_parent_cash_EURm": 2156.0,
+        "undiscounted_per_share_EUR": 3.649245670537729,
+        "pv_per_share_EUR": 3.031743542995085
+      },
+      {
+        "gross_charge_proxy_EURm": 2200.0,
+        "cash_fraction_assumption": 1,
+        "tax_relief_assumption": 0.3,
+        "payments": [
+          {
+            "date": "2027-12-31",
+            "weight": 0.5,
+            "time": 1.2265571526351813,
+            "cash_EURm": 754.6,
+            "cash_per_share_EUR": 1.277235984688205,
+            "pv_per_share_EUR": 1.136320002955359
+          },
+          {
+            "date": "2028-12-31",
+            "weight": 0.25,
+            "time": 2.2286105407255303,
+            "cash_EURm": 377.3,
+            "cash_per_share_EUR": 0.6386179923441025,
+            "pv_per_share_EUR": 0.5164080167749511
+          },
+          {
+            "date": "2029-12-31",
+            "weight": 0.25,
+            "time": 3.2279260780287475,
+            "cash_EURm": 377.3,
+            "cash_per_share_EUR": 0.6386179923441025,
+            "pv_per_share_EUR": 0.4694924603662494
+          }
+        ],
+        "undiscounted_parent_cash_EURm": 1509.2,
+        "undiscounted_per_share_EUR": 2.55447196937641,
+        "pv_per_share_EUR": 2.1222204800965594
+      }
+    ],
+    "scenario_results": {
+      "unchanged_recovery": {
+        "forecast": [
+          {
+            "year": 2026,
+            "auto_revenue_EURm": 110000,
+            "margin": 0.02,
+            "parent_net_EURm": 3958.22,
+            "eps_EUR": 6.6996833015008574,
+            "assumed_dividend_date": "2027-05-15",
+            "dps_EUR": 2.3448891555253,
+            "dividend_pv_EUR": 2.2152208637369477
+          },
+          {
+            "year": 2027,
+            "auto_revenue_EURm": 109000,
+            "margin": 0.03,
+            "parent_net_EURm": 4321.8,
+            "eps_EUR": 7.315078821396084,
+            "assumed_dividend_date": "2028-05-15",
+            "dps_EUR": 2.5602775874886294,
+            "dividend_pv_EUR": 2.1983867052455106
+          },
+          {
+            "year": 2028,
+            "auto_revenue_EURm": 111000,
+            "margin": 0.04,
+            "parent_net_EURm": 5193.02,
+            "eps_EUR": 8.789705821899739,
+            "assumed_dividend_date": "2029-05-15",
+            "dps_EUR": 3.0763970376649086,
+            "dividend_pv_EUR": 2.401568981548776
+          },
+          {
+            "year": 2029,
+            "auto_revenue_EURm": 114000,
+            "margin": 0.045,
+            "parent_net_EURm": 5776.12,
+            "eps_EUR": 9.776660900976989,
+            "assumed_dividend_date": "2030-05-15",
+            "dps_EUR": 3.421831315341946,
+            "dividend_pv_EUR": 2.428549300335235
+          },
+          {
+            "year": 2030,
+            "auto_revenue_EURm": 117000,
+            "margin": 0.05,
+            "parent_net_EURm": 6372.94,
+            "eps_EUR": 10.786838452503114,
+            "assumed_dividend_date": null,
+            "dps_EUR": 3.7753934583760893,
+            "dividend_pv_EUR": 0
+          }
+        ],
+        "required_return": 0.1,
+        "exit_pe": 7,
+        "future_exit_price_EUR": 75.50786916752179,
+        "pv_dividends_EUR": 9.243725850866468,
+        "pv_exit_EUR": 51.572890627362725,
+        "before_event_cash_overlay_EUR": 60.81661647822919,
+        "terminal_fraction": 0.8480065747463033,
+        "event_cash_cost_pv_EUR": 2.1222204800965594,
+        "after_event_cash_overlay_EUR": 58.694395998132634,
+        "terminal_fraction_after_cash_overlay": 0.8786680525514483,
+        "change_vs_old_EUR": -2.1222204800965585,
+        "nov4_time_roll_only_EUR": 59.093966237608115
+      },
+      "slower_recovery": {
+        "forecast": [
+          {
+            "year": 2026,
+            "auto_revenue_EURm": 110000,
+            "margin": 0.02,
+            "parent_net_EURm": 3958.22,
+            "eps_EUR": 6.6996833015008574,
+            "assumed_dividend_date": "2027-05-15",
+            "dps_EUR": 2.3448891555253,
+            "dividend_pv_EUR": 2.2152208637369477
+          },
+          {
+            "year": 2027,
+            "auto_revenue_EURm": 109000,
+            "margin": 0.02,
+            "parent_net_EURm": 3574.0600000000004,
+            "eps_EUR": 6.049454072932318,
+            "assumed_dividend_date": "2028-05-15",
+            "dps_EUR": 2.117308925526311,
+            "dividend_pv_EUR": 1.81803091021097
+          },
+          {
+            "year": 2028,
+            "auto_revenue_EURm": 111000,
+            "margin": 0.03,
+            "parent_net_EURm": 4431.56,
+            "eps_EUR": 7.500858600987097,
+            "assumed_dividend_date": "2029-05-15",
+            "dps_EUR": 2.625300510345484,
+            "dividend_pv_EUR": 2.0494234637787447
+          },
+          {
+            "year": 2029,
+            "auto_revenue_EURm": 114000,
+            "margin": 0.04,
+            "parent_net_EURm": 5385.1,
+            "eps_EUR": 9.11482043618401,
+            "assumed_dividend_date": "2030-05-15",
+            "dps_EUR": 3.1901871526644032,
+            "dividend_pv_EUR": 2.2641463191961515
+          },
+          {
+            "year": 2030,
+            "auto_revenue_EURm": 117000,
+            "margin": 0.045,
+            "parent_net_EURm": 5971.629999999999,
+            "eps_EUR": 10.107581133373477,
+            "assumed_dividend_date": null,
+            "dps_EUR": 3.537653396680717,
+            "dividend_pv_EUR": 0
+          }
+        ],
+        "required_return": 0.1,
+        "exit_pe": 7,
+        "future_exit_price_EUR": 70.75306793361435,
+        "pv_dividends_EUR": 8.346821556922812,
+        "pv_exit_EUR": 48.3252974070175,
+        "before_event_cash_overlay_EUR": 56.672118963940314,
+        "terminal_fraction": 0.8527173200946698,
+        "event_cash_cost_pv_EUR": 2.1222204800965594,
+        "after_event_cash_overlay_EUR": 54.549898483843755,
+        "terminal_fraction_after_cash_overlay": 0.8858916102535036,
+        "change_vs_old_EUR": -6.266717994385438,
+        "nov4_time_roll_only_EUR": 54.921254481803864
+      },
+      "persistent_1pp_lower": {
+        "forecast": [
+          {
+            "year": 2026,
+            "auto_revenue_EURm": 110000,
+            "margin": 0.02,
+            "parent_net_EURm": 3958.22,
+            "eps_EUR": 6.6996833015008574,
+            "assumed_dividend_date": "2027-05-15",
+            "dps_EUR": 2.3448891555253,
+            "dividend_pv_EUR": 2.2152208637369477
+          },
+          {
+            "year": 2027,
+            "auto_revenue_EURm": 109000,
+            "margin": 0.02,
+            "parent_net_EURm": 3574.0600000000004,
+            "eps_EUR": 6.049454072932318,
+            "assumed_dividend_date": "2028-05-15",
+            "dps_EUR": 2.117308925526311,
+            "dividend_pv_EUR": 1.81803091021097
+          },
+          {
+            "year": 2028,
+            "auto_revenue_EURm": 111000,
+            "margin": 0.03,
+            "parent_net_EURm": 4431.56,
+            "eps_EUR": 7.500858600987097,
+            "assumed_dividend_date": "2029-05-15",
+            "dps_EUR": 2.625300510345484,
+            "dividend_pv_EUR": 2.0494234637787447
+          },
+          {
+            "year": 2029,
+            "auto_revenue_EURm": 114000,
+            "margin": 0.035,
+            "parent_net_EURm": 4994.080000000001,
+            "eps_EUR": 8.452979971391033,
+            "assumed_dividend_date": "2030-05-15",
+            "dps_EUR": 2.9585429899868614,
+            "dividend_pv_EUR": 2.0997433380570683
+          },
+          {
+            "year": 2030,
+            "auto_revenue_EURm": 117000,
+            "margin": 0.04,
+            "parent_net_EURm": 5570.32,
+            "eps_EUR": 9.428323814243841,
+            "assumed_dividend_date": null,
+            "dps_EUR": 3.299913334985344,
+            "dividend_pv_EUR": 0
+          }
+        ],
+        "required_return": 0.1,
+        "exit_pe": 7,
+        "future_exit_price_EUR": 65.99826669970689,
+        "pv_dividends_EUR": 8.18241857578373,
+        "pv_exit_EUR": 45.07770418667227,
+        "before_event_cash_overlay_EUR": 53.260122762456,
+        "terminal_fraction": 0.8463687623801036,
+        "event_cash_cost_pv_EUR": 2.1222204800965594,
+        "after_event_cash_overlay_EUR": 51.13790228235944,
+        "terminal_fraction_after_cash_overlay": 0.8814930252276363,
+        "change_vs_old_EUR": -9.678714195869752,
+        "nov4_time_roll_only_EUR": 51.486030643061646
+      }
+    },
+    "sensitivity_r_pe": [
+      {
+        "r": 0.09,
+        "pe": 6.5,
+        "path": "unchanged_recovery",
+        "value_after_cash_EUR": 56.93810914622821
+      },
+      {
+        "r": 0.09,
+        "pe": 6.5,
+        "path": "slower_recovery",
+        "value_after_cash_EUR": 52.89384381686974
+      },
+      {
+        "r": 0.09,
+        "pe": 6.5,
+        "path": "persistent_1pp_lower",
+        "value_after_cash_EUR": 49.59613019614743
+      },
+      {
+        "r": 0.09,
+        "pe": 7,
+        "path": "unchanged_recovery",
+        "value_after_cash_EUR": 60.75894329994855
+      },
+      {
+        "r": 0.09,
+        "pe": 7,
+        "path": "slower_recovery",
+        "value_after_cash_EUR": 56.474076465754095
+      },
+      {
+        "r": 0.09,
+        "pe": 7,
+        "path": "persistent_1pp_lower",
+        "value_after_cash_EUR": 52.93576134019578
+      },
+      {
+        "r": 0.09,
+        "pe": 7.5,
+        "path": "unchanged_recovery",
+        "value_after_cash_EUR": 64.5797774536689
+      },
+      {
+        "r": 0.09,
+        "pe": 7.5,
+        "path": "slower_recovery",
+        "value_after_cash_EUR": 60.05430911463844
+      },
+      {
+        "r": 0.09,
+        "pe": 7.5,
+        "path": "persistent_1pp_lower",
+        "value_after_cash_EUR": 56.275392484244136
+      },
+      {
+        "r": 0.1,
+        "pe": 6.5,
+        "path": "unchanged_recovery",
+        "value_after_cash_EUR": 55.010618096178156
+      },
+      {
+        "r": 0.1,
+        "pe": 6.5,
+        "path": "slower_recovery",
+        "value_after_cash_EUR": 51.098091526199646
+      },
+      {
+        "r": 0.1,
+        "pe": 6.5,
+        "path": "persistent_1pp_lower",
+        "value_after_cash_EUR": 47.91806626902571
+      },
+      {
+        "r": 0.1,
+        "pe": 7,
+        "path": "unchanged_recovery",
+        "value_after_cash_EUR": 58.694395998132634
+      },
+      {
+        "r": 0.1,
+        "pe": 7,
+        "path": "slower_recovery",
+        "value_after_cash_EUR": 54.549898483843755
+      },
+      {
+        "r": 0.1,
+        "pe": 7,
+        "path": "persistent_1pp_lower",
+        "value_after_cash_EUR": 51.13790228235944
+      },
+      {
+        "r": 0.1,
+        "pe": 7.5,
+        "path": "unchanged_recovery",
+        "value_after_cash_EUR": 62.37817390008712
+      },
+      {
+        "r": 0.1,
+        "pe": 7.5,
+        "path": "slower_recovery",
+        "value_after_cash_EUR": 58.00170544148786
+      },
+      {
+        "r": 0.1,
+        "pe": 7.5,
+        "path": "persistent_1pp_lower",
+        "value_after_cash_EUR": 54.357738295693174
+      },
+      {
+        "r": 0.11,
+        "pe": 6.5,
+        "path": "unchanged_recovery",
+        "value_after_cash_EUR": 53.167318157469744
+      },
+      {
+        "r": 0.11,
+        "pe": 6.5,
+        "path": "slower_recovery",
+        "value_after_cash_EUR": 49.3809168533381
+      },
+      {
+        "r": 0.11,
+        "pe": 6.5,
+        "path": "persistent_1pp_lower",
+        "value_after_cash_EUR": 46.31336923417552
+      },
+      {
+        "r": 0.11,
+        "pe": 7,
+        "path": "unchanged_recovery",
+        "value_after_cash_EUR": 56.7201304583508
+      },
+      {
+        "r": 0.11,
+        "pe": 7,
+        "path": "slower_recovery",
+        "value_after_cash_EUR": 52.71000523645646
+      },
+      {
+        "r": 0.11,
+        "pe": 7,
+        "path": "persistent_1pp_lower",
+        "value_after_cash_EUR": 49.41873369953119
+      },
+      {
+        "r": 0.11,
+        "pe": 7.5,
+        "path": "unchanged_recovery",
+        "value_after_cash_EUR": 60.27294275923187
+      },
+      {
+        "r": 0.11,
+        "pe": 7.5,
+        "path": "slower_recovery",
+        "value_after_cash_EUR": 56.03909361957482
+      },
+      {
+        "r": 0.11,
+        "pe": 7.5,
+        "path": "persistent_1pp_lower",
+        "value_after_cash_EUR": 52.524098164886865
+      }
+    ],
+    "2030_one_pp_margin_loss": {
+      "profit_EURm": 802.62,
+      "EPS_EUR": 1.3585146382592728,
+      "future_price_EUR": 9.50960246781491,
+      "present_value_EUR": 6.495186440690463
+    },
+    "date_roll_only": {
+      "factor": 1.0068076386626108,
+      "old_value_rolled_to_nov4_EUR": 61.23063402789556,
+      "not_new_fundamental_evidence": true
+    },
+    "market_snapshot": {
+      "price_EUR": 56.3,
+      "market": "Tradegate BSX",
+      "isin": "DE0005190003",
+      "time_note": "Timestamp retained in source HTML/text; post-Xetra",
+      "source": "https://www.tradegatebsx.com/orderbuch.php?isin=DE0005190003"
+    },
+    "reverse_condition_only": {
+      "2030_margin": 0.04572749056818277,
+      "required_return": 0.1144605665901387,
+      "held_fixed": "Old earnings/revenue, PE7, event cash proxy, no latest-share adjustment; does not claim actual market expectations"
+    },
+    "prior_capm_diagnostic": {
+      "market_proxy": "DAX total return index; market beta, not sector-relative beta",
+      "observations": 155,
+      "week_labels_first": "2023-10-08",
+      "week_labels_last": "2026-09-27",
+      "last_complete_week_end": "2026-10-02",
+      "beta": 1.16540440583678,
+      "r_squared": 0.3510066703466421,
+      "riskfree": 0.035,
+      "ERP": 0.0442,
+      "CAPM": 0.08651087473798569,
+      "source": "Yahoo chart weekly adjusted prices; both incomplete week and final quote excluded"
+    },
+    "source_sha256": {
+      "revaluation_20261009/results.json": "0d053994a2be123892df8f56dde67764e26fe099677ad21fdc1cd9eb7fbe9e28",
+      "source/event_20261104/ad_hoc.html": "81606f3ae06d598b3228f9082f91154f7b97b74dff75a838c21d9be67c3f0a13",
+      "source/event_20261104/q3_sales.html": "d3667835c9467166e7571c72017aa2e6c68efb89f3cd08de2e2b1cb89203c89b",
+      "source/event_20261104/tradegate_quote.html": "9368ee472dc56892a33711274d10b556248815947a1c963e13804c8bd95bea94"
+    },
+    "unverified": [
+      "actual incremental restructuring charge",
+      "cash/noncash split",
+      "payment schedule",
+      "tax deductibility",
+      "updated2027-2030 management financial projections",
+      "post-announcement analyst financial consensus",
+      "complete Q3 financials not yet published at review time",
+      "updated industry-index beta and historical daily valuation percentiles"
+    ],
+    "checklist_read": "/home/ubuntu/.codex/valuation/valuation_checklist.md v2.5,2026-11-02",
+    "checks": [
+      "Original baseline reproduced",
+      "FY2026 EBT bridge and parent profit reconcile",
+      "Separate reported earnings and economic cash charge; no duplicated cost deduction",
+      "PV cash payments sum",
+      "Permanent margin loss price bridge",
+      "Scenario/r sensitivity monotonicity"
+    ]
+  },
+  "layoff": {
+    "scope": "Cost-and-benefit supplement, not an adopted valuation centre or full revaluation",
+    "comparison_date": "2026-10-09",
+    "review_date": "2026-11-04",
+    "units": "EUR million; EUR/ordinary share",
+    "shares_million": 590.807031,
+    "old_reference_EUR": 60.81661647822919,
+    "media_programme": {
+      "reported_jobs": 8000,
+      "reported_end": "2027-12-31",
+      "reported_savings_from": 2028,
+      "reported_gross_annual_savings_EURm": 1000,
+      "source": "Handelsblatt2026-07-29, company-circle reporting; confirmed as media report, not formal new guidance",
+      "incrementality_vs_old_forecast": "Unknown; programme predates Oct9 model"
+    },
+    "baseline_benefit": {
+      "annual_gross_programme_savings_EURm": 1000,
+      "truly_incremental_net_fraction_assumption": 1,
+      "annual_parent_profit_increment_EURm": 686.0,
+      "annual_eps_increment_EUR": 1.1611236224438228,
+      "dividend_flows": [
+        {
+          "profit_year": 2028,
+          "payment_date": "2029-05-15",
+          "t": 2.598220396988364,
+          "incremental_dps_EUR": 0.40639326785533797,
+          "pv_EUR": 0.317248214207236
+        },
+        {
+          "profit_year": 2029,
+          "payment_date": "2030-05-15",
+          "t": 3.597535934291581,
+          "incremental_dps_EUR": 0.40639326785533797,
+          "pv_EUR": 0.28842628270014664
+        }
+      ],
+      "exit_price_increment_EUR": 8.12786535710676,
+      "exit_price_increment_pv_EUR": 5.551441402299541,
+      "total_benefit_pv_EUR": 6.157115899206923,
+      "terminal_fraction_of_benefit": 0.9016301614550739
+    },
+    "cases": [
+      {
+        "annual_gross_programme_savings_EURm": 1000,
+        "truly_incremental_net_fraction_assumption": 0,
+        "annual_parent_profit_increment_EURm": 0.0,
+        "annual_eps_increment_EUR": 0.0,
+        "dividend_flows": [
+          {
+            "profit_year": 2028,
+            "payment_date": "2029-05-15",
+            "t": 2.598220396988364,
+            "incremental_dps_EUR": 0.0,
+            "pv_EUR": 0.0
+          },
+          {
+            "profit_year": 2029,
+            "payment_date": "2030-05-15",
+            "t": 3.597535934291581,
+            "incremental_dps_EUR": 0.0,
+            "pv_EUR": 0.0
+          }
+        ],
+        "exit_price_increment_EUR": 0.0,
+        "exit_price_increment_pv_EUR": 0.0,
+        "total_benefit_pv_EUR": 0.0,
+        "terminal_fraction_of_benefit": null,
+        "illustrative_extra_cash_cost_pv_EUR": 2.1222204800965594,
+        "net_increment_EUR": -2.1222204800965594,
+        "old_reference_plus_net_increment_EUR": 58.694395998132634
+      },
+      {
+        "annual_gross_programme_savings_EURm": 1000,
+        "truly_incremental_net_fraction_assumption": 0.5,
+        "annual_parent_profit_increment_EURm": 343.0,
+        "annual_eps_increment_EUR": 0.5805618112219114,
+        "dividend_flows": [
+          {
+            "profit_year": 2028,
+            "payment_date": "2029-05-15",
+            "t": 2.598220396988364,
+            "incremental_dps_EUR": 0.20319663392766898,
+            "pv_EUR": 0.158624107103618
+          },
+          {
+            "profit_year": 2029,
+            "payment_date": "2030-05-15",
+            "t": 3.597535934291581,
+            "incremental_dps_EUR": 0.20319663392766898,
+            "pv_EUR": 0.14421314135007332
+          }
+        ],
+        "exit_price_increment_EUR": 4.06393267855338,
+        "exit_price_increment_pv_EUR": 2.7757207011497704,
+        "total_benefit_pv_EUR": 3.0785579496034616,
+        "terminal_fraction_of_benefit": 0.9016301614550739,
+        "illustrative_extra_cash_cost_pv_EUR": 2.1222204800965594,
+        "net_increment_EUR": 0.9563374695069022,
+        "old_reference_plus_net_increment_EUR": 61.7729539477361
+      },
+      {
+        "annual_gross_programme_savings_EURm": 1000,
+        "truly_incremental_net_fraction_assumption": 1,
+        "annual_parent_profit_increment_EURm": 686.0,
+        "annual_eps_increment_EUR": 1.1611236224438228,
+        "dividend_flows": [
+          {
+            "profit_year": 2028,
+            "payment_date": "2029-05-15",
+            "t": 2.598220396988364,
+            "incremental_dps_EUR": 0.40639326785533797,
+            "pv_EUR": 0.317248214207236
+          },
+          {
+            "profit_year": 2029,
+            "payment_date": "2030-05-15",
+            "t": 3.597535934291581,
+            "incremental_dps_EUR": 0.40639326785533797,
+            "pv_EUR": 0.28842628270014664
+          }
+        ],
+        "exit_price_increment_EUR": 8.12786535710676,
+        "exit_price_increment_pv_EUR": 5.551441402299541,
+        "total_benefit_pv_EUR": 6.157115899206923,
+        "terminal_fraction_of_benefit": 0.9016301614550739,
+        "illustrative_extra_cash_cost_pv_EUR": 2.1222204800965594,
+        "net_increment_EUR": 4.034895419110364,
+        "old_reference_plus_net_increment_EUR": 64.85151189733956
+      }
+    ],
+    "sensitivity_r_pe": [
+      {
+        "r": 0.09,
+        "pe": 6.5,
+        "benefit_pv_EUR": 5.969625823345899,
+        "cost_pv_EUR": 2.159684724754956,
+        "net_EUR": 3.8099410985909428
+      },
+      {
+        "r": 0.09,
+        "pe": 7,
+        "benefit_pv_EUR": 6.380910446997174,
+        "cost_pv_EUR": 2.159684724754956,
+        "net_EUR": 4.221225722242218
+      },
+      {
+        "r": 0.09,
+        "pe": 7.5,
+        "benefit_pv_EUR": 6.792195070648448,
+        "cost_pv_EUR": 2.159684724754956,
+        "net_EUR": 4.632510345893492
+      },
+      {
+        "r": 0.1,
+        "pe": 6.5,
+        "benefit_pv_EUR": 5.760584370471242,
+        "cost_pv_EUR": 2.1222204800965594,
+        "net_EUR": 3.6383638903746824
+      },
+      {
+        "r": 0.1,
+        "pe": 7,
+        "benefit_pv_EUR": 6.157115899206923,
+        "cost_pv_EUR": 2.1222204800965594,
+        "net_EUR": 4.034895419110364
+      },
+      {
+        "r": 0.1,
+        "pe": 7.5,
+        "benefit_pv_EUR": 6.553647427942604,
+        "cost_pv_EUR": 2.1222204800965594,
+        "net_EUR": 4.431426947846044
+      },
+      {
+        "r": 0.11,
+        "pe": 6.5,
+        "benefit_pv_EUR": 5.560705415264021,
+        "cost_pv_EUR": 2.0858495138887703,
+        "net_EUR": 3.4748559013752507
+      },
+      {
+        "r": 0.11,
+        "pe": 7,
+        "benefit_pv_EUR": 5.943139462721616,
+        "cost_pv_EUR": 2.0858495138887703,
+        "net_EUR": 3.857289948832846
+      },
+      {
+        "r": 0.11,
+        "pe": 7.5,
+        "benefit_pv_EUR": 6.325573510179209,
+        "cost_pv_EUR": 2.0858495138887703,
+        "net_EUR": 4.239723996290439
+      }
+    ],
+    "finite_five_year_cash_comparison": {
+      "cash_flows": [
+        {
+          "year": 2028,
+          "cash_per_share_EUR": 1.1611236224438228,
+          "pv_EUR": 0.9389236668635473
+        },
+        {
+          "year": 2029,
+          "cash_per_share_EUR": 1.1611236224438228,
+          "pv_EUR": 0.8536226552113626
+        },
+        {
+          "year": 2030,
+          "cash_per_share_EUR": 1.1611236224438228,
+          "pv_EUR": 0.7760712219814497
+        },
+        {
+          "year": 2031,
+          "cash_per_share_EUR": 1.1611236224438228,
+          "pv_EUR": 0.7055653196536243
+        },
+        {
+          "year": 2032,
+          "cash_per_share_EUR": 1.1611236224438228,
+          "pv_EUR": 0.6412974980285138
+        }
+      ],
+      "benefit_pv_EUR": 3.915480361738498,
+      "cost_pv_EUR": 2.1222204800965594,
+      "net_pv_EUR": 1.7932598816419385,
+      "no_terminal_value": true,
+      "scope": "Different duration/distribution assumption; not an independent confirmation"
+    },
+    "plausibility": {
+      "implied_annual_saving_per_job_EUR": 125000.0,
+      "annual2025_personnel_expense_EURm": 15672,
+      "annual2025_workforce_charge_EURm": 132,
+      "average2025_employee_count": 156305,
+      "normalised_expense_per_employee_EUR": 99421.00380666005,
+      "8000_times_global_average_EURm": 795.3680304532804,
+      "source": "BMW2025 reportp296; not the affected cohort wage schedule or guaranteed EBIT savings"
+    },
+    "old_margin_bridge": {
+      "auto_EBIT2026_EURm": 2200.0,
+      "auto_EBIT2030_EURm": 5850.0,
+      "EBIT_recovery_EURm": 3650.0,
+      "programme_savings_EURm": 1000,
+      "other_required_recovery_if_fully_embedded_EURm": 2650.0,
+      "margin_equivalent_at2030_revenue": 0.008547008547008548,
+      "not_verified": "Original model does not provide a payroll bridge; embedded share cannot be established"
+    },
+    "break_even_truly_incremental_annual_savings_EURm": 344.67768917098266,
+    "accounting": "IAS19: recognise termination-benefit expense/liability when offer cannot be withdrawn or IAS37 restructuring costs recognised, whichever earlier; payment later reduces liability/cash, not a second expense.",
+    "unknowns": [
+      "actual enrolment and voluntary departures",
+      "mean severance, salary and tenure",
+      "new November3 measures vs July programme overlap",
+      "cash payment dates and tax deductions",
+      "gross-to-net savings, outsourcing replacement, R&D capitalisation and execution",
+      "how much savings the old2027-2030 margin forecast already includes"
+    ],
+    "checklist": "v2.5 fully read this task; topical incremental test; no full-pass claim"
+  },
+  "publicationQuote": {
+    "price": 56.6,
+    "currency": "EUR",
+    "symbol": "BMW.DE",
+    "isin": "DE0005190003",
+    "marketTime": 1793736344,
+    "source": "Tradegate BSX",
+    "sourceUrl": "https://www.tradegatebsx.com/orderbuch.php?isin=DE0005190003",
+    "timestampType": "quote-page-refresh; last-trade timestamp not separately supplied"
+  }
+}

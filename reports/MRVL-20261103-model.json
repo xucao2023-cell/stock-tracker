@@ -1,0 +1,814 @@
+{
+  "model": {
+    "asof": "2026-11-03 Asia/Shanghai; financial disclosure 2026-11-02",
+    "quote_price": 184.22,
+    "quote_time_utc": "2026-11-02T16:00:41+00:00",
+    "rf": 0.04953,
+    "erp": 0.045,
+    "beta": 2.303804345445054,
+    "ke": 0.15320119554502742,
+    "wacc_exact": 0.15005975408598143,
+    "wacc_model": 0.15,
+    "fd_q2": 0.9212,
+    "celestial_max_shares": 0.0224,
+    "shares": 0.9436,
+    "lite_fd": 0.101,
+    "deal_new_shares": 0.4545,
+    "combined_shares": 1.3981,
+    "ownership_mrvl": 0.6749159573707174,
+    "cash": 3.9328,
+    "debt": 4.9629,
+    "investments": 0.1779,
+    "forward_asset": 0.131,
+    "celestial_cash": 0.233,
+    "nonoperating_equity_adjustment": 0.0759,
+    "lite_cash": 1.9796,
+    "lite_debt": 1.3996,
+    "scenarios": {
+      "downside_multiple_only": {
+        "revenue": 20.0,
+        "non_gaap_margin": 0.38,
+        "sbc": 0.08,
+        "nopat": 4.92,
+        "net_interest_after_tax": 0.1,
+        "ni": 4.82,
+        "eps": 5.108096651123358,
+        "pe": 18,
+        "lite_ni": 2.5912,
+        "synergy_pv": -0.8074997081966737,
+        "equity": 86.83590000000001,
+        "standalone": 92.02617634590929,
+        "proforma_equity": 132.67000029180335,
+        "combined": 94.89306937400998,
+        "proforma_eps": 5.300908375652672
+      },
+      "base": {
+        "revenue": 20.0,
+        "non_gaap_margin": 0.38,
+        "sbc": 0.08,
+        "nopat": 4.92,
+        "net_interest_after_tax": 0.1,
+        "ni": 4.82,
+        "eps": 5.108096651123358,
+        "pe": 24.0,
+        "lite_ni": 2.5912,
+        "synergy_pv": 7.138297420458596,
+        "equity": 115.75590000000001,
+        "standalone": 122.67475625264944,
+        "proforma_equity": 185.0829974204586,
+        "combined": 132.38180203165626,
+        "proforma_eps": 5.594163507617482
+      },
+      "growth_execution": {
+        "revenue": 20.0,
+        "non_gaap_margin": 0.44,
+        "sbc": 0.065,
+        "nopat": 6.15,
+        "net_interest_after_tax": 0.1,
+        "ni": 6.050000000000001,
+        "eps": 6.411615091140314,
+        "pe": 28,
+        "lite_ni": 3.0996000000000006,
+        "synergy_pv": 17.732693591998956,
+        "equity": 169.47590000000002,
+        "standalone": 179.60565917761767,
+        "proforma_equity": 273.997393591999,
+        "combined": 195.9783946727695,
+        "proforma_eps": 7.130820399113084
+      }
+    },
+    "dcf": {
+      "rows": [
+        {
+          "year": 2027,
+          "t": 0.25,
+          "revenue": 3.7629000000000006,
+          "non_gaap_op_margin": 0.37,
+          "sbc_pct": 0.09,
+          "economic_op_margin": 0.28,
+          "nopat": 0.8639618400000002,
+          "da": 0.09407250000000002,
+          "capex": 0.16933050000000002,
+          "dwc": 0.15,
+          "fcff": 0.6387038400000001,
+          "discount": 0.9656628854006526,
+          "pv": 0.6167725930508768
+        },
+        {
+          "year": 2028,
+          "t": 1.25,
+          "revenue": 20.0,
+          "non_gaap_op_margin": 0.38,
+          "sbc_pct": 0.08,
+          "economic_op_margin": 0.3,
+          "nopat": 4.92,
+          "da": 0.5,
+          "capex": 0.8999999999999999,
+          "dwc": 0.793,
+          "fcff": 3.7269999999999994,
+          "discount": 0.8397068568701327,
+          "pv": 3.129587455554984
+        },
+        {
+          "year": 2029,
+          "t": 2.25,
+          "revenue": 28.0,
+          "non_gaap_op_margin": 0.39,
+          "sbc_pct": 0.07,
+          "economic_op_margin": 0.32,
+          "nopat": 7.347200000000001,
+          "da": 0.7000000000000001,
+          "capex": 1.26,
+          "dwc": 0.8,
+          "fcff": 5.9872000000000005,
+          "discount": 0.7301798755392459,
+          "pv": 4.371732950828574
+        },
+        {
+          "year": 2030,
+          "t": 3.25,
+          "revenue": 38.0,
+          "non_gaap_op_margin": 0.4,
+          "sbc_pct": 0.06,
+          "economic_op_margin": 0.34,
+          "nopat": 10.594400000000002,
+          "da": 0.9500000000000001,
+          "capex": 1.71,
+          "dwc": 1.0,
+          "fcff": 8.834400000000002,
+          "discount": 0.63493902220804,
+          "pv": 5.60930529779471
+        },
+        {
+          "year": 2031,
+          "t": 4.25,
+          "revenue": 50.0,
+          "non_gaap_op_margin": 0.4,
+          "sbc_pct": 0.05,
+          "economic_op_margin": 0.35000000000000003,
+          "nopat": 14.350000000000001,
+          "da": 1.25,
+          "capex": 2.25,
+          "dwc": 1.2000000000000002,
+          "fcff": 12.150000000000002,
+          "discount": 0.5521208888765565,
+          "pv": 6.708268799850163
+        },
+        {
+          "year": 2032,
+          "t": 5.25,
+          "revenue": 56.0,
+          "non_gaap_op_margin": 0.4,
+          "sbc_pct": 0.05,
+          "economic_op_margin": 0.35000000000000003,
+          "nopat": 16.072000000000003,
+          "da": 1.4000000000000001,
+          "capex": 2.52,
+          "dwc": 0.6000000000000001,
+          "fcff": 14.352000000000002,
+          "discount": 0.4801051207622231,
+          "pv": 6.890468693179427
+        },
+        {
+          "year": 2033,
+          "t": 6.25,
+          "revenue": 61.0,
+          "non_gaap_op_margin": 0.39,
+          "sbc_pct": 0.05,
+          "economic_op_margin": 0.34,
+          "nopat": 17.006800000000002,
+          "da": 1.5250000000000001,
+          "capex": 2.745,
+          "dwc": 0.5,
+          "fcff": 15.2868,
+          "discount": 0.417482713706281,
+          "pv": 6.381974747885176
+        },
+        {
+          "year": 2034,
+          "t": 7.25,
+          "revenue": 65.0,
+          "non_gaap_op_margin": 0.38,
+          "sbc_pct": 0.05,
+          "economic_op_margin": 0.33,
+          "nopat": 17.589000000000002,
+          "da": 1.625,
+          "capex": 2.925,
+          "dwc": 0.4,
+          "fcff": 15.889000000000001,
+          "discount": 0.36302844670111395,
+          "pv": 5.768158989634
+        },
+        {
+          "year": 2035,
+          "t": 8.25,
+          "revenue": 68.0,
+          "non_gaap_op_margin": 0.37,
+          "sbc_pct": 0.05,
+          "economic_op_margin": 0.32,
+          "nopat": 17.843200000000003,
+          "da": 1.7000000000000002,
+          "capex": 3.06,
+          "dwc": 0.30000000000000004,
+          "fcff": 16.183200000000003,
+          "discount": 0.3156769101748817,
+          "pv": 5.108662572742146
+        }
+      ],
+      "tv_cf": 15.2358624,
+      "tv": 132.48576,
+      "pv_tv": 41.82269535897093,
+      "pv_cf": 44.58493210052006,
+      "ev": 86.40762745949098,
+      "equity": 85.45342745949098,
+      "price": 90.56107191552668,
+      "tv_share": 0.48401624472999166,
+      "r": 0.15,
+      "g": 0.035,
+      "terminal_roic": 0.2
+    },
+    "lite_dcf": {
+      "rows": [
+        {
+          "year": 2027,
+          "t": 0.25,
+          "revenue": 1.45,
+          "nopat": 0.46965500000000004,
+          "da": 0.0725,
+          "capex": 0.174,
+          "dwc": 0.0,
+          "fcff": 0.36815500000000007,
+          "pv": 0.3555136195746773
+        },
+        {
+          "year": 2028,
+          "t": 1.25,
+          "revenue": 8.0,
+          "nopat": 2.5912,
+          "da": 0.4,
+          "capex": 0.96,
+          "dwc": 0.22000000000000003,
+          "fcff": 1.8112000000000001,
+          "pv": 1.5208770591631844
+        },
+        {
+          "year": 2029,
+          "t": 2.25,
+          "revenue": 10.0,
+          "nopat": 3.2800000000000002,
+          "da": 0.5,
+          "capex": 1.2,
+          "dwc": 0.2,
+          "fcff": 2.38,
+          "pv": 1.7378281037834051
+        },
+        {
+          "year": 2030,
+          "t": 3.25,
+          "revenue": 12.0,
+          "nopat": 3.8376,
+          "da": 0.6000000000000001,
+          "capex": 1.44,
+          "dwc": 0.2,
+          "fcff": 2.7975999999999996,
+          "pv": 1.7763054085292125
+        },
+        {
+          "year": 2031,
+          "t": 4.25,
+          "revenue": 14.0,
+          "nopat": 4.362400000000001,
+          "da": 0.7000000000000001,
+          "capex": 1.26,
+          "dwc": 0.2,
+          "fcff": 3.602400000000001,
+          "pv": 1.988960290088908
+        },
+        {
+          "year": 2032,
+          "t": 5.25,
+          "revenue": 15.5,
+          "nopat": 4.702700000000001,
+          "da": 0.775,
+          "capex": 1.395,
+          "dwc": 0.15000000000000002,
+          "fcff": 3.932700000000001,
+          "pv": 1.8881094084215955
+        },
+        {
+          "year": 2033,
+          "t": 6.25,
+          "revenue": 17.0,
+          "nopat": 5.0184000000000015,
+          "da": 0.8500000000000001,
+          "capex": 1.53,
+          "dwc": 0.15000000000000002,
+          "fcff": 4.188400000000001,
+          "pv": 1.7485845980873875
+        },
+        {
+          "year": 2034,
+          "t": 7.25,
+          "revenue": 18.0,
+          "nopat": 5.166000000000001,
+          "da": 0.9,
+          "capex": 1.6199999999999999,
+          "dwc": 0.1,
+          "fcff": 4.346000000000002,
+          "pv": 1.5777216293630418
+        },
+        {
+          "year": 2035,
+          "t": 8.25,
+          "revenue": 19.0,
+          "nopat": 5.297200000000001,
+          "da": 0.9500000000000001,
+          "capex": 1.71,
+          "dwc": 0.1,
+          "fcff": 4.437200000000002,
+          "pv": 1.4007215858279856
+        }
+      ],
+      "tv_cf": 4.52314665,
+      "tv": 39.33171,
+      "pv_tv": 12.416112684694497,
+      "ev": 26.410734387533893,
+      "equity": 26.990734387533895
+    },
+    "combined_dcf": {
+      "price": 81.29272994612406,
+      "pre_mrvl_pv": 3.746360048605861,
+      "post_mrvl_pv": 82.66126741088513,
+      "lite_post_pv": 24.534343708796033,
+      "synergy_pv": 2.0939742057958135,
+      "cost_pv": 0.8108737462959251,
+      "bridge": -0.37420000000000053,
+      "pool": 108.10451157918105,
+      "tv_share": 0.4883385306752312,
+      "caveat": "No official opening balance sheet, intercompany bridge, or purchase accounting; conditional low-confidence."
+    },
+    "matrix": [
+      {
+        "r": 0.12,
+        "g": 0.025,
+        "standalone": 123.01747283234717,
+        "combined": 110.165829804851
+      },
+      {
+        "r": 0.12,
+        "g": 0.035,
+        "standalone": 127.50747982532108,
+        "combined": 114.16548228722912
+      },
+      {
+        "r": 0.12,
+        "g": 0.045,
+        "standalone": 133.09583576891825,
+        "combined": 119.1435328241653
+      },
+      {
+        "r": 0.14,
+        "g": 0.025,
+        "standalone": 98.36719153513656,
+        "combined": 88.23456612874455
+      },
+      {
+        "r": 0.14,
+        "g": 0.035,
+        "standalone": 100.50497462754464,
+        "combined": 90.1388815264078
+      },
+      {
+        "r": 0.14,
+        "g": 0.045,
+        "standalone": 103.02528740657189,
+        "combined": 92.38395047146284
+      },
+      {
+        "r": 0.15,
+        "g": 0.025,
+        "standalone": 89.0687324062981,
+        "combined": 79.9633691161794
+      },
+      {
+        "r": 0.15,
+        "g": 0.035,
+        "standalone": 90.56107191552668,
+        "combined": 81.29272994612406
+      },
+      {
+        "r": 0.15,
+        "g": 0.045,
+        "standalone": 92.28081554044729,
+        "combined": 82.82466004539363
+      },
+      {
+        "r": 0.16,
+        "g": 0.025,
+        "standalone": 81.18804686238245,
+        "combined": 72.95410270174754
+      },
+      {
+        "r": 0.16,
+        "g": 0.035,
+        "standalone": 82.23003980314206,
+        "combined": 73.88229939690888
+      },
+      {
+        "r": 0.16,
+        "g": 0.045,
+        "standalone": 83.40491982397315,
+        "combined": 74.92887054906225
+      },
+      {
+        "r": 0.18,
+        "g": 0.025,
+        "standalone": 68.57706648617223,
+        "combined": 61.73921426012176
+      },
+      {
+        "r": 0.18,
+        "g": 0.035,
+        "standalone": 69.07182570909886,
+        "combined": 62.17994073499242
+      },
+      {
+        "r": 0.18,
+        "g": 0.045,
+        "standalone": 69.60412860730878,
+        "combined": 62.65411073328728
+      }
+    ],
+    "reverse": {
+      "standalone_implied_wacc": 0.09578286203867059,
+      "combined_implied_wacc": 0.08974690251184311,
+      "standalone_revenue_scale_from_fy2029": 2.088369170831993,
+      "standalone_implied_fy2031_revenue": 104.41845854159966
+    },
+    "historical_annual_points": [
+      {
+        "year": 2023,
+        "march_month_end_price": 43.29999923706055,
+        "annual_adj_eps": 2.12,
+        "adj_pe": 20.42452794200969,
+        "economic_eps_proxy": 1.5930039732191856,
+        "economic_pe_proxy": 27.18135043289235
+      },
+      {
+        "year": 2024,
+        "march_month_end_price": 70.87999725341797,
+        "annual_adj_eps": 1.51,
+        "adj_pe": 46.940395532064876,
+        "economic_eps_proxy": 0.9336666208686362,
+        "economic_pe_proxy": 75.9157451590963
+      },
+      {
+        "year": 2025,
+        "march_month_end_price": 61.56999969482422,
+        "annual_adj_eps": 1.57,
+        "adj_pe": 39.21656031517466,
+        "economic_eps_proxy": 1.01159387206854,
+        "economic_pe_proxy": 60.864346250856464
+      },
+      {
+        "year": 2026,
+        "march_month_end_price": 99.05000305175781,
+        "annual_adj_eps": 2.84,
+        "adj_pe": 34.87676163794289,
+        "economic_eps_proxy": 2.2819796236210252,
+        "economic_pe_proxy": 43.405296886300036
+      }
+    ],
+    "old_audit": {
+      "old_report_base": 135.0,
+      "old_unrounded_base": 134.4,
+      "old_fy28_eps": 6.254071661237784,
+      "old_normalization_formula": 4.442980456026058,
+      "old_formula_times_28": 124.40345276872964,
+      "old_base_eps_rounding_uplift": 0.0803558664071351
+    },
+    "peer_forward": {
+      "mrvl": 25.132332878581174,
+      "avgo": 17.078582434514637,
+      "alab": 38.512307692307694
+    },
+    "checks": {
+      "q2_segment_sum": 2.7393,
+      "q1_plus_q2": 5.1571,
+      "lite_segments": 1.2626,
+      "lite_eps_times_shares": 0.46157000000000004,
+      "q2_eps_times_shares": 0.8659279999999999,
+      "q2_reported_adj_net": 0.8659,
+      "h1_reported_fcf": 0.9619,
+      "h1_economic_fcf": 0.36649999999999994,
+      "purchase_commitments": 9.1852,
+      "q3_prelim_low": 3.0869999999999997,
+      "q3_prelim_high": 3.213,
+      "base_standalone_change_vs_135": -0.09129810183222631,
+      "base_combined_change_vs_135": -0.01939405902476843,
+      "standalone_dcf_gap": 0.3546080413787249,
+      "combined_dcf_gap": 0.6284580689981869,
+      "price_to_primary_base": 0.39158099657797174,
+      "needed_combined_eps": 7.675833333333333,
+      "needed_combined_ni": 10.731582583333333
+    }
+  },
+  "fx": {
+    "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml",
+    "fx_date": "2026-11-02",
+    "USD_per_EUR": 1.1216,
+    "formula": "EUR value = USD value / USD_per_EUR",
+    "results": {
+      "MRVL_standalone_base": {
+        "USD_per_common_share": 122.67475625264944,
+        "EUR_per_common_share": 109.37478267889573
+      },
+      "MRVL_combined_base": {
+        "USD_per_common_share": 132.38180203165626,
+        "EUR_per_common_share": 118.02942406531407
+      },
+      "LITE_standalone_base": {
+        "USD_per_common_share": 615.730693069307,
+        "EUR_per_common_share": 548.9752969590826
+      },
+      "LITE_deal_base": {
+        "USD_per_common_share": 595.7181091424532,
+        "EUR_per_common_share": 531.1324082939134
+      },
+      "LITE_standalone_band_low": {
+        "USD_per_common_share": 513.1089108910892,
+        "EUR_per_common_share": 457.4794141325688
+      },
+      "LITE_standalone_band_high": {
+        "USD_per_common_share": 718.3524752475248,
+        "EUR_per_common_share": 640.4711797855963
+      },
+      "MRVL_standalone_dcf": {
+        "USD_per_common_share": 90.56107191552668,
+        "EUR_per_common_share": 80.74275313438542
+      },
+      "MRVL_combined_dcf": {
+        "USD_per_common_share": 81.29272994612406,
+        "EUR_per_common_share": 72.47925280503215
+      },
+      "LITE_standalone_dcf": {
+        "USD_per_common_share": 259.9242830245973,
+        "EUR_per_common_share": 231.74418957257248
+      }
+    },
+    "scope": "Currency conversion only. All underlying estimates and their incomplete checks are retained."
+  },
+  "websiteMapping": {
+    "name": "Marvell",
+    "code": "MRVL.US",
+    "price": 153.32,
+    "currency": "€",
+    "note": "2026-11-03｜2027财年三季度营收初步披露及并购后复核",
+    "group": "watch_TR",
+    "low1": 108.15,
+    "high1": 127.9,
+    "low2": 84.61,
+    "high2": 174.73,
+    "memo": "2026-11-03｜FY2027 Q3营收初步披露及Lumentum交易后研究\n\n所有估值为1股Marvell普通股的欧元等值，汇率为ECB 2026-11-02：1欧元=1.1216美元。\n独立经营基准：122.67美元/股 ÷ 1.1216 = 109.37欧元/股。\n交易后静态备考基准：132.38美元/股 ÷ 1.1216 = 118.03欧元/股。尚未交割，不是2028年目标价。\n\n计算：FY2028正常化规模代理200亿美元 × (调整营业利润率38%−SBC率8%) × (1−税率18%) − 税后净利息1亿美元 = 经济净利48.20亿美元。除以9.436亿股，EPS为5.1081美元/股。净利×24倍后加入投资、远期合同资产、扣除或有现金净调整0.759亿美元，再除股数，得到独立基准。合并情景加入LITE权益及折现后的协同净值，除以13.981亿股，得到交易后基准。\n\nH：108.15—127.90欧元/股。沿用同一正常化盈利和并购假设，采用22—26倍经济PE；24倍中枢118.03欧元/股不变。这是低至中低置信的研究判断带，完整历史分位未验证。\nZ：84.61—174.73欧元/股，来自交易后18倍压力与28倍成长兑现情景，非已核实历史熊/牛分位。\nDCF独立检验：独立80.74欧元/股、交易后72.48欧元/股。与盈利法分歧显著，结果低至中低置信。\n\n收购消息后为何大跌：LITE每股固定换4.5股MRVL；MRVL股价下降，换股对价同步缩水。公告原MRVL股东约占67%，按约数推导总股数增加49.3%，需足够新增利润抵偿，但增发本身并不必然造成价值损失。整合、制造扩产及2028年上半年交割的等待，会影响投资者判断。\n美东11月2日15:24历史盘中快照（非收盘）：MRVL 172.34美元/股，跌12.25%；LITE跌17.65%；SOXX跌2.72%。LITE换股价值4.5×172.34=775.53美元/股，实际692.31美元/股，折价由4.9%扩大至10.7%。折价不是交易失败概率；当日跌幅不证明任一估值正确。\n\n完整过程、检查缺口与原文：\nhttps://xucao2023-cell.github.io/stock-tracker/reports/MRVL-20261103.html",
+    "valuationDate": "2026-11-03",
+    "valuationStatus": "conditional",
+    "valuationCenter": 118.03,
+    "valuationCurrency": "EUR",
+    "valuationReport": "reports/MRVL-20261103.html",
+    "valuationMethod": "正常化经济盈利×22–26倍H核心带；原18倍压力/28倍成长Z；交易后条件口径，DCF独立检验",
+    "valuationFx": {
+      "date": "2026-11-02",
+      "base": "EUR",
+      "quote": "USD",
+      "rate": 1.1216,
+      "formula": "EUR/share = USD/share / USD_per_EUR",
+      "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+    },
+    "valuationSourceUSD": {
+      "standaloneBase": 122.67475625264944,
+      "conditionalCombinedBase": 132.38180203165626,
+      "low1": 121.30637841337341,
+      "high1": 143.45722564993915,
+      "low2": 94.89306937400998,
+      "high2": 195.9783946727695,
+      "dcfStandalone": 90.56107191552668,
+      "dcfCombined": 81.29272994612406
+    },
+    "valuationScenarios": {
+      "standalone": {
+        "price": 109.37,
+        "currency": "EUR",
+        "label": "独立经营条件基准"
+      },
+      "base": {
+        "price": 118.03,
+        "currency": "EUR",
+        "conditionalOnDeal": true,
+        "label": "交易后静态备考条件基准"
+      },
+      "pressure": {
+        "price": 84.61,
+        "currency": "EUR",
+        "exitMultiple": 18,
+        "label": "交易后单倍数压力，非验证历史熊档"
+      },
+      "growth": {
+        "price": 174.73,
+        "currency": "EUR",
+        "exitMultiple": 28,
+        "label": "交易后成长兑现上沿，非验证历史牛档"
+      },
+      "coreLow": {
+        "price": 108.15,
+        "currency": "EUR",
+        "exitMultiple": 22,
+        "label": "原正常化盈利下的H下沿"
+      },
+      "coreHigh": {
+        "price": 127.9,
+        "currency": "EUR",
+        "exitMultiple": 26,
+        "label": "原正常化盈利下的H上沿"
+      }
+    },
+    "valuationDcf": {
+      "standalone": 80.74,
+      "combined": 72.48,
+      "currency": "EUR",
+      "wacc": 0.15,
+      "terminalGrowth": 0.035,
+      "standaloneTerminalShare": 0.48401624472999166,
+      "combinedTerminalShare": 0.4883385306752312
+    },
+    "valuationCaveat": "H为原正常化盈利下22–26倍判断带，Z保留原压力/成长外沿；均为交易后条件口径。低至中低置信，完整Q3、历史分位、S-4及合并桥仍缺，DCF分歧未消除。",
+    "initialQuote": {
+      "nativePriceUSD": 171.41,
+      "priceEUR": 152.83,
+      "asOfUTC": "2026-11-02T21:00:01+00:00",
+      "source": "https://query1.finance.yahoo.com/v8/finance/chart/MRVL?range=5d&interval=1d",
+      "fxDate": "2026-11-02",
+      "USD_per_EUR": 1.1216
+    },
+    "dealReaction": {
+      "asOfUTC": "2026-11-02T20:24:16+00:00",
+      "intradayNotClosing": true,
+      "previousCloseUSD": {
+        "MRVL": 196.4,
+        "LITE": 840.7,
+        "SOXX": 471.51
+      },
+      "pricesUSD": {
+        "MRVL": 172.34,
+        "LITE": 692.31,
+        "SOXX": 458.68
+      },
+      "changePercent": {
+        "MRVL": -12.250509164969447,
+        "LITE": -17.650767217794705,
+        "SOXX": -2.7210451528069335
+      },
+      "fixedExchangeRatio": 4.5,
+      "oldExchangeValueUSD": 883.8000000000001,
+      "exchangeValueUSD": 775.53,
+      "oldSpreadPercent": 4.8766689296220855,
+      "spreadPercent": 10.73072608409733,
+      "approxShareIncreasePercent": 49.25373134328357,
+      "causality": "Stock-for-stock transmission is arithmetic; investor motives are interpretations. The spread is not a failure probability."
+    },
+    "valuationConfidence": "low-to-medium-low",
+    "priceAsOf": "2026-11-03T14:38:12.000Z",
+    "priceSource": "Yahoo MRVL actual quote (USD); Frankfurter/ECB conversion to EUR",
+    "priceNative": {
+      "symbol": "MRVL",
+      "currency": "USD",
+      "price": 171.96
+    },
+    "priceFx": {
+      "from": "USD",
+      "to": "EUR",
+      "rate": 0.89158,
+      "date": "2026-11-02",
+      "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
+    },
+    "valuationH": {
+      "low": 108.15,
+      "base": 118.03,
+      "high": 127.9,
+      "multiples": [
+        22,
+        24,
+        26
+      ],
+      "conditionalOnDeal": true,
+      "label": "正常化盈利不变的研究判断带，非历史分位验证区间"
+    }
+  },
+  "reactionCalculations": {
+    "asOfUTC": "2026-11-02T20:24:16+00:00",
+    "intradayNotClosing": true,
+    "previousCloseUSD": {
+      "MRVL": 196.4,
+      "LITE": 840.7,
+      "SOXX": 471.51
+    },
+    "pricesUSD": {
+      "MRVL": 172.34,
+      "LITE": 692.31,
+      "SOXX": 458.68
+    },
+    "changePercent": {
+      "MRVL": -12.250509164969447,
+      "LITE": -17.650767217794705,
+      "SOXX": -2.7210451528069335
+    },
+    "fixedExchangeRatio": 4.5,
+    "oldExchangeValueUSD": 883.8000000000001,
+    "exchangeValueUSD": 775.53,
+    "oldSpreadPercent": 4.8766689296220855,
+    "spreadPercent": 10.73072608409733,
+    "approxShareIncreasePercent": 49.25373134328357,
+    "causality": "Stock-for-stock transmission is arithmetic; investor motives are interpretations. The spread is not a failure probability."
+  },
+  "rangeSupplement": {
+    "asOf": "2026-11-03",
+    "type": "Supplementary H-band multiple sensitivity",
+    "originalOperatingInputsUnchanged": true,
+    "originalBaseUnchanged": true,
+    "inputSources": {
+      "model": "extracted/revaluation_20261103/valuation_results.json",
+      "report": "Marvell_初步业绩及并购后重估_20261103.md"
+    },
+    "sourceClassification": {
+      "companyFacts": "Original official Q2 statements and Nov 2 merger/Q3 preliminary-revenue disclosure.",
+      "companyTargets": "FY2028 revenue USD20bn is a management target, not realised normal earnings.",
+      "consensus": "Original dated financial forecast is retained only as context, not a price target.",
+      "researchAssumptions": "Normalised margins, SBC, tax, 22/24/26 economic PE, 50% synergy, costs and timing."
+    },
+    "inputUnits": "USD billions and shares billions; bridge output also shown in USD100m",
+    "inputs": {
+      "mrvlEconomicNI": 4.82,
+      "liteEconomicNI": 2.5912,
+      "netNonoperatingAdjustment": 0.0759,
+      "afterTaxSynergy": 0.41,
+      "integrationCost": 1.0,
+      "ke": 0.15320119554502742,
+      "closeYears": 1.5,
+      "shares": 1.3981
+    },
+    "H": {
+      "low": {
+        "multiple": 22,
+        "mrvlEquityUSD100m": 1061.159,
+        "liteEquityUSD100m": 570.0640000000001,
+        "synergyNetPVUSD100m": 64.76147659737323,
+        "combinedEquityUSD100m": 1695.9844765973735,
+        "USD_per_share": 121.30637841337341,
+        "EUR_per_share": 108.1547596410248,
+        "equivalentMrvlAdjustedPE": 17.292889758643184
+      },
+      "base": {
+        "multiple": 24,
+        "mrvlEquityUSD100m": 1157.5590000000002,
+        "liteEquityUSD100m": 621.888,
+        "synergyNetPVUSD100m": 71.38297420458596,
+        "combinedEquityUSD100m": 1850.829974204586,
+        "USD_per_share": 132.38180203165626,
+        "EUR_per_share": 118.02942406531407,
+        "equivalentMrvlAdjustedPE": 18.864970645792567
+      },
+      "high": {
+        "multiple": 26,
+        "mrvlEquityUSD100m": 1253.959,
+        "liteEquityUSD100m": 673.712,
+        "synergyNetPVUSD100m": 78.00447181179868,
+        "combinedEquityUSD100m": 2005.6754718117988,
+        "USD_per_share": 143.45722564993915,
+        "EUR_per_share": 127.90408848960338,
+        "equivalentMrvlAdjustedPE": 20.437051532941947
+      }
+    },
+    "Z": {
+      "low": {
+        "USD_per_share": 94.89306937400998,
+        "EUR_per_share": 84.6050903833898
+      },
+      "high": {
+        "USD_per_share": 195.9783946727695,
+        "EUR_per_share": 174.73109368114257
+      }
+    },
+    "fx": {
+      "USD_per_EUR": 1.1216,
+      "date": "2026-11-02",
+      "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+    },
+    "methodReason": "22-26 is a judgment range around retained 24x core: approximately 17.29-20.44x original MRVL adjusted earnings. The original comparable snapshot provides context, not a verified historical percentile. H does not assume accelerated peak margins.",
+    "confidence": "Low to medium-low; original checklist gaps and DCF divergence retained.",
+    "unchangedDCF": {
+      "standaloneUSD": 90.56107191552668,
+      "combinedUSD": 81.29272994612406,
+      "wacc": 0.15,
+      "terminalShare": 0.4883385306752312
+    }
+  }
+}
