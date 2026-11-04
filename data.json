@@ -684,7 +684,8 @@
           "high": 70,
           "ebitdaEURMillion": 450.52,
           "multiple": 7.6,
-          "exitYear": 2027
+          "exitYear": 2027,
+          "price": 62.54
         },
         "bull": {
           "high": 94.8,
