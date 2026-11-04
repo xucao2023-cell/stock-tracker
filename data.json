@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-04T10:59:24.809Z",
+  "updatedAt": "2026-11-04T12:16:40.148Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -131,7 +131,7 @@
       "price": 764.91,
       "currency": "€",
       "note": "2026-10-15｜2026财年年报后重估",
-      "group": "watch_TR",
+      "group": "Trade Republic",
       "low1": 671.32,
       "high1": 939.85,
       "low2": 401,
