@@ -275,6 +275,16 @@ async function main() {
     } else {
       const got = yahooPrices[s.code];
       if (got) {
+        if (s.code === 'WAF.DE') {
+          const previousTime = Date.parse(s.priceAsOf || '');
+          if (got.symbol !== 'WAF.DE' || got.currency !== 'EUR' || s.currency !== '€' ||
+              !Number.isFinite(got.marketTime) ||
+              (Number.isFinite(previousTime) && got.marketTime * 1000 < previousTime)) {
+            report.push('WAF.DE SKIP (wrong security/currency or older quote timestamp)');
+            skipped++;
+            continue;
+          }
+        }
         if (s.code === 'BMW.DE') {
           const previousTime = Date.parse(s.priceAsOf || '');
           if (got.symbol !== 'BMW.DE' || got.currency !== 'EUR' || got.isin !== 'DE0005190003' ||
@@ -333,13 +343,25 @@ async function main() {
       }
     }
 
-    const formatted = s.code === 'BMW.DE' ? String(Math.round(newPrice * 100) / 100) : formatPriceLikeOriginal(newPrice, oldPrice);
-    const parsedFormatted = s.code === 'BMW.DE' ? Number(formatted) : (isInt(oldPrice) ? parseInt(formatted, 10) : parseFloat(formatted));
+    const preciseEuroQuote = s.code === 'BMW.DE' || s.code === 'WAF.DE';
+    const formatted = preciseEuroQuote ? String(Math.round(newPrice * 100) / 100) : formatPriceLikeOriginal(newPrice, oldPrice);
+    const parsedFormatted = preciseEuroQuote ? Number(formatted) : (isInt(oldPrice) ? parseInt(formatted, 10) : parseFloat(formatted));
     report.push(
       `${s.code.padEnd(10)} ${s.name.padEnd(10)} ${String(oldPrice).padEnd(10)} → ${formatted.padEnd(10)} (${src})`
     );
     if (!DRY_RUN) {
       s.price = parsedFormatted;
+      if (s.code === 'WAF.DE') {
+        const q = yahooPrices[s.code];
+        s.priceSource = 'Yahoo WAF.DE Xetra ordinary share quote (EUR)';
+        s.priceSourceUrl = YAHOO_URL('WAF.DE');
+        s.priceAsOf = new Date(q.marketTime * 1000).toISOString();
+        s.priceTimestampType = 'Exchange regular-market quote time';
+        s.priceObservedAt = new Date().toISOString();
+        s.priceNative = {symbol:'WAF.DE', isin:'DE000WAF3001', currency:'EUR', price:q.price};
+        s.priceFx = {from:'EUR', to:'EUR', rate:1, date:null, source:'Same currency; no conversion'};
+        console.log(`[waf-quote] symbol=WAF.DE currency=EUR price=${s.price} asof=${s.priceAsOf}`);
+      }
       if (s.code === 'BMW.DE') {
         const q = yahooPrices[s.code];
         s.priceSource = q.source;

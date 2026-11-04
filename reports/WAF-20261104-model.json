@@ -1,0 +1,219 @@
+{
+  "asof": "2026-11-04",
+  "units": "EUR million unless stated; shares million; price EUR/share",
+  "source": "source/q3_review_20261104.json",
+  "method": "normalized EBITDA x historical mid-cycle multiple; dated recovery adjustment",
+  "base": {
+    "price": 62.544685419478604,
+    "multiple": 7.6,
+    "rate": 0.095,
+    "ebitda": 450.52,
+    "fcff": 129.89000000000001,
+    "df": 0.9004549495567877,
+    "t": 1.1553730321697468,
+    "exit_ev": 3423.9519999999998,
+    "pv_cash": 116.96009339793117,
+    "pv_exit": 3083.1145254448625,
+    "reported_bridge": 1038.3000000000002,
+    "q4_cash_debt_proxy": 26.699999999999996,
+    "supplier_finance_proxy": 71.1,
+    "total_claims": 1136.1000000000001,
+    "terminal_share": 0.9634508230810486
+  },
+  "working_range": [
+    60,
+    70
+  ],
+  "normal_ebitda": 450.52,
+  "metrics": {
+    "revenue_qoq": 0.10509950248756206,
+    "revenue_yoy": 0.18348318348318338,
+    "ebitda_qoq": 0.17146974063400555,
+    "ebitda_yoy": 0.2374429223744292,
+    "revenue_vs_old_consensus": 0.06089552238805962,
+    "ebitda_vs_old_consensus": 0.10327045732121043,
+    "q3_margin": 0.22875633089476646,
+    "nine_month_margin": 0.21931875953228266,
+    "inventory_qoq": 0.013714619200466904,
+    "inventory_change": 4.699999999999989,
+    "bs_nwc": 329.8999999999999,
+    "cfo_provision_adjustment_share": 0.2847222222222222,
+    "q3_other_finance_net": 26.200000000000003,
+    "quote_change": 0.08487394957983185,
+    "guidance_ebitda_low": 296.274,
+    "guidance_ebitda_high": 323.208,
+    "guidance_ebitda_mid": 309.74100000000004,
+    "guidance_ebitda_mid_vs_old_consensus": 0.02938185443669017,
+    "implied_q4_ebitda_low": 80.57400000000001,
+    "implied_q4_ebitda_high": 107.50800000000004,
+    "bvps": 61.53939393939394,
+    "old_current_other_financial_total": 59.3,
+    "new_other_financial_total": 95.2,
+    "q2_fcf": -28.299999999999997
+  },
+  "raw_band": [
+    58.242093378387274,
+    67.4619334664401
+  ],
+  "waterfall": [
+    {
+      "step": "old_20261020",
+      "price": 62.93155057166691,
+      "delta": 0
+    },
+    {
+      "step": "date_only",
+      "price": 63.292851188451124,
+      "delta": 0.361300616784213
+    },
+    {
+      "step": "new_reported_bridge",
+      "price": 65.65648755208747,
+      "delta": 2.3636363636363455
+    },
+    {
+      "step": "2026_revenue_base_and_2027_wc",
+      "price": 65.71297063528695,
+      "delta": 0.05648308319948114
+    },
+    {
+      "step": "cash_tax_floor_15",
+      "price": 65.50832178311497,
+      "delta": -0.20464885217198514
+    },
+    {
+      "step": "q4_cash_burn_proxy",
+      "price": 64.69923087402405,
+      "delta": -0.8090909090909122
+    },
+    {
+      "step": "supplier_finance_correction",
+      "price": 62.544685419478604,
+      "delta": -2.154545454545449
+    }
+  ],
+  "sensitivities": {
+    "0.085": {
+      "7.25": 59.229597059457646,
+      "7.6": 63.57803839959216,
+      "8": 68.54768564546016
+    },
+    "0.095": {
+      "7.25": 58.242093378387274,
+      "7.6": 62.544685419478604,
+      "8": 67.4619334664401
+    },
+    "0.105": {
+      "7.25": 57.273837989522804,
+      "7.6": 61.53147442009315,
+      "8": 66.39734462645924
+    }
+  },
+  "debt_sensitivity": {
+    "no_supplier_proxy": 64.69923087402405,
+    "all_other_financial_liabilities": 61.81438238917557,
+    "no_q4_burn": 63.35377632856951,
+    "claims_plus100": 59.51438238917557
+  },
+  "dcf": {
+    "0.085": {
+      "price": 49.14534363355872,
+      "terminal_fcff": 188.53884,
+      "terminal_ev": 2900.597538461538,
+      "terminal_share": 0.9571389097128774,
+      "rate": 0.085,
+      "maintenance_capex": 200,
+      "growth": 0.02
+    },
+    "0.095": {
+      "price": 37.7112075420364,
+      "terminal_fcff": 188.53884,
+      "terminal_ev": 2513.8512,
+      "terminal_share": 0.9508688671947164,
+      "rate": 0.095,
+      "maintenance_capex": 200,
+      "growth": 0.02
+    },
+    "0.105": {
+      "price": 28.97187741770619,
+      "terminal_fcff": 188.53884,
+      "terminal_ev": 2218.1040000000003,
+      "terminal_share": 0.9446804378546113,
+      "rate": 0.105,
+      "maintenance_capex": 200,
+      "growth": 0.02
+    }
+  },
+  "reverse": {
+    "multiple": 7.763124948049798,
+    "rate": 0.07577197264080282,
+    "dcf_rate": 0.07510561661683758
+  },
+  "scenarios": {
+    "bear": {
+      "price": 57.38549471160281,
+      "multiple": 7.1803188565145675,
+      "rate": 0.095,
+      "ebitda": 450.52,
+      "fcff": 129.89000000000001,
+      "df": 0.9004549495567877,
+      "t": 1.1553730321697468,
+      "exit_ev": 3234.877251236943,
+      "pv_cash": 116.96009339793117,
+      "pv_exit": 2912.8612320849616,
+      "reported_bridge": 1038.3000000000002,
+      "q4_cash_debt_proxy": 26.699999999999996,
+      "supplier_finance_proxy": 71.1,
+      "total_claims": 1136.1000000000001,
+      "terminal_share": 0.9613970327510022
+    },
+    "base": {
+      "price": 62.544685419478604,
+      "multiple": 7.6,
+      "rate": 0.095,
+      "ebitda": 450.52,
+      "fcff": 129.89000000000001,
+      "df": 0.9004549495567877,
+      "t": 1.1553730321697468,
+      "exit_ev": 3423.9519999999998,
+      "pv_cash": 116.96009339793117,
+      "pv_exit": 3083.1145254448625,
+      "reported_bridge": 1038.3000000000002,
+      "q4_cash_debt_proxy": 26.699999999999996,
+      "supplier_finance_proxy": 71.1,
+      "total_claims": 1136.1000000000001,
+      "terminal_share": 0.9634508230810486
+    },
+    "bull": {
+      "price": 94.80391613494076,
+      "ebitda": 607.7,
+      "multiple": 7.988246139663517,
+      "rows": [
+        {
+          "year": 2027,
+          "fcff": 124.47000000000006,
+          "df": 0.9004549495567877
+        },
+        {
+          "year": 2028,
+          "fcff": 196.20000000000005,
+          "df": 0.8221800565057248
+        }
+      ],
+      "pv_cash": 273.39135465775666,
+      "pv_exit": 3991.237877795288
+    }
+  },
+  "quote": {
+    "price": 64.55,
+    "previous_close": 59.5,
+    "timestamp": "2026-11-04 09:15 CET",
+    "status": "Delayed intraday quote, not closing price",
+    "currency": "EUR",
+    "security": "Xetra ordinary share WAF DE000WAF3001",
+    "source": "https://stockanalysis.com/quote/etr/WAF/history/",
+    "provenance": "Transcribed from readable web result; not a vendor export"
+  },
+  "center_return": -0.031066066313267138,
+  "limitation": "Targeted quarterly review. Rate, historical multiple and normal earnings carried; weekly beta and contemporaneous peer validation remain incomplete."
+}

@@ -1,0 +1,88 @@
+{
+  "retrieved_on": "2026-11-04",
+  "units": "EUR million unless stated; shares million; price EUR/share",
+  "official_statement": "https://www.siltronic.com/fileadmin/investorrelations/2026/Q3/20261104_Siltronic_slightly_raises_sales_guidance_for_2026_-_higher_demand_drives_volume_development_in_Q3_2026.pdf",
+  "official_presentation": "https://www.siltronic.com/fileadmin/investorrelations/2026/Q3/20261104_Q3_2026_conference_call_presentation_web.pdf",
+  "official_release": "https://www.siltronic.com/en/press/press-releases/siltronic-slightly-raises-sales-guidance-for-2026-higher-demand-drives-volume-development-in-q3-2026.html",
+  "basis": "IFRS unaudited group accounts; EBITDA and company net cash flow are alternative performance measures",
+  "q2_cashflow_from_h1_statement_p21": {"cfo": 16.5, "net_cash_investment": 44.8},
+  "q3": {
+    "revenue": 355.4, "ebitda": 81.3, "ebit": -42.4,
+    "group_net_income": -55.0, "parent_net_income": -48.3, "eps": -1.46,
+    "depreciation": 123.7, "cfo": 100.8, "fcf": 57.0,
+    "company_net_cash_flow": 57.9, "book_capex": 39.9,
+    "gross_cash_capex": 45.4, "asset_disposals": 0.3, "investment_grants": 1.3,
+    "provisions_cashflow_adjustment": 28.7,
+    "supplier_finance_proceeds_proxy": 75.7, "supplier_finance_repayments_proxy": 49.5
+  },
+  "nine_months": {
+    "revenue": 983.5, "ebitda": 215.7, "ebit": -146.7,
+    "group_net_income": -184.9, "parent_net_income": -158.1,
+    "cfo": 138.2, "fcf": -60.8, "company_net_cash_flow": -58.6,
+    "cash_taxes_paid": 13.6, "book_capex": 125.9,
+    "net_cash_investment": 199.0,
+    "other_financial_liability_proceeds": 169.7,
+    "other_financial_liability_repayments": 144.6
+  },
+  "balance_20260930": {
+    "net_financial_debt": 619.9,
+    "lease_long": 132.3, "lease_short": 6.7,
+    "pension": 115.2, "nci_book": 164.2,
+    "inventory": 347.4, "trade_receivables": 146.9,
+    "contract_assets": 19.4, "trade_payables": 183.8,
+    "customer_prepayments_long": 481.3, "customer_prepayments_short": 33.8,
+    "other_financial_liabilities_long": 16.8,
+    "other_financial_liabilities_short": 78.4,
+    "cash": 373.1, "short_securities": 357.8, "restricted_securities": 2.9,
+    "official_financial_investments_in_net_debt": 360.7,
+    "nominal_loans_including_interest": 1350.8,
+    "parent_equity": 2030.8,
+    "shares": 33.0
+  },
+  "company_guidance": {
+    "revenue_description": "In the range of 2025; no precise revenue point guidance",
+    "2025_revenue_actual": 1346.7,
+    "ebitda_margin_low": 0.22, "ebitda_margin_high": 0.24,
+    "book_capex_low": 180, "book_capex_high": 200,
+    "depreciation_low": 480, "depreciation_high": 500,
+    "company_net_cash_flow_description": "Approximately on par with 2025",
+    "2025_company_net_cash_flow": -85.3,
+    "q4_eurusd_assumption": 1.14
+  },
+  "forecast_recheck": {
+    "source": "https://www.marketscreener.com/quote/stock/SILTRONIC-AG-22412985/finances/",
+    "rechecked_on": "2026-11-04",
+    "financial_cells_unchanged_vs_oct19": true,
+    "post_q3_revision_timestamp_verified": false,
+    "metric_level_analyst_counts_verified": false,
+    "use": "Carry prior 2027/2028 forecast inputs for comparison; do not call these post-release revised consensus"
+  },
+  "quote": {
+    "price": 64.55, "previous_close": 59.50,
+    "timestamp": "2026-11-04 09:15 CET",
+    "status": "Delayed intraday quote, not closing price",
+    "currency": "EUR", "security": "Xetra ordinary share WAF DE000WAF3001",
+    "source": "https://stockanalysis.com/quote/etr/WAF/history/",
+    "provenance": "Transcribed from readable web result; not a vendor export"
+  },
+  "source_locations": {
+    "pnl": "Q3 statement pp2,6,8",
+    "balance": "Q3 statement pp4,5,9",
+    "cashflow": "Q3 statement pp10,11",
+    "guidance": "Q3 statement p5; presentation p11",
+    "demand_pricing_loading": "Q3 presentation pp2,5,9,10; p10 checked visually",
+    "supplier_finance_opening": "Annual report 2025 pp139,149: EUR46.0m financing liability; closing current-period amount not separately disclosed"
+  },
+  "model_assumptions": {
+    "normal_ebitda": 450.52,
+    "multiple": 7.6, "discount_rate": 0.095,
+    "recovery_year": 2027,
+    "2027_revenue_forecast_carried": 1524.0,
+    "2027_cash_capex_proxy_carried": 287.9,
+    "2027_cash_tax_floor": 15.0,
+    "wc_ratio_of_incremental_revenue": 0.10,
+    "supplier_finance_opening_2025": 46.0,
+    "supplier_finance_rollforward": "46.0 + 169.7 - 144.6 = 71.1; self-built provisional debt proxy, assuming reported other-financing cash flows relate to this program and no material noncash changes; not a company-disclosed closing balance",
+    "q4_transition_cash": "Use FY2025 net cash flow as the numerical proxy for qualitative unchanged FY2026 guidance, subtract reported 9M net cash flow; cash-to-debt approximation, not FCFF or company debt guidance"
+  }
+}

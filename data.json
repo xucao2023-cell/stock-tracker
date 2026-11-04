@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-04T00:48:30.373Z",
+  "updatedAt": "2026-11-04T09:27:22.723Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -657,35 +657,62 @@
     {
       "name": "Siltronic",
       "code": "WAF.DE",
-      "price": 59.5,
+      "price": 63.6,
       "currency": "€",
-      "note": "2026-10-20｜2026年中报后估值复核",
+      "note": "2026-11-04｜2026年三季报后估值复核",
       "group": "Trade Republic",
       "low1": 60,
       "high1": 70,
-      "low2": 57.79,
-      "high2": 95.17,
+      "low2": 57.39,
+      "high2": 94.8,
       "memo": "",
-      "valuationDate": "2026-10-20",
-      "valuationCenter": 62.93,
+      "valuationDate": "2026-11-04",
+      "valuationCenter": 62.54,
       "valuationCurrency": "EUR",
-      "valuationReport": "reports/WAF-20261020-bounds.html",
-      "valuationMethod": "正常化EBITDA×历史倍数，折现恢复时点；Z取原报告温和倍数压力与景气上行情景",
+      "valuationReport": "reports/WAF-20261104.html",
+      "valuationMethod": "正常化EBITDA×历史中周期倍数，折现至当前；更新Q3债务及过渡现金，Z为温和倍数压力至景气上行",
       "valuationScenarios": {
         "bear": {
-          "low": 57.79,
+          "low": 57.39,
           "ebitdaEURMillion": 450.52,
           "multiple": 7.1803188565145675,
           "exitYear": 2027
         },
+        "base": {
+          "center": 62.54,
+          "low": 60,
+          "high": 70,
+          "ebitdaEURMillion": 450.52,
+          "multiple": 7.6,
+          "exitYear": 2027
+        },
         "bull": {
-          "high": 95.17,
+          "high": 94.8,
           "ebitdaEURMillion": 607.7,
           "multiple": 7.988246139663517,
           "exitYear": 2028
         }
       },
-      "valuationCaveat": "仅同步2026-10-20已采纳报告，未作2026-11-04重估；熊档为温和倍数压力，非极端底价；牛档依赖2028预测兑现。历史样本、现金投资及少数股权估值仍有缺证；永续DCF约38.19欧元/股，未与市场主锚平均。"
+      "valuationCaveat": "2026Q3实际量、利润率及现金流改善，维持正常化主锚；Z下沿为温和倍数压力，非极端底价。供应商融资0.711亿欧元、Q4消耗0.267亿欧元为自建代理；现金投资、少数股权公允价值和逐司周收益Beta未充分验证。经济DCF约37.71欧元/股，未与相对估值平均；未宣称完整通过检查单。",
+      "valuationModel": "reports/WAF-20261104-model.json",
+      "priceSource": "Yahoo WAF.DE Xetra ordinary share quote (EUR)",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/WAF.DE?interval=1d&range=5d",
+      "priceAsOf": "2026-11-04T09:11:58Z",
+      "priceTimestampType": "Exchange regular-market quote time",
+      "priceObservedAt": "2026-11-04T09:27:22.723288+00:00",
+      "priceNative": {
+        "symbol": "WAF.DE",
+        "isin": "DE000WAF3001",
+        "currency": "EUR",
+        "price": 63.6
+      },
+      "priceFx": {
+        "from": "EUR",
+        "to": "EUR",
+        "rate": 1,
+        "date": null,
+        "source": "Same currency; no conversion"
+      }
     },
     {
       "name": "携程",

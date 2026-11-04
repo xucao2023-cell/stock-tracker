@@ -1,0 +1,78 @@
+{
+  "retrieved_on": "2026-10-19",
+  "provenance": "Transcribed from readable web-tool results and reverified on 2026-10-19. Original direct HTML retrieval on 2026-10-15 returned HTTP403. This is a data snapshot, not an original vendor export.",
+  "financial_source": "https://www.marketscreener.com/quote/stock/SILTRONIC-AG-22412985/finances/",
+  "financial_page_quote_timestamp": "Intraday quote on 2026-10-19; not an estimate revision timestamp",
+  "secondary_source": "https://stockanalysis.com/quote/etr/WAF/forecast/",
+  "secondary_forecast_updated": "2026-10-07",
+  "units": "EUR million unless stated otherwise",
+  "forecast_basis": "Vendor-aggregated analyst estimates, adjusted to current consolidation scope. Metric-level analyst samples and full GAAP/adjustment reconciliations unavailable.",
+  "annual": {
+    "2026": {
+      "revenue": 1326.0,
+      "ebitda": 300.9,
+      "ebit": -200.5,
+      "net_income_vendor": -209.1,
+      "capex_vendor": 251.8,
+      "fcf_vendor_excluded": 84.35,
+      "net_debt_vendor_excluded": 833.0
+    },
+    "2027": {
+      "revenue": 1524.0,
+      "ebitda": 445.1,
+      "ebit": -92.89,
+      "net_income_vendor": -123.1,
+      "capex_vendor": 287.9,
+      "fcf_vendor_excluded": 221.8,
+      "net_debt_vendor_excluded": 765.0
+    },
+    "2028": {
+      "revenue": 1782.0,
+      "ebitda": 607.7,
+      "ebit": 44.29,
+      "net_income_vendor": -0.2031,
+      "capex_vendor": 370.7,
+      "fcf_vendor_excluded": 198.2,
+      "net_debt_vendor_excluded": 604.0
+    }
+  },
+  "quarterly_reference_only": {
+    "2026Q3": {
+      "revenue": 335.0,
+      "ebitda": 73.69
+    },
+    "2026Q4": {
+      "revenue": 368.0,
+      "ebitda": 102.8
+    }
+  },
+  "price_targets_display_only": {
+    "source": "https://stockanalysis.com/quote/etr/WAF/forecast/",
+    "analysts": 10,
+    "mean_eur_per_share": 97.6,
+    "median_eur_per_share": 93.5,
+    "low_eur_per_share": 74.0,
+    "high_eur_per_share": 130.0,
+    "not_used_in_valuation": true
+  },
+  "exclusions_and_caveats": [
+    "Do not substitute analyst forecasts for company guidance.",
+    "The analyst count10 is the price-target/coverage count; counts for individual financial forecast cells were not verified.",
+    "Annual EBITDA is not exactly equal to historical H1 plus quarterly consensusQ3 plusQ4; do not merge different forecast cohorts.",
+    "Vendor FCF and net-debt definitions were not reconciled; neither enters the valuation directly.",
+    "Vendor capex is an explicit investment-cashflow proxy in the scenario, not company guidance for booked additions.",
+    "Cross-listing pages show differing dates and values. The22412985 page is the chosen single snapshot; other listings were not mixed into the model.",
+    "Vendor share count remains 30 million; model uses 33 million from official H1 financial statements after the June capital increase."
+  ],
+  "verification": "Annual forecast cells re-read on 2026-10-19 and unchanged versus the 2026-10-15 snapshot.",
+  "reference_price": {
+    "date": "2026-10-16",
+    "eur_per_share": 65.9,
+    "status": "Completed Xetra session; Oct19 session was still in progress when checked",
+    "source": "https://stockanalysis.com/quote/etr/WAF/history/"
+  },
+  "next_report": {
+    "date": "2026-11-04",
+    "source": "https://www.siltronic.com/en/investors/financial-calendar.html"
+  }
+}
