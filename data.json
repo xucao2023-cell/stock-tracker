@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-04T09:44:30.304Z",
+  "updatedAt": "2026-11-04T10:59:24.809Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -443,7 +443,7 @@
       "price": 86,
       "currency": "¥",
       "note": "2026-10-28｜2026年三季报后重估",
-      "group": "watch_A股",
+      "group": "A股",
       "low1": 90,
       "high1": 110,
       "low2": 87.51,
@@ -902,20 +902,6 @@
       "valuationDate": "2026-10-30"
     },
     {
-      "name": "金安国纪",
-      "code": "002636.SZ",
-      "price": 64.41,
-      "currency": "¥",
-      "note": "2026-10-30｜2026年三季报后估值",
-      "group": "watch_A股",
-      "low1": 17,
-      "high1": 24,
-      "low2": 9,
-      "high2": 64,
-      "memo": "",
-      "valuationDate": "2026-10-30"
-    },
-    {
       "name": "Nebius",
       "code": "NBIS.US",
       "price": 151.64,
@@ -1042,7 +1028,7 @@
   ],
   "settings": {
     "theme": "light",
-    "activeGroup": "Trading 212",
+    "activeGroup": "A股",
     "sortKey": "gap",
     "sortDir": -1
   }
