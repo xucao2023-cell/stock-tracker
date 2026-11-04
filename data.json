@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-04T09:37:40.326Z",
+  "updatedAt": "2026-11-04T09:43:48.484Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -45,7 +45,7 @@
     {
       "name": "BMW",
       "code": "BMW.DE",
-      "price": 59.04,
+      "price": 58.92,
       "currency": "€",
       "note": "2026-11-04｜2026年中报及11月盈利预警复核",
       "group": "Trade Republic",
@@ -92,8 +92,8 @@
         }
       },
       "valuationCaveat": "低至中低置信：22亿欧元费用代理按100%付现、30%税盾和假设日期折现；裁员增量节约未重复加。历史连续分位、完整Q3与现金拆分未验证。",
-      "priceAsOf": "2026-11-04T09:29:07.000Z",
-      "priceObservedAt": "2026-11-04T09:29:58.081Z",
+      "priceAsOf": "2026-11-04T09:43:16.000Z",
+      "priceObservedAt": "2026-11-04T09:43:48.482Z",
       "priceTimestampType": "quote-page-refresh; last-trade timestamp not separately supplied",
       "priceSource": "Tradegate BSX",
       "priceSourceUrl": "https://www.tradegatebsx.com/orderbuch.php?isin=DE0005190003",
@@ -101,7 +101,7 @@
         "symbol": "BMW.DE",
         "isin": "DE0005190003",
         "currency": "EUR",
-        "price": 59.04
+        "price": 58.92
       },
       "priceFx": {
         "from": "EUR",
@@ -657,7 +657,7 @@
     {
       "name": "Siltronic",
       "code": "WAF.DE",
-      "price": 63.65,
+      "price": 63.13,
       "currency": "€",
       "note": "2026-11-04｜2026年三季报后估值复核",
       "group": "Trade Republic",
@@ -698,14 +698,14 @@
       "valuationModel": "reports/WAF-20261104-model.json",
       "priceSource": "Yahoo WAF.DE Xetra ordinary share quote (EUR)",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/WAF.DE?interval=1d&range=5d",
-      "priceAsOf": "2026-11-04T09:13:48.000Z",
+      "priceAsOf": "2026-11-04T09:28:07.000Z",
       "priceTimestampType": "Exchange regular-market quote time",
-      "priceObservedAt": "2026-11-04T09:29:58.081Z",
+      "priceObservedAt": "2026-11-04T09:43:48.482Z",
       "priceNative": {
         "symbol": "WAF.DE",
         "isin": "DE000WAF3001",
         "currency": "EUR",
-        "price": 63.65
+        "price": 63.125
       },
       "priceFx": {
         "from": "EUR",
@@ -994,7 +994,7 @@
           "price": 684.85,
           "currency": "EUR",
           "exitMultiple": 24,
-          "revenueUSD": 9980000000.0,
+          "revenueUSD": 9980000000,
           "label": "增长兑现，非严格历史周期牛档"
         },
         "operatingStress": {
@@ -1023,7 +1023,7 @@
       "holdingStatus": "held",
       "holdingConfirmedDate": "2026-11-04",
       "priceAsOf": "2026-11-03T21:00:01.000Z",
-      "priceSource": "Yahoo LITE actual ordinary-share quote (USD); Frankfurter/ECB conversion to EUR",
+      "priceSource": "Yahoo LITE actual quote (USD); Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/LITE?interval=1d&range=5d",
       "priceTimestampType": "Exchange regular-market quote time",
       "priceNative": {
