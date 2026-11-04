@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-04T09:27:22.723Z",
+  "updatedAt": "2026-11-04T09:29:58.082Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -19,7 +19,7 @@
     {
       "name": "小米集团",
       "code": "01810.HK",
-      "price": 28.6,
+      "price": 28.76,
       "currency": "HK$",
       "note": "2026年二季报后估值",
       "group": "watch_T212",
@@ -32,7 +32,7 @@
     {
       "name": "E.ON",
       "code": "EOAN.DE",
-      "price": 18.45,
+      "price": 18.68,
       "currency": "€",
       "note": "2026年中报后估值",
       "group": "watch_TR",
@@ -45,7 +45,7 @@
     {
       "name": "BMW",
       "code": "BMW.DE",
-      "price": 56.6,
+      "price": 59.04,
       "currency": "€",
       "note": "2026-11-04｜2026年中报及11月盈利预警复核",
       "group": "Trade Republic",
@@ -92,8 +92,8 @@
         }
       },
       "valuationCaveat": "低至中低置信：22亿欧元费用代理按100%付现、30%税盾和假设日期折现；裁员增量节约未重复加。历史连续分位、完整Q3与现金拆分未验证。",
-      "priceAsOf": "2026-11-03T21:00:00.000Z",
-      "priceObservedAt": "2026-11-04T00:48:22.760Z",
+      "priceAsOf": "2026-11-04T09:29:07.000Z",
+      "priceObservedAt": "2026-11-04T09:29:58.081Z",
       "priceTimestampType": "quote-page-refresh; last-trade timestamp not separately supplied",
       "priceSource": "Tradegate BSX",
       "priceSourceUrl": "https://www.tradegatebsx.com/orderbuch.php?isin=DE0005190003",
@@ -101,7 +101,7 @@
         "symbol": "BMW.DE",
         "isin": "DE0005190003",
         "currency": "EUR",
-        "price": 56.6
+        "price": 59.04
       },
       "priceFx": {
         "from": "EUR",
@@ -290,7 +290,7 @@
     {
       "name": "工业富联",
       "code": "601138.SH",
-      "price": 42,
+      "price": 45,
       "currency": "¥",
       "note": "2026-10-28｜2026年中报后重估",
       "group": "watch_A股",
@@ -332,7 +332,7 @@
     {
       "name": "中国移动",
       "code": "600941.SH",
-      "price": 104,
+      "price": 101,
       "currency": "¥",
       "note": "2026年中报后估值",
       "group": "watch_A股",
@@ -345,7 +345,7 @@
     {
       "name": "美的集团",
       "code": "000333.SZ",
-      "price": 89,
+      "price": 88,
       "currency": "¥",
       "note": "2026-10-21｜2026年中报后估值更新",
       "group": "watch_A股",
@@ -373,7 +373,7 @@
     {
       "name": "长电科技",
       "code": "600584.SH",
-      "price": 47,
+      "price": 52,
       "currency": "¥",
       "note": "2026-10-28｜2026年三季报后估值复核",
       "group": "watch_A股",
@@ -427,7 +427,7 @@
     {
       "name": "东方雨虹",
       "code": "002271.SZ",
-      "price": 11,
+      "price": 10,
       "currency": "¥",
       "note": "2026年中报后估值",
       "group": "watch_A股",
@@ -440,7 +440,7 @@
     {
       "name": "沪电股份",
       "code": "002463.SZ",
-      "price": 78,
+      "price": 86,
       "currency": "¥",
       "note": "2026-10-28｜2026年三季报后重估",
       "group": "watch_A股",
@@ -454,7 +454,7 @@
     {
       "name": "春秋航空",
       "code": "601021.SH",
-      "price": 42.46,
+      "price": 42.96,
       "currency": "¥",
       "note": "2026-10-22｜2026年中报后复核",
       "group": "A股",
@@ -551,7 +551,7 @@
       "high1": 140,
       "low2": 100,
       "high2": 180,
-      "price": 113,
+      "price": 112,
       "currency": "¥",
       "note": "2026-10-20｜2026年中报后重估",
       "memo": "基于26年中报，小心价格战",
@@ -565,7 +565,7 @@
       "high1": 37,
       "low2": 9,
       "high2": 56,
-      "price": 36,
+      "price": 39,
       "currency": "¥",
       "note": "2026年中报后估值",
       "memo": "26年中报之后",
@@ -647,7 +647,7 @@
       "high1": 580,
       "low2": 444,
       "high2": 640,
-      "price": 570,
+      "price": 569,
       "currency": "€",
       "note": "2026-10-31｜2026年中报＋三季度初步业绩后重估",
       "memo": "",
@@ -657,7 +657,7 @@
     {
       "name": "Siltronic",
       "code": "WAF.DE",
-      "price": 63.6,
+      "price": 63.65,
       "currency": "€",
       "note": "2026-11-04｜2026年三季报后估值复核",
       "group": "Trade Republic",
@@ -697,14 +697,14 @@
       "valuationModel": "reports/WAF-20261104-model.json",
       "priceSource": "Yahoo WAF.DE Xetra ordinary share quote (EUR)",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/WAF.DE?interval=1d&range=5d",
-      "priceAsOf": "2026-11-04T09:11:58Z",
+      "priceAsOf": "2026-11-04T09:13:48.000Z",
       "priceTimestampType": "Exchange regular-market quote time",
-      "priceObservedAt": "2026-11-04T09:27:22.723288+00:00",
+      "priceObservedAt": "2026-11-04T09:29:58.081Z",
       "priceNative": {
         "symbol": "WAF.DE",
         "isin": "DE000WAF3001",
         "currency": "EUR",
-        "price": 63.6
+        "price": 63.65
       },
       "priceFx": {
         "from": "EUR",
@@ -759,7 +759,7 @@
     {
       "name": "兆易创新",
       "code": "603986.SH",
-      "price": 250.16,
+      "price": 271.38,
       "currency": "¥",
       "note": "2026-10-16｜2026年中报后重估",
       "group": "watch_A股",
@@ -773,7 +773,7 @@
     {
       "name": "宁德时代",
       "code": "300750.SZ",
-      "price": 249,
+      "price": 253,
       "currency": "¥",
       "note": "2026-10-20｜2026年中报后估值",
       "group": "watch_A股",
@@ -903,7 +903,7 @@
     {
       "name": "金安国纪",
       "code": "002636.SZ",
-      "price": 58.55,
+      "price": 64.41,
       "currency": "¥",
       "note": "2026-10-30｜2026年三季报后估值",
       "group": "watch_A股",
