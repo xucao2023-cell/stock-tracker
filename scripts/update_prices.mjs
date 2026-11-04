@@ -70,8 +70,8 @@ function classifyMarket(code) {
   // Tencent covers: A-share (6-digit), HK (5-digit .HK), US (letters or .US).
   // Yahoo covers: everything else (.DE, .PA, etc.).
   const c = code.trim();
-  // Validate the actual USD listing for SKHY ADS and MRVL before conversion.
-  if (['SKHY.US', 'SKHY', 'MRVL.US', 'MRVL'].includes(c)) return 'yahoo';
+  // Validate the actual USD listing for SKHY ADS and MRVL/LITE ordinary shares.
+  if (['SKHY.US', 'SKHY', 'MRVL.US', 'MRVL', 'LITE.US', 'LITE'].includes(c)) return 'yahoo';
   const isA = /^\d{6}(\.SH|\.SZ)?$/.test(c);
   const isHK = /^\d{5}\.HK$/.test(c);
   const isUS = /^[A-Za-z.]+(\.US)?$/.test(c) && !/\.(DE|PA|L|AS|NL|IT|ES|CH)$/i.test(c);
@@ -295,13 +295,13 @@ async function main() {
             continue;
           }
         }
-        if (['SKHY.US', 'SKHY', 'MRVL.US', 'MRVL'].includes(s.code) &&
+        if (['SKHY.US', 'SKHY', 'MRVL.US', 'MRVL', 'LITE.US', 'LITE'].includes(s.code) &&
             (got.currency !== 'USD' || got.symbol !== toYahooCode(s.code))) {
           report.push(`${s.code} SKIP (expected actual ${toYahooCode(s.code)} quote in USD)`);
           failed++;
           continue;
         }
-        if (s.code === 'MRVL.US' || s.code === 'MRVL') {
+        if (['MRVL.US', 'MRVL', 'LITE.US', 'LITE'].includes(s.code)) {
           const previousTime = Date.parse(s.priceAsOf || '');
           if (!Number.isFinite(got.marketTime) ||
               (Number.isFinite(previousTime) && got.marketTime * 1000 < previousTime)) {
@@ -343,7 +343,7 @@ async function main() {
       }
     }
 
-    const preciseEuroQuote = s.code === 'BMW.DE' || s.code === 'WAF.DE';
+    const preciseEuroQuote = ['BMW.DE', 'WAF.DE', 'LITE.US', 'LITE'].includes(s.code);
     const formatted = preciseEuroQuote ? String(Math.round(newPrice * 100) / 100) : formatPriceLikeOriginal(newPrice, oldPrice);
     const parsedFormatted = preciseEuroQuote ? Number(formatted) : (isInt(oldPrice) ? parseInt(formatted, 10) : parseFloat(formatted));
     report.push(
@@ -372,7 +372,7 @@ async function main() {
         s.priceNative = {symbol:q.symbol, isin:q.isin, currency:q.currency, price:q.price};
         s.priceFx = {from:'EUR', to:'EUR', rate:1, date:null, source:'Same currency; no conversion'};
       }
-      if (['SKHY.US', 'SKHY', 'MRVL.US', 'MRVL'].includes(s.code)) {
+      if (['SKHY.US', 'SKHY', 'MRVL.US', 'MRVL', 'LITE.US', 'LITE'].includes(s.code)) {
         const quote = yahooPrices[s.code];
         const pair = needsFxConversion(s);
         const fx = pair && fxCache.get(`${pair.from}->${pair.to}`);
@@ -380,11 +380,16 @@ async function main() {
         if (Number.isFinite(quote?.marketTime)) {
           s.priceAsOf = new Date(quote.marketTime * 1000).toISOString();
         }
-        if (s.code === 'MRVL.US' || s.code === 'MRVL') {
+        if (['MRVL.US', 'MRVL', 'LITE.US', 'LITE'].includes(s.code)) {
           s.priceNative = {symbol: quote.symbol, currency: quote.currency, price: quote.price};
           if (pair && fx) {
             s.priceFx = {from: pair.from, to: pair.to, rate: fx.value, date: fx.date,
               source: FRANKFURTER_URL(pair.from, pair.to)};
+          }
+          if (s.code === 'LITE.US' || s.code === 'LITE') {
+            s.priceSourceUrl = YAHOO_URL(quote.symbol);
+            s.priceTimestampType = 'Exchange regular-market quote time';
+            console.log(`[lite-quote] symbol=${quote.symbol} currency=${quote.currency} native=${quote.price} EUR=${s.price} asof=${s.priceAsOf} fx=${fx?.value} fxDate=${fx?.date}`);
           }
         }
       }

@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-04T09:30:58.432Z",
+  "updatedAt": "2026-11-04T09:37:40.326Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -930,23 +930,24 @@
       "valuationDate": "2026-10-30"
     },
     {
-      "name": "Marvell",
-      "code": "MRVL.US",
-      "price": 153.83,
+      "name": "Lumentum",
+      "code": "LITE.US",
+      "price": 608.42,
       "currency": "€",
-      "note": "2026-11-03｜2027财年三季度营收初步披露及并购后复核",
-      "group": "watch_TR",
-      "low1": 108.15,
-      "high1": 127.9,
-      "low2": 84.61,
-      "high2": 174.73,
-      "memo": "2026-11-03｜FY2027 Q3营收初步披露及Lumentum交易后研究\n\n所有估值为1股Marvell普通股的欧元等值，汇率为ECB 2026-11-02：1欧元=1.1216美元。\n独立经营基准：122.67美元/股 ÷ 1.1216 = 109.37欧元/股。\n交易后静态备考基准：132.38美元/股 ÷ 1.1216 = 118.03欧元/股。尚未交割，不是2028年目标价。\n\n计算：FY2028正常化规模代理200亿美元 × (调整营业利润率38%−SBC率8%) × (1−税率18%) − 税后净利息1亿美元 = 经济净利48.20亿美元。除以9.436亿股，EPS为5.1081美元/股。净利×24倍后加入投资、远期合同资产、扣除或有现金净调整0.759亿美元，再除股数，得到独立基准。合并情景加入LITE权益及折现后的协同净值，除以13.981亿股，得到交易后基准。\n\nH：108.15—127.90欧元/股。沿用同一正常化盈利和并购假设，采用22—26倍经济PE；24倍中枢118.03欧元/股不变。这是低至中低置信的研究判断带，完整历史分位未验证。\nZ：84.61—174.73欧元/股，来自交易后18倍压力与28倍成长兑现情景，非已核实历史熊/牛分位。\nDCF独立检验：独立80.74欧元/股、交易后72.48欧元/股。与盈利法分歧显著，结果低至中低置信。\n\n收购消息后为何大跌：LITE每股固定换4.5股MRVL；MRVL股价下降，换股对价同步缩水。公告原MRVL股东约占67%，按约数推导总股数增加49.3%，需足够新增利润抵偿，但增发本身并不必然造成价值损失。整合、制造扩产及2028年上半年交割的等待，会影响投资者判断。\n美东11月2日15:24历史盘中快照（非收盘）：MRVL 172.34美元/股，跌12.25%；LITE跌17.65%；SOXX跌2.72%。LITE换股价值4.5×172.34=775.53美元/股，实际692.31美元/股，折价由4.9%扩大至10.7%。折价不是交易失败概率；当日跌幅不证明任一估值正确。\n\n完整过程、检查缺口与原文：\nhttps://xucao2023-cell.github.io/stock-tracker/reports/MRVL-20261103.html",
+      "note": "2026-11-03｜2027财年一季报后独立经营复核",
+      "group": "Trade Republic",
+      "low1": 457.48,
+      "high1": 640.47,
+      "low2": 411.73,
+      "high2": 684.85,
+      "memo": "用户于2026-11-04确认已通过Trade Republic买入Lumentum；数量及成本未提供。\n\n采用2026-11-03独立经营复核，证券为1股LITE普通股，无ADS。估值固定用ECB 2026-11-02的1欧元=1.1216美元；行情另按最新Frankfurter/ECB汇率更新，为美股实际报价的欧元等值，不是Trade Republic成交价。\n\n正常化经济净利=80亿美元×(44%调整营业利润率−4.5%持续股权激励及相关税费)×82%=25.912亿美元；除1.010亿股，经济EPS=25.6554美元/股。24倍基准615.73美元/股，折合548.98欧元/股。\n\nH：457.48—640.47欧元/股，沿用原20—28倍独立经营研究带。\nZ：411.73—684.85欧元/股，下沿为同一盈利18倍压力；上沿为收入99.8亿美元、同利润率及24倍PE的增长兑现情景。不是已验证历史熊牛分位，也没有机械套固定百分比。\n\n独立DCF：243.49欧元/股，WACC15.3%、永续增长3.5%、终值占48.10%。盈利法与DCF分歧仍大；完整现金流、订单期限/利润和历史前瞻倍数存在缺证，低至中低置信。\n\n交易完成口径另列：沿用原Marvell合并基准132.381802美元/股×4.5=595.72美元/股，约531.13欧元/股；这与4.5倍MRVL实时股价的换股市值不同，不参与H/Z。分手费有条件且属一次性，未计入独立基准。\n\n完整过程及模型：https://xucao2023-cell.github.io/stock-tracker/reports/LITE-20261103.html",
       "valuationDate": "2026-11-03",
       "valuationStatus": "conditional",
-      "valuationCenter": 118.03,
+      "valuationConfidence": "low-to-medium-low",
+      "valuationCenter": 548.98,
       "valuationCurrency": "EUR",
-      "valuationReport": "reports/MRVL-20261103.html",
-      "valuationMethod": "正常化经济盈利×22–26倍H核心带；原18倍压力/28倍成长Z；交易后条件口径，DCF独立检验",
+      "valuationReport": "reports/LITE-20261103.html",
+      "valuationMethod": "独立经营经济盈利×20–28倍H研究带；Z为18倍压力至同利润率增长兑现；DCF独立检验",
       "valuationFx": {
         "date": "2026-11-02",
         "base": "EUR",
@@ -956,103 +957,79 @@
         "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
       },
       "valuationSourceUSD": {
-        "standaloneBase": 122.67475625264944,
-        "conditionalCombinedBase": 132.38180203165626,
-        "low1": 121.30637841337341,
-        "high1": 143.45722564993915,
-        "low2": 94.89306937400998,
-        "high2": 195.9783946727695,
-        "dcfStandalone": 90.56107191552668,
-        "dcfCombined": 81.29272994612406
+        "low1": 513.1089108910892,
+        "high1": 718.3524752475248,
+        "low2": 461.7980198019802,
+        "high2": 768.1240396039605,
+        "standaloneBase": 615.730693069307,
+        "dcfStandalone": 273.09355829564737,
+        "conditionalMerger": 595.7181091424532,
+        "operatingStress": 411.5263366336634
+      },
+      "valuationH": {
+        "low": 457.48,
+        "base": 548.98,
+        "high": 640.47,
+        "multiples": [
+          20,
+          24,
+          28
+        ],
+        "conditionalOnDeal": false,
+        "label": "沿用独立经营研究判断带，非历史分位或失败保底"
       },
       "valuationScenarios": {
         "standalone": {
-          "price": 109.37,
+          "price": 548.98,
           "currency": "EUR",
-          "label": "独立经营条件基准"
-        },
-        "base": {
-          "price": 118.03,
-          "currency": "EUR",
-          "conditionalOnDeal": true,
-          "label": "交易后静态备考条件基准"
+          "conditionalOnDeal": false
         },
         "pressure": {
-          "price": 84.61,
+          "price": 411.73,
           "currency": "EUR",
           "exitMultiple": 18,
-          "label": "交易后单倍数压力，非验证历史熊档"
+          "label": "只压倍数，未验证历史分位"
         },
         "growth": {
-          "price": 174.73,
+          "price": 684.85,
           "currency": "EUR",
-          "exitMultiple": 28,
-          "label": "交易后成长兑现上沿，非验证历史牛档"
+          "exitMultiple": 24,
+          "revenueUSD": 9980000000.0,
+          "label": "增长兑现，非严格历史周期牛档"
         },
-        "coreLow": {
-          "price": 108.15,
+        "operatingStress": {
+          "price": 366.91,
           "currency": "EUR",
-          "exitMultiple": 22,
-          "label": "原正常化盈利下的H下沿"
+          "exitMultiple": 24,
+          "label": "另列经营压力，不与18倍重复叠加"
         },
-        "coreHigh": {
-          "price": 127.9,
+        "merger": {
+          "price": 531.13,
           "currency": "EUR",
-          "exitMultiple": 26,
-          "label": "原正常化盈利下的H上沿"
+          "conditionalOnDeal": true,
+          "exchangeRatio": 4.5,
+          "label": "原合并模型的基本面条件价值，未混入H/Z"
         }
       },
       "valuationDcf": {
-        "standalone": 80.74,
-        "combined": 72.48,
+        "standalone": 243.49,
         "currency": "EUR",
-        "wacc": 0.15,
+        "wacc": 0.153,
         "terminalGrowth": 0.035,
-        "standaloneTerminalShare": 0.48401624472999166,
-        "combinedTerminalShare": 0.4883385306752312
+        "terminalShare": 0.48104027608807665
       },
-      "valuationCaveat": "H为原正常化盈利下22–26倍判断带，Z保留原压力/成长外沿；均为交易后条件口径。低至中低置信，完整Q3、历史分位、S-4及合并桥仍缺，DCF分歧未消除。",
-      "initialQuote": {
-        "nativePriceUSD": 171.41,
-        "priceEUR": 152.83,
-        "asOfUTC": "2026-11-02T21:00:01+00:00",
-        "source": "https://query1.finance.yahoo.com/v8/finance/chart/MRVL?range=5d&interval=1d",
-        "fxDate": "2026-11-02",
-        "USD_per_EUR": 1.1216
-      },
-      "dealReaction": {
-        "asOfUTC": "2026-11-02T20:24:16+00:00",
-        "intradayNotClosing": true,
-        "previousCloseUSD": {
-          "MRVL": 196.4,
-          "LITE": 840.7,
-          "SOXX": 471.51
-        },
-        "pricesUSD": {
-          "MRVL": 172.34,
-          "LITE": 692.31,
-          "SOXX": 458.68
-        },
-        "changePercent": {
-          "MRVL": -12.250509164969447,
-          "LITE": -17.650767217794705,
-          "SOXX": -2.7210451528069335
-        },
-        "fixedExchangeRatio": 4.5,
-        "oldExchangeValueUSD": 883.8000000000001,
-        "exchangeValueUSD": 775.53,
-        "oldSpreadPercent": 4.8766689296220855,
-        "spreadPercent": 10.73072608409733,
-        "approxShareIncreasePercent": 49.25373134328357,
-        "causality": "Stock-for-stock transmission is arithmetic; investor motives are interpretations. The spread is not a failure probability."
-      },
-      "valuationConfidence": "low-to-medium-low",
-      "priceAsOf": "2026-11-03T21:00:02.000Z",
-      "priceSource": "Yahoo MRVL actual quote (USD); Frankfurter/ECB conversion to EUR",
+      "valuationCaveat": "独立经营盈利和PE均为低置信判断；H/Z不含收购溢价或分手费，不是失败后股价底线。DCF显著较低；缺完整现金流、订单期限/利润及历史同口径倍数。",
+      "holdingPlatform": "Trade Republic",
+      "holdingStatus": "held",
+      "holdingConfirmedDate": "2026-11-04",
+      "priceAsOf": "2026-11-03T21:00:01.000Z",
+      "priceSource": "Yahoo LITE actual ordinary-share quote (USD); Frankfurter/ECB conversion to EUR",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/LITE?interval=1d&range=5d",
+      "priceTimestampType": "Exchange regular-market quote time",
       "priceNative": {
-        "symbol": "MRVL",
+        "symbol": "LITE",
         "currency": "USD",
-        "price": 171.97
+        "price": 680.16
       },
       "priceFx": {
         "from": "USD",
@@ -1060,18 +1037,6 @@
         "rate": 0.89453,
         "date": "2026-11-03",
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
-      },
-      "valuationH": {
-        "low": 108.15,
-        "base": 118.03,
-        "high": 127.9,
-        "multiples": [
-          22,
-          24,
-          26
-        ],
-        "conditionalOnDeal": true,
-        "label": "正常化盈利不变的研究判断带，非历史分位验证区间"
       }
     }
   ],

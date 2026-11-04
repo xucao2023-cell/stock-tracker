@@ -1,0 +1,56 @@
+{
+  "sourceModelDate": "2026-11-03",
+  "H": {
+    "low": 457.48,
+    "base": 548.98,
+    "high": 640.47,
+    "multiples": [
+      20,
+      24,
+      28
+    ],
+    "conditionalOnDeal": false,
+    "label": "沿用独立经营研究判断带，非历史分位或失败保底"
+  },
+  "Z": {
+    "low": 411.73,
+    "high": 684.85,
+    "lowCase": {
+      "revenue": 8.0,
+      "adjustedOpMargin": 0.44,
+      "recurringSbcAndPayroll": 0.045,
+      "tax": 0.18,
+      "economicNI": 2.5912,
+      "economicEPS": 25.655445544554457,
+      "multiple": 18,
+      "equity": 46.641600000000004,
+      "price": 461.7980198019802
+    },
+    "highCase": {
+      "revenue": 9.98,
+      "adjustedOpMargin": 0.44,
+      "recurringSbcAndPayroll": 0.045,
+      "tax": 0.18,
+      "economicNI": 3.2325220000000003,
+      "economicEPS": 32.005168316831686,
+      "multiple": 24,
+      "equity": 77.58052800000002,
+      "price": 768.1240396039605
+    }
+  },
+  "valuationFx": {
+    "date": "2026-11-02",
+    "base": "EUR",
+    "quote": "USD",
+    "rate": 1.1216,
+    "formula": "EUR/share = USD/share / USD_per_EUR",
+    "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+  },
+  "sourceUSD": {
+    "low1": 513.1089108910892,
+    "high1": 718.3524752475248,
+    "low2": 461.7980198019802,
+    "high2": 768.1240396039605
+  },
+  "caveat": "独立经营盈利和PE均为低置信判断；H/Z不含收购溢价或分手费，不是失败后股价底线。DCF显著较低；缺完整现金流、订单期限/利润及历史同口径倍数。"
+}

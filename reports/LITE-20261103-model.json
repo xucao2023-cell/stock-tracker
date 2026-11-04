@@ -1,0 +1,608 @@
+{
+  "valuation": {
+    "asofDate": "2026-11-03",
+    "purpose": "Independent ownership if merger fails; no assumed fee or synergy",
+    "latestFinancialPeriod": "FY2027 Q1 ended 2026-09-26; release 2026-11-02",
+    "latest10QCheck": "SEC submissions checked Nov3; no FY27 Q1 10-Q yet",
+    "price": 685.59,
+    "priceTimeUTC": "2026-11-03T15:33:30+00:00",
+    "facts": {
+      "q1Revenue": 1.2626,
+      "q1AdjustedOperatingIncome": 0.5344,
+      "q1AdjustedNI": 0.4611,
+      "q1AdjustedEPS": 4.57,
+      "q1GAApNI": 0.3603,
+      "q1BasicShares": 0.0925,
+      "q1GAApDilutedShares": 0.1017,
+      "q1SbcAndPayroll": 0.1467,
+      "q1RetirementModification": 0.0894,
+      "q1PayrollTaxes": 0.0142,
+      "q1RecurringSbcAndPayrollProxy": 0.057300000000000004,
+      "q1RecurringSbcAndPayrollPercent": 0.04538254395691431,
+      "q1CashAndInvestments": 1.9796,
+      "q1Debt": 1.3996,
+      "q1CashDecrease": 0.7588,
+      "fy26Revenue": 3.014,
+      "fy26OCF": 0.7514,
+      "fy26Capex": 0.4513,
+      "fy26SBC": 0.1702,
+      "fy26ReportedFCF": 0.3001,
+      "fy26EconomicFCFProxy": 0.1299,
+      "fy26CapexPercent": 0.14973457199734572,
+      "q1PPENet": 1.4104,
+      "previousPPENet": 1.1591,
+      "q1Depreciation": 0.0436,
+      "ppeAdditionsProxyNotCashCapex": 0.29490000000000005,
+      "customerPurchaseCommitmentFloor": 5.0,
+      "ownPurchaseObligations": 2.3544,
+      "ownPurchaseObligationsWithinYear": 2.1125,
+      "twoCustomerShare": 0.41600000000000004,
+      "q1AccountsReceivableIncludingAccrued": 0.7257,
+      "priorReceivable": 0.5203,
+      "receivablesDaysProxyQ1": 52.30373831775701,
+      "receivablesDaysProxyQ4": 47.05087945940574,
+      "inventoryGrowth": 0.16787160208212848,
+      "revenueQoQ": 0.2546954188611745,
+      "q1PeriodEndBasicAndPreferredShares": 0.0935,
+      "adjustedVsGAApShareSensitivity": -4.2380677005754706
+    },
+    "betas": {
+      "156": {
+        "SPY": {
+          "beta": 2.339258114354933,
+          "r2": 0.2384213545025974,
+          "observations": 156,
+          "lastCompleteWeek": "2026-10-26"
+        },
+        "SOXX": {
+          "beta": 0.8901800511198349,
+          "r2": 0.23127574533195436,
+          "observations": 156,
+          "lastCompleteWeek": "2026-10-26"
+        }
+      },
+      "104": {
+        "SPY": {
+          "beta": 2.2253097556447097,
+          "r2": 0.20607022885346837,
+          "observations": 104,
+          "lastCompleteWeek": "2026-10-26"
+        },
+        "SOXX": {
+          "beta": 0.8985526410072477,
+          "r2": 0.20424827916228103,
+          "observations": 104,
+          "lastCompleteWeek": "2026-10-26"
+        }
+      }
+    },
+    "rf": 0.04953,
+    "rfSnapshotDate": "2026-10-22",
+    "newTnxPercent": 4.964,
+    "tnxChangeBp": 1.1000000000000592,
+    "erp": 0.045,
+    "erpReferenceNovember1": 0.0441,
+    "ke": 0.15479661514597198,
+    "debtCostProxy": 0.052,
+    "waccExact": 0.15257457256103607,
+    "waccModel": 0.153,
+    "cases": {
+      "multiple_pressure": {
+        "revenue": 8.0,
+        "adjustedOpMargin": 0.44,
+        "recurringSbcAndPayroll": 0.045,
+        "tax": 0.18,
+        "economicNI": 2.5912,
+        "economicEPS": 25.655445544554457,
+        "multiple": 18,
+        "equity": 46.641600000000004,
+        "price": 461.7980198019802
+      },
+      "base": {
+        "revenue": 8.0,
+        "adjustedOpMargin": 0.44,
+        "recurringSbcAndPayroll": 0.045,
+        "tax": 0.18,
+        "economicNI": 2.5912,
+        "economicEPS": 25.655445544554457,
+        "multiple": 24,
+        "equity": 62.1888,
+        "price": 615.730693069307
+      },
+      "growth_delivery": {
+        "revenue": 9.98,
+        "adjustedOpMargin": 0.44,
+        "recurringSbcAndPayroll": 0.045,
+        "tax": 0.18,
+        "economicNI": 3.2325220000000003,
+        "economicEPS": 32.005168316831686,
+        "multiple": 24,
+        "equity": 77.58052800000002,
+        "price": 768.1240396039605
+      },
+      "operating_stress": {
+        "revenue": 6.4,
+        "adjustedOpMargin": 0.38,
+        "recurringSbcAndPayroll": 0.05,
+        "tax": 0.18,
+        "economicNI": 1.7318400000000003,
+        "economicEPS": 17.146930693069308,
+        "multiple": 24,
+        "equity": 41.56416000000001,
+        "price": 411.5263366336634
+      }
+    },
+    "peBand": {
+      "low": 513.1089108910892,
+      "high": 718.3524752475248
+    },
+    "dcf": {
+      "rows": [
+        {
+          "period": "FY27 Q2",
+          "revenue": 1.6,
+          "economicOpMargin": 0.41000000000000003,
+          "nopat": 0.5379200000000002,
+          "da": 0.05600000000000001,
+          "capex": 0.32000000000000006,
+          "dwc": 0.03374000000000001,
+          "fcff": 0.24018000000000014,
+          "t": 0.14510609171800137,
+          "discount": 0.9795535679941352,
+          "pv": 0.23526917596083152
+        },
+        {
+          "period": "FY27 Q3",
+          "revenue": 1.9237,
+          "economicOpMargin": 0.395,
+          "nopat": 0.62308643,
+          "da": 0.0673295,
+          "capex": 0.38474,
+          "dwc": 0.03236999999999999,
+          "fcff": 0.27330593,
+          "t": 0.3942505133470226,
+          "discount": 0.945417776203616,
+          "pv": 0.2583882845638611
+        },
+        {
+          "period": "FY27 Q4",
+          "revenue": 1.9237,
+          "economicOpMargin": 0.395,
+          "nopat": 0.62308643,
+          "da": 0.0673295,
+          "capex": 0.38474,
+          "dwc": 0.0,
+          "fcff": 0.30567593,
+          "t": 0.6433949349760438,
+          "discount": 0.9124715592553914,
+          "pv": 0.27892059247394185
+        },
+        {
+          "period": "FY2028",
+          "revenue": 8.0,
+          "economicOpMargin": 0.395,
+          "nopat": 2.5912,
+          "da": 0.4,
+          "capex": 1.2,
+          "dwc": 0.129,
+          "fcff": 1.6622000000000001,
+          "t": 1.158110882956879,
+          "discount": 0.8479979577465071,
+          "pv": 1.4095422053662443
+        },
+        {
+          "period": "FY2029",
+          "revenue": 10.0,
+          "economicOpMargin": 0.395,
+          "nopat": 3.2390000000000003,
+          "da": 0.5,
+          "capex": 1.5,
+          "dwc": 0.2,
+          "fcff": 2.039,
+          "t": 2.1601642710472277,
+          "discount": 0.7352559361034119,
+          "pv": 1.499186853714857
+        },
+        {
+          "period": "FY2030",
+          "revenue": 12.0,
+          "economicOpMargin": 0.395,
+          "nopat": 3.8868000000000005,
+          "da": 0.6000000000000001,
+          "capex": 1.7999999999999998,
+          "dwc": 0.2,
+          "fcff": 2.4868000000000006,
+          "t": 3.159479808350445,
+          "discount": 0.6377515929379897,
+          "pv": 1.5859606613181931
+        },
+        {
+          "period": "FY2031",
+          "revenue": 14.0,
+          "economicOpMargin": 0.395,
+          "nopat": 4.5346,
+          "da": 0.7000000000000001,
+          "capex": 1.68,
+          "dwc": 0.2,
+          "fcff": 3.3546000000000005,
+          "t": 4.158795345653662,
+          "discount": 0.5531775730372861,
+          "pv": 1.8556894865108802
+        },
+        {
+          "period": "FY2032",
+          "revenue": 15.5,
+          "economicOpMargin": 0.395,
+          "nopat": 5.020450000000001,
+          "da": 0.775,
+          "capex": 1.8599999999999999,
+          "dwc": 0.15000000000000002,
+          "fcff": 3.7854500000000018,
+          "t": 5.158110882956879,
+          "discount": 0.47981915012037574,
+          "pv": 1.816331401823177
+        },
+        {
+          "period": "FY2033",
+          "revenue": 17.0,
+          "economicOpMargin": 0.395,
+          "nopat": 5.5063,
+          "da": 0.8500000000000001,
+          "capex": 2.04,
+          "dwc": 0.15000000000000002,
+          "fcff": 4.166300000000001,
+          "t": 6.160164271047228,
+          "discount": 0.4160268019036435,
+          "pv": 1.73329246477115
+        },
+        {
+          "period": "FY2034",
+          "revenue": 18.0,
+          "economicOpMargin": 0.395,
+          "nopat": 5.8302000000000005,
+          "da": 0.9,
+          "capex": 1.8,
+          "dwc": 0.1,
+          "fcff": 4.830200000000001,
+          "t": 7.1594798083504445,
+          "discount": 0.36085632579187954,
+          "pv": 1.743008224839937
+        },
+        {
+          "period": "FY2035",
+          "revenue": 19.0,
+          "economicOpMargin": 0.395,
+          "nopat": 6.1541000000000015,
+          "da": 0.9500000000000001,
+          "capex": 1.9000000000000001,
+          "dwc": 0.1,
+          "fcff": 5.104100000000002,
+          "t": 8.158795345653662,
+          "discount": 0.313002160601602,
+          "pv": 1.5975943279266374
+        }
+      ],
+      "r": 0.153,
+      "g": 0.035,
+      "terminalROIC": 0.2,
+      "terminalReinvestment": 0.17500000000000002,
+      "terminalFcff": 5.2548321375,
+      "terminalValue": 44.53247574152543,
+      "terminalTime": 8.654346338124572,
+      "pvTerminal": 12.989265708590677,
+      "pvExplicit": 14.01318367926971,
+      "ev": 27.002449387860388,
+      "cash": 1.9796,
+      "debt": 1.3996,
+      "netCash": 0.5800000000000001,
+      "equity": 27.582449387860386,
+      "shares": 0.101,
+      "price": 273.09355829564737,
+      "terminalShare": 0.48104027608807665
+    },
+    "dcfMatrix": [
+      {
+        "r": 0.12,
+        "g": 0.025,
+        "price": 380.09352938353436
+      },
+      {
+        "r": 0.12,
+        "g": 0.035,
+        "price": 393.91340881492846
+      },
+      {
+        "r": 0.12,
+        "g": 0.045,
+        "price": 411.1139177408787
+      },
+      {
+        "r": 0.143,
+        "g": 0.025,
+        "price": 295.7619639589052
+      },
+      {
+        "r": 0.143,
+        "g": 0.035,
+        "price": 301.6188236076966
+      },
+      {
+        "r": 0.143,
+        "g": 0.045,
+        "price": 308.4754075399056
+      },
+      {
+        "r": 0.153,
+        "g": 0.025,
+        "price": 269.01665075309603
+      },
+      {
+        "r": 0.153,
+        "g": 0.035,
+        "price": 273.09355829564737
+      },
+      {
+        "r": 0.153,
+        "g": 0.045,
+        "price": 277.7608876169022
+      },
+      {
+        "r": 0.163,
+        "g": 0.025,
+        "price": 246.38082727346637
+      },
+      {
+        "r": 0.163,
+        "g": 0.035,
+        "price": 249.2143550558969
+      },
+      {
+        "r": 0.163,
+        "g": 0.045,
+        "price": 252.3883725444456
+      },
+      {
+        "r": 0.18,
+        "g": 0.025,
+        "price": 215.03512830000977
+      },
+      {
+        "r": 0.18,
+        "g": 0.035,
+        "price": 216.52616054743646
+      },
+      {
+        "r": 0.18,
+        "g": 0.045,
+        "price": 218.13033637650918
+      }
+    ],
+    "dcfBridge": [
+      {
+        "step": "Original aligned-period standalone DCF",
+        "price": 259.9242830245973,
+        "change": 0.0
+      },
+      {
+        "step": "Own fiscal dates, remaining quarters, near-term guide/consensus and spending proxy; retain old later-year margin/capex",
+        "price": 259.99732300822444,
+        "change": 0.07303998362715447
+      },
+      {
+        "step": "Match PE normalised 39.5% economic operating margin through terminal",
+        "price": 287.40777183779784,
+        "change": 27.410448829573397
+      },
+      {
+        "step": "Increase expansion capex assumptions; no fee or synergy",
+        "price": 273.09355829564737,
+        "change": -14.314213542150469
+      }
+    ],
+    "reverse": {
+      "normalEconomicPE": 26.722981630132757,
+      "revenueAt24": 8.907660543377585,
+      "impliedWaccAtCurrentPrice": 0.08624177829710594,
+      "impliedWaccAtPeBase": 0.09158483483343682
+    },
+    "feeExcluded": {
+      "regulatoryGross": 3.2,
+      "grossPerDilutedShare": 31.683168316831683,
+      "percentCurrentPrice": 4.62129965676741,
+      "presentValuePerShareIf1_5Years": 25.531148471571335,
+      "caveat": "Conditional, pretax, before fees and losses; not a dividend or floor. Not capitalized at PE."
+    },
+    "comparisonOld": {
+      "earningsBaseOld": 615.730693069307,
+      "earningsBaseNew": 615.730693069307,
+      "baseChange": 0.0,
+      "dcfOld": 259.9242830245973,
+      "dcfNew": 273.09355829564737,
+      "dcfChange": 13.169275271050083
+    },
+    "priceGaps": {
+      "multiple_pressure": -0.32642246852786627,
+      "base": -0.10189662470382155,
+      "growth_delivery": 0.12038396068198254,
+      "operating_stress": -0.39974863018179474
+    },
+    "cashFlowVsPeGap": 1.2546511053282527,
+    "economicEpsNormalisationNote": "FY28 scale/mid-cycle margin proxy, not observed full-cycle earnings.",
+    "exampleEntry500": {
+      "discountToBase": 0.18795667387053627,
+      "normalPE": 19.48903982710713,
+      "revenueAt24": 6.49634660903571
+    },
+    "fx": {
+      "USDperEUR": 1.1216,
+      "date": "2026-11-02",
+      "baseEUR": 548.9752969590826,
+      "peBandEUR": [
+        457.4794141325688,
+        640.4711797855963
+      ],
+      "pressureEUR": 411.7314727193119,
+      "growthEUR": 684.8466829564555,
+      "dcfEUR": 243.48569748185395,
+      "priceEquivalentEUR": 611.2606990014266
+    },
+    "historicalAnchor": [
+      {
+        "year": 2023,
+        "august_end_price": 54.130001068115234,
+        "annual_adj_eps": 4.56,
+        "pe": 11.870614269323518
+      },
+      {
+        "year": 2024,
+        "august_end_price": 57.61000061035156,
+        "annual_adj_eps": 1.01,
+        "pe": 57.03960456470452
+      },
+      {
+        "year": 2025,
+        "august_end_price": 132.80999755859375,
+        "annual_adj_eps": 2.06,
+        "pe": 64.4708726012591
+      },
+      {
+        "year": 2026,
+        "august_end_price": 914.760009765625,
+        "annual_adj_eps": 8.67,
+        "pe": 105.5086516454008
+      }
+    ],
+    "consensus": {
+      "date": "2026-11-03",
+      "FY27Revenue": 6.71,
+      "FY28Revenue": 9.98,
+      "FY27AdjustedEPS": 24.88,
+      "FY28AdjustedEPS": 38.04,
+      "FY27ReportedFCFForecast": 1.02,
+      "financialAnalystCountFY27": 17,
+      "FY28Count": null
+    },
+    "caveats": [
+      "No latest-quarter cash flow statement",
+      "Customer order timing/cancellation/margin unverified",
+      "No full comparable historical forward/economic PE percentile",
+      "PE24 remains judgment; no calibrated investment win rate or deal probability",
+      "DCF contains forecast after latest balance date; Q2 partial elapsed-period cash not separately observed",
+      "Capital spending, tax, and future recurring equity cost are assumptions",
+      "Preferred dilution included; no separate preference payout deducted",
+      "Terminated-deal date and accompanying business conditions unknown"
+    ]
+  },
+  "websiteMapping": {
+    "name": "Lumentum",
+    "code": "LITE.US",
+    "price": 608.42,
+    "currency": "€",
+    "note": "2026-11-03｜2027财年一季报后独立经营复核",
+    "group": "Trade Republic",
+    "low1": 457.48,
+    "high1": 640.47,
+    "low2": 411.73,
+    "high2": 684.85,
+    "memo": "用户于2026-11-04确认已通过Trade Republic买入Lumentum；数量及成本未提供。\n\n采用2026-11-03独立经营复核，证券为1股LITE普通股，无ADS。估值固定用ECB 2026-11-02的1欧元=1.1216美元；行情另按最新Frankfurter/ECB汇率更新，为美股实际报价的欧元等值，不是Trade Republic成交价。\n\n正常化经济净利=80亿美元×(44%调整营业利润率−4.5%持续股权激励及相关税费)×82%=25.912亿美元；除1.010亿股，经济EPS=25.6554美元/股。24倍基准615.73美元/股，折合548.98欧元/股。\n\nH：457.48—640.47欧元/股，沿用原20—28倍独立经营研究带。\nZ：411.73—684.85欧元/股，下沿为同一盈利18倍压力；上沿为收入99.8亿美元、同利润率及24倍PE的增长兑现情景。不是已验证历史熊牛分位，也没有机械套固定百分比。\n\n独立DCF：243.49欧元/股，WACC15.3%、永续增长3.5%、终值占48.10%。盈利法与DCF分歧仍大；完整现金流、订单期限/利润和历史前瞻倍数存在缺证，低至中低置信。\n\n交易完成口径另列：沿用原Marvell合并基准132.381802美元/股×4.5=595.72美元/股，约531.13欧元/股；这与4.5倍MRVL实时股价的换股市值不同，不参与H/Z。分手费有条件且属一次性，未计入独立基准。\n\n完整过程及模型：https://xucao2023-cell.github.io/stock-tracker/reports/LITE-20261103.html",
+    "valuationDate": "2026-11-03",
+    "valuationStatus": "conditional",
+    "valuationConfidence": "low-to-medium-low",
+    "valuationCenter": 548.98,
+    "valuationCurrency": "EUR",
+    "valuationReport": "reports/LITE-20261103.html",
+    "valuationMethod": "独立经营经济盈利×20–28倍H研究带；Z为18倍压力至同利润率增长兑现；DCF独立检验",
+    "valuationFx": {
+      "date": "2026-11-02",
+      "base": "EUR",
+      "quote": "USD",
+      "rate": 1.1216,
+      "formula": "EUR/share = USD/share / USD_per_EUR",
+      "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+    },
+    "valuationSourceUSD": {
+      "low1": 513.1089108910892,
+      "high1": 718.3524752475248,
+      "low2": 461.7980198019802,
+      "high2": 768.1240396039605,
+      "standaloneBase": 615.730693069307,
+      "dcfStandalone": 273.09355829564737,
+      "conditionalMerger": 595.7181091424532,
+      "operatingStress": 411.5263366336634
+    },
+    "valuationH": {
+      "low": 457.48,
+      "base": 548.98,
+      "high": 640.47,
+      "multiples": [
+        20,
+        24,
+        28
+      ],
+      "conditionalOnDeal": false,
+      "label": "沿用独立经营研究判断带，非历史分位或失败保底"
+    },
+    "valuationScenarios": {
+      "standalone": {
+        "price": 548.98,
+        "currency": "EUR",
+        "conditionalOnDeal": false
+      },
+      "pressure": {
+        "price": 411.73,
+        "currency": "EUR",
+        "exitMultiple": 18,
+        "label": "只压倍数，未验证历史分位"
+      },
+      "growth": {
+        "price": 684.85,
+        "currency": "EUR",
+        "exitMultiple": 24,
+        "revenueUSD": 9980000000.0,
+        "label": "增长兑现，非严格历史周期牛档"
+      },
+      "operatingStress": {
+        "price": 366.91,
+        "currency": "EUR",
+        "exitMultiple": 24,
+        "label": "另列经营压力，不与18倍重复叠加"
+      },
+      "merger": {
+        "price": 531.13,
+        "currency": "EUR",
+        "conditionalOnDeal": true,
+        "exchangeRatio": 4.5,
+        "label": "原合并模型的基本面条件价值，未混入H/Z"
+      }
+    },
+    "valuationDcf": {
+      "standalone": 243.49,
+      "currency": "EUR",
+      "wacc": 0.153,
+      "terminalGrowth": 0.035,
+      "terminalShare": 0.48104027608807665
+    },
+    "valuationCaveat": "独立经营盈利和PE均为低置信判断；H/Z不含收购溢价或分手费，不是失败后股价底线。DCF显著较低；缺完整现金流、订单期限/利润及历史同口径倍数。",
+    "holdingPlatform": "Trade Republic",
+    "holdingStatus": "held",
+    "holdingConfirmedDate": "2026-11-04",
+    "priceAsOf": "2026-11-03T21:00:01.000Z",
+    "priceSource": "Yahoo LITE actual ordinary-share quote (USD); Frankfurter/ECB conversion to EUR",
+    "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/LITE?interval=1d&range=5d",
+    "priceTimestampType": "Exchange regular-market quote time",
+    "priceNative": {
+      "symbol": "LITE",
+      "currency": "USD",
+      "price": 680.16
+    },
+    "priceFx": {
+      "from": "USD",
+      "to": "EUR",
+      "rate": 0.89453,
+      "date": "2026-11-03",
+      "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
+    }
+  },
+  "originalReportDate": "2026-11-03",
+  "publicationDate": "2026-11-04"
+}
