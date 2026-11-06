@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-06T01:04:20.444Z",
+  "updatedAt": "2026-11-06T07:05:47.479Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -207,7 +207,7 @@
       "price": 63,
       "currency": "$",
       "note": "2026-11-03｜2026年三季报后重估",
-      "group": "watch_T212",
+      "group": "Trading 212",
       "low1": 58,
       "high1": 73,
       "low2": 46.69,
