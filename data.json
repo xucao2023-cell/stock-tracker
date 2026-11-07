@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-06T15:20:00.608Z",
+  "updatedAt": "2026-11-07T00:15:03.854Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -32,7 +32,7 @@
     {
       "name": "E.ON",
       "code": "EOAN.DE",
-      "price": 18.93,
+      "price": 19.09,
       "currency": "€",
       "note": "2026年中报后估值",
       "group": "watch_TR",
@@ -45,7 +45,7 @@
     {
       "name": "BMW",
       "code": "BMW.DE",
-      "price": 59.36,
+      "price": 58.96,
       "currency": "€",
       "note": "2026-11-04｜2026年中报及11月盈利预警复核",
       "group": "Trade Republic",
@@ -92,8 +92,8 @@
         }
       },
       "valuationCaveat": "低至中低置信：22亿欧元费用代理按100%付现、30%税盾和假设日期折现；裁员增量节约未重复加。历史连续分位、完整Q3与现金拆分未验证。",
-      "priceAsOf": "2026-11-06T15:19:46.000Z",
-      "priceObservedAt": "2026-11-06T15:19:58.160Z",
+      "priceAsOf": "2026-11-06T21:00:00.000Z",
+      "priceObservedAt": "2026-11-07T00:15:03.853Z",
       "priceTimestampType": "quote-page-refresh; last-trade timestamp not separately supplied",
       "priceSource": "Tradegate BSX",
       "priceSourceUrl": "https://www.tradegatebsx.com/orderbuch.php?isin=DE0005190003",
@@ -101,7 +101,7 @@
         "symbol": "BMW.DE",
         "isin": "DE0005190003",
         "currency": "EUR",
-        "price": 59.36
+        "price": 58.96
       },
       "priceFx": {
         "from": "EUR",
@@ -114,7 +114,7 @@
     {
       "name": "Airbus",
       "code": "AIR.PA",
-      "price": 198,
+      "price": 196,
       "currency": "€",
       "note": "2026-10-13｜2026年中报后重估",
       "group": "Trade Republic",
@@ -128,7 +128,7 @@
     {
       "name": "美光科技",
       "code": "MU.US",
-      "price": 626.33,
+      "price": 618.01,
       "currency": "€",
       "note": "2026-10-15｜2026财年年报后重估",
       "group": "Trade Republic",
@@ -142,7 +142,7 @@
     {
       "name": "Apple",
       "code": "AAPL.US",
-      "price": 306.76,
+      "price": 306.65,
       "currency": "€",
       "note": "2026-11-03｜2026财年四季报快报后复核",
       "group": "watch_TR",
@@ -254,7 +254,7 @@
     {
       "name": "Vertiv",
       "code": "VRT.US",
-      "price": 184.01,
+      "price": 182.86,
       "currency": "$",
       "note": "2026-10-28｜2026年三季报后估值更新",
       "group": "Trading 212",
@@ -537,7 +537,7 @@
       "high1": 290,
       "low2": 151.67,
       "high2": 403.81,
-      "price": 239.43,
+      "price": 239.3,
       "currency": "$",
       "note": "2026-10-20｜2026财年三季报后重估",
       "memo": "基于26中报更新估值",
@@ -578,7 +578,7 @@
       "high1": 501.25,
       "low2": 393.84,
       "high2": 626.57,
-      "price": 477.42,
+      "price": 475.25,
       "currency": "€",
       "note": "2026-10-29｜2027财年一季报后重估",
       "memo": "基于26年中报更新估值",
@@ -605,7 +605,7 @@
       "high1": 340,
       "low2": 257,
       "high2": 435,
-      "price": 287.87,
+      "price": 284.78,
       "currency": "$",
       "note": "2026-10-29｜2026年三季报后重估",
       "memo": "26年中报之后修正",
@@ -647,7 +647,7 @@
       "high1": 580,
       "low2": 444,
       "high2": 640,
-      "price": 573,
+      "price": 569,
       "currency": "€",
       "note": "2026-10-31｜2026年中报＋三季度初步业绩后重估",
       "memo": "",
@@ -657,7 +657,7 @@
     {
       "name": "Siltronic",
       "code": "WAF.DE",
-      "price": 50.8,
+      "price": 50.35,
       "currency": "€",
       "note": "2026-11-04｜2026年三季报后估值复核",
       "group": "Trade Republic",
@@ -698,14 +698,14 @@
       "valuationModel": "reports/WAF-20261104-model.json",
       "priceSource": "Yahoo WAF.DE Xetra ordinary share quote (EUR)",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/WAF.DE?interval=1d&range=5d",
-      "priceAsOf": "2026-11-06T15:04:51.000Z",
+      "priceAsOf": "2026-11-06T16:35:50.000Z",
       "priceTimestampType": "Exchange regular-market quote time",
-      "priceObservedAt": "2026-11-06T15:19:58.160Z",
+      "priceObservedAt": "2026-11-07T00:15:03.853Z",
       "priceNative": {
         "symbol": "WAF.DE",
         "isin": "DE000WAF3001",
         "currency": "EUR",
-        "price": 50.8
+        "price": 50.35
       },
       "priceFx": {
         "from": "EUR",
@@ -718,7 +718,7 @@
     {
       "name": "携程",
       "code": "TCOM.US",
-      "price": 44.7,
+      "price": 44.37,
       "currency": "$",
       "note": "2026-10-14｜2026年二季报后重估",
       "group": "Trading 212",
@@ -732,7 +732,7 @@
     {
       "name": "Cloudflare",
       "code": "NET.US",
-      "price": 274.99,
+      "price": 268.75,
       "currency": "$",
       "note": "2026-10-16｜2026年二季报后估值复核",
       "group": "watch_T212",
@@ -746,7 +746,7 @@
     {
       "name": "英伟达",
       "code": "NVDA.US",
-      "price": 171.64,
+      "price": 167.17,
       "currency": "€",
       "note": "2026-10-15｜2027财年二季报后重估",
       "group": "watch_TR",
@@ -788,7 +788,7 @@
     {
       "name": "甲骨文",
       "code": "ORCL.US",
-      "price": 118,
+      "price": 116,
       "currency": "$",
       "note": "2026-11-02｜2027财年一季报及新指引后重估",
       "group": "Trading 212",
@@ -835,7 +835,7 @@
     {
       "name": "Bloom Energy",
       "code": "BE.US",
-      "price": 180,
+      "price": 173,
       "currency": "$",
       "note": "2026-10-24｜2026年三季报后重估",
       "group": "watch_T212",
@@ -849,7 +849,7 @@
     {
       "name": "SK海力士",
       "code": "SKHY.US",
-      "price": 129.22,
+      "price": 127.34,
       "currency": "$",
       "note": "2026-11-02｜2026年三季度初步业绩后情景复核",
       "group": "Trading 212",
@@ -860,7 +860,7 @@
       "memo": "",
       "valuationDate": "2026-11-02",
       "priceUnit": "USD/ADS",
-      "priceAsOf": "2026-11-06T15:19:54.000Z",
+      "priceAsOf": "2026-11-06T21:00:01.000Z",
       "priceSource": "Yahoo SKHY actual ADS quote (USD)",
       "valuationHorizon": 6,
       "valuationScenarios": {
@@ -890,7 +890,7 @@
     {
       "name": "英特尔",
       "code": "INTC.US",
-      "price": 49.57,
+      "price": 50.41,
       "currency": "€",
       "note": "2026-10-30｜2026年三季报后转型重估",
       "group": "watch_TR",
@@ -904,7 +904,7 @@
     {
       "name": "Nebius",
       "code": "NBIS.US",
-      "price": 130.13,
+      "price": 129.49,
       "currency": "$",
       "note": "2026-10-30｜2026年二季报后估值",
       "group": "Trading 212",
@@ -918,7 +918,7 @@
     {
       "name": "Lumentum",
       "code": "LITE.US",
-      "price": 481.35,
+      "price": 482.39,
       "currency": "€",
       "note": "2026-11-03｜2027财年一季报后独立经营复核",
       "group": "Trade Republic",
@@ -1008,14 +1008,14 @@
       "holdingPlatform": "Trade Republic",
       "holdingStatus": "held",
       "holdingConfirmedDate": "2026-11-04",
-      "priceAsOf": "2026-11-06T15:19:55.000Z",
+      "priceAsOf": "2026-11-06T21:00:01.000Z",
       "priceSource": "Yahoo LITE actual quote (USD); Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/LITE?interval=1d&range=5d",
       "priceTimestampType": "Exchange regular-market quote time",
       "priceNative": {
         "symbol": "LITE",
         "currency": "USD",
-        "price": 537.425
+        "price": 538.59
       },
       "priceFx": {
         "from": "USD",
