@@ -16,6 +16,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { execSync } from 'node:child_process';
 import iconv from 'iconv-lite';
 import { fetchBmwQuote } from './bmw_tradegate_quote.mjs';
+import { isUsStock, parseEtTimestamp, fetchLatestUsQuote, canReplaceQuote } from './latest_us_quote.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const DATA_PATH = new URL('../data.json', import.meta.url);
@@ -152,7 +153,7 @@ async function fetchTencentBatch(tencentSymbols) {
     if (fields.length < 4) continue;
     const price = parseFloat(fields[3]);
     if (!Number.isFinite(price) || price <= 0) continue;
-    out[sym] = { price, name: fields[1] };
+    out[sym] = { price, name: fields[1], marketTime:/^us/.test(sym) ? parseEtTimestamp(fields[30]) : null };
   }
   return out;
 }
@@ -188,7 +189,13 @@ async function main() {
   // Build batches
   const tencentByStock = []; // [{stock, tencentSym}]
   const yahooSymbols = [];    // [{stock, code}]
+  const usSymbols = [];
   for (const s of stocks) {
+    if (isUsStock(s.code)) {
+      usSymbols.push(s.code);
+      tencentByStock.push({stock:s,tencentSym:toTencentCode(s.code)});
+      continue;
+    }
     const market = classifyMarket(s.code);
     if (market === 'tencent') {
       const ts = toTencentCode(s.code);
@@ -226,6 +233,26 @@ async function main() {
     }
   }
 
+  // Compare actual reported timestamps across regular, pre-market and post-market.
+  // Tencent remains a timestamped regular-session fallback for source outages.
+  const usPrices = {};
+  for (const [i,code] of usSymbols.entries()) {
+    if (i > 0) await sleep(YAHOO_THROTTLE_MS);
+    const regular = tencentPrices[toTencentCode(code)];
+    const fallback = regular?.marketTime ? {
+      symbol:toYahooCode(code),currency:'USD',price:regular.price,marketTime:regular.marketTime,
+      session:'regular',source:'Tencent regular quote',sourceUrl:TENCENT_URL+toTencentCode(code),
+      timestampType:'Regular-session last-trade time, America/New_York',timestampPrecision:'second',priority:40
+    } : null;
+    try {
+      const quote = await fetchLatestUsQuote(code,{fallback,log:message=>console.warn('[latest-us] '+message)});
+      usPrices[code] = quote;
+      console.log(`[latest-us] ${code} ${quote.session} ${quote.price} USD asof=${new Date(quote.marketTime*1000).toISOString()} source=${quote.source}`);
+    } catch (error) {
+      console.warn(`[latest-us] ${code} failed: ${error.message}`);
+    }
+  }
+
   // FX: pre-fetch rates for any stock needing conversion.
   const fxStocks = stocks.map((s) => ({ stock: s, pair: needsFxConversion(s) })).filter((x) => x.pair);
   const fxRates = new Map(); // `${from}->${to}` → conversion rate
@@ -255,7 +282,21 @@ async function main() {
     let src = null;
 
     const market = classifyMarket(s.code);
-    if (market === 'tencent') {
+    const usStock = isUsStock(s.code);
+    if (usStock) {
+      const quote = usPrices[s.code];
+      if (quote && !canReplaceQuote(s,quote)) {
+        report.push(`${s.code} SKIP (upstream quote is older than stored quote timestamp)`);
+        skipped++;
+        continue;
+      }
+      if (quote) {
+        const pair = needsFxConversion(s), key = pair && `${pair.from}->${pair.to}`;
+        if (s.currency === '$') newPrice = quote.price;
+        else if (s.currency === '€' && pair && fxRates.has(key)) newPrice = quote.price * fxRates.get(key);
+        src = quote.source + ':' + quote.session + (pair ? '+fx' : '');
+      }
+    } else if (market === 'tencent') {
       const ts = toTencentCode(s.code);
       const got = tencentPrices[ts];
       if (got) {
@@ -343,7 +384,7 @@ async function main() {
       }
     }
 
-    const preciseEuroQuote = ['BMW.DE', 'WAF.DE', 'LITE.US', 'LITE'].includes(s.code);
+    const preciseEuroQuote = usStock || ['BMW.DE', 'WAF.DE', 'LITE.US', 'LITE'].includes(s.code);
     const formatted = preciseEuroQuote ? String(Math.round(newPrice * 100) / 100) : formatPriceLikeOriginal(newPrice, oldPrice);
     const parsedFormatted = preciseEuroQuote ? Number(formatted) : (isInt(oldPrice) ? parseInt(formatted, 10) : parseFloat(formatted));
     report.push(
@@ -351,6 +392,23 @@ async function main() {
     );
     if (!DRY_RUN) {
       s.price = parsedFormatted;
+      if (usStock) {
+        const q = usPrices[s.code], pair = needsFxConversion(s);
+        const fx = pair && fxCache.get(`${pair.from}->${pair.to}`);
+        s.priceSource = q.source + (pair ? '; Frankfurter/ECB conversion to EUR' : '');
+        s.priceSourceUrl = q.sourceUrl;
+        s.priceAsOf = new Date(q.marketTime * 1000).toISOString();
+        s.priceObservedAt = new Date().toISOString();
+        s.priceSession = q.session;
+        s.priceTimestampType = q.timestampType;
+        s.priceTimestampPrecision = q.timestampPrecision;
+        s.priceNative = {symbol:q.symbol,currency:'USD',price:q.price};
+        s.priceFx = pair && fx ? {from:pair.from,to:pair.to,rate:fx.value,date:fx.date,
+          source:FRANKFURTER_URL(pair.from,pair.to)} : {from:'USD',to:'USD',rate:1,date:null,source:'Same currency; no conversion'};
+        if (q.regularQuote?.price > 0 && q.regularQuote?.marketTime > 0) {
+          s.priceRegularQuote = {price:q.regularQuote.price,currency:'USD',asOf:new Date(q.regularQuote.marketTime * 1000).toISOString()};
+        }
+      }
       if (s.code === 'WAF.DE') {
         const q = yahooPrices[s.code];
         s.priceSource = 'Yahoo WAF.DE Xetra ordinary share quote (EUR)';
@@ -372,7 +430,7 @@ async function main() {
         s.priceNative = {symbol:q.symbol, isin:q.isin, currency:q.currency, price:q.price};
         s.priceFx = {from:'EUR', to:'EUR', rate:1, date:null, source:'Same currency; no conversion'};
       }
-      if (['SKHY.US', 'SKHY', 'MRVL.US', 'MRVL', 'LITE.US', 'LITE'].includes(s.code)) {
+      if (!usStock && ['SKHY.US', 'SKHY', 'MRVL.US', 'MRVL', 'LITE.US', 'LITE'].includes(s.code)) {
         const quote = yahooPrices[s.code];
         const pair = needsFxConversion(s);
         const fx = pair && fxCache.get(`${pair.from}->${pair.to}`);
@@ -424,7 +482,7 @@ async function main() {
     execSync('git config user.email "41898282+github-actions[bot]@users.noreply.github.com"', { cwd: new URL('..', import.meta.url), stdio: 'inherit' });
     execSync('git add data.json', { cwd: new URL('..', import.meta.url), stdio: 'inherit' });
     execSync(
-      `git commit -m "sync: 自动更新收盘价 @ ${data.updatedAt}"`,
+      `git commit -m "sync: 自动更新最新行情 @ ${data.updatedAt}"`,
       { cwd: new URL('..', import.meta.url), stdio: 'inherit' }
     );
     execSync('git push origin main', { cwd: new URL('..', import.meta.url), stdio: 'inherit' });

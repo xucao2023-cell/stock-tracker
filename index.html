@@ -233,6 +233,7 @@
   .stock-cell .name{font-weight:600;color:var(--text);font-size:14px;}
   .stock-cell .code{font-size:11px;color:var(--muted);font-family:"SF Mono",Consolas,monospace;display:flex;align-items:center;gap:4px;}
   .stock-cell .note{font-size:11px;color:var(--muted);margin-top:2px;}
+  .quote-time{font-size:10px;color:var(--muted);margin-top:3px;white-space:nowrap;}
 
   /* 货币徽章 */
   .cur-badge{
@@ -1255,6 +1256,15 @@ function gapPct(s){
   if(mid === 0) return 0;
   return (s.price - mid) / mid * 100;
 }
+function priceQuoteLabel(s){
+  const session = {pre:'盘前',regular:'常规',post:'盘后'}[s.priceSession];
+  const asof = new Date(s.priceAsOf || '');
+  if(!session || !Number.isFinite(asof.getTime())) return '';
+  const stamp = new Intl.DateTimeFormat('zh-CN',{timeZone:'Asia/Shanghai',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23'}).format(asof);
+  const detail = `${s.priceSource || ''}；报价时间（北京时间）：${stamp}；${s.priceTimestampType || ''}`;
+  return `<div class="quote-time" title="${escapeHtml(detail)}">${session} · ${stamp} 北京</div>`;
+}
+
 function fmt(n){
   if(n === null || n === undefined || isNaN(n)) return '–';
   if (n >= 1000) return n.toLocaleString('en-US', {maximumFractionDigits:0});
@@ -1466,6 +1476,7 @@ function stockRowHTML(s){
       </td>
       <td class="num">
         <input class="ie price" data-f="price" data-code="${escapeHtml(s.code)}" type="text" inputmode="decimal" value="${s.price}" title="现价">
+        ${priceQuoteLabel(s)}
       </td>
       <td class="num"><span class="gap ${status}">${arrow} ${gpStr}</span></td>
       <td><span class="pill ${status}">${judgeLabel(status)}</span></td>
