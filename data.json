@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-17T17:02:10.427Z",
+  "updatedAt": "2026-11-17T17:54:43.475575Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -128,27 +128,27 @@
     {
       "name": "美光科技",
       "code": "MU.US",
-      "price": 625.82,
+      "price": 633.44,
       "currency": "€",
-      "note": "2026-10-15｜2026财年年报后重估",
+      "note": "2026-11-18｜2026财年年报后重估",
       "group": "Trade Republic",
-      "low1": 671.32,
-      "high1": 939.85,
-      "low2": 401,
-      "high2": 1442.89,
+      "low1": 413.6,
+      "high1": 465.36,
+      "low2": 376.73,
+      "high2": 501.34,
       "memo": "26年中报后估值",
-      "valuationDate": "2026-10-15",
+      "valuationDate": "2026-11-18",
       "priceSource": "Nasdaq last sale; Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://api.nasdaq.com/api/quote/MU/info?assetclass=stocks",
-      "priceAsOf": "2026-11-17T17:01:00.000Z",
-      "priceObservedAt": "2026-11-17T17:02:04.316Z",
+      "priceAsOf": "2026-11-17T17:54:00Z",
+      "priceObservedAt": "2026-11-17T17:54:43.474107Z",
       "priceSession": "regular",
       "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
       "priceTimestampPrecision": "minute",
       "priceNative": {
         "symbol": "MU",
         "currency": "USD",
-        "price": 687.715
+        "price": 696.085
       },
       "priceFx": {
         "from": "USD",
@@ -158,10 +158,77 @@
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
-        "price": 689.02,
+        "price": 695.965,
         "currency": "USD",
-        "asOf": "2026-11-17T17:01:36.000Z"
-      }
+        "asOf": "2026-11-17T17:54:39Z"
+      },
+      "valuationCenter": 439.48,
+      "valuationCurrency": "EUR",
+      "valuationStatus": "conditional",
+      "valuationConfidence": "中低；正常化收入、历史倍数与新闻敞口仍有缺口",
+      "valuationReport": "reports/MU-20261118.html",
+      "valuationModel": "reports/MU-20261118-model.json",
+      "valuationMethod": "有限景气FCFF＋正常化NOPAT×退出EV/NOPAT；DCF交叉核对",
+      "valuationFx": {
+        "date": "2026-11-17",
+        "base": "EUR",
+        "quote": "USD",
+        "rate": 1.0989,
+        "formula": "EUR/share = USD/share / USD_per_EUR",
+        "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+      },
+      "valuationSourceUSD": {
+        "low1": 454.5000393496692,
+        "high1": 511.3830339094115,
+        "low2": 413.98492666768345,
+        "high2": 550.9190460108638,
+        "base": 482.94153662954034,
+        "dcf": 395.3982045766035
+      },
+      "valuationH": {
+        "low": 413.6,
+        "high": 465.36,
+        "center": 439.48,
+        "exitMultiples": [
+          10,
+          12,
+          14
+        ],
+        "normalizedNOPAT_USD_billion": 40.759357994263674,
+        "normalizationYears": 6
+      },
+      "valuationScenarios": {
+        "Z_low": {
+          "valueEUR": 376.73,
+          "valueUSD": 413.98492666768345,
+          "normalizedNOPAT_USD_billion": 40.759357994263674,
+          "exitMultiple": 7.150985949627952,
+          "explicitYears": 6
+        },
+        "base": {
+          "valueEUR": 439.48,
+          "valueUSD": 482.94153662954034,
+          "normalizedNOPAT_USD_billion": 40.759357994263674,
+          "exitMultiple": 12.0,
+          "explicitYears": 6
+        },
+        "Z_high": {
+          "valueEUR": 501.34,
+          "valueUSD": 550.9190460108638,
+          "normalizedNOPAT_USD_billion": 40.759357994263674,
+          "exitMultiple": 16.90054689818488,
+          "explicitYears": 8
+        }
+      },
+      "valuationDcf": {
+        "valueUSD": 395.3982045766035,
+        "valueEUR": 359.8127259774352,
+        "wacc": 0.171,
+        "terminalShare": 0.23049997779230283,
+        "g": 0.03,
+        "incrementalROIC": 0.15
+      },
+      "valuationCaveat": "研究条件带；DCF低于Z下端；不含尚未量化的诉讼赔偿或出口敞口，不是保证底价或概率区间。"
     },
     {
       "name": "Apple",

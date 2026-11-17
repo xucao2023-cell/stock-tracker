@@ -1,0 +1,1551 @@
+{
+  "version": "2026-11-18",
+  "units": "USD billions; shares billions; USD/EUR per ordinary share",
+  "valuationDate": "2026-11-18",
+  "latestFinancialPeriod": "FY2026 ended 2026-09-03; released 2026-09-30; 10-K 2026-10-09",
+  "shares": 1.15,
+  "tax": 0.155,
+  "rf": 0.04953,
+  "rfCacheDate": "2026-10-22",
+  "newTnx": {
+    "currency": "USD",
+    "symbol": "^TNX",
+    "exchangeName": "CGI",
+    "fullExchangeName": "Cboe Indices",
+    "instrumentType": "INDEX",
+    "firstTradeDate": -252326400,
+    "regularMarketTime": 1794936183,
+    "hasPrePostMarketData": false,
+    "gmtoffset": -21600,
+    "timezone": "CST",
+    "exchangeTimezoneName": "America/Chicago",
+    "regularMarketPrice": 5.101,
+    "regularMarketChangePercent": -0.391,
+    "fulldayPrice": 5.101,
+    "fulldayChange": -0.02,
+    "fulldayChangePercent": -0.391,
+    "fiftyTwoWeekHigh": 5.364,
+    "fiftyTwoWeekLow": 3.956,
+    "regularMarketDayHigh": 5.152,
+    "regularMarketDayLow": 5.089,
+    "regularMarketVolume": 0,
+    "longName": "CBOE Interest Rate 10 Year T Note",
+    "shortName": "10-Year Bond",
+    "chartPreviousClose": 4.998,
+    "priceHint": 2,
+    "currentTradingPeriod": {
+      "pre": {
+        "timezone": "CST",
+        "start": 1794921600,
+        "end": 1794921600,
+        "gmtoffset": -21600
+      },
+      "regular": {
+        "timezone": "CST",
+        "start": 1794921600,
+        "end": 1794945600,
+        "gmtoffset": -21600
+      },
+      "post": {
+        "timezone": "CST",
+        "start": 1794945600,
+        "end": 1794945600,
+        "gmtoffset": -21600
+      }
+    },
+    "dataGranularity": "1d",
+    "range": "5d",
+    "validRanges": [
+      "1d",
+      "5d",
+      "1mo",
+      "3mo",
+      "6mo",
+      "1y",
+      "2y",
+      "5y",
+      "10y",
+      "ytd",
+      "max"
+    ]
+  },
+  "erp": 0.045,
+  "erpReference": 0.0441,
+  "erpReferenceDate": "2026-11-01",
+  "betas": {
+    "104": {
+      "SPY": {
+        "beta": 2.589197482017742,
+        "r2": 0.29568076399856624,
+        "n": 104,
+        "firstReturnWeek": "2024-11-18",
+        "lastCompleteWeek": "2026-11-09"
+      },
+      "SOXX": {
+        "beta": 1.4399695458121131,
+        "r2": 0.6039204955299459,
+        "n": 104,
+        "firstReturnWeek": "2024-11-18",
+        "lastCompleteWeek": "2026-11-09"
+      }
+    },
+    "156": {
+      "SPY": {
+        "beta": 2.724505282032814,
+        "r2": 0.33440644143366416,
+        "n": 156,
+        "firstReturnWeek": "2023-11-20",
+        "lastCompleteWeek": "2026-11-09"
+      },
+      "SOXX": {
+        "beta": 1.3824143580656605,
+        "r2": 0.6032376944552218,
+        "n": 156,
+        "firstReturnWeek": "2023-11-20",
+        "lastCompleteWeek": "2026-11-09"
+      }
+    }
+  },
+  "ke": 0.17213273769147663,
+  "waccExact": 0.17130991287833625,
+  "wacc": 0.171,
+  "quote": {
+    "currency": "USD",
+    "symbol": "MU",
+    "exchangeName": "NMS",
+    "fullExchangeName": "NasdaqGS",
+    "instrumentType": "EQUITY",
+    "firstTradeDate": 454944600,
+    "regularMarketTime": 1794937090,
+    "hasPrePostMarketData": true,
+    "gmtoffset": -18000,
+    "timezone": "EST",
+    "exchangeTimezoneName": "America/New_York",
+    "regularMarketPrice": 697.12,
+    "regularMarketChangePercent": -3.046,
+    "fulldayPrice": 697.12,
+    "fulldayChange": -21.9,
+    "fulldayChangePercent": -3.046,
+    "fiftyTwoWeekHigh": 1255.0,
+    "fiftyTwoWeekLow": 192.59,
+    "regularMarketDayHigh": 726.98,
+    "regularMarketDayLow": 666.88,
+    "regularMarketVolume": 19753806,
+    "longName": "Micron Technology, Inc.",
+    "shortName": "Micron Technology, Inc.",
+    "chartPreviousClose": 725.11,
+    "previousClose": 719.02,
+    "scale": 3,
+    "priceHint": 2,
+    "currentTradingPeriod": {
+      "pre": {
+        "timezone": "EST",
+        "start": 1794906000,
+        "end": 1794925800,
+        "gmtoffset": -18000
+      },
+      "regular": {
+        "timezone": "EST",
+        "start": 1794925800,
+        "end": 1794949200,
+        "gmtoffset": -18000
+      },
+      "post": {
+        "timezone": "EST",
+        "start": 1794949200,
+        "end": 1794963600,
+        "gmtoffset": -18000
+      }
+    },
+    "tradingPeriods": {
+      "pre": [
+        [
+          {
+            "timezone": "EST",
+            "start": 1794387600,
+            "end": 1794407400,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794474000,
+            "end": 1794493800,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794560400,
+            "end": 1794580200,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794819600,
+            "end": 1794839400,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794906000,
+            "end": 1794925800,
+            "gmtoffset": -18000
+          }
+        ]
+      ],
+      "post": [
+        [
+          {
+            "timezone": "EST",
+            "start": 1794430800,
+            "end": 1794445200,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794517200,
+            "end": 1794531600,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794603600,
+            "end": 1794618000,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794862800,
+            "end": 1794877200,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794949200,
+            "end": 1794963600,
+            "gmtoffset": -18000
+          }
+        ]
+      ],
+      "regular": [
+        [
+          {
+            "timezone": "EST",
+            "start": 1794407400,
+            "end": 1794430800,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794493800,
+            "end": 1794517200,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794580200,
+            "end": 1794603600,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794839400,
+            "end": 1794862800,
+            "gmtoffset": -18000
+          }
+        ],
+        [
+          {
+            "timezone": "EST",
+            "start": 1794925800,
+            "end": 1794949200,
+            "gmtoffset": -18000
+          }
+        ]
+      ]
+    },
+    "dataGranularity": "1m",
+    "range": "5d",
+    "validRanges": [
+      "1d",
+      "5d",
+      "1mo",
+      "3mo",
+      "6mo",
+      "1y",
+      "2y",
+      "5y",
+      "10y",
+      "ytd",
+      "max"
+    ]
+  },
+  "fx": {
+    "amount": 1.0,
+    "base": "EUR",
+    "date": "2026-11-17",
+    "rates": {
+      "USD": 1.0989
+    }
+  },
+  "bridgeInputs": {
+    "cash": 38.364,
+    "shortInvestments": 5.07,
+    "longInvestments": 30.019,
+    "currentDebt": 0.491,
+    "longDebt": 4.688,
+    "refundableCustomerDeposits": 12.747,
+    "currentIncomeAndOtherTaxes": 5.626,
+    "noncurrentIncomeTaxes": 9.82
+  },
+  "netCash": 40.081,
+  "nwc0": 33.821999999999996,
+  "nwcRatio": 0.2539417965582485,
+  "historicalFinancials": [
+    {
+      "year": 2021,
+      "revenue": 27.705,
+      "grossProfit": 10.423,
+      "ebit": 6.283,
+      "netIncome": 5.861,
+      "dilutedEPS": 5.14,
+      "grossMargin": 0.3762136798411839,
+      "operatingMargin": 0.22678216928352285
+    },
+    {
+      "year": 2022,
+      "revenue": 30.758,
+      "grossProfit": 13.898,
+      "ebit": 9.702,
+      "netIncome": 8.687,
+      "dilutedEPS": 7.75,
+      "grossMargin": 0.4518499252227063,
+      "operatingMargin": 0.3154301319981793
+    },
+    {
+      "year": 2023,
+      "revenue": 15.54,
+      "grossProfit": -1.416,
+      "ebit": -5.745,
+      "netIncome": -5.833,
+      "dilutedEPS": -5.34,
+      "grossMargin": -0.09111969111969112,
+      "operatingMargin": -0.36969111969111973
+    },
+    {
+      "year": 2024,
+      "revenue": 25.111,
+      "grossProfit": 5.613,
+      "ebit": 1.304,
+      "netIncome": 0.778,
+      "dilutedEPS": 0.7,
+      "grossMargin": 0.22352753773246786,
+      "operatingMargin": 0.05192943331607662
+    },
+    {
+      "year": 2025,
+      "revenue": 37.378,
+      "grossProfit": 14.873,
+      "ebit": 9.77,
+      "netIncome": 8.539,
+      "dilutedEPS": 7.59,
+      "grossMargin": 0.39790786023864305,
+      "operatingMargin": 0.2613837016426775
+    },
+    {
+      "year": 2026,
+      "revenue": 133.188,
+      "grossProfit": 107.504,
+      "ebit": 99.34,
+      "netIncome": 84.969,
+      "dilutedEPS": 74.33,
+      "grossMargin": 0.8071598041865634,
+      "operatingMargin": 0.7458629906598193
+    }
+  ],
+  "historicalMultiples": [
+    {
+      "year": 2021,
+      "date": "2021-09-02",
+      "price": 73.98999786376953,
+      "shares": 1.119,
+      "cash": 7.763,
+      "investments": 2.635,
+      "debt": 6.776,
+      "ev": 79.17280760955809,
+      "nopat": 5.309135,
+      "evNopat": 14.912562519046528,
+      "role": "ordinary positive-cycle reference"
+    },
+    {
+      "year": 2022,
+      "date": "2022-09-01",
+      "price": 57.310001373291016,
+      "shares": 1.094,
+      "cash": 8.262,
+      "investments": 2.716,
+      "debt": 6.906,
+      "ev": 58.62514150238038,
+      "nopat": 8.19819,
+      "evNopat": 7.150985949627952,
+      "role": "ordinary positive-cycle reference"
+    },
+    {
+      "year": 2023,
+      "date": "2023-08-31",
+      "price": 69.94000244140625,
+      "shares": 1.098,
+      "cash": 8.577,
+      "investments": 1.8609999999999998,
+      "debt": 13.33,
+      "ev": 79.68612268066407,
+      "nopat": -4.854525,
+      "evNopat": null,
+      "role": "loss/trough/supercycle diagnostic"
+    },
+    {
+      "year": 2024,
+      "date": "2024-08-29",
+      "price": 95.56999969482422,
+      "shares": 1.109,
+      "cash": 7.041,
+      "investments": 2.1109999999999998,
+      "debt": 13.397,
+      "ev": 110.23212966156007,
+      "nopat": 1.10188,
+      "evNopat": 100.04004942603557,
+      "role": "loss/trough/supercycle diagnostic"
+    },
+    {
+      "year": 2025,
+      "date": "2025-08-28",
+      "price": 122.0,
+      "shares": 1.122,
+      "cash": 9.642,
+      "investments": 2.294,
+      "debt": 14.577,
+      "ev": 139.525,
+      "nopat": 8.25565,
+      "evNopat": 16.90054689818488,
+      "role": "ordinary positive-cycle reference"
+    },
+    {
+      "year": 2026,
+      "date": "2026-09-03",
+      "price": 958.1599731445312,
+      "shares": 1.131,
+      "cash": 38.364,
+      "investments": 35.089,
+      "debt": 5.179,
+      "ev": 1043.597929626465,
+      "nopat": 83.9423,
+      "evNopat": 12.432324699543198,
+      "role": "loss/trough/supercycle diagnostic"
+    }
+  ],
+  "historicalReferenceMedian": 14.912562519046528,
+  "normalMargin": 0.2009830275851266,
+  "normalGrossMargin": 0.3578650872521379,
+  "normalRevenue": 240.0,
+  "basePath": {
+    "revenue": [
+      260,
+      280,
+      240,
+      220,
+      230,
+      240
+    ],
+    "opm": [
+      0.8176923076923077,
+      0.77,
+      0.6133333333333334,
+      0.45,
+      0.32,
+      0.2009830275851266
+    ],
+    "da": [
+      12,
+      16,
+      20,
+      24,
+      26,
+      28
+    ],
+    "capex": [
+      55,
+      60,
+      60,
+      50,
+      44,
+      38
+    ]
+  },
+  "growthPath": {
+    "revenue": [
+      260,
+      280,
+      280,
+      280,
+      270,
+      260,
+      250,
+      240
+    ],
+    "opm": [
+      0.8176923076923077,
+      0.77,
+      0.6,
+      0.5,
+      0.45,
+      0.4,
+      0.3,
+      0.2009830275851266
+    ],
+    "da": [
+      12,
+      16,
+      20,
+      24,
+      26,
+      28,
+      30,
+      32
+    ],
+    "capex": [
+      55,
+      60,
+      65,
+      60,
+      55,
+      50,
+      44,
+      40
+    ]
+  },
+  "results": {
+    "H_low": {
+      "rows": [
+        {
+          "year": 2027,
+          "endProxy": "2027-08-31",
+          "t": 0.783025325119781,
+          "revenue": 260,
+          "operatingMargin": 0.8176923076923077,
+          "ebit": 212.6,
+          "nopat": 179.647,
+          "da": 12,
+          "netCashCapex": 55,
+          "dnwc": 32.20286710514461,
+          "fcff": 104.44413289485539,
+          "discountFactor": 0.8837271851768915,
+          "pv": 92.30011957141173
+        },
+        {
+          "year": 2028,
+          "endProxy": "2028-08-31",
+          "t": 1.78507871321013,
+          "revenue": 280,
+          "operatingMargin": 0.77,
+          "ebit": 215.6,
+          "nopat": 182.182,
+          "da": 16,
+          "netCashCapex": 60,
+          "dnwc": 5.07883593116497,
+          "fcff": 133.103164068835,
+          "discountFactor": 0.7544327726833286,
+          "pv": 100.41738912137521
+        },
+        {
+          "year": 2029,
+          "endProxy": "2029-08-31",
+          "t": 2.784394250513347,
+          "revenue": 240,
+          "operatingMargin": 0.6133333333333334,
+          "ebit": 147.20000000000002,
+          "nopat": 124.38400000000001,
+          "da": 20,
+          "netCashCapex": 60,
+          "dnwc": -10.15767186232994,
+          "fcff": 94.54167186232995,
+          "discountFactor": 0.6443332980504428,
+          "pv": 60.916347234257806
+        },
+        {
+          "year": 2030,
+          "endProxy": "2030-08-31",
+          "t": 3.783709787816564,
+          "revenue": 220,
+          "operatingMargin": 0.45,
+          "ebit": 99.0,
+          "nopat": 83.655,
+          "da": 24,
+          "netCashCapex": 50,
+          "dnwc": -5.07883593116497,
+          "fcff": 62.73383593116497,
+          "discountFactor": 0.5503013840450242,
+          "pv": 34.52251673937355
+        },
+        {
+          "year": 2031,
+          "endProxy": "2031-08-31",
+          "t": 4.783025325119781,
+          "revenue": 230,
+          "operatingMargin": 0.32,
+          "ebit": 73.60000000000001,
+          "nopat": 62.19200000000001,
+          "da": 26,
+          "netCashCapex": 44,
+          "dnwc": 2.539417965582485,
+          "fcff": 41.65258203441752,
+          "discountFactor": 0.4699921829248089,
+          "pv": 19.576387954810567
+        },
+        {
+          "year": 2032,
+          "endProxy": "2032-08-31",
+          "t": 5.7850787132101305,
+          "revenue": 240.0,
+          "operatingMargin": 0.2009830275851266,
+          "ebit": 48.235926620430384,
+          "nopat": 40.759357994263674,
+          "da": 28,
+          "netCashCapex": 38,
+          "dnwc": 2.539417965582485,
+          "fcff": 28.219940028681183,
+          "discountFactor": 0.4012296007760355,
+          "pv": 11.322675271631415
+        }
+      ],
+      "normalizedRevenue": 240.0,
+      "normalizedOperatingMargin": 0.2009830275851266,
+      "normalizedNOPAT": 40.759357994263674,
+      "normalizedCoreEPS": 35.44291999501189,
+      "multiple": 10,
+      "method": "exit",
+      "r": 0.171,
+      "g": 0.03,
+      "incrementalROIC": 0.15,
+      "terminalFCFF": 33.585710987273266,
+      "terminalValue": 407.5935799426367,
+      "pvExplicit": 319.05543589286026,
+      "pvTerminal": 163.53860935925923,
+      "enterpriseValue": 482.5940452521195,
+      "netCash": 40.081,
+      "equityValue": 522.6750452521195,
+      "usdPerShare": 454.5000393496692,
+      "eurPerShare": 413.5954494036484,
+      "terminalShare": 0.3388740722522228
+    },
+    "base": {
+      "rows": [
+        {
+          "year": 2027,
+          "endProxy": "2027-08-31",
+          "t": 0.783025325119781,
+          "revenue": 260,
+          "operatingMargin": 0.8176923076923077,
+          "ebit": 212.6,
+          "nopat": 179.647,
+          "da": 12,
+          "netCashCapex": 55,
+          "dnwc": 32.20286710514461,
+          "fcff": 104.44413289485539,
+          "discountFactor": 0.8837271851768915,
+          "pv": 92.30011957141173
+        },
+        {
+          "year": 2028,
+          "endProxy": "2028-08-31",
+          "t": 1.78507871321013,
+          "revenue": 280,
+          "operatingMargin": 0.77,
+          "ebit": 215.6,
+          "nopat": 182.182,
+          "da": 16,
+          "netCashCapex": 60,
+          "dnwc": 5.07883593116497,
+          "fcff": 133.103164068835,
+          "discountFactor": 0.7544327726833286,
+          "pv": 100.41738912137521
+        },
+        {
+          "year": 2029,
+          "endProxy": "2029-08-31",
+          "t": 2.784394250513347,
+          "revenue": 240,
+          "operatingMargin": 0.6133333333333334,
+          "ebit": 147.20000000000002,
+          "nopat": 124.38400000000001,
+          "da": 20,
+          "netCashCapex": 60,
+          "dnwc": -10.15767186232994,
+          "fcff": 94.54167186232995,
+          "discountFactor": 0.6443332980504428,
+          "pv": 60.916347234257806
+        },
+        {
+          "year": 2030,
+          "endProxy": "2030-08-31",
+          "t": 3.783709787816564,
+          "revenue": 220,
+          "operatingMargin": 0.45,
+          "ebit": 99.0,
+          "nopat": 83.655,
+          "da": 24,
+          "netCashCapex": 50,
+          "dnwc": -5.07883593116497,
+          "fcff": 62.73383593116497,
+          "discountFactor": 0.5503013840450242,
+          "pv": 34.52251673937355
+        },
+        {
+          "year": 2031,
+          "endProxy": "2031-08-31",
+          "t": 4.783025325119781,
+          "revenue": 230,
+          "operatingMargin": 0.32,
+          "ebit": 73.60000000000001,
+          "nopat": 62.19200000000001,
+          "da": 26,
+          "netCashCapex": 44,
+          "dnwc": 2.539417965582485,
+          "fcff": 41.65258203441752,
+          "discountFactor": 0.4699921829248089,
+          "pv": 19.576387954810567
+        },
+        {
+          "year": 2032,
+          "endProxy": "2032-08-31",
+          "t": 5.7850787132101305,
+          "revenue": 240.0,
+          "operatingMargin": 0.2009830275851266,
+          "ebit": 48.235926620430384,
+          "nopat": 40.759357994263674,
+          "da": 28,
+          "netCashCapex": 38,
+          "dnwc": 2.539417965582485,
+          "fcff": 28.219940028681183,
+          "discountFactor": 0.4012296007760355,
+          "pv": 11.322675271631415
+        }
+      ],
+      "normalizedRevenue": 240.0,
+      "normalizedOperatingMargin": 0.2009830275851266,
+      "normalizedNOPAT": 40.759357994263674,
+      "normalizedCoreEPS": 35.44291999501189,
+      "multiple": 12.0,
+      "method": "exit",
+      "r": 0.171,
+      "g": 0.03,
+      "incrementalROIC": 0.15,
+      "terminalFCFF": 33.585710987273266,
+      "terminalValue": 489.1122959311641,
+      "pvExplicit": 319.05543589286026,
+      "pvTerminal": 196.2463312311111,
+      "enterpriseValue": 515.3017671239713,
+      "netCash": 40.081,
+      "equityValue": 555.3827671239713,
+      "usdPerShare": 482.94153662954034,
+      "eurPerShare": 439.4772378101195,
+      "terminalShare": 0.3808376833761141
+    },
+    "H_high": {
+      "rows": [
+        {
+          "year": 2027,
+          "endProxy": "2027-08-31",
+          "t": 0.783025325119781,
+          "revenue": 260,
+          "operatingMargin": 0.8176923076923077,
+          "ebit": 212.6,
+          "nopat": 179.647,
+          "da": 12,
+          "netCashCapex": 55,
+          "dnwc": 32.20286710514461,
+          "fcff": 104.44413289485539,
+          "discountFactor": 0.8837271851768915,
+          "pv": 92.30011957141173
+        },
+        {
+          "year": 2028,
+          "endProxy": "2028-08-31",
+          "t": 1.78507871321013,
+          "revenue": 280,
+          "operatingMargin": 0.77,
+          "ebit": 215.6,
+          "nopat": 182.182,
+          "da": 16,
+          "netCashCapex": 60,
+          "dnwc": 5.07883593116497,
+          "fcff": 133.103164068835,
+          "discountFactor": 0.7544327726833286,
+          "pv": 100.41738912137521
+        },
+        {
+          "year": 2029,
+          "endProxy": "2029-08-31",
+          "t": 2.784394250513347,
+          "revenue": 240,
+          "operatingMargin": 0.6133333333333334,
+          "ebit": 147.20000000000002,
+          "nopat": 124.38400000000001,
+          "da": 20,
+          "netCashCapex": 60,
+          "dnwc": -10.15767186232994,
+          "fcff": 94.54167186232995,
+          "discountFactor": 0.6443332980504428,
+          "pv": 60.916347234257806
+        },
+        {
+          "year": 2030,
+          "endProxy": "2030-08-31",
+          "t": 3.783709787816564,
+          "revenue": 220,
+          "operatingMargin": 0.45,
+          "ebit": 99.0,
+          "nopat": 83.655,
+          "da": 24,
+          "netCashCapex": 50,
+          "dnwc": -5.07883593116497,
+          "fcff": 62.73383593116497,
+          "discountFactor": 0.5503013840450242,
+          "pv": 34.52251673937355
+        },
+        {
+          "year": 2031,
+          "endProxy": "2031-08-31",
+          "t": 4.783025325119781,
+          "revenue": 230,
+          "operatingMargin": 0.32,
+          "ebit": 73.60000000000001,
+          "nopat": 62.19200000000001,
+          "da": 26,
+          "netCashCapex": 44,
+          "dnwc": 2.539417965582485,
+          "fcff": 41.65258203441752,
+          "discountFactor": 0.4699921829248089,
+          "pv": 19.576387954810567
+        },
+        {
+          "year": 2032,
+          "endProxy": "2032-08-31",
+          "t": 5.7850787132101305,
+          "revenue": 240.0,
+          "operatingMargin": 0.2009830275851266,
+          "ebit": 48.235926620430384,
+          "nopat": 40.759357994263674,
+          "da": 28,
+          "netCashCapex": 38,
+          "dnwc": 2.539417965582485,
+          "fcff": 28.219940028681183,
+          "discountFactor": 0.4012296007760355,
+          "pv": 11.322675271631415
+        }
+      ],
+      "normalizedRevenue": 240.0,
+      "normalizedOperatingMargin": 0.2009830275851266,
+      "normalizedNOPAT": 40.759357994263674,
+      "normalizedCoreEPS": 35.44291999501189,
+      "multiple": 14,
+      "method": "exit",
+      "r": 0.171,
+      "g": 0.03,
+      "incrementalROIC": 0.15,
+      "terminalFCFF": 33.585710987273266,
+      "terminalValue": 570.6310119196914,
+      "pvExplicit": 319.05543589286026,
+      "pvTerminal": 228.95405310296294,
+      "enterpriseValue": 548.0094889958232,
+      "netCash": 40.081,
+      "equityValue": 588.0904889958232,
+      "usdPerShare": 511.3830339094115,
+      "eurPerShare": 465.3590262165907,
+      "terminalShare": 0.41779213261890796
+    },
+    "Z_low": {
+      "rows": [
+        {
+          "year": 2027,
+          "endProxy": "2027-08-31",
+          "t": 0.783025325119781,
+          "revenue": 260,
+          "operatingMargin": 0.8176923076923077,
+          "ebit": 212.6,
+          "nopat": 179.647,
+          "da": 12,
+          "netCashCapex": 55,
+          "dnwc": 32.20286710514461,
+          "fcff": 104.44413289485539,
+          "discountFactor": 0.8837271851768915,
+          "pv": 92.30011957141173
+        },
+        {
+          "year": 2028,
+          "endProxy": "2028-08-31",
+          "t": 1.78507871321013,
+          "revenue": 280,
+          "operatingMargin": 0.77,
+          "ebit": 215.6,
+          "nopat": 182.182,
+          "da": 16,
+          "netCashCapex": 60,
+          "dnwc": 5.07883593116497,
+          "fcff": 133.103164068835,
+          "discountFactor": 0.7544327726833286,
+          "pv": 100.41738912137521
+        },
+        {
+          "year": 2029,
+          "endProxy": "2029-08-31",
+          "t": 2.784394250513347,
+          "revenue": 240,
+          "operatingMargin": 0.6133333333333334,
+          "ebit": 147.20000000000002,
+          "nopat": 124.38400000000001,
+          "da": 20,
+          "netCashCapex": 60,
+          "dnwc": -10.15767186232994,
+          "fcff": 94.54167186232995,
+          "discountFactor": 0.6443332980504428,
+          "pv": 60.916347234257806
+        },
+        {
+          "year": 2030,
+          "endProxy": "2030-08-31",
+          "t": 3.783709787816564,
+          "revenue": 220,
+          "operatingMargin": 0.45,
+          "ebit": 99.0,
+          "nopat": 83.655,
+          "da": 24,
+          "netCashCapex": 50,
+          "dnwc": -5.07883593116497,
+          "fcff": 62.73383593116497,
+          "discountFactor": 0.5503013840450242,
+          "pv": 34.52251673937355
+        },
+        {
+          "year": 2031,
+          "endProxy": "2031-08-31",
+          "t": 4.783025325119781,
+          "revenue": 230,
+          "operatingMargin": 0.32,
+          "ebit": 73.60000000000001,
+          "nopat": 62.19200000000001,
+          "da": 26,
+          "netCashCapex": 44,
+          "dnwc": 2.539417965582485,
+          "fcff": 41.65258203441752,
+          "discountFactor": 0.4699921829248089,
+          "pv": 19.576387954810567
+        },
+        {
+          "year": 2032,
+          "endProxy": "2032-08-31",
+          "t": 5.7850787132101305,
+          "revenue": 240.0,
+          "operatingMargin": 0.2009830275851266,
+          "ebit": 48.235926620430384,
+          "nopat": 40.759357994263674,
+          "da": 28,
+          "netCashCapex": 38,
+          "dnwc": 2.539417965582485,
+          "fcff": 28.219940028681183,
+          "discountFactor": 0.4012296007760355,
+          "pv": 11.322675271631415
+        }
+      ],
+      "normalizedRevenue": 240.0,
+      "normalizedOperatingMargin": 0.2009830275851266,
+      "normalizedNOPAT": 40.759357994263674,
+      "normalizedCoreEPS": 35.44291999501189,
+      "multiple": 7.150985949627952,
+      "method": "exit",
+      "r": 0.171,
+      "g": 0.03,
+      "incrementalROIC": 0.15,
+      "terminalFCFF": 33.585710987273266,
+      "terminalValue": 291.46959633283524,
+      "pvExplicit": 319.05543589286026,
+      "pvTerminal": 116.94622977497569,
+      "enterpriseValue": 436.00166566783594,
+      "netCash": 40.081,
+      "equityValue": 476.08266566783595,
+      "usdPerShare": 413.98492666768345,
+      "eurPerShare": 376.7266599942519,
+      "terminalShare": 0.2682242729413565
+    },
+    "Z_high": {
+      "rows": [
+        {
+          "year": 2027,
+          "endProxy": "2027-08-31",
+          "t": 0.783025325119781,
+          "revenue": 260,
+          "operatingMargin": 0.8176923076923077,
+          "ebit": 212.6,
+          "nopat": 179.647,
+          "da": 12,
+          "netCashCapex": 55,
+          "dnwc": 32.20286710514461,
+          "fcff": 104.44413289485539,
+          "discountFactor": 0.8837271851768915,
+          "pv": 92.30011957141173
+        },
+        {
+          "year": 2028,
+          "endProxy": "2028-08-31",
+          "t": 1.78507871321013,
+          "revenue": 280,
+          "operatingMargin": 0.77,
+          "ebit": 215.6,
+          "nopat": 182.182,
+          "da": 16,
+          "netCashCapex": 60,
+          "dnwc": 5.07883593116497,
+          "fcff": 133.103164068835,
+          "discountFactor": 0.7544327726833286,
+          "pv": 100.41738912137521
+        },
+        {
+          "year": 2029,
+          "endProxy": "2029-08-31",
+          "t": 2.784394250513347,
+          "revenue": 280,
+          "operatingMargin": 0.6,
+          "ebit": 168.0,
+          "nopat": 141.96,
+          "da": 20,
+          "netCashCapex": 65,
+          "dnwc": 0.0,
+          "fcff": 96.96000000000001,
+          "discountFactor": 0.6443332980504428,
+          "pv": 62.47455657897094
+        },
+        {
+          "year": 2030,
+          "endProxy": "2030-08-31",
+          "t": 3.783709787816564,
+          "revenue": 280,
+          "operatingMargin": 0.5,
+          "ebit": 140.0,
+          "nopat": 118.3,
+          "da": 24,
+          "netCashCapex": 60,
+          "dnwc": 0.0,
+          "fcff": 82.30000000000001,
+          "discountFactor": 0.5503013840450242,
+          "pv": 45.2898039069055
+        },
+        {
+          "year": 2031,
+          "endProxy": "2031-08-31",
+          "t": 4.783025325119781,
+          "revenue": 270,
+          "operatingMargin": 0.45,
+          "ebit": 121.5,
+          "nopat": 102.66749999999999,
+          "da": 26,
+          "netCashCapex": 55,
+          "dnwc": -2.539417965582485,
+          "fcff": 76.20691796558248,
+          "discountFactor": 0.4699921829248089,
+          "pv": 35.81665572861594
+        },
+        {
+          "year": 2032,
+          "endProxy": "2032-08-31",
+          "t": 5.7850787132101305,
+          "revenue": 260,
+          "operatingMargin": 0.4,
+          "ebit": 104.0,
+          "nopat": 87.88,
+          "da": 28,
+          "netCashCapex": 50,
+          "dnwc": -2.539417965582485,
+          "fcff": 68.41941796558248,
+          "discountFactor": 0.4012296007760355,
+          "pv": 27.45189575565937
+        },
+        {
+          "year": 2033,
+          "endProxy": "2033-08-31",
+          "t": 6.784394250513347,
+          "revenue": 250,
+          "operatingMargin": 0.3,
+          "ebit": 75.0,
+          "nopat": 63.375,
+          "da": 30,
+          "netCashCapex": 44,
+          "dnwc": -2.539417965582485,
+          "fcff": 51.91441796558249,
+          "discountFactor": 0.34267545274309147,
+          "pv": 17.78979668025006
+        },
+        {
+          "year": 2034,
+          "endProxy": "2034-08-31",
+          "t": 7.783709787816564,
+          "revenue": 240.0,
+          "operatingMargin": 0.2009830275851266,
+          "ebit": 48.235926620430384,
+          "nopat": 40.759357994263674,
+          "da": 32,
+          "netCashCapex": 40,
+          "dnwc": -2.539417965582485,
+          "fcff": 35.298775959846154,
+          "discountFactor": 0.2926665073702517,
+          "pv": 10.330769474613177
+        }
+      ],
+      "normalizedRevenue": 240.0,
+      "normalizedOperatingMargin": 0.2009830275851266,
+      "normalizedNOPAT": 40.759357994263674,
+      "normalizedCoreEPS": 35.44291999501189,
+      "multiple": 16.90054689818488,
+      "method": "exit",
+      "r": 0.171,
+      "g": 0.03,
+      "incrementalROIC": 0.15,
+      "terminalFCFF": 33.585710987273266,
+      "terminalValue": 688.85544132196,
+      "pvExplicit": 391.87098681780196,
+      "pvTerminal": 201.6049160946914,
+      "enterpriseValue": 593.4759029124933,
+      "netCash": 40.081,
+      "equityValue": 633.5569029124933,
+      "usdPerShare": 550.9190460108638,
+      "eurPerShare": 501.33683320671923,
+      "terminalShare": 0.3397019408965246
+    },
+    "dcf": {
+      "rows": [
+        {
+          "year": 2027,
+          "endProxy": "2027-08-31",
+          "t": 0.783025325119781,
+          "revenue": 260,
+          "operatingMargin": 0.8176923076923077,
+          "ebit": 212.6,
+          "nopat": 179.647,
+          "da": 12,
+          "netCashCapex": 55,
+          "dnwc": 32.20286710514461,
+          "fcff": 104.44413289485539,
+          "discountFactor": 0.8837271851768915,
+          "pv": 92.30011957141173
+        },
+        {
+          "year": 2028,
+          "endProxy": "2028-08-31",
+          "t": 1.78507871321013,
+          "revenue": 280,
+          "operatingMargin": 0.77,
+          "ebit": 215.6,
+          "nopat": 182.182,
+          "da": 16,
+          "netCashCapex": 60,
+          "dnwc": 5.07883593116497,
+          "fcff": 133.103164068835,
+          "discountFactor": 0.7544327726833286,
+          "pv": 100.41738912137521
+        },
+        {
+          "year": 2029,
+          "endProxy": "2029-08-31",
+          "t": 2.784394250513347,
+          "revenue": 240,
+          "operatingMargin": 0.6133333333333334,
+          "ebit": 147.20000000000002,
+          "nopat": 124.38400000000001,
+          "da": 20,
+          "netCashCapex": 60,
+          "dnwc": -10.15767186232994,
+          "fcff": 94.54167186232995,
+          "discountFactor": 0.6443332980504428,
+          "pv": 60.916347234257806
+        },
+        {
+          "year": 2030,
+          "endProxy": "2030-08-31",
+          "t": 3.783709787816564,
+          "revenue": 220,
+          "operatingMargin": 0.45,
+          "ebit": 99.0,
+          "nopat": 83.655,
+          "da": 24,
+          "netCashCapex": 50,
+          "dnwc": -5.07883593116497,
+          "fcff": 62.73383593116497,
+          "discountFactor": 0.5503013840450242,
+          "pv": 34.52251673937355
+        },
+        {
+          "year": 2031,
+          "endProxy": "2031-08-31",
+          "t": 4.783025325119781,
+          "revenue": 230,
+          "operatingMargin": 0.32,
+          "ebit": 73.60000000000001,
+          "nopat": 62.19200000000001,
+          "da": 26,
+          "netCashCapex": 44,
+          "dnwc": 2.539417965582485,
+          "fcff": 41.65258203441752,
+          "discountFactor": 0.4699921829248089,
+          "pv": 19.576387954810567
+        },
+        {
+          "year": 2032,
+          "endProxy": "2032-08-31",
+          "t": 5.7850787132101305,
+          "revenue": 240.0,
+          "operatingMargin": 0.2009830275851266,
+          "ebit": 48.235926620430384,
+          "nopat": 40.759357994263674,
+          "da": 28,
+          "netCashCapex": 38,
+          "dnwc": 2.539417965582485,
+          "fcff": 28.219940028681183,
+          "discountFactor": 0.4012296007760355,
+          "pv": 11.322675271631415
+        }
+      ],
+      "normalizedRevenue": 240.0,
+      "normalizedOperatingMargin": 0.2009830275851266,
+      "normalizedNOPAT": 40.759357994263674,
+      "normalizedCoreEPS": 35.44291999501189,
+      "multiple": null,
+      "method": "dcf",
+      "r": 0.171,
+      "g": 0.03,
+      "incrementalROIC": 0.15,
+      "terminalFCFF": 33.585710987273266,
+      "terminalValue": 238.19653182463307,
+      "pvExplicit": 319.05543589286026,
+      "pvTerminal": 95.57149937023375,
+      "enterpriseValue": 414.626935263094,
+      "netCash": 40.081,
+      "equityValue": 454.70793526309404,
+      "usdPerShare": 395.3982045766035,
+      "eurPerShare": 359.8127259774352,
+      "terminalShare": 0.23049997779230283
+    },
+    "operating_stress": {
+      "rows": [
+        {
+          "year": 2027,
+          "endProxy": "2027-08-31",
+          "t": 0.783025325119781,
+          "revenue": 234.0,
+          "operatingMargin": 0.762991452991453,
+          "ebit": 178.54,
+          "nopat": 150.8663,
+          "da": 12,
+          "netCashCapex": 55,
+          "dnwc": 25.60038039463015,
+          "fcff": 82.26591960536985,
+          "discountFactor": 0.8837271851768915,
+          "pv": 72.70062956884195
+        },
+        {
+          "year": 2028,
+          "endProxy": "2028-08-31",
+          "t": 1.78507871321013,
+          "revenue": 252.0,
+          "operatingMargin": 0.7144444444444443,
+          "ebit": 180.03999999999996,
+          "nopat": 152.13379999999995,
+          "da": 16,
+          "netCashCapex": 60,
+          "dnwc": 4.570952338048473,
+          "fcff": 103.56284766195148,
+          "discountFactor": 0.7544327726833286,
+          "pv": 78.13120630858724
+        },
+        {
+          "year": 2029,
+          "endProxy": "2029-08-31",
+          "t": 2.784394250513347,
+          "revenue": 240,
+          "operatingMargin": 0.6133333333333334,
+          "ebit": 147.20000000000002,
+          "nopat": 124.38400000000001,
+          "da": 20,
+          "netCashCapex": 60,
+          "dnwc": -3.0473015586989822,
+          "fcff": 87.43130155869899,
+          "discountFactor": 0.6443332980504428,
+          "pv": 56.334898886159344
+        },
+        {
+          "year": 2030,
+          "endProxy": "2030-08-31",
+          "t": 3.783709787816564,
+          "revenue": 220,
+          "operatingMargin": 0.45,
+          "ebit": 99.0,
+          "nopat": 83.655,
+          "da": 24,
+          "netCashCapex": 50,
+          "dnwc": -5.07883593116497,
+          "fcff": 62.73383593116497,
+          "discountFactor": 0.5503013840450242,
+          "pv": 34.52251673937355
+        },
+        {
+          "year": 2031,
+          "endProxy": "2031-08-31",
+          "t": 4.783025325119781,
+          "revenue": 230,
+          "operatingMargin": 0.32,
+          "ebit": 73.60000000000001,
+          "nopat": 62.19200000000001,
+          "da": 26,
+          "netCashCapex": 44,
+          "dnwc": 2.539417965582485,
+          "fcff": 41.65258203441752,
+          "discountFactor": 0.4699921829248089,
+          "pv": 19.576387954810567
+        },
+        {
+          "year": 2032,
+          "endProxy": "2032-08-31",
+          "t": 5.7850787132101305,
+          "revenue": 240.0,
+          "operatingMargin": 0.2009830275851266,
+          "ebit": 48.235926620430384,
+          "nopat": 40.759357994263674,
+          "da": 28,
+          "netCashCapex": 38,
+          "dnwc": 2.539417965582485,
+          "fcff": 28.219940028681183,
+          "discountFactor": 0.4012296007760355,
+          "pv": 11.322675271631415
+        }
+      ],
+      "normalizedRevenue": 240.0,
+      "normalizedOperatingMargin": 0.2009830275851266,
+      "normalizedNOPAT": 40.759357994263674,
+      "normalizedCoreEPS": 35.44291999501189,
+      "multiple": 12.0,
+      "method": "exit",
+      "r": 0.171,
+      "g": 0.03,
+      "incrementalROIC": 0.15,
+      "terminalFCFF": 33.585710987273266,
+      "terminalValue": 489.1122959311641,
+      "pvExplicit": 272.58831472940403,
+      "pvTerminal": 196.2463312311111,
+      "enterpriseValue": 468.8346459605151,
+      "netCash": 40.081,
+      "equityValue": 508.9156459605151,
+      "usdPerShare": 442.53534431349146,
+      "eurPerShare": 402.70756603284326,
+      "terminalShare": 0.4185832530124892
+    }
+  },
+  "sensitivity": [
+    {
+      "r": 0.161,
+      "multiple": 10,
+      "usd": 467.1054843669749,
+      "eur": 425.066415840363
+    },
+    {
+      "r": 0.161,
+      "multiple": 12,
+      "usd": 496.99370054286095,
+      "eur": 452.26471975872323
+    },
+    {
+      "r": 0.161,
+      "multiple": 14,
+      "usd": 526.8819167187469,
+      "eur": 479.46302367708336
+    },
+    {
+      "r": 0.171,
+      "multiple": 10,
+      "usd": 454.5000393496692,
+      "eur": 413.5954494036484
+    },
+    {
+      "r": 0.171,
+      "multiple": 12,
+      "usd": 482.94153662954034,
+      "eur": 439.4772378101195
+    },
+    {
+      "r": 0.171,
+      "multiple": 14,
+      "usd": 511.3830339094115,
+      "eur": 465.3590262165907
+    },
+    {
+      "r": 0.181,
+      "multiple": 10,
+      "usd": 442.4845634157393,
+      "eur": 402.6613553696781
+    },
+    {
+      "r": 0.181,
+      "multiple": 12,
+      "usd": 469.56079034745414,
+      "eur": 427.3007465169298
+    },
+    {
+      "r": 0.181,
+      "multiple": 14,
+      "usd": 496.63701727916913,
+      "eur": 451.9401376641816
+    }
+  ],
+  "normalMarginSensitivity": [
+    {
+      "margin": 0.0971668633098673,
+      "usd": 387.4485652549281,
+      "eur": 352.5785469605315
+    },
+    {
+      "margin": 0.2009830275851266,
+      "usd": 482.94153662954034,
+      "eur": 439.4772378101195
+    },
+    {
+      "margin": 0.2613837016426775,
+      "usd": 538.4997426088336,
+      "eur": 490.03525580929437
+    }
+  ],
+  "normalRevenueSensitivity": [
+    {
+      "revenue": 160,
+      "usd": 428.4062205686078
+    },
+    {
+      "revenue": 200,
+      "usd": 455.67387859907404
+    },
+    {
+      "revenue": 240,
+      "usd": 482.94153662954034
+    },
+    {
+      "revenue": 280,
+      "usd": 510.2091946600067
+    }
+  ],
+  "reverse": {
+    "priceUSD": 697.12,
+    "priceEUR": 634.3798343798344,
+    "requiredExitMultiple": 27.060983693150337,
+    "requiredNormalMargin": 0.4338293430512479,
+    "impliedPrimaryR": 0.05637356977888201,
+    "impliedDcfR": 0.08495473658835412
+  },
+  "oldNewBridge": [
+    {
+      "step": "2026-10-15 base DCF",
+      "usd": 825.1009977393221,
+      "deltaUSD": 0
+    },
+    {
+      "step": "Recomputed beta / WACC only",
+      "usd": 518.7962793057129,
+      "deltaUSD": -306.3047184336092
+    },
+    {
+      "step": "Operating NWC only",
+      "usd": 511.6084168270141,
+      "deltaUSD": -7.1878624786988325
+    },
+    {
+      "step": "Existing tax liabilities only",
+      "usd": 498.17711247918794,
+      "deltaUSD": -13.431304347826142
+    },
+    {
+      "step": "Six-year cycle / normalized earnings / capex, DCF",
+      "usd": 383.3288620454849,
+      "deltaUSD": -114.84825043370302
+    },
+    {
+      "step": "Primary normalized-profit exit at 12x",
+      "usd": 467.95192418350825,
+      "deltaUSD": 84.62306213802333
+    },
+    {
+      "step": "Discount dates to 2026-11-18",
+      "usd": 482.94153662954034,
+      "deltaUSD": 14.989612446032083
+    }
+  ],
+  "oldSite": {
+    "H_USD": [
+      750,
+      1050
+    ],
+    "Z_USD": [
+      448.2149788074846,
+      1611.7027347191943
+    ],
+    "centerUSD": 900,
+    "fx": 1.1172,
+    "H_EUR": [
+      671.32,
+      939.85
+    ],
+    "Z_EUR": [
+      401,
+      1442.89
+    ]
+  },
+  "operatingNewsStress": "FY27/28 revenue -10%, gross margin -5 percentage points; same capex/exit/normal profitability",
+  "legalCashSensitivity": [
+    {
+      "lossUSD_billion": 1,
+      "deltaUSD_perShare": 0.7425834478149482
+    },
+    {
+      "lossUSD_billion": 5,
+      "deltaUSD_perShare": 3.7129172390747414
+    },
+    {
+      "lossUSD_billion": 10,
+      "deltaUSD_perShare": 7.425834478149483
+    }
+  ],
+  "lowConfidence": [
+    "Normalized USD240bn revenue; not a verified bit-volume/ASP model",
+    "Five-year mean includes FY26 supercycle and FY23 inventory write-down; regime shift unresolved",
+    "Sparse fiscal-end historical EV/NOPAT observations, no continuous forward-multiple percentile",
+    "Post-FY28 capex ramp-down unconfirmed; deposits/tax gross liability deductions and mature timing approximate",
+    "SCA segment margins / floor prices / quarterly cash-flow conversion not public",
+    "BIS full rule / Micron customer exposure and litigation loss range not yet quantified",
+    "No calibrated 12-month win probability; historical beta not constant business beta"
+  ],
+  "checklistFullyPassed": false
+}
