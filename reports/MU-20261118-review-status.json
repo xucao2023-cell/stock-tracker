@@ -1,0 +1,9 @@
+{
+  "valuationDate": "2026-11-18",
+  "publicationState": "withdrawn-as-official-base",
+  "websiteValuationStatus": "pending",
+  "newOfficialBaseSelected": false,
+  "oldBaseReendorsed": false,
+  "reason": "大幅漂移主要来自同时更换折现率、正常化盈利及终值方法；依据不足，撤回正式替代资格。",
+  "reviewReport": "reports/MU-20261118-drift-review.html"
+}
