@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-18",
+  "base": "EUR",
+  "quote": "USD",
+  "rate": 1.0968,
+  "source": "https://www.ecb.europa.eu/stats/eurofxref/eurofxref-daily.xml"
+}
