@@ -1,20 +1,120 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-18T02:33:30.605Z",
+  "updatedAt": "2026-11-18T09:48:19.794478Z",
   "stocks": [
     {
       "name": "腾讯控股",
       "code": "00700.HK",
-      "price": 43,
+      "price": 43.24,
       "currency": "€",
-      "note": "2026年中报后估值",
+      "note": "2026-11-18｜2026年三季报后重估",
       "group": "Trade Republic",
-      "low1": 53.4,
-      "high1": 58.7,
-      "low2": 40,
-      "high2": 72,
-      "memo": "26年中报后估值"
+      "low1": 51.07,
+      "high1": 55.94,
+      "low2": 41.95,
+      "high2": 64.63,
+      "memo": "26年中报后估值",
+      "priceSource": "Tencent Hong Kong ordinary-share quote; Frankfurter/ECB conversion to EUR",
+      "priceSourceUrl": "https://qt.gtimg.cn/q=hk00700",
+      "priceAsOf": "2026-11-18T08:08:10Z",
+      "priceObservedAt": "2026-11-18T09:48:19.793731Z",
+      "priceSession": "regular",
+      "priceTimestampType": "Reported Hong Kong exchange quote time, Asia/Hong_Kong",
+      "priceTimestampPrecision": "second",
+      "priceNative": {
+        "symbol": "00700.HK",
+        "isin": "KYG875721634",
+        "currency": "HKD",
+        "price": 372.8
+      },
+      "priceFx": {
+        "from": "HKD",
+        "to": "EUR",
+        "rate": 0.11598,
+        "date": "2026-11-17",
+        "source": "https://api.frankfurter.app/latest?from=HKD&to=EUR"
+      },
+      "security": {
+        "type": "ordinary-share",
+        "isin": "KYG875721634",
+        "wkn": "A1138D",
+        "listing": "HKEX 00700",
+        "unitsPerOrdinaryShare": 1,
+        "verificationSource": "https://assets.traderepublic.com/assets/files/DE/Instrument_Universe_DE_en.pdf"
+      },
+      "valuationDate": "2026-11-18",
+      "valuationCurrency": "EUR",
+      "valuationCenter": 53.5,
+      "valuationStatus": "conditional",
+      "valuationConfidence": "中低；未来AI投入、历史同口径PE分位及投资资产价值仍有缺口",
+      "valuationReport": "reports/Tencent-20261118.html",
+      "valuationModel": "reports/Tencent-20261118-model.json",
+      "valuationCurrencyModel": "reports/Tencent-20261118-EUR.json",
+      "valuationMethod": "扣持续SBC的合并盈利倍数与经营/投资资产分块SOTP交集；DCF参照",
+      "valuationSourceHKD": {
+        "low1": 440.3061968964648,
+        "high1": 482.30993334088987,
+        "low2": 361.7324500056674,
+        "high2": 557.2196622688928,
+        "center": 461.30806511867735,
+        "dcf": 467.8389108212136
+      },
+      "valuationFx": {
+        "date": "2026-11-17",
+        "base": "EUR",
+        "quote": "HKD",
+        "rate": 8.6221,
+        "formula": "EUR/ordinary share = HKD/ordinary share / HKD_per_EUR",
+        "source": "https://api.frankfurter.app/latest?from=EUR&to=HKD,USD,CNY"
+      },
+      "valuationH": {
+        "low": 51.07,
+        "high": 55.94,
+        "center": 53.5,
+        "economicParentProfitCNYMillion": 233700,
+        "parentOperatingNOPATCNYMillion": 201700,
+        "capitalisationMultiples": [
+          14,
+          16
+        ]
+      },
+      "valuationScenarios": {
+        "Z_low": {
+          "valueEUR": 41.95,
+          "valueHKD": 361.7324500056674,
+          "economicParentProfitCNYMillion": 233700,
+          "multiple": 12,
+          "condition": "盈利不额外下修；12倍为低置信条件假设，非验证的历史分位"
+        },
+        "base": {
+          "valueEUR": 53.5,
+          "valueHKD": 461.30806511867735,
+          "economicParentProfitCNYMillion": 233700,
+          "multipleRange": [
+            14,
+            16
+          ],
+          "condition": "2027利润低增长、现金流承压，2028后逐步回收"
+        },
+        "Z_high": {
+          "valueEUR": 64.63,
+          "valueHKD": 557.2196622688928,
+          "economicParentProfitCNYMillion": 239233,
+          "parentOperatingNOPATCNYMillion": 207233,
+          "multiple": 18,
+          "condition": "恢复至已实现TTM利润，现金转化和AI商业化支持估值修复"
+        }
+      },
+      "valuationDcf": {
+        "valueEUR": 54.26,
+        "valueHKD": 467.8389108212136,
+        "wacc": 0.08,
+        "g": 0.025,
+        "terminalShareEV": 0.7483128174072513,
+        "role": "reference-only"
+      },
+      "valuationCaveat": "条件性研究区间；同口径历史PE分位、未来资本支出及投资折价未完整验证。持续额外投入尾部可低于Z下限，不是保证底价。"
     },
     {
       "name": "小米集团",

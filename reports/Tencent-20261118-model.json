@@ -1,0 +1,537 @@
+{
+  "facts": {
+    "q3_revenue": 207336,
+    "q3_revenue_prior": 192869,
+    "q3_segments": [
+      98326,
+      43049,
+      63655,
+      2306
+    ],
+    "q3_gross_profit": 115911,
+    "q3_segment_gp": [
+      63017,
+      22578,
+      31551,
+      -1235
+    ],
+    "q3_nonifrs_op": 68073,
+    "q3_nonifrs_ni": 66519,
+    "q3_nonifrs_ni_prior": 70551,
+    "q3_basic_shares": 9011,
+    "q3_diluted_shares": 9125,
+    "q3_nonifrs_diluted_eps": 7.227,
+    "q3_ifrs_parent_profit": 63612,
+    "q3_ifrs_diluted_profit": 63387,
+    "q3_ifrs_diluted_eps": 6.947,
+    "q3_op_ex_new_ai_rounded": 83300,
+    "q3_sbc_op": 7115,
+    "q3_sbc_parent_adjustment": 7834,
+    "q3_acquisition_amort": 1621,
+    "q3_donation_adjustment": 190,
+    "q3_ifrs_op": 59147,
+    "q3_other_gains": -543,
+    "q3_da": 19822,
+    "q3_interest_related": 3672,
+    "q3_interest_income": 3992,
+    "q3_associate_nonifrs": 8826,
+    "nine_m_revenue": 608579,
+    "nine_m_ni": 202839,
+    "nine_m_ni_prior": 194932,
+    "nine_m_sbc_parent": 22783,
+    "nine_m_capex_accrual": 166153,
+    "nine_m_cfo": 156713,
+    "q3_capex_accrual": 81433,
+    "q3_cfo_rounded": 2600,
+    "q3_cash_capex_rounded": 65100,
+    "q3_content_cash_rounded": 4600,
+    "q3_lease_cash_rounded": 2000,
+    "q3_fcf_rounded": -69100,
+    "q3_fcf_ex_prepay_rounded": 16900,
+    "q2_fcf_rounded": -13800,
+    "q2_fcf_ex_prepay_rounded": 37600,
+    "cash": 231717,
+    "term_and_other_liquid": 294010,
+    "borrowings": 380101,
+    "notes": 159328,
+    "q2_borrowings": 298942,
+    "q2_notes": 154021,
+    "net_cash": -13702,
+    "listed_investments_attributable": 505400,
+    "unlisted_investments_attributable": 397200,
+    "nci_book": 86363,
+    "deferred_rev": 131394,
+    "deferred_rev_dec2025": 112519,
+    "q3_buyback_hkd": 7032.25951704,
+    "q3_buyback_shares": 15.8676,
+    "issued_shares_oct": 9092.644829,
+    "fy2025_revenue": 751766,
+    "fy2025_nonifrs_ni": 259626,
+    "fy2021_nonifrs_ni": 123788,
+    "fy2022_nonifrs_ni": 115649,
+    "h1_capital_commitments": 92729,
+    "h1_other_commitments": 280147
+  },
+  "assumptions": {
+    "price_hkd": 372.8,
+    "price_time_hkt": "2026-11-18 16:08:10",
+    "cny_per_hkd": 0.84961,
+    "fx_date": "2026-11-17",
+    "shares": 9125,
+    "fy2026_revenue": 817000,
+    "fy2026_nonifrs_parent_ni": 264000,
+    "fy2027_revenue": 878000,
+    "fy2027_nonifrs_parent_ni": 262000,
+    "subsidiary_associate_dilution": 2300,
+    "ongoing_attributable_sbc_aftertax": 26000,
+    "associate_economic_earnings": 31000,
+    "cash_interest_aftertax": 13000,
+    "portfolio_dividends_aftertax": 2000,
+    "debt_interest_aftertax": 14000,
+    "nci_economic_profit": 6500,
+    "listed_haircut_factor": 0.9,
+    "unlisted_factor": 0.5,
+    "q4_2026_cash_burn": 50000,
+    "tax": 0.18,
+    "rf_cny": 0.0165,
+    "mature_erp_nov": 0.0441,
+    "china_country_risk_july": 0.008727858397633674,
+    "cost_debt": 0.03,
+    "wacc": 0.08,
+    "terminal_g": 0.025,
+    "base_multiple_range": [
+      14,
+      16
+    ],
+    "pressure_multiple": 12,
+    "growth_multiple": 18
+  },
+  "checks": {
+    "segment_revenue_sum": true,
+    "segment_gross_profit_sum": true,
+    "net_cash_reconciliation": true,
+    "ifrs_to_nonifrs_op": true,
+    "ifrs_diluted_eps_rounding": true,
+    "fcf_rounding": true,
+    "sotp_excludes_equity_accounted_investment_income": true,
+    "no_lease_liability_double_deduction": true,
+    "no_historic_compute_prepayment_addback_in_value": true,
+    "no_nci_book_subtraction_from_attributable_investments": true
+  },
+  "beta": {
+    "2y_hstech": {
+      "beta": 0.9143131315981216,
+      "correlation": 0.7799544703730525,
+      "n": 105,
+      "first": "2024-11-15",
+      "last": "2026-11-13"
+    },
+    "2y_hsi": {
+      "beta": 1.3801446002490654,
+      "correlation": 0.8057739282853082,
+      "n": 105,
+      "first": "2024-11-15",
+      "last": "2026-11-13"
+    },
+    "3y_hstech": {
+      "beta": 0.8093611698457824,
+      "correlation": 0.7992764650378477,
+      "n": 157,
+      "first": "2023-11-17",
+      "last": "2026-11-13"
+    },
+    "3y_hsi": {
+      "beta": 1.2430401809759102,
+      "correlation": 0.8209657574766444,
+      "n": 157,
+      "first": "2023-11-17",
+      "last": "2026-11-13"
+    }
+  },
+  "price_history": {
+    "n": 750,
+    "min": 262.2,
+    "max": 677.5,
+    "quantiles": {
+      "0.05": 287.67,
+      "0.1": 305.35999999999996,
+      "0.25": 377.8,
+      "0.5": 439.4,
+      "0.75": 514.0,
+      "0.9": 611.0,
+      "0.95": 629.275
+    }
+  },
+  "capital_cost": {
+    "erp": 0.052827858397633674,
+    "ke": 0.08941008351021636,
+    "debt_weight": 0.15775617870581926,
+    "capm_wacc": 0.0791858923940396,
+    "q3_annualised_debt_cost": 0.029601205975058244
+  },
+  "profit_bridge": {
+    "economic_ni": 233700,
+    "operating_nopat": 208200,
+    "operating_ebit": 253902.43902439022,
+    "parent_operating_nopat": 201700,
+    "nci_operating_share": 0.03121998078770413,
+    "investment_value": 653460.0,
+    "asset_adjustment": 639758.0,
+    "ttm_nonifrs_ni": 267533
+  },
+  "valuation": {
+    "pe_band": [
+      422.0211916732786,
+      482.30993334088987
+    ],
+    "sotp_band": [
+      440.3061968964648,
+      492.3397407319684
+    ],
+    "H": [
+      440.3061968964648,
+      482.30993334088987
+    ],
+    "center": 461.30806511867735,
+    "Z": [
+      361.7324500056674,
+      557.2196622688928
+    ],
+    "growth_economic_ni": 239233,
+    "growth_nopat": 213733,
+    "pressure_pe": 361.7324500056674,
+    "growth_pe": 555.4450527099219,
+    "growth_sotp": 557.2196622688928,
+    "center_upside": 0.23741433776469245,
+    "price_discount_to_center": 0.19186325107042623,
+    "actual_price_economic_pe": 12.367151467693624,
+    "old_500_change_pct": -0.07738386976264533
+  },
+  "dcf": {
+    "wacc": 0.08,
+    "g": 0.025,
+    "stub_pv": -49047.182606378534,
+    "pv_explicit": 776082.4782829979,
+    "terminal_fcf": 279309.78239503637,
+    "terminal_value": 5078359.679909752,
+    "pv_terminal": 2307437.589319195,
+    "terminal_share_ev": 0.7483128174072513,
+    "terminal_share_equity": 0.6361816450224326,
+    "ev": 3083520.067602193,
+    "nci_value": 96267.4372690406,
+    "equity": 3627010.6303331526,
+    "hkd": 467.8389108212136,
+    "implied_terminal_roic": 0.10495351816763064,
+    "rows": [
+      {
+        "year": 2027,
+        "revenue": 878000,
+        "economic_ebit": 253902.43902439022,
+        "nopat": 208200.0,
+        "da": 80000,
+        "cash_it_capex": 270000,
+        "content_and_lease": 32000,
+        "extra_prepay": 60000,
+        "ordinary_dwc": 305.0,
+        "extra_cash_cost": 0,
+        "fcff": -74105.0,
+        "t": 1.25,
+        "discount_factor": 0.9082811593773801,
+        "pv": -67308.17531566074
+      },
+      {
+        "year": 2028,
+        "revenue": 939460.0,
+        "economic_ebit": 277140.7,
+        "nopat": 227255.37400000004,
+        "da": 100000,
+        "cash_it_capex": 260000,
+        "content_and_lease": 34000,
+        "extra_prepay": 30000,
+        "ordinary_dwc": 307.3,
+        "extra_cash_cost": 0,
+        "fcff": 2948.0740000000687,
+        "t": 2.25,
+        "discount_factor": 0.8410010734975741,
+        "pv": 2479.333398750345
+      },
+      {
+        "year": 2029,
+        "revenue": 1005222.2000000001,
+        "economic_ebit": 301566.66000000003,
+        "nopat": 247284.66120000003,
+        "da": 120000,
+        "cash_it_capex": 240000,
+        "content_and_lease": 36000,
+        "extra_prepay": 10000,
+        "ordinary_dwc": 328.8110000000004,
+        "extra_cash_cost": 0,
+        "fcff": 80955.85020000003,
+        "t": 3.25,
+        "discount_factor": 0.7787046976829389,
+        "pv": 63040.700855656316
+      },
+      {
+        "year": 2030,
+        "revenue": 1070561.643,
+        "economic_ebit": 326521.301115,
+        "nopat": 267747.4669143,
+        "da": 135000,
+        "cash_it_capex": 225000,
+        "content_and_lease": 38000,
+        "extra_prepay": 0,
+        "ordinary_dwc": 326.6972149999993,
+        "extra_cash_cost": 0,
+        "fcff": 139420.7696993,
+        "t": 4.25,
+        "discount_factor": 0.7210228682249434,
+        "pv": 100525.56325871857
+      },
+      {
+        "year": 2031,
+        "revenue": 1134795.34158,
+        "economic_ebit": 351786.5558898,
+        "nopat": 288464.97582963604,
+        "da": 145000,
+        "cash_it_capex": 220000,
+        "content_and_lease": 40000,
+        "extra_prepay": 0,
+        "ordinary_dwc": 321.16849290000044,
+        "extra_cash_cost": 0,
+        "fcff": 173143.80733673603,
+        "t": 5.25,
+        "discount_factor": 0.6676137668749476,
+        "pv": 115593.18942714852
+      },
+      {
+        "year": 2032,
+        "revenue": 1197209.0853668998,
+        "economic_ebit": 371134.816463739,
+        "nopat": 304330.549500266,
+        "da": 150000,
+        "cash_it_capex": 220000,
+        "content_and_lease": 42000,
+        "extra_prepay": 0,
+        "ordinary_dwc": 312.0687189344992,
+        "extra_cash_cost": 0,
+        "fcff": 192018.48078133148,
+        "t": 6.25,
+        "discount_factor": 0.6181608952545811,
+        "pv": 118698.31598521244
+      },
+      {
+        "year": 2033,
+        "revenue": 1257069.539635245,
+        "economic_ebit": 389691.55728692596,
+        "nopat": 319547.0769752793,
+        "da": 160000,
+        "cash_it_capex": 225000,
+        "content_and_lease": 44000,
+        "extra_prepay": 0,
+        "ordinary_dwc": 299.3022713417257,
+        "extra_cash_cost": 0,
+        "fcff": 210247.77470393758,
+        "t": 7.25,
+        "discount_factor": 0.5723711993097972,
+        "pv": 120339.7709595088
+      },
+      {
+        "year": 2034,
+        "revenue": 1313637.668918831,
+        "economic_ebit": 407227.6773648376,
+        "nopat": 333926.69543916686,
+        "da": 170000,
+        "cash_it_capex": 225000,
+        "content_and_lease": 46000,
+        "extra_prepay": 0,
+        "ordinary_dwc": 282.84064641793026,
+        "extra_cash_cost": 0,
+        "fcff": 232643.85479274893,
+        "t": 8.25,
+        "discount_factor": 0.5299733326942566,
+        "pv": 123295.03905535185
+      },
+      {
+        "year": 2035,
+        "revenue": 1366183.1756755842,
+        "economic_ebit": 423516.78445943113,
+        "nopat": 347283.76325673354,
+        "da": 180000,
+        "cash_it_capex": 225000,
+        "content_and_lease": 48000,
+        "extra_prepay": 0,
+        "ordinary_dwc": 262.727533783766,
+        "extra_cash_cost": 0,
+        "fcff": 254021.03572294977,
+        "t": 9.25,
+        "discount_factor": 0.49071604879097835,
+        "pv": 124652.19895975788
+      },
+      {
+        "year": 2036,
+        "revenue": 1407168.6709458518,
+        "economic_ebit": 436222.2879932141,
+        "nopat": 357702.2761544356,
+        "da": 190000,
+        "cash_it_capex": 225000,
+        "content_and_lease": 50000,
+        "extra_prepay": 0,
+        "ordinary_dwc": 204.927476351338,
+        "extra_cash_cost": 0,
+        "fcff": 272497.34867808426,
+        "t": 10.25,
+        "discount_factor": 0.45436671184349847,
+        "pv": 123813.72430493245
+      }
+    ]
+  },
+  "dcf_sensitivity": {
+    "7.0%": {
+      "1.5%": 501.0695688797936,
+      "2.5%": 574.6495748381468,
+      "3.5%": 690.2752984869874
+    },
+    "8.0%": {
+      "1.5%": 421.0988599076738,
+      "2.5%": 467.8389108212136,
+      "3.5%": 535.3523176963265
+    },
+    "9.0%": {
+      "1.5%": 363.11934891223325,
+      "2.5%": 394.5943127301048,
+      "3.5%": 437.5147179362933
+    }
+  },
+  "pe_sensitivity": {
+    "240000": {
+      "12": 327.6797589482233,
+      "14": 382.2930521062605,
+      "15": 409.5996986852791,
+      "16": 436.9063452642977,
+      "18": 491.51963842233494
+    },
+    "262000": {
+      "12": 361.7324500056674,
+      "14": 422.0211916732786,
+      "15": 452.16556250708425,
+      "16": 482.30993334088987,
+      "18": 542.5986750085011
+    },
+    "280000": {
+      "12": 389.59374268903076,
+      "14": 454.52603313720255,
+      "15": 486.99217836128844,
+      "16": 519.4583235853743,
+      "18": 584.3906140335461
+    }
+  },
+  "reverse": {
+    "implied_wacc": 0.0937468208334774,
+    "implied_terminal_g": -3.762292866751199e-05
+  },
+  "cash_tail": {
+    "extra_annual_spend_80000": 317.38694266727936,
+    "extra_annual_spend_40000": 392.61292674424635
+  },
+  "bridge_old_dcf": [
+    {
+      "stage": "old_exact_model",
+      "hkd": 842.103420804711,
+      "change": 0
+    },
+    {
+      "stage": "old_cashflows_new_terminal_g_2.5pct",
+      "hkd": 762.413170914146,
+      "change": -79.69024989056504
+    },
+    {
+      "stage": "new_cashflow_schedule_old_assets_shares_fx",
+      "hkd": 473.2869626777638,
+      "change": -289.1262082363822
+    },
+    {
+      "stage": "new_cashflows_and_assets_old_shares_fx",
+      "hkd": 459.4551561252094,
+      "change": -13.83180655255444
+    },
+    {
+      "stage": "new_shares_old_fx",
+      "hkd": 456.68583737596157,
+      "change": -2.769318749247816
+    },
+    {
+      "stage": "new_fx_final",
+      "hkd": 467.8389108212136,
+      "change": 11.153073445252005
+    }
+  ],
+  "bridge_old_500": [
+    {
+      "stage": "old_rounded_headline",
+      "hkd": 500,
+      "change": 0
+    },
+    {
+      "stage": "old_stated_2770yi_91yi_1.098_15x",
+      "hkd": 501.3395604395604,
+      "change": 1.3395604395603868
+    },
+    {
+      "stage": "new_2027_ni_2620yi",
+      "hkd": 474.19120879120885,
+      "change": -27.148351648351536
+    },
+    {
+      "stage": "new_sbc_and_subsidiary_dilution",
+      "hkd": 422.97131868131873,
+      "change": -51.219890109890116
+    },
+    {
+      "stage": "new_shares",
+      "hkd": 421.81249315068493,
+      "change": -1.1588255306338056
+    },
+    {
+      "stage": "new_fx",
+      "hkd": 452.16556250708425,
+      "change": 30.353069356399317
+    },
+    {
+      "stage": "sotp_pe_history_overlap_midpoint",
+      "hkd": 461.30806511867735,
+      "change": 9.142502611593102
+    }
+  ],
+  "fact_derived": {
+    "q3_revenue_growth": 0.07500946238120165,
+    "q3_ni_growth": -0.057150146702385496,
+    "q3_new_ai_op_drag_rounded": 15227,
+    "q3_compute_prepay_rounded": 86000,
+    "q2_compute_prepay_rounded": 51400,
+    "fy2026_q4_ni": 61161,
+    "fy2025_q4_ni": 64694,
+    "fy2026_q4_ni_growth": -0.05461093764491298,
+    "fy2027_ni_growth": -0.007575757575757569,
+    "fy2026_q4_revenue": 208421,
+    "fy2026_revenue_growth": 0.08677434201599965,
+    "fy2027_revenue_growth": 0.07466340269277838,
+    "historical_2021_2022_nonifrs_decline": 0.06574950722202477,
+    "deferred_revenue_change_since_dec": 0.16774944676010284,
+    "deferred_revenue_annual_coverage": 0.1608249694002448,
+    "economic_eps_cny": 25.610958904109587,
+    "economic_eps_hkd": 30.144370833805617,
+    "cashburn_per_10bn_cny_hkd": 1.2898746612668215,
+    "sbc_aftertax_q3_parent_annual_proxy": 25695.52,
+    "subsidiary_dilution_q3_annual_inferred": 2290.5,
+    "economic_pe_to_nonifrs_pe_range": [
+      12.487786259541984,
+      14.27175572519084
+    ],
+    "old_dcf_terminal_share_ev": 0.6995028020344715,
+    "old_dcf_change_pct": -0.4444400779489194,
+    "fy2025_effective_tax": 0.17113857939974536,
+    "nine_m2026_effective_tax": 0.1622308928161579,
+    "normalized_ebit_margin": 0.28918273237402076,
+    "q3_fcf_ex_prepay_qoq": -0.550531914893617
+  }
+}

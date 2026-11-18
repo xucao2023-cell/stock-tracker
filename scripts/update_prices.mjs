@@ -17,6 +17,7 @@ import { execSync } from 'node:child_process';
 import iconv from 'iconv-lite';
 import { fetchBmwQuote } from './bmw_tradegate_quote.mjs';
 import { isUsStock, parseEtTimestamp, fetchLatestUsQuote, canReplaceQuote } from './latest_us_quote.mjs';
+import { readTencentHkQuote, canReplaceHkQuote } from './tencent_hk_quote.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const DATA_PATH = new URL('../data.json', import.meta.url);
@@ -153,7 +154,12 @@ async function fetchTencentBatch(tencentSymbols) {
     if (fields.length < 4) continue;
     const price = parseFloat(fields[3]);
     if (!Number.isFinite(price) || price <= 0) continue;
-    out[sym] = { price, name: fields[1], marketTime:/^us/.test(sym) ? parseEtTimestamp(fields[30]) : null };
+    if (/^hk\d{5}$/.test(sym)) {
+      const quote = readTencentHkQuote(sym, fields);
+      if (quote) out[sym] = quote;
+    } else {
+      out[sym] = { price, name: fields[1], marketTime:/^us/.test(sym) ? parseEtTimestamp(fields[30]) : null };
+    }
   }
   return out;
 }
@@ -300,6 +306,11 @@ async function main() {
       const ts = toTencentCode(s.code);
       const got = tencentPrices[ts];
       if (got) {
+        if (s.code.endsWith('.HK') && !canReplaceHkQuote(s, got)) {
+          report.push(`${s.code} SKIP (wrong HK security/currency or older quote timestamp)`);
+          skipped++;
+          continue;
+        }
         newPrice = got.price;
         src = 'tencent';
         // FX: Tencent reports in source currency (HKD for .HK, USD for .US,
@@ -384,7 +395,7 @@ async function main() {
       }
     }
 
-    const preciseEuroQuote = usStock || ['BMW.DE', 'WAF.DE', 'LITE.US', 'LITE'].includes(s.code);
+    const preciseEuroQuote = usStock || s.code.endsWith('.HK') || ['BMW.DE', 'WAF.DE', 'LITE.US', 'LITE'].includes(s.code);
     const formatted = preciseEuroQuote ? String(Math.round(newPrice * 100) / 100) : formatPriceLikeOriginal(newPrice, oldPrice);
     const parsedFormatted = preciseEuroQuote ? Number(formatted) : (isInt(oldPrice) ? parseInt(formatted, 10) : parseFloat(formatted));
     report.push(
@@ -392,6 +403,22 @@ async function main() {
     );
     if (!DRY_RUN) {
       s.price = parsedFormatted;
+      if (s.code.endsWith('.HK')) {
+        const q = tencentPrices[toTencentCode(s.code)], pair = needsFxConversion(s);
+        const fx = pair && fxCache.get(`${pair.from}->${pair.to}`);
+        s.priceSource = q.source + (pair ? '; Frankfurter/ECB conversion to EUR' : '');
+        s.priceSourceUrl = q.sourceUrl;
+        s.priceAsOf = new Date(q.marketTime * 1000).toISOString();
+        s.priceObservedAt = new Date().toISOString();
+        s.priceSession = q.session;
+        s.priceTimestampType = q.timestampType;
+        s.priceTimestampPrecision = q.timestampPrecision;
+        s.priceNative = {symbol:q.symbol,currency:q.currency,price:q.price};
+        if (s.security?.isin) s.priceNative.isin = s.security.isin;
+        s.priceFx = pair && fx ? {from:pair.from,to:pair.to,rate:fx.value,date:fx.date,
+          source:FRANKFURTER_URL(pair.from,pair.to)} : {from:'HKD',to:'HKD',rate:1,date:null,source:'Same currency; no conversion'};
+        console.log(`[hk-quote] symbol=${q.symbol} currency=HKD native=${q.price} EUR=${s.price} asof=${s.priceAsOf} fx=${fx?.value} fxDate=${fx?.date}`);
+      }
       if (usStock) {
         const q = usPrices[s.code], pair = needsFxConversion(s);
         const fx = pair && fxCache.get(`${pair.from}->${pair.to}`);

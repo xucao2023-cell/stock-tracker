@@ -1,0 +1,789 @@
+<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>腾讯三季报后估值 · 欧元显示 · 2026-11-18</title><style>
+body{background:#f6f3eb;color:#17283b;font:16px/1.8 system-ui,sans-serif;margin:0}article{max-width:1200px;margin:auto;padding:28px 22px}h1{font-size:28px;line-height:1.4}h2{font-size:21px;margin-top:2em}a{color:#075f83}strong{color:#152a40}.table-scroll{overflow:auto;margin:18px 0}table{border-collapse:collapse;min-width:680px;font-size:14px}th,td{border:1px solid #d2d3ce;padding:8px 12px;text-align:left;font-variant-numeric:tabular-nums}th{background:#e6e9e5}code{font-size:13px;overflow-wrap:anywhere}p{overflow-wrap:anywhere}@media(max-width:600px){article{padding:18px 14px}h1{font-size:23px}}
+</style><article><p><a href="../index.html">返回网站1</a> · <a href="Tencent-20261118-model.json">港元模型JSON</a> · <a href="Tencent-20261118-EUR.json">欧元换算</a> · <a href="Tencent-20261118-reproduction.zip">完整复现包</a> · <a href="Tencent-20261118-cashflows.csv">现金流CSV</a></p>
+<h1>Trade Republic栏欧元显示 · 2026-11-18</h1>
+<p>本次仅将已完成的港元普通股研究结果换算为欧元，不调整盈利假设、估值倍数或基准标签。证券为腾讯普通股，ISIN KYG875721634，1股对应1股普通股，没有ADS比例调整。</p>
+<p>固定估值汇率：2026-11-17参考汇率，1欧元=8.6221港元。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>原港元结果</th>
+<th>网站1欧元显示</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>H核心带</td>
+<td>440.31—482.31港元/股</td>
+<td>51.07—55.94欧元/股</td>
+</tr>
+<tr>
+<td>中枢</td>
+<td>461.31港元/股</td>
+<td>53.50欧元/股</td>
+</tr>
+<tr>
+<td>Z条件情景</td>
+<td>361.73—557.22港元/股</td>
+<td>41.95—64.63欧元/股</td>
+</tr>
+<tr>
+<td>DCF参照</td>
+<td>467.84港元/股</td>
+<td>54.26欧元/股</td>
+</tr>
+</tbody>
+</table></div>
+<p>公式：欧元/股=港元/股÷8.6221。估值汇率固定；股价使用每次报价任务取得的独立汇率更新。</p>
+<p>本次发布时实际港股报价为372.80港元/股，报价时间2026-11-18T08:08:10Z，按2026-11-17的1港元=0.11598欧元折为43.24欧元/股。该显示是港股报价的欧元参考等值，不是Trade Republic交易所实际执行价。首页随后由既有自动任务更新。</p>
+<p>原研究的中低置信、历史同口径PE分位缺口及资本支出风险完整保留；Z下限不是保证底价。以下为原港元报告全文。</p>
+<hr />
+<h1>腾讯控股：2026年三季报后重新估值</h1>
+<p>估值研究日期：2026-11-18。财报：截至2026-09-30的三个月和九个月，2026-11-18发布，未经审计、经核数师审阅。市场对照：2026-11-18 16:08:10港股收盘快照。财务资产及DCF统一起点为2026-09-30，采用2026Q4剩余一季现金流衔接；未取得9月末至研究日的实际资金流水，不把三季末余额称为今日余额。未对这段期间作不可核实的收益滚动，时点误差约为一个多月的资本成本。</p>
+<p>本次开始已完整读取全局检查单v2.5。完成情况及缺口见附录，<strong>不宣称已完整通过所有检查</strong>。原8月报告及冻结的<code>valuations/0700HK_腾讯.md</code>保留。</p>
+<h2>1. 本次结论与适用边界</h2>
+<ul>
+<li>H核心带：<strong>440.31—482.31港元/股</strong>；中枢<strong>461.31港元/股</strong>，沟通取约461港元/股。</li>
+<li>Z条件情景：<strong>361.73—557.22港元/股</strong>。压力倍数12倍缺少同口径历史分位验证，属于低置信条件测试，不是已验证的价格底部。</li>
+<li>2026-11-18收盘：<strong>372.80港元/股</strong>；低于中枢19.19%，回到中枢的条件回报23.74%。这两个百分比的分母不同。</li>
+<li>经营业务DCF参照：<strong>467.84港元/股</strong>；终值占经营价值<strong>74.83%</strong>，因此不单独确定中枢。</li>
+<li>与2026-09-03/04报告中枢500港元/股相比，本次变化<strong>-7.74%</strong>。与8月842.10港元/股比较的是DCF模型输出，不能把它与9月中枢混成一条估值历史。</li>
+</ul>
+<p>属性：平台整体非强周期，广告和支付随宏观波动，游戏有产品周期；AI投入使现金转化率发生结构变化。本次不做制造业3—5年景气利润均值。取下一完整年度2027年作为盈利锚，现金流显性期延长至2036年检验投入回收。仓位分类按检查单为价值型研究对象，但年度额外投入的压力测试可明显低于Z下限。</p>
+<p>置信度：<strong>中等偏低</strong>。财报事实的核验较充分；未来算力现金支出、分部经营利润、投资折价、同口径历史PE分位仍有明显缺口。</p>
+<h2>2. 输入来源与最新事实</h2>
+<p>金额为人民币亿元；每股另注明。源文件页码均指PDF页码。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>事实</th>
+<th style="text-align: right;">最新数据</th>
+<th>原文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q3收入</td>
+<td style="text-align: right;">2,073.36亿元人民币，同比7.50%</td>
+<td>Q3公告第1、6页</td>
+</tr>
+<tr>
+<td>Q3 Non-IFRS归母净利</td>
+<td style="text-align: right;">665.19亿元人民币，同比-5.72%</td>
+<td>第1、5页</td>
+</tr>
+<tr>
+<td>前九个月Non-IFRS归母净利</td>
+<td style="text-align: right;">2,028.39亿元人民币</td>
+<td>第2页</td>
+</tr>
+<tr>
+<td>Q3 Non-IFRS经营利润</td>
+<td style="text-align: right;">680.73亿元人民币</td>
+<td>第8、14页</td>
+</tr>
+<tr>
+<td>剔除新AI产品的经营利润</td>
+<td style="text-align: right;">约833亿元人民币，原文同比增长8%</td>
+<td>第8页；不是可直接加回的股东利润</td>
+</tr>
+<tr>
+<td>推算新AI产品经营拖累</td>
+<td style="text-align: right;">约152.27亿元人民币</td>
+<td>833−680.73；口径是新AI产品，不含全部AI成本</td>
+</tr>
+<tr>
+<td>Q3资本开支（资产增加口径）</td>
+<td style="text-align: right;">814.33亿元人民币</td>
+<td>第12页</td>
+</tr>
+<tr>
+<td>前九个月资本开支</td>
+<td style="text-align: right;">1,661.53亿元人民币</td>
+<td>第12页</td>
+</tr>
+<tr>
+<td>Q3资本开支付款</td>
+<td style="text-align: right;">约651亿元人民币</td>
+<td>第17页；与资本开支增加口径不同</td>
+</tr>
+<tr>
+<td>Q3自由现金流</td>
+<td style="text-align: right;">约−691亿元人民币</td>
+<td>第17页</td>
+</tr>
+<tr>
+<td>剔除算力预付款后的Q3自由现金流</td>
+<td style="text-align: right;">约169亿元人民币</td>
+<td>第17页；仅用于诊断</td>
+</tr>
+<tr>
+<td>Q3经营现金流</td>
+<td style="text-align: right;">约26亿元人民币</td>
+<td>第17页</td>
+</tr>
+<tr>
+<td>上市投资权益公允价值</td>
+<td style="text-align: right;">5,054亿元人民币</td>
+<td>第17页；不含附属公司，归属口径</td>
+</tr>
+<tr>
+<td>非上市投资权益账面价值</td>
+<td style="text-align: right;">3,972亿元人民币</td>
+<td>第17页；不是市场公允价值</td>
+</tr>
+<tr>
+<td>三季末净债务</td>
+<td style="text-align: right;">137.02亿元人民币</td>
+<td>第17页</td>
+</tr>
+<tr>
+<td>Q3回购</td>
+<td style="text-align: right;">70.32亿港元，1,586.76万股</td>
+<td>第44页</td>
+</tr>
+<tr>
+<td>Q3摊薄股数</td>
+<td style="text-align: right;">91.25亿股</td>
+<td>第33页</td>
+</tr>
+<tr>
+<td>10月末已发行股份</td>
+<td style="text-align: right;">90.92644829亿股</td>
+<td>10月证券变动月报第2页；不代替摊薄股数</td>
+</tr>
+</tbody>
+</table></div>
+<p>原文：<a href="https://www.tencent.com/wp-content/uploads/2026/11/E700_3Qresults.pdf">腾讯Q3公告英文版</a>、<a href="https://www.tencent.com/wp-content/uploads/2026/11/C700_3Qresults.pdf">中文版</a>。本地文件：<code>source/revaluation_20261118/q3_official.pdf</code>及<code>q3_cn.pdf</code>。英文公司版与港交所版下载件校验一致。</p>
+<p>收入勾稽：983.26+430.49+636.55+23.06=2,073.36亿元人民币。毛利勾稽：630.17+225.78+315.51−12.35=1,159.11亿元人民币。IFRS经营利润到Non-IFRS：591.47+71.15+16.21+1.90=680.73亿元人民币，依次为股权激励、收购无形资产摊销及捐赠等调整。</p>
+<p><strong>本季变化不能概括为“AI只压现金、不压利润”。</strong> 国内游戏收入476亿元人民币、同比增长11%；国际游戏189亿元人民币、同比下降9%（固定汇率下降4%）；广告收入增长19%，但毛利率52%，低于去年57%；云收入增长35%，但未披露独立收入额和分部经营利润。新AI产品以外经营利润增速也从Q2的19%降至Q3的8%。这些是降低盈利增长假设的证据。</p>
+<h3>现金流及采购承诺</h3>
+<p>按公司第17页四舍五入数据：</p>
+<p><code>Q3 FCF≈26−651−46−20=−691亿元人民币</code>。</p>
+<p><code>推算Q3算力预付款≈169−(−691)=860亿元人民币</code>。Q2相同诊断口径为376−(−138)=514亿元人民币。公司未提供逐笔预付款性质及抵扣时间，不能把860亿元人民币全部定性为可回收的过渡项目。</p>
+<p>剔除预付款后FCF由Q2的376亿元人民币降到Q3的169亿元人民币，环比下降55.05%，说明现金流转弱也涉及实际资本开支付款等因素。<strong>估值不把已经支付的860亿元人民币加回现金或再单列资产价值</strong>；未来服务器利用和云收入须在经营现金流中兑现。未来现金资本开支只计净新增付款，额外预付款只计未来余额增量，避免重复扣款。</p>
+<p>截至2026-06-30的最新完整承诺附注：资本承诺927.29亿元人民币，其他已签未入账承诺2,801.47亿元人民币，主要涉及技术基础设施运营、游戏授权、内容及其他技术服务（中报PDF第89页/印刷第88页）。Q3简报没有更新该附注，不能把这两个数称为9月末余额，也不能将其整体再当债务从股权价值扣除；相关交付会占用未来FCF，本次用资本现金支出及额外预付款情景体现。</p>
+<h2>3. 公司指引、分析师预测与自建假设分开</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>分类</th>
+<th>本次使用方式</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>财报事实</td>
+<td>前述原文数字；2025年Non-IFRS归母净利2,596.26亿元人民币、前九个月2025年1,949.32亿元人民币来自年报第4页及Q3第2页</td>
+</tr>
+<tr>
+<td>公司正式展望</td>
+<td>产品、云需求及投入方向为定性展望；当前公告没有可入模的2027年收入、净利或资本开支上限指引</td>
+</tr>
+<tr>
+<td>分析师财务预测</td>
+<td>MarketScreener抓取页2026/27收入8,247.76/9,025.09亿元人民币、IFRS归母2,242.06/2,337.50亿元人民币；未确认已完整吸收本次财报，财务预测各科目的机构数未披露，故不作为已验证共识输入</td>
+</tr>
+<tr>
+<td>券商单家预测</td>
+<td>财报前公开转述的2027年Non-IFRS归母预测约2,493—2,765亿元人民币，分歧明显；不是全市场共识，未用其目标价入模</td>
+</tr>
+<tr>
+<td>本次自建</td>
+<td>2026年收入8,170亿元人民币、Non-IFRS归母2,640亿元人民币；2027年收入8,780亿元人民币、Non-IFRS归母2,620亿元人民币</td>
+</tr>
+</tbody>
+</table></div>
+<p>2026全年净利：<code>前九个月2,028.39+自建Q4 611.61=2,640亿元人民币</code>。2025Q4实际为<code>2,596.26−1,949.32=646.94亿元人民币</code>，因此自建Q4同比-5.46%，延续Q3盈利压力。2027净利同比-0.76%，收入增长7.47%，反映业务仍增长、AI折旧及研发继续挤压利润。</p>
+<p>这里的2,620亿元人民币没有被称为公司指引或一致预期。未来云收入35%增速及WorkBuddy用户增长可以支持需求存在，但不足以验证付费利润或采购回报率，故没有把新AI产品亏损加回。</p>
+<h2>4. 统一的股东盈利口径与倍数法</h2>
+<p>Non-IFRS已剔除部分持续性员工成本，本次扣回未来持续股权激励的经济成本，同时使用已存在奖项的摊薄股数，不再另叠未来股本增长。</p>
+<ul>
+<li>持续归属股东SBC税后成本自建260亿元人民币/年。参考Q3归母Non-IFRS调节表SBC 78.34亿元人民币，按18%正常化税率年化为256.96亿元人民币；准确SBC独立税效未披露，因此260为估计。</li>
+<li>子公司及联营公司奖项导致的年度盈利摊薄自建23亿元人民币。Q3摊薄Non-IFRS分子反推为<code>7.227元人民币/股×91.25亿股=659.46375亿元人民币</code>，比归母665.19亿元人民币少5.72625亿元人民币，年化22.905亿元人民币，取23。</li>
+</ul>
+<p><code>经济股东盈利=2,620−260−23=2,337亿元人民币</code>。</p>
+<p><code>经济EPS=2,337÷91.25=25.61096元人民币/股</code>。</p>
+<p>估值汇率采用2026-11-17 Frankfurter/ECB参考交叉汇率：1港元=0.84961元人民币，即1元人民币=1.177011港元，不冒充11月18日即期成交汇率。</p>
+<p><code>经济EPS港元=25.61096÷0.84961=30.14437港元/股</code>。</p>
+<p>取14—16倍经济盈利：<code>30.14437×14/16=422.02/482.31港元/股</code>。</p>
+<p>14—16倍为本次估值判断：要求未来现金流逐步恢复，同时为游戏与微信生态保留一定增长价值；折算成未经SBC扣回的2,620亿元人民币Non-IFRS盈利约12.49—14.27倍，低于旧报告15—20倍的取值。并未将“14—16倍”宣称为实测历史中周期分位。历史Forward PE年末快照约13.78/16.17/17.77倍（2023/24/25，StockAnalysis），但其预测定义无法穿透、与本次经济盈利不同，只作数量级参照。<strong>真正同口径历史PE分位未完成，是本次倍数判断的重要限制。</strong></p>
+<h2>5. 资产分块SOTP与避免重复计价</h2>
+<p>分部披露只给毛利，缺少经营利润及AI费用分摊。本次不凭空把分部毛利当净利润；采用“经营业务池＋上市投资＋非上市投资”的资产分块SOTP。分部毛利和经营指标用于约束经营池预测；细分业务独立SOTP仍未完成。</p>
+<p>现金流图：各经营分部→合并经营盈利；联营公司利润及投资股息→投资组合；现金利息→现金资产；债务利息→融资。Q3第26页明确没有重大分部间销售；子公司已在经营池内，投资组合数字不含子公司，不另加腾讯音乐等子公司市值。</p>
+<p>从2,337亿元人民币经济归母利润剥离自建投资及融资项，全部为税后口径：</p>
+<p><code>归母经营NOPAT=2,337−联营经济利润310−现金利息130−投资股息20+债务利息140=2,017亿元人民币</code>。</p>
+<p>其中联营经济利润310亿元人民币参考Q3 Non-IFRS联营88.26亿元人民币及前九个月合计223.08亿元人民币，扣其持续SBC等后正常化；130/140亿元人民币分别参考Q3利息收入及新增债务后的利息成本；20亿元人民币参考投资股息。各项是自建桥接，绝非公司分别给出的2027指引。</p>
+<p>加回预计少数股东经营利润65亿元人民币，得到合并经营NOPAT2,082亿元人民币；这也作为DCF的2027经营分子。18%税率下经济EBIT为2,539.02亿元人民币，经营收入8,780亿元人民币对应经济利润率约28.92%。与Q3剔除收购摊销和其他损益后的经济EBIT年化2,452.44亿元人民币大致衔接，未假设AI拖累迅速消失。</p>
+<p>投资与资金桥：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>项目</th>
+<th>计算</th>
+<th style="text-align: right;">价值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>上市权益</td>
+<td>5,054亿元人民币×90%</td>
+<td style="text-align: right;">4,548.60亿元人民币</td>
+</tr>
+<tr>
+<td>非上市权益</td>
+<td>3,972亿元人民币×50%</td>
+<td style="text-align: right;">1,986亿元人民币</td>
+</tr>
+<tr>
+<td>投资组合</td>
+<td>两项合计</td>
+<td style="text-align: right;">6,534.60亿元人民币</td>
+</tr>
+<tr>
+<td>净现金/债务</td>
+<td>2,317.17+2,940.10−3,801.01−1,593.28</td>
+<td style="text-align: right;">−137.02亿元人民币</td>
+</tr>
+<tr>
+<td>2026Q4资金消耗准备</td>
+<td>自建条件假设，参考Q3−691亿元人民币现金流</td>
+<td style="text-align: right;">−500亿元人民币</td>
+</tr>
+<tr>
+<td>合计股权调整</td>
+<td>6,534.60−137.02−500</td>
+<td style="text-align: right;">5,897.58亿元人民币</td>
+</tr>
+</tbody>
+</table></div>
+<p>上市折价10%用于处置、税务及变现限制；非上市账面值取50%用于估值不可验证和流动性风险，均为研究判断，无逐项资产重估证据。未来上市投资市价和非上市估值变化需更新。</p>
+<p><code>SOTP低档=(2,017×14+5,897.58)÷91.25÷0.84961=440.31港元/股</code>。</p>
+<p><code>SOTP高档=(2,017×16+5,897.58)÷91.25÷0.84961=492.34港元/股</code>。</p>
+<p>经营池已按归母利润计价，不再从归属投资价值中扣一次合并少数股东账面权益。合并PE法也不另加6,534.60亿元人民币投资价值，避免把联营盈利及其股权重复计价。</p>
+<p>三年750个交易日（2023-11-01至2026-11-18）不复权收盘价分位自算：25%为377.80港元/股，中位439.40港元/股，75%为514港元/股；这是历史价格分布，不是盈利倍数分位，也不能单独证明合理价值。</p>
+<p><code>H=合并经济PE带[422.02,482.31]∩SOTP带[440.31,492.34]∩历史价格中间带[377.80,514.00]</code>。</p>
+<p>所以H为<strong>440.31—482.31港元/股</strong>，中点<strong>461.31港元/股</strong>。PE与SOTP共用同一盈利预测，不是两份独立证据；交集用于收敛，不能因此提升为高置信。</p>
+<h2>6. 折现率与逐年FCFF</h2>
+<p>人民币rf沿用检查单2026-10-30中债10年1.65%缓存，未超过一个月。不是11月18日实时利率。</p>
+<p>Beta用2023-11起腾讯、恒生科技和恒生指数匹配周收盘收益自算，截至2026-11-13完整周：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>基准指数</th>
+<th style="text-align: right;">2年（105周）</th>
+<th style="text-align: right;">3年（157周）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>恒生科技，行业比较</td>
+<td style="text-align: right;">0.9143</td>
+<td style="text-align: right;">0.8094</td>
+</tr>
+<tr>
+<td>恒生指数，CAPM采用宽基</td>
+<td style="text-align: right;">1.3801</td>
+<td style="text-align: right;">1.2430</td>
+</tr>
+</tbody>
+</table></div>
+<p>源接口返回未调整的价格序列，因此为价格收益Beta，未完整调整现金或实物分红；未将行业Beta与宽基ERP混用，未直接抄行情网站Beta。</p>
+<p>ERP采用11月1日Damodaran成熟市场隐含溢价4.41%，加2026年7月中国国家风险0.872786%=5.282786%。与本月沪电、公牛沿用7月中国总ERP5.072786%相比，本次差异来自成熟市场部分由4.20%更新至4.41%，增加21bp；不是因腾讯股价高低选择溢价。国家风险并未重新估计，市场迁移方法仍有局限。</p>
+<p><code>Ke=1.65%+1.380145×5.282786%=8.94%</code>。</p>
+<p>债务权重15.78%，税前债务成本3%（Q3利息与季度平均债务年化约2.96%，与人民币债务2.4%—3.1%量级衔接）。</p>
+<p><code>WACC=Ke×(1−债务权重)+3%×(1−18%)×债务权重=7.92%</code>，取整<strong>8%</strong>；不加规模或流动性溢价。三年宽基Beta给出的回报要求更低，选两年窗口对近期投入和股价风险更谨慎；7%—9%敏感性覆盖窗口不确定性。</p>
+<p><strong>FCFF公式</strong>：<code>经营NOPAT+不含收购摊销的折旧摊销−资本现金支出−内容与租赁现金支付−未来新增算力预付款−普通营运资金增加</code>。</p>
+<p>2027NOPAT2,082亿元人民币来自前述统一经营利润桥。后续收入增速从7%逐步降至3%，经济经营利润率从28.92%至31%，是自建的业务成熟化路径；不使用2027年突然结束AI投资的假设。正常化税率18%，略高于2025实际约17.1%和前九个月2026约16.2%，不把Q3一次性税费下降永久化。</p>
+<p>2027现金IT资本支出2,700亿元人民币，至2031—32为2,200亿元人民币、末期2,250亿元人民币；另外单计内容及租赁现金320—500亿元人民币。2027—29额外算力预付款分别600/300/100亿元人民币，2030后不再持续增加预付余额，也不假设历史预付款返还成现金。普通营运资金增加=增量收入×0.5%。资本开支恢复路径是低置信自建项，不能称公司投入上限。</p>
+<p>2026Q4先计−500亿元人民币现金流，按0.25年折现；2027—36按距三季末1.25—10.25年折现。逐年表金额均为人民币亿元：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>年份</th>
+<th style="text-align: right;">收入</th>
+<th style="text-align: right;">NOPAT</th>
+<th style="text-align: right;">折旧摊销</th>
+<th style="text-align: right;">IT资本现金</th>
+<th style="text-align: right;">内容/租赁</th>
+<th style="text-align: right;">新增预付</th>
+<th style="text-align: right;">普通ΔWC</th>
+<th style="text-align: right;">FCFF</th>
+<th style="text-align: right;">FCFF现值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2027</td>
+<td style="text-align: right;">8,780.00亿元人民币</td>
+<td style="text-align: right;">2,082.00亿元人民币</td>
+<td style="text-align: right;">800.00亿元人民币</td>
+<td style="text-align: right;">2,700.00亿元人民币</td>
+<td style="text-align: right;">320.00亿元人民币</td>
+<td style="text-align: right;">600.00亿元人民币</td>
+<td style="text-align: right;">3.05亿元人民币</td>
+<td style="text-align: right;">-741.05亿元人民币</td>
+<td style="text-align: right;">-673.08亿元人民币</td>
+</tr>
+<tr>
+<td>2028</td>
+<td style="text-align: right;">9,394.60亿元人民币</td>
+<td style="text-align: right;">2,272.55亿元人民币</td>
+<td style="text-align: right;">1,000.00亿元人民币</td>
+<td style="text-align: right;">2,600.00亿元人民币</td>
+<td style="text-align: right;">340.00亿元人民币</td>
+<td style="text-align: right;">300.00亿元人民币</td>
+<td style="text-align: right;">3.07亿元人民币</td>
+<td style="text-align: right;">29.48亿元人民币</td>
+<td style="text-align: right;">24.79亿元人民币</td>
+</tr>
+<tr>
+<td>2029</td>
+<td style="text-align: right;">10,052.22亿元人民币</td>
+<td style="text-align: right;">2,472.85亿元人民币</td>
+<td style="text-align: right;">1,200.00亿元人民币</td>
+<td style="text-align: right;">2,400.00亿元人民币</td>
+<td style="text-align: right;">360.00亿元人民币</td>
+<td style="text-align: right;">100.00亿元人民币</td>
+<td style="text-align: right;">3.29亿元人民币</td>
+<td style="text-align: right;">809.56亿元人民币</td>
+<td style="text-align: right;">630.41亿元人民币</td>
+</tr>
+<tr>
+<td>2030</td>
+<td style="text-align: right;">10,705.62亿元人民币</td>
+<td style="text-align: right;">2,677.47亿元人民币</td>
+<td style="text-align: right;">1,350.00亿元人民币</td>
+<td style="text-align: right;">2,250.00亿元人民币</td>
+<td style="text-align: right;">380.00亿元人民币</td>
+<td style="text-align: right;">0.00亿元人民币</td>
+<td style="text-align: right;">3.27亿元人民币</td>
+<td style="text-align: right;">1,394.21亿元人民币</td>
+<td style="text-align: right;">1,005.26亿元人民币</td>
+</tr>
+<tr>
+<td>2031</td>
+<td style="text-align: right;">11,347.95亿元人民币</td>
+<td style="text-align: right;">2,884.65亿元人民币</td>
+<td style="text-align: right;">1,450.00亿元人民币</td>
+<td style="text-align: right;">2,200.00亿元人民币</td>
+<td style="text-align: right;">400.00亿元人民币</td>
+<td style="text-align: right;">0.00亿元人民币</td>
+<td style="text-align: right;">3.21亿元人民币</td>
+<td style="text-align: right;">1,731.44亿元人民币</td>
+<td style="text-align: right;">1,155.93亿元人民币</td>
+</tr>
+<tr>
+<td>2032</td>
+<td style="text-align: right;">11,972.09亿元人民币</td>
+<td style="text-align: right;">3,043.31亿元人民币</td>
+<td style="text-align: right;">1,500.00亿元人民币</td>
+<td style="text-align: right;">2,200.00亿元人民币</td>
+<td style="text-align: right;">420.00亿元人民币</td>
+<td style="text-align: right;">0.00亿元人民币</td>
+<td style="text-align: right;">3.12亿元人民币</td>
+<td style="text-align: right;">1,920.18亿元人民币</td>
+<td style="text-align: right;">1,186.98亿元人民币</td>
+</tr>
+<tr>
+<td>2033</td>
+<td style="text-align: right;">12,570.70亿元人民币</td>
+<td style="text-align: right;">3,195.47亿元人民币</td>
+<td style="text-align: right;">1,600.00亿元人民币</td>
+<td style="text-align: right;">2,250.00亿元人民币</td>
+<td style="text-align: right;">440.00亿元人民币</td>
+<td style="text-align: right;">0.00亿元人民币</td>
+<td style="text-align: right;">2.99亿元人民币</td>
+<td style="text-align: right;">2,102.48亿元人民币</td>
+<td style="text-align: right;">1,203.40亿元人民币</td>
+</tr>
+<tr>
+<td>2034</td>
+<td style="text-align: right;">13,136.38亿元人民币</td>
+<td style="text-align: right;">3,339.27亿元人民币</td>
+<td style="text-align: right;">1,700.00亿元人民币</td>
+<td style="text-align: right;">2,250.00亿元人民币</td>
+<td style="text-align: right;">460.00亿元人民币</td>
+<td style="text-align: right;">0.00亿元人民币</td>
+<td style="text-align: right;">2.83亿元人民币</td>
+<td style="text-align: right;">2,326.44亿元人民币</td>
+<td style="text-align: right;">1,232.95亿元人民币</td>
+</tr>
+<tr>
+<td>2035</td>
+<td style="text-align: right;">13,661.83亿元人民币</td>
+<td style="text-align: right;">3,472.84亿元人民币</td>
+<td style="text-align: right;">1,800.00亿元人民币</td>
+<td style="text-align: right;">2,250.00亿元人民币</td>
+<td style="text-align: right;">480.00亿元人民币</td>
+<td style="text-align: right;">0.00亿元人民币</td>
+<td style="text-align: right;">2.63亿元人民币</td>
+<td style="text-align: right;">2,540.21亿元人民币</td>
+<td style="text-align: right;">1,246.52亿元人民币</td>
+</tr>
+<tr>
+<td>2036</td>
+<td style="text-align: right;">14,071.69亿元人民币</td>
+<td style="text-align: right;">3,577.02亿元人民币</td>
+<td style="text-align: right;">1,900.00亿元人民币</td>
+<td style="text-align: right;">2,250.00亿元人民币</td>
+<td style="text-align: right;">500.00亿元人民币</td>
+<td style="text-align: right;">0.00亿元人民币</td>
+<td style="text-align: right;">2.05亿元人民币</td>
+<td style="text-align: right;">2,724.97亿元人民币</td>
+<td style="text-align: right;">1,238.14亿元人民币</td>
+</tr>
+</tbody>
+</table></div>
+<p>第一年示例：<code>2,082+800−2,700−320−600−3.05=−741.05亿元人民币</code>；<code>PV=−741.05/(1.08^1.25)=−673.08亿元人民币</code>。</p>
+<p>2026Q4现值−490.47亿元人民币；2027—36现金流现值加上该季度合计<strong>7,760.82亿元人民币</strong>。</p>
+<p>终值直接沿用最后一年FCFF，避免在终值日突然解除资本支出约束：</p>
+<p><code>FCFF2037=2,724.97×1.025=2,793.10亿元人民币</code>。</p>
+<p><code>TV2036=2,793.10/(8%−2.5%)=50,783.60亿元人民币</code>。</p>
+<p><code>PV(TV)=50,783.60/1.08^10.25=23,074.38亿元人民币</code>。</p>
+<p><code>经营EV=7,760.82+23,074.38=30,835.20亿元人民币</code>。</p>
+<p>终值占经营EV <strong>74.83%</strong>，触发&gt;70%纪律：DCF降为参照、反向估值及折现率敏感性全部展示。按末年NOPAT与再投资反推的永续新增资本回报约<strong>10.50%</strong>，显著低于旧模型25%，没有用很高ROIC自动扩大终值。</p>
+<p>少数股东经营价值假设：正常化少数股东利润65亿元人民币÷合并NOPAT2,082亿元人民币=3.12%，按同现金转化路径对应经营价值<strong>962.67亿元人民币</strong>。这是现金流份额代理，不是核实的法律持股比例；未再减863.63亿元人民币的少数股东账面权益。投资组合已经按归属口径。</p>
+<p><code>普通股股权价值=30,835.20+6,534.60−137.02−962.67=36,270.11亿元人民币</code>。</p>
+<p><code>每股=36,270.11÷91.25÷0.84961=467.84港元/股</code>。</p>
+<p>租赁现金支付已逐年扣除，因此不再扣租赁债务；借款和票据已包含在净债务桥中；未把历史算力预付款另加为非经营资产。</p>
+<h2>7. 反向估值、敏感性及情景</h2>
+<p>在完全相同的现金流、投资折价及股数假设下，372.80港元/股对应：</p>
+<ul>
+<li>固定永续增长2.5%，隐含WACC <strong>9.37%</strong>。</li>
+<li>固定WACC8%，隐含永续增长 <strong>-0.00%</strong>，约为零。</li>
+</ul>
+<p>这只能说明相对本次现金流恢复路径的折价，不能推导“市场已经计入最坏”或“下行有限”。如果未来投入高于本次路径，同样的市场价格可以对应正常增长。</p>
+<p>DCF每股港元敏感性：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>WACC \ 永续增长</th>
+<th style="text-align: right;">1.5%</th>
+<th style="text-align: right;">2.5%</th>
+<th style="text-align: right;">3.5%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>7.0%</td>
+<td style="text-align: right;">501.07港元/股</td>
+<td style="text-align: right;">574.65港元/股</td>
+<td style="text-align: right;">690.28港元/股</td>
+</tr>
+<tr>
+<td>8.0%</td>
+<td style="text-align: right;">421.10港元/股</td>
+<td style="text-align: right;">467.84港元/股</td>
+<td style="text-align: right;">535.35港元/股</td>
+</tr>
+<tr>
+<td>9.0%</td>
+<td style="text-align: right;">363.12港元/股</td>
+<td style="text-align: right;">394.59港元/股</td>
+<td style="text-align: right;">437.51港元/股</td>
+</tr>
+</tbody>
+</table></div>
+<p>若每年资本现金/算力支出在基准外持续多400亿元人民币，并同样延续进终值，DCF降至<strong>392.61港元/股</strong>；多800亿元人民币降至<strong>317.39港元/股</strong>。这是投入失控的额外尾部测试，不与12倍压力档混同，也不把多个极端折扣堆成一个“合理下限”。</p>
+<p>盈利倍数敏感性：每个数均已扣260亿元人民币SBC及23亿元人民币子公司/联营摊薄。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>自建Non-IFRS归母净利</th>
+<th style="text-align: right;">12倍</th>
+<th style="text-align: right;">14倍</th>
+<th style="text-align: right;">15倍</th>
+<th style="text-align: right;">16倍</th>
+<th style="text-align: right;">18倍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>2,400亿元人民币</td>
+<td style="text-align: right;">327.68港元/股</td>
+<td style="text-align: right;">382.29港元/股</td>
+<td style="text-align: right;">409.60港元/股</td>
+<td style="text-align: right;">436.91港元/股</td>
+<td style="text-align: right;">491.52港元/股</td>
+</tr>
+<tr>
+<td>2,620亿元人民币</td>
+<td style="text-align: right;">361.73港元/股</td>
+<td style="text-align: right;">422.02港元/股</td>
+<td style="text-align: right;">452.17港元/股</td>
+<td style="text-align: right;">482.31港元/股</td>
+<td style="text-align: right;">542.60港元/股</td>
+</tr>
+<tr>
+<td>2,800亿元人民币</td>
+<td style="text-align: right;">389.59港元/股</td>
+<td style="text-align: right;">454.53港元/股</td>
+<td style="text-align: right;">486.99港元/股</td>
+<td style="text-align: right;">519.46港元/股</td>
+<td style="text-align: right;">584.39港元/股</td>
+</tr>
+</tbody>
+</table></div>
+<p>三档假设：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>档位</th>
+<th>盈利×倍数及资产处理</th>
+<th style="text-align: right;">每股结果</th>
+<th>经营状态</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>压力</td>
+<td>经济归母2,337亿元人民币×12倍，不再叠加利润大幅下修</td>
+<td style="text-align: right;">361.73港元/股</td>
+<td>利润维持而市场持续惩罚弱现金转化；12倍是未验证历史分位的条件假设</td>
+</tr>
+<tr>
+<td>基准</td>
+<td>合并经济归母2,337亿元人民币×14—16倍，与归母经营NOPAT2,017亿元人民币×14—16倍加资产桥交集</td>
+<td style="text-align: right;">440.31—482.31港元/股；中点461.31港元/股</td>
+<td>净利低增长、2027现金流继续承压、2028后逐步回收</td>
+</tr>
+<tr>
+<td>修复</td>
+<td>最新已实现TTM Non-IFRS归母2,675.33亿元人民币，扣SBC/摊薄后2,392.33亿元人民币×18倍；SOTP用归母经营2,072.33亿元人民币×18倍加同资产桥</td>
+<td style="text-align: right;">PE 555.45、SOTP 557.22港元/股</td>
+<td>用已经实现的TTM利润作修复分子，不假设新利润高峰；18倍需现金转化及AI商业化证据</td>
+</tr>
+</tbody>
+</table></div>
+<p>Z取压力PE到修复SOTP为361.73—557.22港元/股，<strong>不是固定H±15%</strong>。实际TTM计算：2,596.26−1,949.32+2,028.39=2,675.33亿元人民币。</p>
+<h2>8. 新旧变化必须分开看</h2>
+<p>9月旧中枢500港元/股所写的15倍锚，按原参数2,770亿元人民币÷91亿股×1.098×15可重建为501.34港元/股；旧报告股数存在不同段落91/91.5亿股的混用，故先列出四舍五入差额，不伪造精确历史模型。</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>顺序替换项</th>
+<th style="text-align: right;">每股港元</th>
+<th style="text-align: right;">相对上一步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>旧报告中枢</td>
+<td style="text-align: right;">500.00港元/股</td>
+<td style="text-align: right;">+0.00港元/股</td>
+</tr>
+<tr>
+<td>原文字参数重建</td>
+<td style="text-align: right;">501.34港元/股</td>
+<td style="text-align: right;">+1.34港元/股</td>
+</tr>
+<tr>
+<td>盈利由2026E 2,770改为2027E 2,620亿元人民币</td>
+<td style="text-align: right;">474.19港元/股</td>
+<td style="text-align: right;">-27.15港元/股</td>
+</tr>
+<tr>
+<td>扣持续SBC260及子公司摊薄23亿元人民币</td>
+<td style="text-align: right;">422.97港元/股</td>
+<td style="text-align: right;">-51.22港元/股</td>
+</tr>
+<tr>
+<td>股数改91.25亿股</td>
+<td style="text-align: right;">421.81港元/股</td>
+<td style="text-align: right;">-1.16港元/股</td>
+</tr>
+<tr>
+<td>汇率改1元人民币=1.1770106港元</td>
+<td style="text-align: right;">452.17港元/股</td>
+<td style="text-align: right;">+30.35港元/股</td>
+</tr>
+<tr>
+<td>SOTP/PE/历史价格重叠中点</td>
+<td style="text-align: right;">461.31港元/股</td>
+<td style="text-align: right;">+9.14港元/股</td>
+</tr>
+</tbody>
+</table></div>
+<p>盈利和现金流展望降低有新财报依据；SBC经济成本和混合资产计价为方法修正；汇率及股数为输入更新；从2026E改至2027E亦改变了预测年度。不能将−7.74%全部归因为Q3盈利下降。</p>
+<p>8月DCF另行精确复跑原脚本，桥接如下：</p>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>顺序替换项</th>
+<th style="text-align: right;">每股港元</th>
+<th style="text-align: right;">相对上一步</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>旧代码原样复现</td>
+<td style="text-align: right;">842.10港元/股</td>
+<td style="text-align: right;">+0.00港元/股</td>
+</tr>
+<tr>
+<td>旧现金流仅将g从3.5%改2.5%</td>
+<td style="text-align: right;">762.41港元/股</td>
+<td style="text-align: right;">-79.69港元/股</td>
+</tr>
+<tr>
+<td>改本次经营现金流、Q4桥接及终值口径，暂保留旧资产/股数/汇率</td>
+<td style="text-align: right;">473.29港元/股</td>
+<td style="text-align: right;">-289.13港元/股</td>
+</tr>
+<tr>
+<td>更新资产、债务与少数股东现金流处理</td>
+<td style="text-align: right;">459.46港元/股</td>
+<td style="text-align: right;">-13.83港元/股</td>
+</tr>
+<tr>
+<td>更新股数</td>
+<td style="text-align: right;">456.69港元/股</td>
+<td style="text-align: right;">-2.77港元/股</td>
+</tr>
+<tr>
+<td>更新汇率</td>
+<td style="text-align: right;">467.84港元/股</td>
+<td style="text-align: right;">+11.15港元/股</td>
+</tr>
+</tbody>
+</table></div>
+<p>原DCF终值占经营EV经代码复算约69.95%，并非严格超过70%；此前把旧842一概说成“已触发&gt;70%”不够准确。它仍高度依赖远期现金回收。本次74.83%明确超过阈值，主动降为参照。旧DCF到本次参照下降约44.44%，主体是投入、利润率、再投资及现金流路径改变，不能用“仅改变方法标签”解释。</p>
+<h2>9. 先行指标、在途事项与监控</h2>
+<p>递延收入为1,313.94亿元人民币，较2025年末1,125.19亿元人民币增加16.77%，约相当于自建2026全年收入的16.08%。这不是同比，也不是可无条件兑现的长期订单；未披露按业务的期限及利润含量。微信MAU14.49亿、WorkBuddy超过1,000万DAU、云收入增长35%证明使用和需求，尚不能验证新增投入的股东回报。</p>
+<p>Q3第43页：腾讯音乐已完成收购一家音频平台，对价约140亿元人民币，其中现金80亿元人民币、原持有投资公允价值11亿元人民币及新发腾讯音乐股份；收购完成已体现在合并数据及少数股东权益，不再扣一次收购对价或另加被收购资产。公司称假设年初完成对九个月收入利润无重大差异，故未虚构一个仍待完成的交易前/后估值。</p>
+<p>10月发行18亿美元及260亿元人民币票据，美元部分已作跨币种利率互换。发行时现金与债务同步增加，不能只减新债或只加新现金；9月末之后实际资金用途未完整披露，保留余额时点缺口。</p>
+<p>最重要的后续监控是：</p>
+<ol>
+<li>每季同时看实际FCF与剔除预付款FCF；后者若继续低于169亿元人民币、实际现金净流出扩大，不能维持本次恢复路径。</li>
+<li>2027现金IT支出若显著超过自建2,700亿元人民币，或额外预付超过600亿元人民币，重跑现金流；全年超出基准400/800亿元人民币的影响已量化。</li>
+<li>新AI产品经营拖累约152亿元人民币/季，若连续升至180亿元人民币以上且现金付费业务未抵消，2,620亿元人民币归母假设需下修；该180为监控阈值，不是公司指引。</li>
+<li>广告毛利率能否从52%恢复、本土游戏增长能否维持、云35%增长是否转成可验证经营利润。</li>
+<li>前述采购承诺的交付、预付款抵扣时间和下一期资产负债表；季度回购70.32亿港元不能年化为确定回购承诺。</li>
+</ol>
+<h2>附录A：检查单完成情况与限制</h2>
+<div class="table-scroll"><table>
+<thead>
+<tr>
+<th>检查项</th>
+<th>状态</th>
+<th>缺失、理由及影响</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>本次完整读取检查单</td>
+<td>完成</td>
+<td>v2.5；不等于全部检查通过</td>
+</tr>
+<tr>
+<td>周期属性与行业适配</td>
+<td>完成/部分</td>
+<td>非强周期平台；资产分块SOTP已做，分部独立经营利润未披露，详细分部估值未完成</td>
+</tr>
+<tr>
+<td>财务快照、原文与证券单位</td>
+<td>完成</td>
+<td>Q3公告、中报、年报及月报；0700港元普通股，非ADS，无ADS比例换算</td>
+</tr>
+<tr>
+<td>抄录及会计勾稽</td>
+<td>完成</td>
+<td>收入、毛利、净现金、Non-IFRS经营桥、EPS四舍五入与现金流均用代码核对；现金流原文有四舍五入</td>
+</tr>
+<tr>
+<td>正常化</td>
+<td>完成但为预测</td>
+<td>不用制造业均值；2027盈利扣持续SBC、子公司奖项，财务与DCF经营分子统一</td>
+</tr>
+<tr>
+<td>真实最新报价及汇率</td>
+<td>完成</td>
+<td>腾讯收盘372.8港元/股；汇率明确为11月17日参考值</td>
+</tr>
+<tr>
+<td>公司/分析师/自建分类</td>
+<td>完成</td>
+<td>未冒充公司2027指引；财报后同口径完整一致预期及样本数未取得</td>
+</tr>
+<tr>
+<td>先行指标存在、期限与利润</td>
+<td>部分完成</td>
+<td>递延收入、用户、云增速已查；无定量长期订单期限及独立云利润，削弱预测确定性</td>
+</tr>
+<tr>
+<td>重大在途事项及口径变更</td>
+<td>完成所披露范围</td>
+<td>已完成音频收购、10月融资及无重大分部间销售已核对；后续实际现金用途缺失</td>
+</tr>
+<tr>
+<td>供应链采购承诺</td>
+<td>部分完成</td>
+<td>H1完整承诺已取；Q3无更新附注，9月末真实总额及履约节奏未验证</td>
+</tr>
+<tr>
+<td>市场/历史估值锚</td>
+<td>部分完成</td>
+<td>三年价格分布实算；历史Forward PE仅异口径快照，同口径历史PE分位未完成</td>
+</tr>
+<tr>
+<td>目标价不入模</td>
+<td>完成</td>
+<td>没有目标价作为估值公式、区间或权重输入</td>
+</tr>
+<tr>
+<td>混合业务无重复计价</td>
+<td>完成到可披露层级</td>
+<td>剔除联营及投资现金收入；投资不含子公司；少数股东经营现金流另估，份额仍为代理</td>
+</tr>
+<tr>
+<td>rf、ERP、行业/大盘Beta、CAPM</td>
+<td>完成但有限制</td>
+<td>rf缓存、ERP方法差异明示；价格收益Beta未完全调整分红，港元收益Beta用于人民币风险估计存在汇率代理误差</td>
+</tr>
+<tr>
+<td>CAPM与反向隐含r</td>
+<td>完成</td>
+<td>自建WACC8%、CAPM约7.92%、现价隐含约9.37%均列</td>
+</tr>
+<tr>
+<td>三档盈利×倍数</td>
+<td>部分完成</td>
+<td>假设可复算；压力12倍和修复18倍缺真实同口径历史分位验证，Z低置信；未机械加周期利润与倍数双重最坏冲击</td>
+</tr>
+<tr>
+<td>终值治理</td>
+<td>完成</td>
+<td>显示经营EV占比74.83%、降级、反向、r/g矩阵；末年FCF无跳升，隐含ROIC10.50%</td>
+</tr>
+<tr>
+<td>胜率表</td>
+<td>未给精确概率</td>
+<td>没有财报后目标价/预测完整分布与校准概率模型；不能将“方法支持”伪装为65%胜率，权重不进入价值公式</td>
+</tr>
+<tr>
+<td>新旧漂移与代码复跑</td>
+<td>完成</td>
+<td>原8月脚本复现；9月文字参数重建时披露股数不一致；全部差额由代码生成</td>
+</tr>
+<tr>
+<td>对话过程呈现</td>
+<td>随交付正文</td>
+<td>不能仅提供本报告链接替代计算</td>
+</tr>
+</tbody>
+</table></div>
+<p>仍属低置信：260亿元人民币SBC税效、23亿元人民币奖项摊薄年化、归母/少数股东经营拆分、上市90%/非上市50%价值、500亿元人民币Q4资金消耗、2027—36资本现金支出及预付款恢复、2.5%永续增长、14—16及12/18倍估值判断。它们共同影响数十至上百港元/股，因此461港元/股是条件性研究中枢，不是精确验证的内在价值。</p>
+<h2>附录B：来源、数据包与复算</h2>
+<ol>
+<li><a href="https://www.tencent.com/wp-content/uploads/2026/11/E700_3Qresults.pdf">腾讯2026Q3公告</a>，本地<code>source/revaluation_20261118/q3_official.pdf</code>，中文对照<code>q3_cn.pdf</code>。</li>
+<li><a href="https://www1.hkexnews.hk/listedco/listconews/sehk/2026/1118/2026111800448.pdf">港交所2026Q3公告</a>，与英文公司版下载件SHA256一致。</li>
+<li>本地<code>source/tencent_annual_report_2025.pdf</code>第4/5/8/25/265页；<code>source/tencent_2026_interim_report.pdf</code>第22/89页。</li>
+<li><a href="https://www.tencent.com/wp-content/uploads/2026/11/c_THL_monthly-return-October-2026.pdf">2026年10月证券月报</a>第2/7页。</li>
+<li><a href="https://qt.gtimg.cn/q=hk00700">腾讯即时行情接口</a>，本地快照保留交易时间与原币种；<code>daily_kline.txt</code>/<code>hstech_kline.txt</code>/<code>hsi_kline.txt</code>保留750交易日原序列。</li>
+<li><a href="https://api.frankfurter.dev/v1/latest?base=HKD&amp;symbols=CNY">Frankfurter汇率接口</a>，本地<code>fx.txt</code>，返回2026-11-17日期。</li>
+<li><a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/home.htm">Damodaran月度ERP主页</a>，11月1日4.41%；<a href="https://pages.stern.nyu.edu/~adamodar/pc/datasets/ctrypremJuly26.xlsx">2026年7月原始工作簿</a>，中国国家风险0.872786%。本地工作簿及XML解析件保留。</li>
+<li><a href="https://www.marketscreener.com/quote/stock/TENCENT-HOLDINGS-LIMITED-3045861/finances/">MarketScreener财务预测</a>、<a href="https://www.marketscreener.com/quote/stock/TENCENT-HOLDINGS-LIMITED-3045861/valuation/">估值表</a>、<a href="https://stockanalysis.com/quote/hkg/0700/financials/ratios/">StockAnalysis历史比率</a>。网页工具已读取；直接HTTP的MarketScreener返回403已保留，不把403文件称为完整原文快照。目标价页面43名分析师是评级/目标价覆盖数，不等于每个财务科目一致预期机构数。</li>
+</ol>
+<p>复算：<code>python scripts/tencent_revaluation_20261118.py</code>；输出<code>extracted/revaluation_20261118/model_results.json</code>、<code>dcf_cashflows.csv</code>及<code>weekly_returns.csv</code>。报告生成：<code>python scripts/build_tencent_report_20261118.py</code>。源文件清单及校验见同目录<code>source_inventory.json</code>。</p></article></html>

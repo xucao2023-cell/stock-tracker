@@ -1,0 +1,31 @@
+{
+  "date": "2026-11-17",
+  "EUR_HKD": 8.6221,
+  "sourceHKD": {
+    "low1": 440.3061968964648,
+    "high1": 482.30993334088987,
+    "low2": 361.7324500056674,
+    "high2": 557.2196622688928,
+    "center": 461.30806511867735,
+    "dcf": 467.8389108212136
+  },
+  "displayEUR": {
+    "low1": 51.07,
+    "high1": 55.94,
+    "low2": 41.95,
+    "high2": 64.63,
+    "center": 53.5,
+    "dcf": 54.26
+  },
+  "security": {
+    "type": "ordinary-share",
+    "isin": "KYG875721634",
+    "wkn": "A1138D",
+    "listing": "HKEX 00700",
+    "unitsPerOrdinaryShare": 1,
+    "verificationSource": "https://assets.traderepublic.com/assets/files/DE/Instrument_Universe_DE_en.pdf"
+  },
+  "valuationDate": "2026-11-18",
+  "underlyingValuationChanged": false,
+  "checklistFullyPassed": false
+}
