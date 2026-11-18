@@ -902,7 +902,7 @@ const DEFAULT_BASE = [
   {name:'E.ON',      code:'EOAN.DE',   price:18.00, currency:'€',   note:'DCF 中枢 €19 / 区间 13-19',              group:'Trade Republic', lo:13,   hi:19,   wl:0.9,  wh:1.1},
   {name:'BMW',       code:'BMW.DE',    price:57.96, currency:'€',   note:'SOTP + 情景 DCF Bear/Base/Bull',         group:'Trade Republic', lo:40,   hi:90,   wl:0.85, wh:1.15},
   {name:'Airbus',    code:'AIR.PA',    price:230,   currency:'€',   note:'DCF 基准 €236 / 敏感性 200-280',         group:'Trade Republic', lo:200,  hi:280,  wl:0.9,  wh:1.1},
-  {name:'美光科技',  code:'MU.US',     price:937.11,currency:'$',  note:'DCF 概率加权 $876 / 区间 269-1396',      group:'Trade Republic', lo:753,  hi:1396, wl:0.85, wh:1.1},
+  {name:'美光科技', code:'MU.US', price:669.76, currency:'€', note:'2026-11-18｜2026财年年报后复核', group:'Trade Republic', lo:null, hi:null, valuationStatus:'pending'},
   {name:'Apple',     code:'AAPL.US',   price:309.35,currency:'$',  note:'DCF 敏感性 P5-P90 / PE 30× 基准',        group:'Trade Republic', lo:280,  hi:380,  wl:0.9,  wh:1.1},
   {name:'onsemi',    code:'ON.US',     price:74.21, currency:'$',  note:'DCF $74.56 / 概率加权 $83.84',           group:'Trade Republic', lo:62,   hi:87,   wl:0.9,  wh:1.1},
   {name:'Cohesity',  code:'CVLT.US',   price:133.81,currency:'$',  note:'DCF+混合公允价值中位 $155 / PE 24-30×',  group:'Trade Republic', lo:110,  hi:210,  wl:0.85, wh:1.15},
@@ -925,7 +925,7 @@ const DEFAULT_BASE = [
 // 展开为双估值数据
 const DEFAULT_STOCKS = DEFAULT_BASE.map(({lo, hi, wl, wh, ...rest}) => ({
   ...rest,
-  ...hermesZcode(lo, hi, wl, wh),
+  ...(rest.valuationStatus === 'pending' ? {low1:null, high1:null, low2:null, high2:null} : hermesZcode(lo, hi, wl, wh)),
   memo:''
 }));
 
@@ -1443,8 +1443,8 @@ function stockRowHTML(s){
             ${status !== 'pending' ? `<div class="bar-zone" style="left:${hLowPct}%;right:${100-hHighPct}%"></div><div class="bar-marker ${status}" style="left:${pricePct}%"></div>` : ''}
           </div>
           <div class="bar-labels">
-            <span>${c}${fmt(lo)}</span>
-            <span>${c}${fmt(hi)}</span>
+            <span>${bounds.length ? c + fmt(lo) : '待复核'}</span>
+            <span>${bounds.length ? c + fmt(hi) : '–'}</span>
           </div>
         </div>
       </td>
