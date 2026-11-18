@@ -417,7 +417,7 @@ async function main() {
         if (s.security?.isin) s.priceNative.isin = s.security.isin;
         s.priceFx = pair && fx ? {from:pair.from,to:pair.to,rate:fx.value,date:fx.date,
           source:FRANKFURTER_URL(pair.from,pair.to)} : {from:'HKD',to:'HKD',rate:1,date:null,source:'Same currency; no conversion'};
-        console.log(`[hk-quote] symbol=${q.symbol} currency=HKD native=${q.price} EUR=${s.price} asof=${s.priceAsOf} fx=${fx?.value} fxDate=${fx?.date}`);
+        console.log(`[hk-quote] symbol=${q.symbol} currency=HKD native=${q.price} display=${s.price} ${s.currency} asof=${s.priceAsOf} fx=${fx?.value} fxDate=${fx?.date}`);
       }
       if (usStock) {
         const q = usPrices[s.code], pair = needsFxConversion(s);
