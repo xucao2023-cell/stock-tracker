@@ -1,0 +1,28 @@
+{
+  "quote": {
+    "symbol": "600900.SH",
+    "currency": "CNY",
+    "price": 31.62,
+    "name": "长江电力",
+    "marketTime": 1795162485,
+    "source": "Tencent A-share native CNY quote",
+    "sourceUrl": "https://qt.gtimg.cn/q=sh600900",
+    "timestampType": "Reported Tencent quote snapshot time, Asia/Shanghai; not necessarily last-trade time",
+    "timestampPrecision": "second",
+    "session": "regular-close",
+    "observedAt": "2026-11-20T11:16:23.612097Z"
+  },
+  "validation": {
+    "samePrice": true,
+    "nativeCurrency": "CNY",
+    "displayCurrency": "CNY",
+    "fx": 1,
+    "security": "600900.SH A-share ordinary share",
+    "price": 31.62,
+    "yahooCloseAsOf": "2026-11-20T07:00:00+00:00",
+    "tencentSnapshotAsOf": "2026-11-20T08:14:45+00:00",
+    "observedAt": "2026-11-20T11:16:23.612097Z"
+  },
+  "currency": "CNY",
+  "fx": 1
+}

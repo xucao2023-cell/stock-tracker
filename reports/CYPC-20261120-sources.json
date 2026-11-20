@@ -1,0 +1,160 @@
+[
+  {
+    "file": "q3_report.pdf",
+    "url": "https://static.cninfo.com.cn/finalpage/2026-10-31/1225648852.PDF",
+    "bytes": 190821,
+    "sha256": "ba9cad3b152085beb53f5753982e76002c607291738839c42d5dae150a9e179e",
+    "fetched_utc": "2026-11-20T07:46:22.502803+00:00"
+  },
+  {
+    "file": "consensus.html",
+    "url": "https://basic.10jqka.com.cn/600900/worth.html",
+    "bytes": 166232,
+    "sha256": "d978c49ee4b8ecf275cb686c3215e8d71b7a01c468945a37208ca4dc8b36ec1b",
+    "fetched_utc": "2026-11-20T07:46:22.969206+00:00"
+  },
+  {
+    "file": "announcements.html",
+    "url": "https://money.finance.sina.com.cn/corp/go.php/vCB_AllBulletin/stockid/600900.phtml",
+    "bytes": 55454,
+    "sha256": "95c2a12b3a27d8ec942a2fae04bc36feca61cc72b1efe52f79228032f2453ab9",
+    "fetched_utc": "2026-11-20T07:46:23.815379+00:00"
+  },
+  {
+    "file": "xinjiang.html",
+    "url": "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12684386&stockid=600900",
+    "bytes": 48871,
+    "sha256": "4ca2bef2bbfe07eeb46f62d3cac5305fef11cbfe36dd76f79b94409803371283",
+    "fetched_utc": "2026-11-20T07:46:24.595792+00:00"
+  },
+  {
+    "file": "exchangeable_bond.html",
+    "url": "https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12687120&stockid=600900",
+    "bytes": 33948,
+    "sha256": "6e2597411bbfcd6a4dbd0006f065e77a0e6e0d5ddaddaa2c5d152baa765312f7",
+    "fetched_utc": "2026-11-20T07:46:29.005380+00:00"
+  },
+  {
+    "file": "storage_official_social.html",
+    "url": "https://www.sina.cn/news/detail/5358649604312058.html",
+    "bytes": 67232,
+    "sha256": "6e55550e8ae75936582d64602c16ab3fac507c3dffb3dc5799c4765c151162bd",
+    "fetched_utc": "2026-11-20T07:46:23.869519+00:00"
+  },
+  {
+    "file": "tianfeng.html",
+    "url": "https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/search/rptid/847368911201/index.phtml",
+    "bytes": 27954,
+    "sha256": "97545e3bbab18fc4d7c4f06dce637f658bc6e0b02e7eb54006acb15c5329cb20",
+    "fetched_utc": "2026-11-20T07:46:23.698212+00:00"
+  },
+  {
+    "file": "kaiyuan.html",
+    "url": "https://stock.finance.sina.com.cn/stock/go.php/vReport_Show/kind/company/rptid/846924220032/index.phtml",
+    "bytes": 28088,
+    "sha256": "caf39e524802eaf1fa4bef252ddedca5bb7894ea4a5ab2d98f59450011186598",
+    "fetched_utc": "2026-11-20T07:46:22.806521+00:00"
+  },
+  {
+    "file": "dividend_policy.html",
+    "url": "https://www.ctg.com.cn/cypc/tzzgx43/xxtm/glfpzcbh/index.html",
+    "bytes": 88323,
+    "sha256": "7dd11e287c81b912957ed8450223396f7975621253229562dfa38d62c3ae3239",
+    "fetched_utc": "2026-11-20T07:46:53.649856+00:00"
+  },
+  {
+    "file": "quote_tencent.txt",
+    "url": "https://qt.gtimg.cn/q=sh600900",
+    "bytes": 536,
+    "sha256": "727d3e0892e8eade577e81f1bec88b4870c084695e9a3497ebc15051add9be44",
+    "fetched_utc": "2026-11-20T07:46:23.680664+00:00"
+  },
+  {
+    "file": "quote_google.html",
+    "url": "https://www.google.com/finance/quote/600900:SHA?hl=zh-CN",
+    "bytes": 1536357,
+    "sha256": "1f691b746282fb57ff49e1fac29851d135591b3b847f1f1bf21eaf2d0f3ad140",
+    "fetched_utc": "2026-11-20T07:46:23.353456+00:00"
+  },
+  {
+    "file": "quote_investing.html",
+    "url": "https://cn.investing.com/equities/yangtze-power-historical-data",
+    "error": "403 Client Error: Forbidden for url: https://cn.investing.com/equities/yangtze-power-historical-data"
+  },
+  {
+    "file": "valuation_1.json",
+    "url": "https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_VALUEANALYSIS_DET&columns=ALL&filter=%28SECURITY_CODE%3D%22600900%22%29%28TRADE_DATE%3C%3D%272026-11-19%27%29&pageNumber=1&pageSize=1000&sortColumns=TRADE_DATE&sortTypes=-1&source=WEB&client=WEB",
+    "bytes": 574927,
+    "sha256": "158260e3030e161f02cd32187baccceddde495a8e282a4b2994c8744975e5f58",
+    "fetched_utc": "2026-11-20T07:46:29.008306+00:00"
+  },
+  {
+    "file": "valuation_2.json",
+    "url": "https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_VALUEANALYSIS_DET&columns=ALL&filter=%28SECURITY_CODE%3D%22600900%22%29%28TRADE_DATE%3C%3D%272026-11-19%27%29&pageNumber=2&pageSize=1000&sortColumns=TRADE_DATE&sortTypes=-1&source=WEB&client=WEB",
+    "bytes": 571444,
+    "sha256": "644b2cadadce0b5d4fd2d7a9191a0be80aaf33c91fcd5c1ab933b56d30d5c05b",
+    "fetched_utc": "2026-11-20T07:46:25.948115+00:00"
+  },
+  {
+    "file": "valuation_3.json",
+    "url": "https://datacenter-web.eastmoney.com/api/data/v1/get?reportName=RPT_VALUEANALYSIS_DET&columns=ALL&filter=%28SECURITY_CODE%3D%22600900%22%29%28TRADE_DATE%3C%3D%272026-11-19%27%29&pageNumber=3&pageSize=1000&sortColumns=TRADE_DATE&sortTypes=-1&source=WEB&client=WEB",
+    "bytes": 87753,
+    "sha256": "9c2fb5e2a06f034f2a66ed8e8207c7a46c128e92d8c956fa39fd5d3d96e4917e",
+    "fetched_utc": "2026-11-20T07:46:25.187713+00:00"
+  },
+  {
+    "file": "tencent_sh000995.json",
+    "url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh000995%2Cday%2C2023-11-01%2C2026-11-19%2C800%2Cqfq",
+    "bytes": 56289,
+    "sha256": "d3d4dc3caa2314fdcbc432972493f4cfc2d14e334a35bdcb329cbf3a701b1626",
+    "fetched_utc": "2026-11-20T07:46:24.856551+00:00"
+  },
+  {
+    "file": "tencent_sh000300.json",
+    "url": "https://web.ifzq.gtimg.cn/appstock/app/fqkline/get?param=sh000300%2Cday%2C2023-11-01%2C2026-11-19%2C800%2Cqfq",
+    "bytes": 57060,
+    "sha256": "fb7345464bce4969398c7106ec14c366fee94b35306370724bfe92eea783c662",
+    "fetched_utc": "2026-11-20T07:46:25.043566+00:00"
+  },
+  {
+    "file": "yahoo_600900.SS.json",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/600900.SS?period1=1698796800&period2=1795132800&interval=1d&events=div%2Csplits",
+    "bytes": 83495,
+    "sha256": "04494c23ec3bc45916cb30f99e12e333f103af51bc11665fee0d010ad691d84f",
+    "fetched_utc": "2026-11-20T07:46:24.707936+00:00"
+  },
+  {
+    "file": "xinjiang.pdf",
+    "url": "http://file.finance.sina.com.cn/211.154.219.97:9494/MRGG/CNSESH_STOCK/2026/2026-10/2026-10-31/12684386.PDF",
+    "bytes": 251465,
+    "sha256": "c925651019711865e1ff76290ae425732592fd0933c4cbfdb378d2c25a0522bd",
+    "fetched_utc": "2026-11-20T07:46:54.280574+00:00"
+  },
+  {
+    "file": "exchangeable_bond.pdf",
+    "url": "http://file.finance.sina.com.cn/211.154.219.97:9494/MRGG/CNSESH_STOCK/2026/2026-11/2026-11-03/12687120.PDF",
+    "bytes": 112320,
+    "sha256": "3c3231cadc27f08dbad1ab239a6a2bb41300ff124bb7b5f54c5481475edda7da",
+    "fetched_utc": "2026-11-20T07:46:54.320630+00:00"
+  },
+  {
+    "file": "source/2023_annual_report.pdf",
+    "source": "existing company filing",
+    "sha256": "a32aa92211f533bef9bd426a29158060d6bed4a31fca6c9f6805fd8659c90d38"
+  },
+  {
+    "file": "source/2024_annual_report.pdf",
+    "source": "existing company filing",
+    "sha256": "d4610a53996ef1a741c5b87d586c833fe96a0f152c4ab523442144d46cdd8358"
+  },
+  {
+    "file": "source/2025_annual_report.pdf",
+    "source": "existing company filing",
+    "sha256": "12e0dd671bce6a02298adace6cba12f0749d398a25fe4c68b1149c9932d0d64c"
+  },
+  {
+    "file": "source/2026_h1_report.pdf",
+    "source": "existing company filing",
+    "sha256": "738de3b36a31646f344cefaf90b4f149d653c3f68e89f4f8d14bdf02fc9c65a2"
+  }
+]

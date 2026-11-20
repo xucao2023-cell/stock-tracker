@@ -18,6 +18,7 @@ import iconv from 'iconv-lite';
 import { fetchBmwQuote } from './bmw_tradegate_quote.mjs';
 import { isUsStock, parseEtTimestamp, fetchLatestUsQuote, canReplaceQuote } from './latest_us_quote.mjs';
 import { readTencentHkQuote, canReplaceHkQuote } from './tencent_hk_quote.mjs';
+import { readTencentAQuote, canReplaceAQuote } from './tencent_a_quote.mjs';
 
 const DRY_RUN = process.argv.includes('--dry-run');
 const DATA_PATH = new URL('../data.json', import.meta.url);
@@ -156,6 +157,9 @@ async function fetchTencentBatch(tencentSymbols) {
     if (!Number.isFinite(price) || price <= 0) continue;
     if (/^hk\d{5}$/.test(sym)) {
       const quote = readTencentHkQuote(sym, fields);
+      if (quote) out[sym] = quote;
+    } else if (sym === 'sh600900') {
+      const quote = readTencentAQuote(sym, fields);
       if (quote) out[sym] = quote;
     } else {
       out[sym] = { price, name: fields[1], marketTime:/^us/.test(sym) ? parseEtTimestamp(fields[30]) : null };
@@ -311,6 +315,11 @@ async function main() {
           skipped++;
           continue;
         }
+        if (s.code === '600900.SH' && !canReplaceAQuote(s, got)) {
+          report.push('600900.SH SKIP (wrong A-share security/currency or older quote timestamp)');
+          skipped++;
+          continue;
+        }
         newPrice = got.price;
         src = 'tencent';
         // FX: Tencent reports in source currency (HKD for .HK, USD for .US,
@@ -395,7 +404,7 @@ async function main() {
       }
     }
 
-    const preciseEuroQuote = usStock || s.code.endsWith('.HK') || ['BMW.DE', 'WAF.DE', 'LITE.US', 'LITE'].includes(s.code);
+    const preciseEuroQuote = usStock || s.code.endsWith('.HK') || ['BMW.DE', 'WAF.DE', 'LITE.US', 'LITE', '600900.SH'].includes(s.code);
     const formatted = preciseEuroQuote ? String(Math.round(newPrice * 100) / 100) : formatPriceLikeOriginal(newPrice, oldPrice);
     const parsedFormatted = preciseEuroQuote ? Number(formatted) : (isInt(oldPrice) ? parseInt(formatted, 10) : parseFloat(formatted));
     report.push(
@@ -403,6 +412,19 @@ async function main() {
     );
     if (!DRY_RUN) {
       s.price = parsedFormatted;
+      if (s.code === '600900.SH') {
+        const q = tencentPrices[toTencentCode(s.code)];
+        s.priceSource = q.source;
+        s.priceSourceUrl = q.sourceUrl;
+        s.priceAsOf = new Date(q.marketTime * 1000).toISOString();
+        s.priceObservedAt = new Date().toISOString();
+        s.priceSession = q.session;
+        s.priceTimestampType = q.timestampType;
+        s.priceTimestampPrecision = q.timestampPrecision;
+        s.priceNative = {symbol:q.symbol,currency:'CNY',price:q.price};
+        s.priceFx = {from:'CNY',to:'CNY',rate:1,date:null,source:'Same currency; no conversion'};
+        console.log(`[cypc-quote] symbol=${q.symbol} currency=CNY price=${s.price} asof=${s.priceAsOf} source=${q.source}`);
+      }
       if (s.code.endsWith('.HK')) {
         const q = tencentPrices[toTencentCode(s.code)], pair = needsFxConversion(s);
         const fx = pair && fxCache.get(`${pair.from}->${pair.to}`);

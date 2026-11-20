@@ -1,0 +1,32 @@
+{
+  "site": "https://xucao2023-cell.github.io/stock-tracker/",
+  "code": "600900.SH",
+  "date": "2026-11-20",
+  "H": [
+    26.84,
+    29.02
+  ],
+  "center": 27.93,
+  "Z": [
+    25.16,
+    35.9
+  ],
+  "currency": "CNY",
+  "normalProfitCNY100m": 355.0,
+  "baseMethodUnchanged": true,
+  "checklistFullyPassed": false,
+  "priorWebsiteRanges": {
+    "low1": 27,
+    "high1": 29,
+    "low2": 21,
+    "high2": 34
+  },
+  "ZFormula": {
+    "low": "355 / 244.68217716 * historical_5y_PE_P1",
+    "high": "345.0280917639 / 244.68217716 * historical_5y_PE_P90"
+  },
+  "quoteTimeMeaning": "Tencent provider snapshot time; Yahoo validates Nov 20 regular close at 15:00 CST",
+  "priceDisplayBelowTimestamp": false,
+  "nameGroupMemoPreserved": true,
+  "companies": 43
+}

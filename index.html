@@ -911,7 +911,7 @@ const DEFAULT_BASE = [
   // ===== A 股（沪深）=====
   {name:'工业富联',  code:'601138.SH', price:60.15, currency:'¥',   note:'DCF 60-83 / 中性 80-90 / PE 93-108',    group:'A股', lo:60,    hi:108,   wl:0.9,  wh:1.05},
   {name:'招商银行',  code:'600036.SH', price:39.50, currency:'¥',   note:'RI+DDM 蒙特卡洛均值约 45-50',           group:'A股', lo:39.5,  hi:60,    wl:0.95, wh:1.1},
-  {name:'长江电力',  code:'600900.SH', price:28.15, currency:'¥',   note:'DCF+DDM+PE 综合 / 蒙特卡洛中位 ≈30',   group:'A股', lo:25,    hi:36,    wl:0.95, wh:1.05},
+  {"name":"长江电力","code":"600900.SH","price":31.62,"currency":"¥","note":"2026-11-20｜2026年三季报后估值更新","group":"A股","low1":26.84,"high1":29.02,"low2":25.16,"high2":35.9,"memo":"已经根据26年中报调整估值","valuationDate":"2026-11-20","valuationCenter":27.93,"valuationCurrency":"CNY","valuationStatus":"conditional","valuationConfidence":"中低；2027正常化盈利与回报率假设仍待验证","valuationReport":"reports/CYPC-20261120.html","valuationModel":"reports/CYPC-20261120-model.json","valuationMethod":"正常化归母PE与股息率交集；DDM仅作参照","valuationH":{"low":26.84,"high":29.02,"center":27.93,"profitCNY100m":355.0,"shares100m":244.68217716,"peRange":[18.5,21.0],"dividendPayout":0.7,"dividendYieldRange":[0.035,0.04],"definition":"同一2027前瞻正常化盈利的PE估值与股息率估值交集，非固定比例扩展"},"valuationScenarios":{"Z_low":{"price":25.16,"valueCNY":25.15778838225211,"profitCNY100m":355.0,"multiple":17.33989418,"historicalPercentile":1,"condition":"正常化盈利不再下调，五年PE P1；低倍数压力参照，不是股价底"},"base":{"price":27.93,"valueCNY":27.92908776323069,"profitCNY100m":355.0,"multipleRange":[18.5,21.0],"condition":"来水正常化与融资费用改善；H为股息率和PE交集"},"Z_high":{"price":35.9,"valueCNY":35.90260014646752,"profitCNY100m":345.0280917639,"multiple":25.46090182,"historicalPercentile":90,"condition":"已实现2025归母峰值×五年PE P90；估值溢价情景，含非经常利润口径敏感性"}},"valuationDdm":{"valueCNY":25.884019422912733,"r":0.0575,"g":0.0175,"terminalShare":0.827745630792943,"role":"reference-only"},"valuationCaveat":"2027正常化归母355亿元未实现，2026Q4恢复10亿元、税惠、电价、未来capex与r仍待验证；DDM终值占82.77%。Z不是保证边界；牛档采用历史报表峰值而非更高盈利预测。","priceSource":"Tencent A-share native CNY quote","priceSourceUrl":"https://qt.gtimg.cn/q=sh600900","priceAsOf":"2026-11-20T08:14:45Z","priceObservedAt":"2026-11-20T11:16:23.612097Z","priceSession":"regular-close","priceTimestampType":"Reported Tencent quote snapshot time, Asia/Shanghai; not necessarily last-trade time","priceTimestampPrecision":"second","priceNative":{"symbol":"600900.SH","currency":"CNY","price":31.62},"priceFx":{"from":"CNY","to":"CNY","rate":1,"date":null,"source":"Same currency; no conversion"},"security":{"type":"ordinary-share","listing":"SSE 600900","currency":"CNY","unitsPerOrdinaryShare":1}},
   {name:'中国移动',  code:'600941.SH', price:98.86, currency:'¥',   note:'A 股 DCF / PB 低估 / 分红率 75%',        group:'A股', lo:70,    hi:110,   wl:0.95, wh:1.05},
   {name:'美的集团',  code:'000333.SZ', price:83.58, currency:'¥',   note:'归一化 E×13-15×PE = 75-80（修正后中枢）',group:'A股', lo:66,    hi:87,    wl:0.95, wh:1.05},
   {name:'福耀玻璃',  code:'600660.SH', price:57.67, currency:'¥',   note:'综合 75±10 / PE 13-20× / DCF 79-110',    group:'A股', lo:51.7,  hi:110.1, wl:0.9,  wh:1.1},
@@ -926,7 +926,7 @@ const DEFAULT_BASE = [
 const DEFAULT_STOCKS = DEFAULT_BASE.map(({lo, hi, wl, wh, ...rest}) => ({
   ...rest,
   ...(Number.isFinite(rest.low1) && Number.isFinite(rest.high1) ? {} : rest.valuationStatus === 'pending' ? {low1:null, high1:null, low2:null, high2:null} : hermesZcode(lo, hi, wl, wh)),
-  memo:''
+  memo:rest.memo ?? ''
 }));
 
 // One-time migration from the old Korean ordinary-share row to SKHY ADS.

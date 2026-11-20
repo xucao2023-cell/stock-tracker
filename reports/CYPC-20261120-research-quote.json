@@ -1,0 +1,9 @@
+{
+  "price": 31.62,
+  "currency": "CNY",
+  "security": "600900.SH ordinary A share",
+  "market_time": "2026-11-20T15:00:00+08:00",
+  "tencent_time": "20261120154615",
+  "type": "regular session close",
+  "crosscheck": "Yahoo chart metadata + Tencent"
+}
