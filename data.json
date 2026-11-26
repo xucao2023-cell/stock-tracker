@@ -1,12 +1,12 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-26T07:01:42.791Z",
+  "updatedAt": "2026-11-26T17:53:07.824Z",
   "stocks": [
     {
       "name": "腾讯控股",
       "code": "00700.HK",
-      "price": 40.62,
+      "price": 39.64,
       "currency": "€",
       "note": "2026-11-18｜2026年三季报后重估",
       "group": "Trade Republic",
@@ -17,22 +17,22 @@
       "memo": "26年中报后估值",
       "priceSource": "Tencent Hong Kong ordinary-share quote; Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://qt.gtimg.cn/q=hk00700",
-      "priceAsOf": "2026-11-26T02:44:40.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceAsOf": "2026-11-26T08:08:11.000Z",
+      "priceObservedAt": "2026-11-26T17:53:07.823Z",
       "priceSession": "regular",
       "priceTimestampType": "Reported Hong Kong exchange quote time, Asia/Hong_Kong",
       "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "00700.HK",
         "currency": "HKD",
-        "price": 348.2,
+        "price": 341,
         "isin": "KYG875721634"
       },
       "priceFx": {
         "from": "HKD",
         "to": "EUR",
-        "rate": 0.11667,
-        "date": "2026-11-25",
+        "rate": 0.11626,
+        "date": "2026-11-26",
         "source": "https://api.frankfurter.app/latest?from=HKD&to=EUR"
       },
       "security": {
@@ -119,7 +119,7 @@
     {
       "name": "小米集团",
       "code": "01810.HK",
-      "price": 27.48,
+      "price": 26.6,
       "currency": "HK$",
       "note": "2026年二季报后估值",
       "group": "watch_T212",
@@ -130,15 +130,15 @@
       "memo": "基于26年Q2的估值",
       "priceSource": "Tencent Hong Kong ordinary-share quote",
       "priceSourceUrl": "https://qt.gtimg.cn/q=hk01810",
-      "priceAsOf": "2026-11-26T02:44:40.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceAsOf": "2026-11-26T08:08:11.000Z",
+      "priceObservedAt": "2026-11-26T17:53:07.823Z",
       "priceSession": "regular",
       "priceTimestampType": "Reported Hong Kong exchange quote time, Asia/Hong_Kong",
       "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "01810.HK",
         "currency": "HKD",
-        "price": 27.48
+        "price": 26.6
       },
       "priceFx": {
         "from": "HKD",
@@ -151,7 +151,7 @@
     {
       "name": "E.ON",
       "code": "EOAN.DE",
-      "price": 18.61,
+      "price": 18.86,
       "currency": "€",
       "note": "2026年中报后估值",
       "group": "watch_TR",
@@ -164,7 +164,7 @@
     {
       "name": "BMW",
       "code": "BMW.DE",
-      "price": 56.12,
+      "price": 57.48,
       "currency": "€",
       "note": "2026-11-04｜2026年中报及11月盈利预警复核",
       "group": "Trade Republic",
@@ -211,8 +211,8 @@
         }
       },
       "valuationCaveat": "低至中低置信：22亿欧元费用代理按100%付现、30%税盾和假设日期折现；裁员增量节约未重复加。历史连续分位、完整Q3与现金拆分未验证。",
-      "priceAsOf": "2026-11-25T21:00:00.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceAsOf": "2026-11-26T17:52:04.000Z",
+      "priceObservedAt": "2026-11-26T17:53:07.823Z",
       "priceTimestampType": "quote-page-refresh; last-trade timestamp not separately supplied",
       "priceSource": "Tradegate BSX",
       "priceSourceUrl": "https://www.tradegatebsx.com/orderbuch.php?isin=DE0005190003",
@@ -220,7 +220,7 @@
         "symbol": "BMW.DE",
         "isin": "DE0005190003",
         "currency": "EUR",
-        "price": 56.12
+        "price": 57.48
       },
       "priceFx": {
         "from": "EUR",
@@ -233,7 +233,7 @@
     {
       "name": "Airbus",
       "code": "AIR.PA",
-      "price": 190,
+      "price": 194,
       "currency": "€",
       "note": "2026-10-13｜2026年中报后重估",
       "group": "Trade Republic",
@@ -247,7 +247,7 @@
     {
       "name": "美光科技",
       "code": "MU.US",
-      "price": 562.65,
+      "price": 560.6,
       "currency": "€",
       "note": "2026-11-19｜2026财年年报后修正",
       "group": "Trade Republic",
@@ -260,7 +260,7 @@
       "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MU?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:59.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.823Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -272,8 +272,8 @@
       "priceFx": {
         "from": "USD",
         "to": "EUR",
-        "rate": 0.91449,
-        "date": "2026-11-25",
+        "rate": 0.91116,
+        "date": "2026-11-26",
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
@@ -438,7 +438,7 @@
     {
       "name": "Apple",
       "code": "AAPL.US",
-      "price": 324.74,
+      "price": 323.55,
       "currency": "€",
       "note": "2026-11-03｜2026财年四季报快报后复核",
       "group": "watch_TR",
@@ -499,7 +499,7 @@
       "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:57.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.823Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -511,8 +511,8 @@
       "priceFx": {
         "from": "USD",
         "to": "EUR",
-        "rate": 0.91449,
-        "date": "2026-11-25",
+        "rate": 0.91116,
+        "date": "2026-11-26",
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
@@ -573,7 +573,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ON?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:48:55.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.823Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -633,7 +633,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VRT?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:58:59.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.823Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -672,7 +672,7 @@
     {
       "name": "招商银行",
       "code": "600036.SH",
-      "price": 44,
+      "price": 43,
       "currency": "¥",
       "note": "2026-10-16｜2026年中报后估值复核",
       "group": "A股",
@@ -686,7 +686,7 @@
     {
       "name": "长江电力",
       "code": "600900.SH",
-      "price": 31.86,
+      "price": 31.8,
       "currency": "¥",
       "note": "2026-11-20｜2026年三季报后估值更新",
       "group": "A股",
@@ -758,15 +758,15 @@
       "valuationCaveat": "2027正常化归母355亿元未实现，2026Q4恢复10亿元、税惠、电价、未来capex与r仍待验证；DDM终值占82.77%。Z不是保证边界；牛档采用历史报表峰值而非更高盈利预测。",
       "priceSource": "Tencent A-share native CNY quote",
       "priceSourceUrl": "https://qt.gtimg.cn/q=sh600900",
-      "priceAsOf": "2026-11-26T02:59:40.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
-      "priceSession": "regular",
+      "priceAsOf": "2026-11-26T08:14:58.000Z",
+      "priceObservedAt": "2026-11-26T17:53:07.823Z",
+      "priceSession": "regular-close",
       "priceTimestampType": "Reported Tencent quote snapshot time, Asia/Shanghai; not necessarily last-trade time",
       "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "600900.SH",
         "currency": "CNY",
-        "price": 31.86
+        "price": 31.8
       },
       "priceFx": {
         "from": "CNY",
@@ -785,7 +785,7 @@
     {
       "name": "中国移动",
       "code": "600941.SH",
-      "price": 108,
+      "price": 110,
       "currency": "¥",
       "note": "2026年中报后估值",
       "group": "watch_A股",
@@ -907,7 +907,7 @@
     {
       "name": "春秋航空",
       "code": "601021.SH",
-      "price": 44,
+      "price": 43,
       "currency": "¥",
       "note": "2026-10-22｜2026年中报后复核",
       "group": "watch_A股",
@@ -921,7 +921,7 @@
     {
       "name": "宇通客车",
       "code": "600066.SH",
-      "price": 31,
+      "price": 32,
       "currency": "¥",
       "note": "2026-10-14｜2026年中报后重估",
       "group": "watch_A股",
@@ -999,7 +999,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ADBE?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:28:05.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.823Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1028,7 +1028,7 @@
       "high1": 140,
       "low2": 100,
       "high2": 180,
-      "price": 108,
+      "price": 109,
       "currency": "¥",
       "note": "2026-10-20｜2026年中报后重估",
       "memo": "基于26年中报，小心价格战",
@@ -1055,7 +1055,7 @@
       "high1": 501.25,
       "low2": 393.84,
       "high2": 626.57,
-      "price": 450.06,
+      "price": 448.43,
       "currency": "€",
       "note": "2026-10-29｜2027财年一季报后重估",
       "memo": "基于26年中报更新估值",
@@ -1064,7 +1064,7 @@
       "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MSFT?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:29.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1076,8 +1076,8 @@
       "priceFx": {
         "from": "USD",
         "to": "EUR",
-        "rate": 0.91449,
-        "date": "2026-11-25",
+        "rate": 0.91116,
+        "date": "2026-11-26",
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
@@ -1101,7 +1101,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NOW?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:49.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1139,7 +1139,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/GOOGL?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:35.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1196,7 +1196,7 @@
       "high1": 580,
       "low2": 444,
       "high2": 640,
-      "price": 585,
+      "price": 589,
       "currency": "€",
       "note": "2026-10-31｜2026年中报＋三季度初步业绩后重估",
       "memo": "",
@@ -1206,7 +1206,7 @@
     {
       "name": "Siltronic",
       "code": "WAF.DE",
-      "price": 46.74,
+      "price": 47.68,
       "currency": "€",
       "note": "2026-11-04｜2026年三季报后估值复核",
       "group": "Trade Republic",
@@ -1247,14 +1247,14 @@
       "valuationModel": "reports/WAF-20261104-model.json",
       "priceSource": "Yahoo WAF.DE Xetra ordinary share quote (EUR)",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/WAF.DE?interval=1d&range=5d",
-      "priceAsOf": "2026-11-25T16:35:10.000Z",
+      "priceAsOf": "2026-11-26T16:35:23.000Z",
       "priceTimestampType": "Exchange regular-market quote time",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceNative": {
         "symbol": "WAF.DE",
         "isin": "DE000WAF3001",
         "currency": "EUR",
-        "price": 46.74
+        "price": 47.68
       },
       "priceFx": {
         "from": "EUR",
@@ -1280,7 +1280,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/TCOM?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-25T23:07:45.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1318,7 +1318,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NET?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:53:43.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1343,7 +1343,7 @@
     {
       "name": "英伟达",
       "code": "NVDA.US",
-      "price": 138.29,
+      "price": 137.79,
       "currency": "€",
       "note": "2026-10-15｜2027财年二季报后重估",
       "group": "watch_TR",
@@ -1356,7 +1356,7 @@
       "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:59.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1368,8 +1368,8 @@
       "priceFx": {
         "from": "USD",
         "to": "EUR",
-        "rate": 0.91449,
-        "date": "2026-11-25",
+        "rate": 0.91116,
+        "date": "2026-11-26",
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
@@ -1381,7 +1381,7 @@
     {
       "name": "兆易创新",
       "code": "603986.SH",
-      "price": 199.28,
+      "price": 197.58,
       "currency": "¥",
       "note": "2026-10-16｜2026年中报后重估",
       "group": "watch_A股",
@@ -1441,7 +1441,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ORCL?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:52.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1479,7 +1479,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/BE?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:54.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1542,7 +1542,7 @@
       "valuationCaveat": "H为六年路径、12.5%折现率下的10—12倍核心带；Z为四年10倍至八年12倍的情景外沿。四年路径仍假设前三年高利润兑现，区间不构成价格保证。",
       "valuationHorizonLabel": "H：6年10—12倍；Z：4年10倍—8年12倍",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SKHY?interval=1m&range=1d&includePrePost=true",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1567,7 +1567,7 @@
     {
       "name": "英特尔",
       "code": "INTC.US",
-      "price": 50.16,
+      "price": 49.98,
       "currency": "€",
       "note": "2026-10-30｜2026年三季报后转型重估",
       "group": "watch_TR",
@@ -1580,7 +1580,7 @@
       "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/INTC?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:59.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1592,8 +1592,8 @@
       "priceFx": {
         "from": "USD",
         "to": "EUR",
-        "rate": 0.91449,
-        "date": "2026-11-25",
+        "rate": 0.91116,
+        "date": "2026-11-26",
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
@@ -1618,7 +1618,7 @@
       "priceSource": "Yahoo extended-hours chart",
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NBIS?interval=1m&range=1d&includePrePost=true",
       "priceAsOf": "2026-11-26T00:59:56.000Z",
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceTimestampPrecision": "second",
@@ -1643,7 +1643,7 @@
     {
       "name": "Lumentum",
       "code": "LITE.US",
-      "price": 447.15,
+      "price": 445.52,
       "currency": "€",
       "note": "2026-11-03｜2027财年一季报后独立经营复核",
       "group": "Trade Republic",
@@ -1745,11 +1745,11 @@
       "priceFx": {
         "from": "USD",
         "to": "EUR",
-        "rate": 0.91449,
-        "date": "2026-11-25",
+        "rate": 0.91116,
+        "date": "2026-11-26",
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
-      "priceObservedAt": "2026-11-26T03:00:22.530Z",
+      "priceObservedAt": "2026-11-26T17:53:07.824Z",
       "priceSession": "post",
       "priceTimestampPrecision": "second",
       "priceRegularQuote": {
