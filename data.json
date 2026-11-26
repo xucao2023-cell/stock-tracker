@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-26T03:00:30.350Z",
+  "updatedAt": "2026-11-26T07:01:42.791Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -1391,20 +1391,6 @@
       "high2": 435,
       "memo": "",
       "valuationDate": "2026-10-16"
-    },
-    {
-      "name": "宁德时代",
-      "code": "300750.SZ",
-      "price": 204,
-      "currency": "¥",
-      "note": "2026-10-20｜2026年中报后估值",
-      "group": "watch_A股",
-      "low1": 326,
-      "high1": 341,
-      "low2": 285,
-      "high2": 414,
-      "memo": "",
-      "valuationDate": "2026-10-20"
     },
     {
       "name": "甲骨文",
