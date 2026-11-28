@@ -1,7 +1,7 @@
 {
   "app": "stock_tracker_doppio",
   "version": 1,
-  "updatedAt": "2026-11-27T17:38:50.323Z",
+  "updatedAt": "2026-11-28T02:55:22.175Z",
   "stocks": [
     {
       "name": "腾讯控股",
@@ -18,7 +18,7 @@
       "priceSource": "Tencent Hong Kong ordinary-share quote; Frankfurter/ECB conversion to EUR",
       "priceSourceUrl": "https://qt.gtimg.cn/q=hk00700",
       "priceAsOf": "2026-11-27T08:09:04.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.272Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
       "priceSession": "regular",
       "priceTimestampType": "Reported Hong Kong exchange quote time, Asia/Hong_Kong",
       "priceTimestampPrecision": "second",
@@ -131,7 +131,7 @@
       "priceSource": "Tencent Hong Kong ordinary-share quote",
       "priceSourceUrl": "https://qt.gtimg.cn/q=hk01810",
       "priceAsOf": "2026-11-27T08:09:01.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.272Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
       "priceSession": "regular",
       "priceTimestampType": "Reported Hong Kong exchange quote time, Asia/Hong_Kong",
       "priceTimestampPrecision": "second",
@@ -164,7 +164,7 @@
     {
       "name": "BMW",
       "code": "BMW.DE",
-      "price": 58.44,
+      "price": 58.4,
       "currency": "€",
       "note": "2026-11-04｜2026年中报及11月盈利预警复核",
       "group": "Trade Republic",
@@ -211,8 +211,8 @@
         }
       },
       "valuationCaveat": "低至中低置信：22亿欧元费用代理按100%付现、30%税盾和假设日期折现；裁员增量节约未重复加。历史连续分位、完整Q3与现金拆分未验证。",
-      "priceAsOf": "2026-11-27T17:37:31.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.272Z",
+      "priceAsOf": "2026-11-27T21:00:00.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
       "priceTimestampType": "quote-page-refresh; last-trade timestamp not separately supplied",
       "priceSource": "Tradegate BSX",
       "priceSourceUrl": "https://www.tradegatebsx.com/orderbuch.php?isin=DE0005190003",
@@ -220,7 +220,7 @@
         "symbol": "BMW.DE",
         "isin": "DE0005190003",
         "currency": "EUR",
-        "price": 58.44
+        "price": 58.4
       },
       "priceFx": {
         "from": "EUR",
@@ -247,7 +247,7 @@
     {
       "name": "美光科技",
       "code": "MU.US",
-      "price": 582.47,
+      "price": 589.27,
       "currency": "€",
       "note": "2026-11-19｜2026财年年报后修正",
       "group": "Trade Republic",
@@ -257,17 +257,17 @@
       "high2": 1442.41,
       "memo": "26年中报后估值",
       "valuationDate": "2026-11-19",
-      "priceSource": "Nasdaq last sale; Frankfurter/ECB conversion to EUR",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/MU/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:37:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.272Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MU?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:59:58.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "MU",
         "currency": "USD",
-        "price": 638.215
+        "price": 645.66
       },
       "priceFx": {
         "from": "USD",
@@ -277,9 +277,9 @@
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
-        "price": 638.25,
+        "price": 646.95,
         "currency": "USD",
-        "asOf": "2026-11-27T17:37:39.000Z"
+        "asOf": "2026-11-27T18:00:01.000Z"
       },
       "valuationCenter": 732.75,
       "valuationCurrency": "EUR",
@@ -438,7 +438,7 @@
     {
       "name": "Apple",
       "code": "AAPL.US",
-      "price": 327.03,
+      "price": 327.91,
       "currency": "€",
       "note": "2026-11-03｜2026财年四季报快报后复核",
       "group": "watch_TR",
@@ -496,17 +496,17 @@
         "label": "独立现金流约束；不与PE区间平均"
       },
       "valuationCaveat": "FY2026Q4未经审计三表快报初评；新10-K、正式指引及财报后共识未全部验证。H为既有美元PE主锚的欧元换算；Z下沿为单倍数压力，严格牛档未验证，上沿留空。个人备注与现价保留。",
-      "priceSource": "Nasdaq last sale; Frankfurter/ECB conversion to EUR",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/AAPL/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:37:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.272Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:59:37.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "AAPL",
         "currency": "USD",
-        "price": 358.33
+        "price": 359.2894
       },
       "priceFx": {
         "from": "USD",
@@ -516,15 +516,15 @@
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
-        "price": 358.345,
+        "price": 358.54,
         "currency": "USD",
-        "asOf": "2026-11-27T17:37:41.000Z"
+        "asOf": "2026-11-27T18:00:01.000Z"
       }
     },
     {
       "name": "onsemi",
       "code": "ON.US",
-      "price": 65.15,
+      "price": 66.5,
       "currency": "$",
       "note": "2026-11-03｜2026年三季报后重估",
       "group": "watch_T212",
@@ -570,17 +570,17 @@
         "label": "资本成本与长期利润率正常化后的经济FCFF检验"
       },
       "valuationCaveat": "H为报告取整后的58–73美元/股合理判断带；Z为已列示熊/牛情景外沿。主锚65.19美元/股，DCF57.12美元/股。Q3完整10-Q中的RPO/采购承诺及两笔收购融资、经济回报尚未全部核验，情景不是股价底线。",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/ON/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:37:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.272Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ON?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T20:59:55.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "ON",
         "currency": "USD",
-        "price": 65.15
+        "price": 66.5
       },
       "priceFx": {
         "from": "USD",
@@ -590,15 +590,15 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 65.15,
+        "price": 66.24,
         "currency": "USD",
-        "asOf": "2026-11-27T17:37:45.000Z"
+        "asOf": "2026-11-27T18:00:00.000Z"
       }
     },
     {
       "name": "Vertiv",
       "code": "VRT.US",
-      "price": 177.43,
+      "price": 178.44,
       "currency": "$",
       "note": "2026-10-28｜2026年三季报后估值更新",
       "group": "Trading 212",
@@ -630,17 +630,17 @@
         }
       },
       "valuationCaveat": "仅补齐2026-10-28已采用指引映射下的压力端点；22.23%利润率是自建桥接，非公司2027指引。原22%压力值180.30美元/股统一为22.23%后为182.04美元/股；不混用两套利润。Z上限仍缺可靠牛档；并购、产品利润、历史同期限倍数等缺项沿用原报告。",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/VRT/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:37:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.272Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VRT?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:59:34.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "VRT",
         "currency": "USD",
-        "price": 177.425
+        "price": 178.438
       },
       "priceFx": {
         "from": "USD",
@@ -650,9 +650,9 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 177.425,
+        "price": 178.71,
         "currency": "USD",
-        "asOf": "2026-11-27T17:37:47.000Z"
+        "asOf": "2026-11-27T18:00:02.000Z"
       }
     },
     {
@@ -759,7 +759,7 @@
       "priceSource": "Tencent A-share native CNY quote",
       "priceSourceUrl": "https://qt.gtimg.cn/q=sh600900",
       "priceAsOf": "2026-11-27T08:14:51.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.272Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
       "priceSession": "regular-close",
       "priceTimestampType": "Reported Tencent quote snapshot time, Asia/Shanghai; not necessarily last-trade time",
       "priceTimestampPrecision": "second",
@@ -990,23 +990,23 @@
       "high1": 290,
       "low2": 151.67,
       "high2": 403.81,
-      "price": 235.76,
+      "price": 234.99,
       "currency": "$",
       "note": "2026-10-20｜2026财年三季报后重估",
       "memo": "基于26中报更新估值",
       "group": "watch_T212",
       "valuationDate": "2026-10-20",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/ADBE/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:37:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ADBE?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:14:37.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "ADBE",
         "currency": "USD",
-        "price": 235.755
+        "price": 234.99
       },
       "priceFx": {
         "from": "USD",
@@ -1016,9 +1016,9 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 235.755,
+        "price": 234.79,
         "currency": "USD",
-        "asOf": "2026-11-27T17:37:52.000Z"
+        "asOf": "2026-11-27T18:00:01.000Z"
       }
     },
     {
@@ -1055,23 +1055,23 @@
       "high1": 501.25,
       "low2": 393.84,
       "high2": 626.57,
-      "price": 448.55,
+      "price": 452.66,
       "currency": "€",
       "note": "2026-10-29｜2027财年一季报后重估",
       "memo": "基于26年中报更新估值",
       "group": "Trade Republic",
       "valuationDate": "2026-10-29",
-      "priceSource": "Nasdaq last sale; Frankfurter/ECB conversion to EUR",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/MSFT/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:37:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MSFT?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:57:42.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "MSFT",
         "currency": "USD",
-        "price": 491.47
+        "price": 495.98
       },
       "priceFx": {
         "from": "USD",
@@ -1081,9 +1081,9 @@
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
-        "price": 491.66,
+        "price": 492.85,
         "currency": "USD",
-        "asOf": "2026-11-27T17:37:52.000Z"
+        "asOf": "2026-11-27T18:00:01.000Z"
       }
     },
     {
@@ -1093,22 +1093,22 @@
       "high1": 175,
       "low2": 97,
       "high2": 224,
-      "price": 93.02,
+      "price": 93.3,
       "currency": "$",
       "note": "2026年二季报后估值",
       "memo": "已经更新呢26年半年报",
       "group": "watch_T212",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/NOW/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NOW?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T22:00:20.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.174Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "NOW",
         "currency": "USD",
-        "price": 93.015
+        "price": 93.3
       },
       "priceFx": {
         "from": "USD",
@@ -1118,9 +1118,9 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 93.015,
+        "price": 92.8,
         "currency": "USD",
-        "asOf": "2026-11-27T17:37:57.000Z"
+        "asOf": "2026-11-27T18:00:02.000Z"
       }
     },
     {
@@ -1130,23 +1130,23 @@
       "high1": 340,
       "low2": 257,
       "high2": 435,
-      "price": 273.56,
+      "price": 275.95,
       "currency": "$",
       "note": "2026-10-29｜2026年三季报后重估",
       "memo": "26年中报之后修正",
       "group": "watch_T212",
       "valuationDate": "2026-10-29",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/GOOGL/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/GOOGL?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:59:33.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "GOOGL",
         "currency": "USD",
-        "price": 273.56
+        "price": 275.9532
       },
       "priceFx": {
         "from": "USD",
@@ -1156,9 +1156,9 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 273.48,
+        "price": 274.96,
         "currency": "USD",
-        "asOf": "2026-11-27T17:38:03.000Z"
+        "asOf": "2026-11-27T18:00:01.000Z"
       }
     },
     {
@@ -1249,7 +1249,7 @@
       "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/WAF.DE?interval=1d&range=5d",
       "priceAsOf": "2026-11-27T16:35:04.000Z",
       "priceTimestampType": "Exchange regular-market quote time",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
       "priceNative": {
         "symbol": "WAF.DE",
         "isin": "DE000WAF3001",
@@ -1267,7 +1267,7 @@
     {
       "name": "携程",
       "code": "TCOM.US",
-      "price": 40.67,
+      "price": 40.69,
       "currency": "$",
       "note": "2026-10-14｜2026年二季报后重估",
       "group": "watch_T212",
@@ -1277,17 +1277,17 @@
       "high2": 83,
       "memo": "",
       "valuationDate": "2026-10-14",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/TCOM/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/TCOM?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T18:00:00.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
       "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceTimestampType": "Regular-market quote time",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "TCOM",
         "currency": "USD",
-        "price": 40.665
+        "price": 40.69
       },
       "priceFx": {
         "from": "USD",
@@ -1297,15 +1297,15 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 40.665,
+        "price": 40.69,
         "currency": "USD",
-        "asOf": "2026-11-27T17:37:35.000Z"
+        "asOf": "2026-11-27T18:00:00.000Z"
       }
     },
     {
       "name": "Cloudflare",
       "code": "NET.US",
-      "price": 292.94,
+      "price": 295.5,
       "currency": "$",
       "note": "2026-10-16｜2026年二季报后估值复核",
       "group": "watch_T212",
@@ -1315,17 +1315,17 @@
       "high2": 314,
       "memo": "",
       "valuationDate": "2026-10-16",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/NET/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NET?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:54:33.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "NET",
         "currency": "USD",
-        "price": 292.94
+        "price": 295.5
       },
       "priceFx": {
         "from": "USD",
@@ -1335,15 +1335,15 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 292.94,
+        "price": 296.79,
         "currency": "USD",
-        "asOf": "2026-11-27T17:38:10.000Z"
+        "asOf": "2026-11-27T18:02:44.000Z"
       }
     },
     {
       "name": "英伟达",
       "code": "NVDA.US",
-      "price": 135.94,
+      "price": 136.72,
       "currency": "€",
       "note": "2026-10-15｜2027财年二季报后重估",
       "group": "watch_TR",
@@ -1353,17 +1353,17 @@
       "high2": 343.72,
       "memo": "",
       "valuationDate": "2026-10-15",
-      "priceSource": "Nasdaq last sale; Frankfurter/ECB conversion to EUR",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/NVDA/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:59:59.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "NVDA",
         "currency": "USD",
-        "price": 148.95
+        "price": 149.8
       },
       "priceFx": {
         "from": "USD",
@@ -1373,9 +1373,9 @@
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
-        "price": 148.925,
+        "price": 150.49,
         "currency": "USD",
-        "asOf": "2026-11-27T17:38:16.000Z"
+        "asOf": "2026-11-27T18:00:00.000Z"
       }
     },
     {
@@ -1395,7 +1395,7 @@
     {
       "name": "甲骨文",
       "code": "ORCL.US",
-      "price": 106.4,
+      "price": 107.4,
       "currency": "$",
       "note": "2026-11-02｜2027财年一季报及新指引后重估",
       "group": "Trading 212",
@@ -1438,17 +1438,17 @@
         "label": "最新指引兑现条件下的经济现金流估值"
       },
       "valuationCaveat": "H为FY2028共识兑现后的盈利估值；Z为同一盈利的17.3–34.7倍情景外沿。DCF基准133.49美元/股另列。11月2日拟股债融资尚未定价；供应商融资设备投入仍有未验证项，压力档不是股价底线。",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/ORCL/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ORCL?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T22:00:20.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "ORCL",
         "currency": "USD",
-        "price": 106.395
+        "price": 107.4
       },
       "priceFx": {
         "from": "USD",
@@ -1458,15 +1458,15 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 106.395,
+        "price": 107.13,
         "currency": "USD",
-        "asOf": "2026-11-27T17:38:21.000Z"
+        "asOf": "2026-11-27T18:02:22.000Z"
       }
     },
     {
       "name": "Bloom Energy",
       "code": "BE.US",
-      "price": 161.12,
+      "price": 162.5,
       "currency": "$",
       "note": "2026-10-24｜2026年三季报后重估",
       "group": "watch_T212",
@@ -1476,17 +1476,17 @@
       "high2": 258,
       "memo": "",
       "valuationDate": "2026-10-24",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/BE/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/BE?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:58:54.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "BE",
         "currency": "USD",
-        "price": 161.12
+        "price": 162.5
       },
       "priceFx": {
         "from": "USD",
@@ -1496,15 +1496,15 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 161.12,
+        "price": 163.02,
         "currency": "USD",
-        "asOf": "2026-11-27T17:38:23.000Z"
+        "asOf": "2026-11-27T18:00:02.000Z"
       }
     },
     {
       "name": "SK海力士",
       "code": "SKHY.US",
-      "price": 116.64,
+      "price": 118.49,
       "currency": "$",
       "note": "2026-11-02｜2026年三季度初步业绩后情景复核",
       "group": "Trading 212",
@@ -1515,8 +1515,8 @@
       "memo": "",
       "valuationDate": "2026-11-02",
       "priceUnit": "USD/ADS",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceSource": "Nasdaq last sale",
+      "priceAsOf": "2026-11-27T21:55:39.000Z",
+      "priceSource": "Yahoo extended-hours chart",
       "valuationHorizon": 6,
       "valuationScenarios": {
         "bear": {
@@ -1541,15 +1541,15 @@
       "valuationReport": "reports/SKHY-20261102.html",
       "valuationCaveat": "H为六年路径、12.5%折现率下的10—12倍核心带；Z为四年10倍至八年12倍的情景外沿。四年路径仍假设前三年高利润兑现，区间不构成价格保证。",
       "valuationHorizonLabel": "H：6年10—12倍；Z：4年10倍—8年12倍",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/SKHY/info?assetclass=stocks",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SKHY?interval=1m&range=1d&includePrePost=true",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "SKHY",
         "currency": "USD",
-        "price": 116.64
+        "price": 118.49
       },
       "priceFx": {
         "from": "USD",
@@ -1559,15 +1559,15 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 116.64,
+        "price": 119.5,
         "currency": "USD",
-        "asOf": "2026-11-27T17:38:29.000Z"
+        "asOf": "2026-11-27T18:00:00.000Z"
       }
     },
     {
       "name": "英特尔",
       "code": "INTC.US",
-      "price": 50.92,
+      "price": 52.07,
       "currency": "€",
       "note": "2026-10-30｜2026年三季报后转型重估",
       "group": "watch_TR",
@@ -1577,17 +1577,17 @@
       "high2": 105.65,
       "memo": "",
       "valuationDate": "2026-10-30",
-      "priceSource": "Nasdaq last sale; Frankfurter/ECB conversion to EUR",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/INTC/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/INTC?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:59:38.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "INTC",
         "currency": "USD",
-        "price": 55.79
+        "price": 57.05
       },
       "priceFx": {
         "from": "USD",
@@ -1597,15 +1597,15 @@
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
       "priceRegularQuote": {
-        "price": 55.808,
+        "price": 57.4,
         "currency": "USD",
-        "asOf": "2026-11-27T17:38:34.000Z"
+        "asOf": "2026-11-27T18:00:01.000Z"
       }
     },
     {
       "name": "Nebius",
       "code": "NBIS.US",
-      "price": 87.18,
+      "price": 89.06,
       "currency": "$",
       "note": "2026-10-30｜2026年二季报后估值",
       "group": "Trading 212",
@@ -1615,17 +1615,17 @@
       "high2": 244,
       "memo": "",
       "valuationDate": "2026-10-30",
-      "priceSource": "Nasdaq last sale",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/NBIS/info?assetclass=stocks",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
-      "priceTimestampPrecision": "minute",
+      "priceSource": "Yahoo extended-hours chart",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NBIS?interval=1m&range=1d&includePrePost=true",
+      "priceAsOf": "2026-11-27T21:59:50.000Z",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
+      "priceSession": "post",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
+      "priceTimestampPrecision": "second",
       "priceNative": {
         "symbol": "NBIS",
         "currency": "USD",
-        "price": 87.18
+        "price": 89.0566
       },
       "priceFx": {
         "from": "USD",
@@ -1635,15 +1635,15 @@
         "source": "Same currency; no conversion"
       },
       "priceRegularQuote": {
-        "price": 87.18,
+        "price": 89.46,
         "currency": "USD",
-        "asOf": "2026-11-27T17:38:37.000Z"
+        "asOf": "2026-11-27T18:00:00.000Z"
       }
     },
     {
       "name": "Lumentum",
       "code": "LITE.US",
-      "price": 458.34,
+      "price": 468,
       "currency": "€",
       "note": "2026-11-03｜2027财年一季报后独立经营复核",
       "group": "Trade Republic",
@@ -1733,14 +1733,14 @@
       "holdingPlatform": "Trade Republic",
       "holdingStatus": "held",
       "holdingConfirmedDate": "2026-11-04",
-      "priceAsOf": "2026-11-27T17:38:00.000Z",
-      "priceSource": "Nasdaq last sale; Frankfurter/ECB conversion to EUR",
-      "priceSourceUrl": "https://api.nasdaq.com/api/quote/LITE/info?assetclass=stocks",
-      "priceTimestampType": "Reported last-sale time in America/New_York; minute precision unless seconds supplied",
+      "priceAsOf": "2026-11-27T21:59:41.000Z",
+      "priceSource": "Yahoo extended-hours chart; Frankfurter/ECB conversion to EUR",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/LITE?interval=1m&range=1d&includePrePost=true",
+      "priceTimestampType": "Latest available 1-minute interval close; timestamp belongs to chart point",
       "priceNative": {
         "symbol": "LITE",
         "currency": "USD",
-        "price": 502.2
+        "price": 512.785
       },
       "priceFx": {
         "from": "USD",
@@ -1749,13 +1749,13 @@
         "date": "2026-11-27",
         "source": "https://api.frankfurter.app/latest?from=USD&to=EUR"
       },
-      "priceObservedAt": "2026-11-27T17:38:44.273Z",
-      "priceSession": "regular",
-      "priceTimestampPrecision": "minute",
+      "priceObservedAt": "2026-11-28T02:55:22.175Z",
+      "priceSession": "post",
+      "priceTimestampPrecision": "second",
       "priceRegularQuote": {
-        "price": 502.21,
+        "price": 514.63,
         "currency": "USD",
-        "asOf": "2026-11-27T17:38:35.000Z"
+        "asOf": "2026-11-27T18:00:01.000Z"
       }
     }
   ],
